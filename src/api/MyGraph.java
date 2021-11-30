@@ -1,5 +1,5 @@
 package api;
-
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class MyGraph implements DirectedWeightedGraph{
@@ -10,12 +10,16 @@ public class MyGraph implements DirectedWeightedGraph{
 
     @Override
     public EdgeData getEdge(int src, int dest) {
-        return null;
+        return edges.get(src + dest * BIGNUMBER);
     }
 
     @Override
     public void connect(int src, int dest, double w) {
-
+        double key = src + dest * BIGNUMBER;
+        if(!this.edges.containsKey(key)){
+            this.edges.put(key, new Edge(w));
+            this.MC++;
+        }
     }
 
     @Override
@@ -38,9 +42,17 @@ public class MyGraph implements DirectedWeightedGraph{
         return null;
     }
 
+    private void removeRelatedEdges(Node n){
+        for (double i:n.getEdges().keySet()) {
+            edges.remove(i);
+        }
+    }
+
     @Override
     public EdgeData removeEdge(int src, int dest) {
-        return null;
+        double key = src + dest * BIGNUMBER;
+        this.nodes.get(src).removeEdge(key);
+        return this.edges.remove(key);
     }
 
     @Override
@@ -60,6 +72,5 @@ public class MyGraph implements DirectedWeightedGraph{
 
     @Override
     public void addNode(NodeData n) {
-
     }
 }

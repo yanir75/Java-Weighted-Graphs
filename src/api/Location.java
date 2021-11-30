@@ -1,30 +1,34 @@
 package api;
 public class Location implements GeoLocation{
-    private int _x;
-    private int _y;
-    private int _z;
+    private int x;
+    private int y;
+    private int z;
     public Location(int x,int y,int z){
-        _x=x;
-        _y=y;
-        _z=z;
+        this.x =x;
+        this.y =y;
+        this.z =z;
     }
+
+
     @Override
     public double x() {
-        return _x;
+        return x;
     }
 
     @Override
     public double y() {
-        return _y;
+        return y;
     }
 
     @Override
     public double z() {
-        return _z;
+        return z;
     }
 
     @Override
     public double distance(GeoLocation g) {
-    return 0.0;
+        double val_x = (this.x - g.x()) * (this.x - g.x());
+        double val_y = (this.y - g.y()) * (this.y - g.y());
+        return Math.sqrt(val_x + val_y);
     }
 }
