@@ -12,9 +12,9 @@ public class Node implements  NodeData{
     private int tag;
 
 
-    public Node(String coordinates, int id) {
+    public Node(double x, double y, int id) {
         this.id = id;
-        //this.location = new Location();
+        this.location = new Location(x, y, 0);
     }
 
     @Override
@@ -58,6 +58,17 @@ public class Node implements  NodeData{
 
     }
 
+    /**
+     * This method adds a new Edge @e to the HashMap of the current Edges of this Node.
+     * @param e - new Edge to add to this Node.
+     */
+    public void addEdge(Edge e){
+        double key = e.getSrc() + e.getDest() * MyGraph.BIGNUMBER;
+        if(!this.Edges.containsKey(key)) {
+            this.Edges.put(key, e);
+        }
+    }
+
     public void removeEdge(double key){
         this.Edges.remove(key);
     }
@@ -70,5 +81,10 @@ public class Node implements  NodeData{
     public HashMap<Double, EdgeData> getEdges(){
 //        return this.Edges.keySet().toArray(new Double[0]);
         return this.Edges;
+    }
+
+    @Override
+    public String toString() {
+        return "\n{Index = " + id + " ,location =" + location+ ",\nEdges =" + Edges.values() + "}\n";
     }
 }

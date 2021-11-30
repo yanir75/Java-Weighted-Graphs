@@ -17,7 +17,7 @@ public class MyGraph implements DirectedWeightedGraph{
     public void connect(int src, int dest, double w) {
         double key = src + dest * BIGNUMBER;
         if(!this.edges.containsKey(key)){
-            this.edges.put(key, new Edge(w));
+            this.edges.put(key, new Edge(src, dest, w));
             this.MC++;
         }
     }

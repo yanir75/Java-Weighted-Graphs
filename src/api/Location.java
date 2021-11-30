@@ -1,9 +1,9 @@
 package api;
 public class Location implements GeoLocation{
-    private int x;
-    private int y;
-    private int z;
-    public Location(int x,int y,int z){
+    private double x;
+    private double y;
+    private double z;
+    public Location(double x, double y, double z){
         this.x =x;
         this.y =y;
         this.z =z;
@@ -30,5 +30,10 @@ public class Location implements GeoLocation{
         double val_x = (this.x - g.x()) * (this.x - g.x());
         double val_y = (this.y - g.y()) * (this.y - g.y());
         return Math.sqrt(val_x + val_y);
+    }
+
+    @Override
+    public String toString() {
+        return "(x:" + x + ", y:" + y + ", z:" + z + ')';
     }
 }
