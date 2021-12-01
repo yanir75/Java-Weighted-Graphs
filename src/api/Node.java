@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Node implements  NodeData{
     // edgeData or edges we will decide
-    private HashMap<Double, EdgeData> Edges = new HashMap<>();
-    private int id;
+    private final HashMap<Double, EdgeData> Edges = new HashMap<>();
+    private final int id;
     private GeoLocation location;
     private double weight;
     private String info;
