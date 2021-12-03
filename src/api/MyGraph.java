@@ -43,18 +43,25 @@ public class MyGraph implements DirectedWeightedGraph {
 
         Iterator<NodeData> iter= new Iterator<NodeData>() {
             Iterator<Node> it = nodes.values().iterator();
+            int m = MC;
             @Override
             public boolean hasNext() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 return it.hasNext();
             }
 
             @Override
             public NodeData next() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 return it.next();
             }
 
             @Override
             public void remove() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 it.remove();
             }
         };
@@ -65,18 +72,25 @@ public class MyGraph implements DirectedWeightedGraph {
     public Iterator<EdgeData> edgeIter() {
         Iterator<EdgeData> iter= new Iterator<EdgeData>() {
             Iterator<Edge> it = edges.values().iterator();
+            int m = MC;
             @Override
             public boolean hasNext() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 return it.hasNext();
             }
 
             @Override
             public EdgeData next() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 return it.next();
             }
 
             @Override
             public void remove() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 it.remove();
             }
         };
@@ -90,19 +104,26 @@ public class MyGraph implements DirectedWeightedGraph {
         Iterator<EdgeData> iter= new Iterator<EdgeData>() {
 
             Iterator<Edge> it = E.values().iterator();
+            int m = MC;
 
             @Override
             public boolean hasNext() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 return it.hasNext();
             }
 
             @Override
             public EdgeData next() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 return it.next();
             }
 
             @Override
             public void remove() {
+                if(m!=MC)
+                    throw new RuntimeException("MC counter was changed");
                 it.remove();
             }
         };
