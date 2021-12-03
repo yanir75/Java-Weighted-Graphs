@@ -3,21 +3,20 @@ package api;
 import java.util.List;
 
 public class Algorithms implements DirectedWeightedGraphAlgorithms {
-    private DirectedWeightedGraph graph;
-
+    private DirectedWeightedGraph gr;
     @Override
     public void init(DirectedWeightedGraph g) {
-        graph=g;
+        gr  = g;
     }
 
     @Override
     public DirectedWeightedGraph getGraph() {
-        return graph;
+        return gr;
     }
 
     @Override
     public DirectedWeightedGraph copy() {
-        return null;
+        return  new MyGraph(gr);
     }
 
     @Override

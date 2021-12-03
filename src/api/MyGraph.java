@@ -1,8 +1,10 @@
 package api;
 
+import javax.imageio.ImageTranscoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class MyGraph implements DirectedWeightedGraph {
     public static double BIGNUMBER = (double) Integer.MAX_VALUE * Integer.MAX_VALUE + 1.0;
@@ -14,6 +16,37 @@ public class MyGraph implements DirectedWeightedGraph {
         this.nodes = Nodes;
         this.edges = Edges;
         this.MC = 0;
+    }
+    public MyGraph(DirectedWeightedGraph g){
+        Iterator<NodeData>iter =g.nodeIter();
+        Iterator<EdgeData>e = g.edgeIter();
+        edges = new HashMap<Double,Edge>();
+        nodes = new HashMap<Integer,Node>();
+        while (iter.hasNext()){
+            NodeData n= iter.next();
+            Node x = new Node(n,g.edgeIter(n.getKey()));
+            nodes.put(n.getKey(),x);
+        }
+        while (e.hasNext()){
+
+            Edge ed = new Edge(e.next());
+            double key = ed.getSrc() + ed.getDest() * BIGNUMBER;
+            edges.put(key,ed);
+        }
+    }
+
+    public DirectedWeightedGraph copy() {
+        HashMap<Integer,Node> n = new HashMap<Integer,Node>();
+        HashMap<Double,Edge> e = new HashMap<Double,Edge>();
+        Set<Integer> c = nodes.keySet();
+        for (int i : c){
+            n.put(i,nodes.get(i).copy());
+        }
+        Set<Double> ed = edges.keySet();
+        for (double i : c){
+            e.put(i,edges.get(i).copy());
+        }
+        return new MyGraph(n,e);
     }
 
     @Override
@@ -31,6 +64,7 @@ public class MyGraph implements DirectedWeightedGraph {
 
     @Override
     public void connect(int src, int dest, double w) {
+        // check if needed ()
         double key = src + dest * BIGNUMBER;
         if (!this.edges.containsKey(key)) {
             this.edges.put(key, new Edge(src, dest, w));

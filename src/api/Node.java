@@ -1,6 +1,8 @@
 package api;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Node implements  NodeData{
     // edgeData or edges we will decide
@@ -16,7 +18,33 @@ public class Node implements  NodeData{
         this.id = id;
         this.location = new Location(x, y, 0);
     }
+    public Node(NodeData n, Iterator<EdgeData> iter)
+    {
+        this.id = n.getKey();
+        this.weight=n.getWeight();
+        this.location=new Location(n.getLocation().x(),n.getLocation().y(),n.getLocation().z());
+        this.info = n.getInfo();
+        this.tag = n.getTag();
+        while (iter.hasNext()){
+            EdgeData e = iter.next();
+            double key = e.getSrc() + e.getDest() * MyGraph.BIGNUMBER;
+            this.Edges.put(key,new Edge(e));
+        }
 
+    }
+    public Node copy() {
+        Node c = new Node(location.x(), location.y(), id);
+        c.weight = weight;
+        c.info = info;
+        c.tag = tag;
+        HashMap<Double, Edge> y = c.getEdges();
+        Set<Double> x = Edges.keySet();
+        for (Double i : x)
+        {
+            y.put(i,Edges.get(i));
+        }
+        return c;
+    }
     @Override
     public int getKey() {
         return this.id;
