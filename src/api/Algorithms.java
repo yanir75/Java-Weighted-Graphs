@@ -7,9 +7,8 @@ import java.util.*;
 
 public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private MyGraph graph;
-    // https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%97%D7%99%D7%A4%D7%95%D7%A9_A*
-    // https://stackabuse.com/graphs-in-java-a-star-algorithm/
-    // https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%93%D7%99%D7%99%D7%A7%D7%A1%D7%98%D7%A8%D7%94
+    private double minWeight = Double.MAX_VALUE;
+    private List<NodeData> path;
 
     @Override
     public void init(DirectedWeightedGraph g) {
@@ -33,13 +32,14 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public double shortestPathDist(int src, int dest) {
-        return findShortestPath(src, dest).keySet().toArray(new Double[0])[0];
+        findShortestPath(src, dest);
+        return this.minWeight;
     }
 
     @Override
     public List<NodeData> shortestPath(int src, int dest) {
-        HashMap<Double, List<NodeData>> path =  findShortestPath(src, dest);
-        return path.get(path.keySet().toArray(new Double[0])[0]);
+        findShortestPath(src, dest);
+        return this.path;
     }
 
     /**
@@ -48,8 +48,9 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * @param dest
      * @return
      */
-    private HashMap<Double, List<NodeData>> findShortestPath(int src, int dest){
-        HashMap<Double, List<NodeData>> path = new HashMap<>();
+    private void findShortestPath(int src, int dest){
+        this.path = new ArrayList<>();
+        this.minWeight = Double.MAX_VALUE;
         PriorityQueue<NodeData> nodes = new PriorityQueue<>((a,b)-> (int) (a.getWeight() - b.getWeight()));
         Iterator<NodeData> iter = graph.nodeIter();
         while (iter.hasNext()) {
@@ -78,16 +79,15 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             }
             // 6 -> go overt to 1.
         }
+        // load the shortest path.
         List<NodeData> shortestPath = new ArrayList<>();
         shortestPath.add(this.graph.getNode(dest));
         while(shortestPath.get(0).getKey() != src){
             NodeData currNode = shortestPath.get(0);
             shortestPath.add(0, this.graph.getNode(currNode.getTag()));
         }
-        double shortestWeight = this.graph.getNode(dest).getWeight();
-        path.put(shortestWeight, shortestPath);
+        this.minWeight = this.graph.getNode(dest).getWeight();
         resetWeightsInfoFather();
-        return path;
     }
 
 
