@@ -3,12 +3,26 @@ package api;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class MyGraph implements DirectedWeightedGraph{
-    @Override
-    public NodeData getNode(int key) {
-        return null;
+public class MyGraph implements DirectedWeightedGraph {
+    public static double BIGNUMBER = (double) Integer.MAX_VALUE * Integer.MAX_VALUE + 1.0;
+    private final HashMap<Integer, Node> nodes;
+    private final HashMap<Double, Edge> edges;
+    private int MC;
+
+    public MyGraph(HashMap<Integer, Node> Nodes, HashMap<Double, Edge> Edges) {
+        this.nodes = Nodes;
+        this.edges = Edges;
+        this.MC = 0;
     }
 
+    @Override
+    public NodeData getNode(int key) {
+        return nodes.get(key);
+    }
+
+    // src+dest*bignumber
+    // src = (src+dest*bignumber)%x
+    // dest = (src+dest*bignumber)/x
     @Override
     public EdgeData getEdge(int src, int dest) {
         return edges.get(src + dest * BIGNUMBER);
@@ -38,9 +52,11 @@ public class MyGraph implements DirectedWeightedGraph{
         return null;
     }
 
+    //MC++
     @Override
     public NodeData removeNode(int key) {
-        return null;
+        removeRelatedEdges(this.nodes.get(key));
+        return this.nodes.remove(key);
     }
 
     private void removeRelatedEdges(Node n) {
@@ -58,20 +74,25 @@ public class MyGraph implements DirectedWeightedGraph{
 
     @Override
     public int nodeSize() {
-        return 0;
+        return nodes.size();
     }
 
     @Override
     public int edgeSize() {
-        return 0;
+        return edges.size();
     }
 
     @Override
     public int getMC() {
-        return 0;
+        return this.MC;
     }
 
     @Override
     public void addNode(NodeData n) {
+    }
+
+    public static void main(String[] args) {
+        System.out.println(BIGNUMBER);
+
     }
 }

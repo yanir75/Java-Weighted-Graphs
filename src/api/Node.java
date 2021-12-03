@@ -24,38 +24,37 @@ public class Node implements  NodeData{
 
     @Override
     public GeoLocation getLocation() {
-        return null;
+        return location;
     }
-
     @Override
     public double getWeight() {
-        return 0;
+        return weight;
     }
 
     @Override
     public void setWeight(double w) {
-
+        weight = w;
     }
 
     @Override
     public String getInfo() {
-        return null;
+        return info;
     }
 
     @Override
     public void setInfo(String s) {
-
+        info = s;
     }
 
     @Override
     public int getTag() {
-        return 0;
+        return tag;
     }
 
 
     @Override
     public void setTag(int t) {
-
+        tag = t;
     }
 
     /**
@@ -75,7 +74,7 @@ public class Node implements  NodeData{
 
     @Override
     public void setLocation(GeoLocation p) {
-
+        location=p;
     }
 
     public HashMap<Double, EdgeData> getEdges(){
