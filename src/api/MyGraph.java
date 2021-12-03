@@ -9,10 +9,10 @@ import java.util.Set;
 public class MyGraph implements DirectedWeightedGraph {
     public static double BIGNUMBER = (double) Integer.MAX_VALUE * Integer.MAX_VALUE + 1.0;
     private final HashMap<Integer, Node> nodes;
-    private final HashMap<Double, Edge> edges;
+    private final HashMap<String, Edge> edges;
     private int MC;
 
-    public MyGraph(HashMap<Integer, Node> Nodes, HashMap<Double, Edge> Edges) {
+    public MyGraph(HashMap<Integer, Node> Nodes, HashMap<String, Edge> Edges) {
         this.nodes = Nodes;
         this.edges = Edges;
         this.MC = 0;
@@ -20,7 +20,7 @@ public class MyGraph implements DirectedWeightedGraph {
     public MyGraph(DirectedWeightedGraph g){
         Iterator<NodeData>iter =g.nodeIter();
         Iterator<EdgeData>e = g.edgeIter();
-        edges = new HashMap<Double,Edge>();
+        edges = new HashMap<String,Edge>();
         nodes = new HashMap<Integer,Node>();
         while (iter.hasNext()){
             NodeData n= iter.next();
@@ -30,7 +30,7 @@ public class MyGraph implements DirectedWeightedGraph {
         while (e.hasNext()){
 
             Edge ed = new Edge(e.next());
-            double key = ed.getSrc() + ed.getDest() * BIGNUMBER;
+            String key = ed.getSrc() + "-" + ed.getDest();
             edges.put(key,ed);
         }
     }

@@ -60,7 +60,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      */
     private DirectedWeightedGraph reverse() {
         HashMap<Integer, Node> Nodes = new HashMap<Integer, Node>();
-        HashMap<Double, Edge> Edges = new HashMap<Double, Edge>();
+        HashMap<String, Edge> Edges = new HashMap<String, Edge>();
         Iterator<NodeData> iterNodes = graph.nodeIter();
         while (iterNodes.hasNext()) {
             NodeData n = iterNodes.next();
@@ -71,8 +71,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
             EdgeData e = iterEdges.next();
             Edge en = new Edge(e.getDest(), e.getSrc(), e.getWeight());
-            // check if  ()
-            double key = e.getDest() + e.getSrc() * MyGraph.BIGNUMBER;
+            String key = e.getDest() + "-" + e.getSrc();
             Nodes.get(e.getDest()).getEdges().put(key, en);
             Edges.put(key, en);
         }
@@ -197,7 +196,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             Node currNode = (Node) nodes.poll();
             // 3 -> go over all his children(through Edges)
             if(currNode != null && currNode.getEdges() != null && currNode.getInfo().equals("WHITE")) {
-                Double[] children = currNode.getEdges().keySet().toArray(new Double[0]);
+                String[] children = currNode.getEdges().keySet().toArray(new String[0]);
                 // 4 -> update their info and the weight if needed.
                 updateNodes(nodes, currNode, children);
                 // 5 -> set node to be black
@@ -233,9 +232,9 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * @param parent - the Node that is a father of all the nodes in @keys.
      * @param keys - an array of keys(Double) represents all the children of the @parent.
      */
-    private void updateNodes(PriorityQueue<NodeData> nodes, Node parent, Double[] keys){
+    private void updateNodes(PriorityQueue<NodeData> nodes, Node parent, String[] keys){
         double parentWeight = parent.getWeight();
-        for(Double k: keys){
+        for(String k: keys){
             EdgeData currEdge = parent.getEdges().get(k);
             double edgeWeight = currEdge.getWeight();
             int dest = currEdge.getDest();
@@ -307,7 +306,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         ParseData pd = new ParseData("C:\\Users\\netan\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
 //        System.out.println(pd.getEdges().values());
 //        System.out.println();
-        System.out.println(pd.getNodes().values());
+//        System.out.println(pd.getNodes().values());
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);

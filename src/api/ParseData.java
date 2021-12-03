@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class ParseData {
     private HashMap<Integer, Node> Nodes;
-    private HashMap<Double, Edge> Edges;
+    private HashMap<String, Edge> Edges;
     private Parser p;
 
     public ParseData(String file_name){
@@ -62,9 +62,9 @@ public class ParseData {
      * @param nodes
      * @return
      */
-    public HashMap<Double, Edge> makeEdges(HashMap<String, String>[] Edges, HashMap<Integer, Node> nodes){
+    public HashMap<String, Edge> makeEdges(HashMap<String, String>[] Edges, HashMap<Integer, Node> nodes){
         if(Edges != null) {
-            HashMap<Double, Edge> edges = new HashMap<>();
+            HashMap<String, Edge> edges = new HashMap<>();
             String[] keys;
             for(HashMap<String, String> edge: Edges){
                 keys = edge.keySet().toArray(new String[0]);
@@ -83,7 +83,7 @@ public class ParseData {
                     }
                 }
                 Edge Edge = new Edge(src, dest, weight);
-                double key = src + dest * MyGraph.BIGNUMBER;
+                String key = src + "-" + dest;
                 nodes.get(src).addEdge(Edge);
                 edges.put(key, Edge);
             }
@@ -97,7 +97,7 @@ public class ParseData {
         return this.Nodes;
     }
 
-    public HashMap<Double, Edge> getEdges() {
+    public HashMap<String, Edge> getEdges() {
         return this.Edges;
     }
 
