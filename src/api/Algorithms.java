@@ -169,6 +169,8 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * 9) call resetWeightsInfoFather() to resets weights/Info/Father.<p>
      * @param src - the source Node that we start from.
      * @param dest - the destination Node that we want to reach.
+     * @see   <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra Algorithm</a>
+     * @see   <a href="https://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first search(BFS) Algorithm</a>
      */
     private void findShortestPath(int src, int dest){
         this.path = new ArrayList<>();
