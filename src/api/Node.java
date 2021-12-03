@@ -9,9 +9,11 @@ public class Node implements  NodeData{
     private final HashMap<Double, Edge> Edges = new HashMap<>();
     private final int id;
     private GeoLocation location;
-    private double weight;
+    private double weight = Double.MAX_VALUE;
+    private NodeData father = null;
     private String info;
     private int tag;
+    private boolean black = false;
 
 
     public Node(double x, double y, int id) {
@@ -48,6 +50,26 @@ public class Node implements  NodeData{
     @Override
     public int getKey() {
         return this.id;
+    }
+
+    public NodeData getFather() {
+        return father;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isBlack() {
+        return black;
+    }
+
+    public void setBlack(boolean black) {
+        this.black = black;
+    }
+
+    public void setFather(NodeData father) {
+        this.father = father;
     }
 
     @Override

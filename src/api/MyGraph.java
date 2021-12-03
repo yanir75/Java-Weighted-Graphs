@@ -205,6 +205,14 @@ public class MyGraph implements DirectedWeightedGraph {
     public void addNode(NodeData n) {
     }
 
+    public HashMap<Integer, Node> getNodes() {
+        return this.nodes;
+    }
+
+    public HashMap<Double, Edge> getEdges() {
+        return this.edges;
+    }
+
     public static void main(String[] args) {
         System.out.println(BIGNUMBER);
 
