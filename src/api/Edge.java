@@ -64,9 +64,9 @@ public class Edge implements EdgeData{
 
     @Override
     public String toString() {
-        return "{src = " + src +
+        return "\n{src = " + src +
                 ", dest = " + dest +
                 ", weight = " + weight +
-                '}';
+                "}";
     }
 }

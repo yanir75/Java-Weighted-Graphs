@@ -200,8 +200,17 @@ public class MyGraph implements DirectedWeightedGraph {
         return this.edges;
     }
 
-    public static void main(String[] args) {
-        System.out.println(BIGNUMBER);
 
+    public String toStringEdges(){
+        String[] keys = this.edges.keySet().toArray(new String[0]);
+        String output = "[";
+        for(String k: keys){
+            output += "" + this.edges.get(k) + ",";
+        }
+        return output.substring(0, output.length() -1) + "\n]";
+    }
+
+    public String toStringNodes(){
+        return this.nodes.values().toString();
     }
 }

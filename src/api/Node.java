@@ -141,6 +141,6 @@ public class Node implements NodeData {
 
     @Override
     public String toString() {
-        return "\n{Index = " + id + " ,location =" + location + ",\nEdges =" + Edges.values() + "}\n";
+        return "\n<Index = " + id + ",\nlocation =" + location + ",\nEdges =" + Edges.values() + ">\n";
     }
 }
