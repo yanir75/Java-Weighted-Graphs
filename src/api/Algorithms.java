@@ -1,5 +1,8 @@
 package api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
 
 public class Algorithms implements DirectedWeightedGraphAlgorithms {
@@ -46,6 +49,9 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public boolean save(String file) {
+        GsonBuilder b = new GsonBuilder();
+        b.setPrettyPrinting();
+        Gson g = b.create();
         return false;
     }
 
