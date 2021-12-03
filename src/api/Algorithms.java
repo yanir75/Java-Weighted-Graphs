@@ -28,10 +28,19 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     @Override
+    /**
+     *
+     */
     public boolean isConnected() {
         return isStronglyConnected();
     }
 
+    /**
+     *
+     * @param key
+     * @param visited
+     * @param gra
+     */
     private void DFS(int key, HashMap<Integer, Boolean> visited, DirectedWeightedGraph gra) {
         // mark current node as visited
         visited.replace(key, true);
@@ -45,6 +54,10 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private DirectedWeightedGraph reverse() {
         HashMap<Integer, Node> Nodes = new HashMap<Integer, Node>();
         HashMap<Double, Edge> Edges = new HashMap<Double, Edge>();
@@ -67,6 +80,10 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     }
 
+    /**
+     *
+     * @return
+     */
     private boolean isStronglyConnected() {
         HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();
 
@@ -106,10 +123,10 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             if (!visited.get(i))
                 return false;
         }
-
         // if a graph "passes" both DFSs, it is strongly connected
         return true;
     }
+
 
     @Override
     public double shortestPathDist(int src, int dest) {
@@ -169,11 +186,11 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             // 6 -> go overt to 1.
         }
         // load the shortest path.
-        List<NodeData> shortestPath = new ArrayList<>();
-        shortestPath.add(this.graph.getNode(dest));
-        while(shortestPath.get(0).getKey() != src){
-            NodeData currNode = shortestPath.get(0);
-            shortestPath.add(0, this.graph.getNode(currNode.getTag()));
+        this.path = new ArrayList<>();
+        this.path.add(this.graph.getNode(dest));
+        while(this.path.get(0).getKey() != src){
+            NodeData currNode = this.path.get(0);
+            this.path.add(0, this.graph.getNode(currNode.getTag()));
         }
         this.minWeight = this.graph.getNode(dest).getWeight();
         resetWeightsInfoFather();
