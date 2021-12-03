@@ -312,5 +312,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         algo.init(g);
         System.out.println(algo.shortestPathDist(1,7));
         System.out.println(algo.shortestPath(1,7));
+        System.out.println(algo.isConnected());
     }
 }

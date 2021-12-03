@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Node implements NodeData {
     // edgeData or edges we will decide
-    private final HashMap<Double, Edge> Edges = new HashMap<>();
+    private final HashMap<String, Edge> Edges = new HashMap<>();
     private int id = -1;
     private GeoLocation location;
     private double weight;
@@ -29,7 +29,7 @@ public class Node implements NodeData {
         this.tag = n.getTag();
         while (iter.hasNext()) {
             EdgeData e = iter.next();
-            double key = e.getSrc() + e.getDest() * MyGraph.BIGNUMBER;
+            String key = e.getSrc() +"-"+ e.getDest();
             this.Edges.put(key, new Edge(e));
         }
 
@@ -40,9 +40,9 @@ public class Node implements NodeData {
         c.weight = weight;
         c.info = info;
         c.tag = tag;
-        HashMap<Double, Edge> y = c.getEdges();
-        Set<Double> x = Edges.keySet();
-        for (Double i : x) {
+        HashMap<String, Edge> y = c.getEdges();
+        Set<String> x = Edges.keySet();
+        for (String i : x) {
             y.put(i, Edges.get(i));
         }
         return c;
@@ -119,13 +119,13 @@ public class Node implements NodeData {
      * @param e - new Edge to add to this Node.
      */
     public void addEdge(Edge e) {
-        double key = e.getSrc() + e.getDest() * MyGraph.BIGNUMBER;
+        String key = e.getSrc() +"-"+ e.getDest();
         if (!this.Edges.containsKey(key)) {
             this.Edges.put(key, e);
         }
     }
 
-    public void removeEdge(double key) {
+    public void removeEdge(String key) {
         this.Edges.remove(key);
     }
 
@@ -134,7 +134,7 @@ public class Node implements NodeData {
         location = p;
     }
 
-    public HashMap<Double, Edge> getEdges() {
+    public HashMap<String, Edge> getEdges() {
 //        return this.Edges.keySet().toArray(new Double[0]);
         return this.Edges;
     }

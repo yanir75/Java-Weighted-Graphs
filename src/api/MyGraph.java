@@ -35,19 +35,6 @@ public class MyGraph implements DirectedWeightedGraph {
         }
     }
 
-    public DirectedWeightedGraph copy() {
-        HashMap<Integer,Node> n = new HashMap<Integer,Node>();
-        HashMap<Double,Edge> e = new HashMap<Double,Edge>();
-        Set<Integer> c = nodes.keySet();
-        for (int i : c){
-            n.put(i,nodes.get(i).copy());
-        }
-        Set<Double> ed = edges.keySet();
-        for (double i : c){
-            e.put(i,edges.get(i).copy());
-        }
-        return new MyGraph(n,e);
-    }
 
     @Override
     public NodeData getNode(int key) {
@@ -59,13 +46,13 @@ public class MyGraph implements DirectedWeightedGraph {
     // dest = (src+dest*bignumber)/x
     @Override
     public EdgeData getEdge(int src, int dest) {
-        return edges.get(src + dest * BIGNUMBER);
+        return edges.get(src+"-"+dest);
     }
 
     @Override
     public void connect(int src, int dest, double w) {
         // check if needed ()
-        double key = src + dest * BIGNUMBER;
+        String key = src +"-" +dest;
         if (!this.edges.containsKey(key)) {
             this.edges.put(key, new Edge(src, dest, w));
             this.MC++;
@@ -134,7 +121,7 @@ public class MyGraph implements DirectedWeightedGraph {
     @Override
     public Iterator<EdgeData> edgeIter(int node_id) {
         Node x = nodes.get(node_id);
-        HashMap<Double, Edge> E = x.getEdges();
+        HashMap<String, Edge> E = x.getEdges();
         Iterator<EdgeData> iter= new Iterator<EdgeData>() {
 
             Iterator<Edge> it = E.values().iterator();
@@ -174,14 +161,14 @@ public class MyGraph implements DirectedWeightedGraph {
     }
 
     private void removeRelatedEdges(Node n) {
-        for (double i : n.getEdges().keySet()) {
+        for (String i : n.getEdges().keySet()) {
             edges.remove(i);
         }
     }
 
     @Override
     public EdgeData removeEdge(int src, int dest) {
-        double key = src + dest * BIGNUMBER;
+        String key = src +"-"+ dest;
         this.nodes.get(src).removeEdge(key);
         return this.edges.remove(key);
     }
@@ -209,7 +196,7 @@ public class MyGraph implements DirectedWeightedGraph {
         return this.nodes;
     }
 
-    public HashMap<Double, Edge> getEdges() {
+    public HashMap<String, Edge> getEdges() {
         return this.edges;
     }
 
