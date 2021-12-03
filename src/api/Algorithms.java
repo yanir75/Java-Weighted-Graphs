@@ -29,7 +29,86 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public boolean isConnected() {
-        return false;
+        return isStronglyConnected();
+    }
+
+    private void DFS(int key, HashMap<Integer, Boolean> visited, DirectedWeightedGraph gra) {
+        // mark current node as visited
+        visited.replace(key, true);
+        Iterator<EdgeData> iter = gra.edgeIter(key);
+        // do for every edge (v, u)
+        while (iter.hasNext()) {
+            int dest = iter.next().getDest();
+            if (!visited.get(dest)) {
+                DFS(dest, visited, gra);
+            }
+        }
+    }
+
+    private DirectedWeightedGraph reverse() {
+        HashMap<Integer, Node> Nodes = new HashMap<Integer, Node>();
+        HashMap<Double, Edge> Edges = new HashMap<Double, Edge>();
+        Iterator<NodeData> iterNodes = graph.nodeIter();
+        while (iterNodes.hasNext()) {
+            NodeData n = iterNodes.next();
+            Nodes.put(n.getKey(), new Node(n.getLocation().x(), n.getLocation().y(), n.getKey()));
+        }
+        Iterator<EdgeData> iterEdges = graph.edgeIter();
+        while (iterEdges.hasNext()) {
+
+            EdgeData e = iterEdges.next();
+            Edge en = new Edge(e.getDest(), e.getSrc(), e.getWeight());
+            // check if  ()
+            double key = e.getDest() + e.getSrc() * MyGraph.BIGNUMBER;
+            Nodes.get(e.getDest()).getEdges().put(key, en);
+            Edges.put(key, en);
+        }
+        return new MyGraph(Nodes, Edges);
+
+    }
+
+    private boolean isStronglyConnected() {
+        HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();
+
+        int key = -1;
+        Iterator<NodeData> iter = graph.nodeIter();
+        while (iter.hasNext()) {
+            key = iter.next().getKey();
+            visited.put(key, false);
+        }
+        if (key == -1)
+            return false;
+
+        // run a DFS starting at `v`
+        this.DFS(key, visited, graph);
+
+        // If DFS traversal doesn't visit all vertices,
+        // then the graph is not strongly connected
+        for (int i : visited.keySet()) {
+            if (!visited.get(i))
+                return false;
+            else
+                visited.replace(i, false);
+        }
+
+
+        // Reverse the direction of all edges in the directed graph
+        DirectedWeightedGraph g = this.reverse();
+
+        // create a graph from reversed edges
+
+        // Again run a DFS starting at `v`
+        DFS(key, visited, g);
+
+        // If DFS traversal doesn't visit all vertices,
+        // then the graph is not strongly connected
+        for (int i : visited.keySet()) {
+            if (!visited.get(i))
+                return false;
+        }
+
+        // if a graph "passes" both DFSs, it is strongly connected
+        return true;
     }
 
     @Override
