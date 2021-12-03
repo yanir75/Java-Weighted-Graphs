@@ -91,34 +91,16 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
 
-    /**
-     *
-     * @param n
-     * @param father
-     */
-    private void setFather(NodeData n,int father){
-        n.setTag(father);
-    }
-
 
     /**
-     *
-     */
-    private void resetWeightsInfoFather(){
-        Iterator<NodeData> iter = this.graph.nodeIter();
-        while (iter.hasNext()) {
-            NodeData node = iter.next();
-            node.setWeight(Double.MAX_VALUE);
-            node.setInfo("");
-            setFather(node, -1);
-        }
-    }
-
-    /**
-     *
-     * @param nodes
-     * @param parent
-     * @param keys
+     * This method is being called by findShortestPath each time findShortestPath pops out a Node.<p>
+     * The purpose of this method is to update the weights of all the children Nodes and to update their father pointer.<p>
+     * It iterates through all the @keys(children) and updates only the Nodes that the update of the weight will
+     * be smaller than the original weight.<p>
+     * It updates the weight and the father of a Node.
+     * @param nodes - the Priority Queue that contains all the nodes that needs to be checked.
+     * @param parent - the Node that is a father of all the nodes in @keys.
+     * @param keys - an array of keys(Double) represents all the children of the @parent.
      */
     private void updateNodes(PriorityQueue<NodeData> nodes, Node parent, Double[] keys){
         double parentWeight = parent.getWeight();
@@ -135,6 +117,36 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             nodes.add(child);
         }
     }
+
+
+    /**
+     * This method recevies NodaData @node and int @father and sets the Tag of @node to be @father.
+     * @param node - The NodeData that's need to be set.
+     * @param father - the id of the NodeData that represents the father.
+     */
+    private void setFather(NodeData node, int father){
+        node.setTag(father);
+    }
+
+
+    /**
+     * This method is activated after the ShortestPath method is finished.<p>
+     * It iterates through all the nodes of the graph and resets the data that ShortestPath changed.<p>
+     * The method resets:
+     * <li>The Weight of each node to -> very big number.
+     * <li>The Info of each node to -> "".
+     * <li>The father of each node to -> -1.
+     */
+    private void resetWeightsInfoFather(){
+        Iterator<NodeData> iter = this.graph.nodeIter();
+        while (iter.hasNext()) {
+            NodeData node = iter.next();
+            node.setWeight(Double.MAX_VALUE);
+            node.setInfo("");
+            setFather(node, -1);
+        }
+    }
+
 
 
     @Override
