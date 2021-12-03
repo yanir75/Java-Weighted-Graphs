@@ -9,6 +9,8 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private MyGraph graph;
     private double minWeight = Double.MAX_VALUE;
     private List<NodeData> path;
+    private int curr_src = -1;
+    private int curr_dest = -1;
 
     @Override
     public void init(DirectedWeightedGraph g) {
@@ -32,12 +34,18 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public double shortestPathDist(int src, int dest) {
+        if(this.curr_src == src && this.curr_dest == dest){
+            return this.minWeight;
+        }
         findShortestPath(src, dest);
         return this.minWeight;
     }
 
     @Override
     public List<NodeData> shortestPath(int src, int dest) {
+        if(this.curr_src == src && this.curr_dest == dest){
+            return this.path;
+        }
         findShortestPath(src, dest);
         return this.path;
     }
@@ -51,6 +59,8 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private void findShortestPath(int src, int dest){
         this.path = new ArrayList<>();
         this.minWeight = Double.MAX_VALUE;
+        this.curr_dest = dest;
+        this.curr_src = src;
         PriorityQueue<NodeData> nodes = new PriorityQueue<>((a,b)-> (int) (a.getWeight() - b.getWeight()));
         Iterator<NodeData> iter = graph.nodeIter();
         while (iter.hasNext()) {
