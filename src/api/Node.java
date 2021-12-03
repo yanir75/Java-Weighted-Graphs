@@ -4,36 +4,37 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Node implements  NodeData{
+public class Node implements NodeData {
     // edgeData or edges we will decide
     private final HashMap<Double, Edge> Edges = new HashMap<>();
-    private final int id;
+    private int id = -1;
     private GeoLocation location;
-    private double weight = Double.MAX_VALUE;
-    private NodeData father = null;
+    private double weight;
+    //    private NodeData father = null;
     private String info;
     private int tag;
-    private boolean black = false;
+//    private boolean black = false;
 
 
     public Node(double x, double y, int id) {
         this.id = id;
         this.location = new Location(x, y, 0);
     }
-    public Node(NodeData n, Iterator<EdgeData> iter)
-    {
+
+    public Node(NodeData n, Iterator<EdgeData> iter) {
         this.id = n.getKey();
-        this.weight=n.getWeight();
-        this.location=new Location(n.getLocation().x(),n.getLocation().y(),n.getLocation().z());
+        this.weight = n.getWeight();
+        this.location = new Location(n.getLocation().x(), n.getLocation().y(), n.getLocation().z());
         this.info = n.getInfo();
         this.tag = n.getTag();
-        while (iter.hasNext()){
+        while (iter.hasNext()) {
             EdgeData e = iter.next();
             double key = e.getSrc() + e.getDest() * MyGraph.BIGNUMBER;
-            this.Edges.put(key,new Edge(e));
+            this.Edges.put(key, new Edge(e));
         }
 
     }
+
     public Node copy() {
         Node c = new Node(location.x(), location.y(), id);
         c.weight = weight;
@@ -41,41 +42,46 @@ public class Node implements  NodeData{
         c.tag = tag;
         HashMap<Double, Edge> y = c.getEdges();
         Set<Double> x = Edges.keySet();
-        for (Double i : x)
-        {
-            y.put(i,Edges.get(i));
+        for (Double i : x) {
+            y.put(i, Edges.get(i));
         }
         return c;
     }
+
     @Override
     public int getKey() {
-        return this.id;
+        if (this.id != -1) {
+            return this.id;
+        } else {
+            throw new NullPointerException();
+        }
     }
 
-    public NodeData getFather() {
-        return father;
-    }
+//    public NodeData getFather() {
+//        return father;
+//    }
 
     public int getId() {
         return id;
     }
 
-    public boolean isBlack() {
-        return black;
-    }
+//    public boolean isBlack() {
+//        return black;
+//    }
 
-    public void setBlack(boolean black) {
-        this.black = black;
-    }
+//    public void setBlack() {
+//        this.black = "BLACK";
+//    }
 
-    public void setFather(NodeData father) {
-        this.father = father;
-    }
+//    public void setFather(NodeData father) {
+//        this.father = father;
+//    }
 
     @Override
     public GeoLocation getLocation() {
         return location;
     }
+
     @Override
     public double getWeight() {
         return weight;
@@ -109,31 +115,32 @@ public class Node implements  NodeData{
 
     /**
      * This method adds a new Edge @e to the HashMap of the current Edges of this Node.
+     *
      * @param e - new Edge to add to this Node.
      */
-    public void addEdge(Edge e){
+    public void addEdge(Edge e) {
         double key = e.getSrc() + e.getDest() * MyGraph.BIGNUMBER;
-        if(!this.Edges.containsKey(key)) {
+        if (!this.Edges.containsKey(key)) {
             this.Edges.put(key, e);
         }
     }
 
-    public void removeEdge(double key){
+    public void removeEdge(double key) {
         this.Edges.remove(key);
     }
 
     @Override
     public void setLocation(GeoLocation p) {
-        location=p;
+        location = p;
     }
 
-    public HashMap<Double, Edge> getEdges(){
+    public HashMap<Double, Edge> getEdges() {
 //        return this.Edges.keySet().toArray(new Double[0]);
         return this.Edges;
     }
 
     @Override
     public String toString() {
-        return "\n{Index = " + id + " ,location =" + location+ ",\nEdges =" + Edges.values() + "}\n";
+        return "\n{Index = " + id + " ,location =" + location + ",\nEdges =" + Edges.values() + "}\n";
     }
 }

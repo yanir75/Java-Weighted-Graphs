@@ -106,6 +106,8 @@ public class ParseData {
         System.out.println(pd.getEdges().values());
         System.out.println();
         System.out.println(pd.getNodes().values());
+        DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
+        System.out.println();
     }
 }
 
