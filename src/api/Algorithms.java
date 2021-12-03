@@ -24,7 +24,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public DirectedWeightedGraph copy() {
-        return  new MyGraph(graph);
+        return new MyGraph(graph);
     }
 
     @Override
@@ -147,10 +147,28 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     /**
-     *
-     * @param src
-     * @param dest
-     * @return
+     * This method finds the shortest path between @src and @dest.<p>
+     * The shortest path is the path that has the minimum total weight from all other paths if there are.<p>
+     * The idea of this method is based on <b>Dijkstra Algorithm</b> (which uses BFS Algorithm).<p>
+     * The method is implemented with a PriorityQueue and the <b>key of the priority</b> is the weights of the
+     * Nodes by ascending order.<p>
+     * <b>Steps of the Algorithm:</b><ul>
+     * 1) initialize the PriorityQueue and the priority.<p>
+     * 2) add the @src Node to the queue.<p>
+     * 3) while the queue is not empty:<p>
+     * 4) poll() - remove the first Node and keep it in a temporary Node @currNode.<p>
+     * 5) if @currNode isn't null and @currNode has children and @currNode is "WHITE":<p>
+     * 5.1) call the updateNodes(nodes, currNode, children) method.
+     *      <li> @nodes = the Priority queue
+     *      <li> @currNode = the Node that is the father.
+     *      <li> @an array of all the children that @currNode has (as a keys of the Edges HashMap of @currNode).<p>
+     * 5.2) set the color of @currNode to be black -> so we won't add him again to the queue.<p>
+     * 6) go back to step <b>3</b>.<p>
+     * 7) check if we found a path.<p>
+     * 8) if found, load it to @this.path and set @this.minWeight to be the desired weight.<p>
+     * 9) call resetWeightsInfoFather() to resets weights/Info/Father.<p>
+     * @param src - the source Node that we start from.
+     * @param dest - the destination Node that we want to reach.
      */
     private void findShortestPath(int src, int dest){
         this.path = new ArrayList<>();
@@ -185,14 +203,19 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             }
             // 6 -> go overt to 1.
         }
-        // load the shortest path.
-        this.path = new ArrayList<>();
-        this.path.add(this.graph.getNode(dest));
-        while(this.path.get(0).getKey() != src){
-            NodeData currNode = this.path.get(0);
-            this.path.add(0, this.graph.getNode(currNode.getTag()));
+        // check if we found a path.
+        if(this.graph.getNode(dest) == null || this.graph.getNode(dest).getWeight() == Double.MAX_VALUE){
+            this.minWeight = -1;
         }
-        this.minWeight = this.graph.getNode(dest).getWeight();
+        else { // load the shortest path.
+            this.path = new ArrayList<>();
+            this.path.add(this.graph.getNode(dest));
+            while (this.path.get(0).getKey() != src) {
+                NodeData currNode = this.path.get(0);
+                this.path.add(0, this.graph.getNode(currNode.getTag()));
+            }
+            this.minWeight = this.graph.getNode(dest).getWeight();
+        }
         resetWeightsInfoFather();
     }
 
@@ -282,7 +305,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         ParseData pd = new ParseData("C:\\Users\\netan\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
 //        System.out.println(pd.getEdges().values());
 //        System.out.println();
-//        System.out.println(pd.getNodes().values());
+        System.out.println(pd.getNodes().values());
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
