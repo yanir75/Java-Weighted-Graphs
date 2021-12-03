@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Node implements  NodeData{
     // edgeData or edges we will decide
-    private final HashMap<Double, EdgeData> Edges = new HashMap<>();
+    private final HashMap<Double, Edge> Edges = new HashMap<>();
     private final int id;
     private GeoLocation location;
     private double weight;
@@ -77,7 +77,7 @@ public class Node implements  NodeData{
         location=p;
     }
 
-    public HashMap<Double, EdgeData> getEdges(){
+    public HashMap<Double, Edge> getEdges(){
 //        return this.Edges.keySet().toArray(new Double[0]);
         return this.Edges;
     }

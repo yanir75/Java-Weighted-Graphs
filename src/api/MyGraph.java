@@ -2,6 +2,7 @@ package api;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class MyGraph implements DirectedWeightedGraph {
     public static double BIGNUMBER = (double) Integer.MAX_VALUE * Integer.MAX_VALUE + 1.0;
@@ -39,18 +40,76 @@ public class MyGraph implements DirectedWeightedGraph {
 
     @Override
     public Iterator<NodeData> nodeIter() {
-        return null;
+
+        Iterator<NodeData> iter= new Iterator<NodeData>() {
+            Iterator<Node> it = nodes.values().iterator();
+            @Override
+            public boolean hasNext() {
+                return it.hasNext();
+            }
+
+            @Override
+            public NodeData next() {
+                return it.next();
+            }
+
+            @Override
+            public void remove() {
+                it.remove();
+            }
+        };
+        return iter;
     }
 
     @Override
     public Iterator<EdgeData> edgeIter() {
-        return null;
+        Iterator<EdgeData> iter= new Iterator<EdgeData>() {
+            Iterator<Edge> it = edges.values().iterator();
+            @Override
+            public boolean hasNext() {
+                return it.hasNext();
+            }
+
+            @Override
+            public EdgeData next() {
+                return it.next();
+            }
+
+            @Override
+            public void remove() {
+                it.remove();
+            }
+        };
+        return iter;
     }
 
     @Override
     public Iterator<EdgeData> edgeIter(int node_id) {
-        return null;
+        Node x = nodes.get(node_id);
+        HashMap<Double, Edge> E = x.getEdges();
+        Iterator<EdgeData> iter= new Iterator<EdgeData>() {
+
+            Iterator<Edge> it = E.values().iterator();
+
+            @Override
+            public boolean hasNext() {
+                return it.hasNext();
+            }
+
+            @Override
+            public EdgeData next() {
+                return it.next();
+            }
+
+            @Override
+            public void remove() {
+                it.remove();
+            }
+        };
+        return iter;
     }
+
+
 
     //MC++
     @Override
