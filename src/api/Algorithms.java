@@ -342,11 +342,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             {
                 NodeData n =iter2.next();
                 double maxDist = cen.get(n.getKey()).getMax();
-                if(maxDist==0)
-                {
-                    return n;
-                }
-                else if(max>maxDist){
+                if(max>maxDist){
                     max=maxDist;
                     bestNode=n;
                 }
