@@ -316,11 +316,12 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
         while (iter1.hasNext())
         {
+            NodeData n1=iter1.next();
             while (iter2.hasNext())
             {
+                NodeData n2=iter2.next();
                 while (iter3.hasNext())
-                {       NodeData n1=iter1.next();
-                        NodeData n2=iter2.next();
+                {
                         NodeData n3=iter3.next();
 
                         setDist(n2,n3,cen,min(n2,n3,n1,cen));
