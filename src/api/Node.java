@@ -145,6 +145,6 @@ public class Node implements NodeData {
 //    }
 @Override
 public String toString() {
-    return "{\n"+'"'+"pos"+'"'+": " +'"'+location.x()+","+location.x()+'"'+",\n"+'"'+"id"+'"'+": "+id+"\n}";
+    return "{\n"+'"'+"pos"+'"'+": " +'"'+location.x()+","+location.y()+'"'+",\n"+'"'+"id"+'"'+": "+id+"\n}";
 }
 }

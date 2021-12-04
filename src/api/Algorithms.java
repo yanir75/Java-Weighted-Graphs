@@ -350,10 +350,20 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return bestNode;
     }
     public double getDist(NodeData n,NodeData n1, HashMap<Integer,Distance>dist){
-        return dist.get(n.getKey()).getDist(n1.getKey());
+        if(dist.containsKey(n.getKey()))
+        {Distance d = dist.get(n.getKey());
+        return d.getDist(n1.getKey());}
+        else{
+            return 0;
+        }
     }
     public void setDist(NodeData n,NodeData n1, HashMap<Integer,Distance>dist,double distance){
-        dist.get(n.getKey()).setDist(n1.getKey(),distance);
+        try {
+            dist.get(n.getKey()).setDist(n1.getKey(), distance);
+        }
+        catch (Exception e){
+            dist.put(n.getKey(),new Distance(n.getKey(), n1.getKey(), distance));
+        }
     }
 
     /**
@@ -433,7 +443,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     public static void main(String[]args){
-        ParseData pd = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+        ParseData pd = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G4.json");
         MyGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
@@ -443,6 +453,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 //        System.out.println(algo.shortestPathDist(1,7));
 //        System.out.println(algo.shortestPath(1,7));
 //        System.out.println(algo.isConnected());
-        algo.save("test.json");
+        System.out.println(algo.center());
     }
 }

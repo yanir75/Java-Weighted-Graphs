@@ -15,6 +15,8 @@ public class Distance {
             if(max<value)
             max=value;
         }
+        if(max==0)
+            return Double.MAX_VALUE;
         return max;
     }
 
@@ -23,6 +25,9 @@ public class Distance {
     }
 
     public double getDist(int node_key) {
-        return dist.get(node_key);
+        if(dist.containsKey(node_key))
+            return dist.get(node_key);
+        else
+            return 0;
     }
 }
