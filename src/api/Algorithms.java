@@ -337,7 +337,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             while (iter2.hasNext())
             {
                 NodeData n =iter2.next();
-                double maxDist = cen.get(n).getMax();
+                double maxDist = cen.get(n.getKey()).getMax();
                 if(maxDist==0)
                 {
                     return n;
@@ -406,13 +406,13 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     public static void main(String[]args){
-        ParseData pd = new ParseData("C:\\Users\\netan\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+        ParseData pd = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
         MyGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
-        System.out.println(g.toStringEdges());
-        System.out.println();
-        System.out.println(g.toStringNodes());
+//        System.out.println(g.toStringEdges());
+        System.out.println(algo.center().toString());
+//        System.out.println(g.toStringNodes());
 //        System.out.println(algo.shortestPathDist(1,7));
 //        System.out.println(algo.shortestPath(1,7));
 //        System.out.println(algo.isConnected());
