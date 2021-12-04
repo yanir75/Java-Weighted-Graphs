@@ -12,16 +12,25 @@ public class MyGraph implements DirectedWeightedGraph {
     private final HashMap<String, Edge> edges;
     private int MC;
 
+
+    public MyGraph(){
+        this.nodes = new HashMap<>();
+        this.edges = new HashMap<>();
+        this.MC = 0;
+    }
+
     public MyGraph(MyGraph g){
         this.nodes = g.getNodes();
         this.edges = g.getEdges();
         this.MC = 0;
     }
+
     public MyGraph(HashMap<Integer, Node> Nodes, HashMap<String, Edge> Edges) {
         this.nodes = Nodes;
         this.edges = Edges;
         this.MC = 0;
     }
+
     public MyGraph(DirectedWeightedGraph g){
         Iterator<NodeData>iter =g.nodeIter();
         Iterator<EdgeData>e = g.edgeIter();

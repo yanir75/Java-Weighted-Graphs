@@ -1,26 +1,28 @@
 package GUI;
 
 import api.MyGraph;
-import javax.swing.*;
 
 
-public class MyGraph_GUI extends JFrame {
-//    private JFrame frame;
+
+public class MyGraph_GUI{
+    private MyFrame frame;
+    private MyPanel panel;
+    private MyGraph graph;
 
 
-    public MyGraph_GUI()throws Exception{
-//        this.add(new MyGraph(graph));
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("My Directed Weighted Graph");
-        this.setResizable(false);
-        this.setSize(600, 600);
-        this.setVisible(true);
-
-
+    public MyGraph_GUI(MyGraph g) throws Exception{
+        graph = g;
+        frame = new MyFrame(graph);
+        panel = new MyPanel(graph);
+        frame.initGUI();
     }
 
+
+
+
+
     public static void main(String[] args) throws Exception {
-        MyGraph_GUI g = new MyGraph_GUI();
+        MyGraph_GUI g = new MyGraph_GUI(new MyGraph());
 
     }
 }
