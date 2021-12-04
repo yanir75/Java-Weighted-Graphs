@@ -14,6 +14,8 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private List<NodeData> path;
     private int curr_src = -1;
     private int curr_dest = -1;
+    private int connected =-1;//-1 unknown, 0 no, 1 yes
+    private int mc;
 
     /**
      * Choose the graph you will perform your algorithms on
@@ -21,6 +23,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     @Override
     public void init(DirectedWeightedGraph g) {
         graph = (MyGraph) g;
+        mc=graph.getMC();
     }
 
     /**
@@ -47,7 +50,19 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * @return true if so false otherwise.
      */
     public boolean isConnected() {
-        return isStronglyConnected();
+        if(mc==graph.getMC() && connected!=-1)
+        {if(connected==1)
+                return true;
+            else
+                return false;
+        }
+        mc= graph.getMC();
+        boolean con = isStronglyConnected();
+        if(con)
+            connected = 1;
+        else
+            connected = 0;
+        return con;
     }
 
     /**
