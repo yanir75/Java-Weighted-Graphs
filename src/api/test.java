@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class test {
     public static void main(String[] args) {
-        ParseData x = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+        ParseToGraph x = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
         MyGraph  y = new MyGraph(x.getNodes(),x.getEdges());
         Iterator<NodeData> z =y.nodeIter();
         boolean f = true;

@@ -1,24 +1,22 @@
 package api;
 import com.google.gson.Gson;
+
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.HashMap;
 
 
-public class ParseData {
+public class ParseToGraph {
     private HashMap<Integer, Node> Nodes;
     private HashMap<String, Edge> Edges;
-    private Parser p;
+    private ParserFromJson p;
 
-    public ParseData(String file_name){
+    public ParseToGraph(){}
+    public ParseToGraph(String file_name) throws FileNotFoundException {
         Gson gson = new Gson();
-        try (Reader reader = new FileReader(file_name)) {
-            this.p = gson.fromJson(reader, Parser.class);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            System.out.println("\nJson file wasn't found!");
-        }
+        Reader reader = new FileReader(file_name);
+        this.p = gson.fromJson(reader, ParserFromJson.class);
         if(this.p != null) {
             this.Nodes = makeNodes(p.getNodes());
             this.Edges = makeEdges(p.getEdges(), this.Nodes);
@@ -101,21 +99,21 @@ public class ParseData {
         return this.Edges;
     }
 
-    public static void main(String[]args){
-        ParseData pd = new ParseData("C:\\Users\\netan\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
-        System.out.println(pd.getEdges().values());
-        System.out.println();
-        System.out.println(pd.getNodes().values());
-        DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
-        System.out.println();
-    }
+//    public static void main(String[]args){
+//        ParseData pd = new ParseData("C:\\Users\\netan\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+//        System.out.println(pd.getEdges().values());
+//        System.out.println();
+//        System.out.println(pd.getNodes().values());
+//        DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
+//        System.out.println();
+//    }
 }
 
 
-class Parser {
+class ParserFromJson {
     private HashMap<String, String>[] Edges;
     private HashMap<String, String>[] Nodes;
-    public Parser(){}
+    public ParserFromJson(){}
     public HashMap<String, String>[] getEdges() {
         return this.Edges;
     }

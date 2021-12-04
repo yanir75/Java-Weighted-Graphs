@@ -1,9 +1,7 @@
 package api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -68,7 +66,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     /**
      * This is a simple DFS algorithm on the graph
      * @param key Starting vertex
-     * @param visited hashmap of the visiter vertexes
+     * @param visited hashmap of the visitor vertexes
      * @param gra on which graph to perform it
      */
     private void DFS(int key, HashMap<Integer, Boolean> visited, DirectedWeightedGraph gra) {
@@ -456,11 +454,28 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public boolean load(String file) {
-        return false;
+        boolean hasLoaded = false;
+        try{
+            ParseToGraph ptg = new ParseToGraph(file);
+            this.graph = new MyGraph(ptg.getNodes(), ptg.getEdges());
+            hasLoaded = true;
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+            System.out.println("\nJson file wasn't found!");
+        }
+        return hasLoaded;
     }
 
     public static void main(String[]args){
-        ParseData pd = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+        ParseToGraph pd = new ParseToGraph();
+        try {
+            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+            System.out.println();
+        }
         MyGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
