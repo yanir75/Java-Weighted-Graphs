@@ -202,15 +202,22 @@ public class MyGraph implements DirectedWeightedGraph {
 
 
     public String toStringEdges(){
-        String[] keys = this.edges.keySet().toArray(new String[0]);
-        String output = "[";
-        for(String k: keys){
-            output += "" + this.edges.get(k) + ",";
+        String output = '"'+"Edges"+'"'+": [\n";
+        for(Edge e: edges.values()){
+            output += "" + e + ",\n";
         }
-        return output.substring(0, output.length() -1) + "\n]";
+        return output.substring(0, output.length() -2) + "\n]";
     }
 
     public String toStringNodes(){
-        return this.nodes.values().toString();
+        String output = '"'+"Nodes"+'"'+": [\n";
+        for(Node n: nodes.values()){
+            output += "" + n + ",\n";
+        }
+        return output.substring(0, output.length() -2) + "\n]";
+    }
+    @Override
+    public String toString(){
+        return "{\n"+toStringEdges()+",\n\n"+toStringNodes()+"\n}";
     }
 }

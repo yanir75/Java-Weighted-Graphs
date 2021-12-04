@@ -1,5 +1,7 @@
 package api;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 public class Edge implements EdgeData{
     private final int src;
     private final int dest;
@@ -62,11 +64,20 @@ public class Edge implements EdgeData{
         this.tag = t;
     }
 
-    @Override
-    public String toString() {
-        return "\n{src = " + src +
-                ", dest = " + dest +
-                ", weight = " + weight +
-                "}";
+//    @Override
+//    public String toString() {
+//        return "\n{src = " + src +
+//                ", dest = " + dest +
+//                ", weight = " + weight +
+//                "}";
+//    }
+@Override
+public String toString(){
+        return "{\n"+'"'+"src"+'"'+": "+src+",\n"+'"'+"w"+'"'+": "+weight+",\n"+'"'+"dest"+'"'+": "+dest+"\n}";
+}
+
+    public static void main(String[] args) {
+        Edge e = new Edge(5,5,5);
+        System.out.println(e.toString());
     }
 }

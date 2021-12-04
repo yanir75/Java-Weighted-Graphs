@@ -139,8 +139,12 @@ public class Node implements NodeData {
         return this.Edges;
     }
 
-    @Override
-    public String toString() {
-        return "\n<Index = " + id + ",\nlocation =" + location + ",\nEdges =" + Edges.values() + ">\n";
-    }
+//    @Override
+//    public String toString() {
+//        return "\n<Index = " + id + ",\nlocation =" + location + ",\nEdges =" + Edges.values() + ">\n";
+//    }
+@Override
+public String toString() {
+    return "{\n"+'"'+"pos"+'"'+": " +'"'+location.x()+","+location.x()+'"'+",\n"+'"'+"id"+'"'+": "+id+"\n}";
+}
 }

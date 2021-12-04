@@ -3,6 +3,9 @@ package api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Algorithms implements DirectedWeightedGraphAlgorithms {
@@ -392,12 +395,39 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return null;
     }
 
+    /**
+     * Save the current graph to a file
+     * Used https://www.w3schools.com/java/java_files_create.asp
+     * @param file - the file name (may include a relative path).
+     * @return
+     */
     @Override
     public boolean save(String file) {
-        GsonBuilder b = new GsonBuilder();
-        b.setPrettyPrinting();
-        Gson g = b.create();
-        return false;
+        try {
+            File myObj = new File(file);
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+                return false;
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            return false;
+        }
+        try {
+            FileWriter myWriter = new FileWriter(file);
+            myWriter.write(graph.toString());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+            return true;
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     @Override
@@ -411,10 +441,11 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
 //        System.out.println(g.toStringEdges());
-        System.out.println(algo.center().toString());
+       // System.out.println(algo.center().toString());
 //        System.out.println(g.toStringNodes());
 //        System.out.println(algo.shortestPathDist(1,7));
 //        System.out.println(algo.shortestPath(1,7));
 //        System.out.println(algo.isConnected());
+        algo.save("test.json");
     }
 }
