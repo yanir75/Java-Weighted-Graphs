@@ -303,6 +303,8 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      */
     @Override
     public NodeData center() {
+        if(!isConnected())
+            return null;
         HashMap<Integer,Distance> cen = new HashMap<>();
         Iterator<EdgeData> iter = graph.edgeIter();
 
@@ -443,7 +445,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     public static void main(String[]args){
-        ParseData pd = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G4.json");
+        ParseData pd = new ParseData("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
         MyGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
