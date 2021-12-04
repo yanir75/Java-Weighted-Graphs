@@ -12,34 +12,46 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private int curr_src = -1;
     private int curr_dest = -1;
 
+    /**
+     * Choose the graph you will perform your algorithms on
+     */
     @Override
     public void init(DirectedWeightedGraph g) {
         graph = (MyGraph) g;
     }
 
+    /**
+     * Returns the graph you are working on
+     * @return
+     */
     @Override
     public DirectedWeightedGraph getGraph() {
         return graph;
     }
 
+    /**
+     * Returns a deep copy of the current graph you are working on
+     * @return
+     */
     @Override
     public DirectedWeightedGraph copy() {
         return new MyGraph(graph);
     }
 
     @Override
-    /**
-     *
+    /** Checks if there is a route between every pair of vertexes
+     * source https://www.techiedelight.com/check-given-graph-strongly-connected-not/
+     * @return true if so false otherwise.
      */
     public boolean isConnected() {
         return isStronglyConnected();
     }
 
     /**
-     *
-     * @param key
-     * @param visited
-     * @param gra
+     * This is a simple DFS algorithm on the graph
+     * @param key Starting vertex
+     * @param visited hashmap of the visiter vertexes
+     * @param gra on which graph to perform it
      */
     private void DFS(int key, HashMap<Integer, Boolean> visited, DirectedWeightedGraph gra) {
         // mark current node as visited
@@ -55,7 +67,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     /**
-     *
+     * This function switch the source and destination of all the edges and returns a new graph.
      * @return
      */
     private DirectedWeightedGraph reverse() {
@@ -79,7 +91,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     }
 
-    /**
+    /** Checks if there is a route between every pair of vertexes.
      *
      * @return
      */
@@ -278,10 +290,101 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
 
-
+    /**
+     * I don't want to brag or anything. But I copied from my own github
+     * https://github.com/yanir75/Assignment-C-1/blob/main/my_mat.c
+     * This function uses floyed algorithm to find the center.
+     * Center vertex is defined as the vertex with the shortest max distance from all the vertexes
+     * Shortest max distance means take all the distances of the vertex take its maximum then the vertex whose maximum is the lowest is the center.
+     * @return
+     */
     @Override
     public NodeData center() {
-        return null;
+        HashMap<Integer,Distance> cen = new HashMap<>();
+        Iterator<EdgeData> iter = graph.edgeIter();
+
+        while (iter.hasNext()){
+            EdgeData e = iter.next();
+            cen.put(e.getSrc(),new Distance(e.getSrc(),e.getDest(),e.getWeight()));
+        }
+        Iterator<NodeData> iter1 = graph.nodeIter();
+        Iterator<NodeData> iter2 = graph.nodeIter();
+        Iterator<NodeData> iter3 = graph.nodeIter();
+
+        while (iter1.hasNext())
+        {
+            while (iter2.hasNext())
+            {
+                while (iter3.hasNext())
+                {       NodeData n1=iter1.next();
+                        NodeData n2=iter2.next();
+                        NodeData n3=iter3.next();
+
+                        setDist(n2,n3,cen,min(n2,n3,n1,cen));
+                }
+                iter3 = graph.nodeIter();
+            }
+            iter2 = graph.nodeIter();
+        }
+        iter1 = graph.nodeIter();
+        iter2 = graph.nodeIter();
+        double max = Double.MAX_VALUE;
+        NodeData bestNode;
+        if(iter1.hasNext())
+        bestNode= iter1.next();
+        else
+            return null;
+            while (iter2.hasNext())
+            {
+                NodeData n =iter2.next();
+                double maxDist = cen.get(n).getMax();
+                if(maxDist==0)
+                {
+                    return n;
+                }
+                else if(max>maxDist){
+                    max=maxDist;
+                    bestNode=n;
+                }
+        }
+        return bestNode;
+    }
+    public double getDist(NodeData n,NodeData n1, HashMap<Integer,Distance>dist){
+        return dist.get(n.getKey()).getDist(n1.getKey());
+    }
+    public void setDist(NodeData n,NodeData n1, HashMap<Integer,Distance>dist,double distance){
+        dist.get(n.getKey()).setDist(n1.getKey(),distance);
+    }
+
+    /**
+     * first time i can say it copied from myself guys I am proud of it.
+     * (Netanel don't delete this)
+     * https://github.com/yanir75/Assignment-C-1/blob/main/my_mat.c
+     * @param i
+     * @param j
+     * @param k
+     * @param dist
+     * @return
+     */
+    private double min(NodeData i, NodeData j, NodeData k,HashMap<Integer,Distance> dist) {
+        if(i==j)
+            return 0.0;
+        if(getDist(i,j,dist)==0 &&(getDist(i,k,dist)==0 || getDist(k,j,dist)==0))
+        {
+            return 0.0;
+        }
+        if(getDist(i,k,dist)==0|| getDist(k,j,dist)==0)
+            return getDist(i,j,dist);
+
+        if(getDist(i,j,dist) == 0)
+            return getDist(i,k,dist)+getDist(k,j,dist);
+
+        if(getDist(i,k,dist)+getDist(k,j,dist) < getDist(i,j,dist))
+            return getDist(i,k,dist)+getDist(k,j,dist);
+
+        return getDist(i,j,dist);
+
+
     }
 
     @Override
