@@ -63,8 +63,8 @@ public class MyGraph implements DirectedWeightedGraph {
     public Iterator<NodeData> nodeIter() {
 
         Iterator<NodeData> iter= new Iterator<NodeData>() {
-            Iterator<Node> it = nodes.values().iterator();
-            int m = MC;
+            private Iterator<Node> it = nodes.values().iterator();
+            private int m = MC;
             @Override
             public boolean hasNext() {
                 if(m!=MC)
@@ -84,6 +84,8 @@ public class MyGraph implements DirectedWeightedGraph {
                 if(m!=MC)
                     throw new RuntimeException("MC counter was changed");
                 it.remove();
+                MC++;
+                m=MC;
             }
         };
         return iter;
@@ -92,8 +94,8 @@ public class MyGraph implements DirectedWeightedGraph {
     @Override
     public Iterator<EdgeData> edgeIter() {
         Iterator<EdgeData> iter= new Iterator<EdgeData>() {
-            Iterator<Edge> it = edges.values().iterator();
-            int m = MC;
+            private Iterator<Edge> it = edges.values().iterator();
+            private int m = MC;
             @Override
             public boolean hasNext() {
                 if(m!=MC)
@@ -113,6 +115,8 @@ public class MyGraph implements DirectedWeightedGraph {
                 if(m!=MC)
                     throw new RuntimeException("MC counter was changed");
                 it.remove();
+                MC++;
+                m=MC;
             }
         };
         return iter;
@@ -124,8 +128,8 @@ public class MyGraph implements DirectedWeightedGraph {
         HashMap<String, Edge> E = x.getEdges();
         Iterator<EdgeData> iter= new Iterator<EdgeData>() {
 
-            Iterator<Edge> it = E.values().iterator();
-            int m = MC;
+            private Iterator<Edge> it = E.values().iterator();
+            private int m = MC;
 
             @Override
             public boolean hasNext() {
@@ -146,6 +150,8 @@ public class MyGraph implements DirectedWeightedGraph {
                 if(m!=MC)
                     throw new RuntimeException("MC counter was changed");
                 it.remove();
+                MC++;
+                m=MC;
             }
         };
         return iter;
@@ -156,6 +162,9 @@ public class MyGraph implements DirectedWeightedGraph {
     //MC++
     @Override
     public NodeData removeNode(int key) {
+        if(!nodes.containsKey(key))
+            throw new RuntimeException("Node does not exist");
+        MC++;
         removeRelatedEdges(this.nodes.get(key));
         return this.nodes.remove(key);
     }
@@ -168,8 +177,11 @@ public class MyGraph implements DirectedWeightedGraph {
 
     @Override
     public EdgeData removeEdge(int src, int dest) {
+        if(!edges.containsKey(src+"-"+dest))
+            throw new RuntimeException("edge does not exist");
         String key = src +"-"+ dest;
         this.nodes.get(src).removeEdge(key);
+        MC++;
         return this.edges.remove(key);
     }
 
@@ -190,6 +202,19 @@ public class MyGraph implements DirectedWeightedGraph {
 
     @Override
     public void addNode(NodeData n) {
+        Node nCopy = new Node(n, new Iterator<EdgeData>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public EdgeData next() {
+                return null;
+            }
+        });
+        MC++;
+        nodes.put(n.getKey(),nCopy);
     }
 
     public HashMap<Integer, Node> getNodes() {

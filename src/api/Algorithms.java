@@ -470,6 +470,14 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 //        System.out.println(algo.shortestPathDist(1,7));
 //        System.out.println(algo.shortestPath(1,7));
 //        System.out.println(algo.isConnected());
-        System.out.println(algo.center());
+        long a = System.currentTimeMillis();
+        System.out.println(algo.isConnected());
+        long b = System.currentTimeMillis();
+        System.out.println(b-a);
+        algo.getGraph().addNode(new Node(500,500,500));
+        a=System.currentTimeMillis();
+        System.out.println(algo.isConnected());
+        b=System.currentTimeMillis();
+        System.out.println(b-a);
     }
 }
