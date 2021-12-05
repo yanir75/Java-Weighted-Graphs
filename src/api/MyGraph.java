@@ -242,16 +242,20 @@ public class MyGraph implements DirectedWeightedGraph {
 
     public String toStringEdges(){
         String output = '"'+"Edges"+'"'+": [\n";
-        for(Edge e: edges.values()){
-            output += "" + e + ",\n";
+        Iterator<EdgeData> iter= this.edgeIter();
+        while (iter.hasNext()){
+            EdgeData e = iter.next();
+            output += "" + "{\n"+'"'+"src"+'"'+": "+e.getSrc()+",\n"+'"'+"w"+'"'+": "+e.getWeight()+",\n"+'"'+"dest"+'"'+": "+e.getDest()+"\n}" + ",\n";
         }
         return output.substring(0, output.length() -2) + "\n]";
     }
 
     public String toStringNodes(){
         String output = '"'+"Nodes"+'"'+": [\n";
-        for(Node n: nodes.values()){
-            output += "" + n + ",\n";
+        Iterator<NodeData> iter= this.nodeIter();
+        while (iter.hasNext()){
+            NodeData n = iter.next();
+            output += "" + "{\n"+'"'+"pos"+'"'+": " +'"'+n.getLocation().x()+","+n.getLocation().y()+'"'+",\n"+'"'+"id"+'"'+": "+n.getKey()+"\n}" + ",\n";
         }
         return output.substring(0, output.length() -2) + "\n]";
     }

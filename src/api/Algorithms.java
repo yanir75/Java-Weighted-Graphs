@@ -20,7 +20,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      */
     @Override
     public void init(DirectedWeightedGraph g) {
-        graph = (MyGraph) g;
+        graph = g;
         mc=graph.getMC();
     }
 
@@ -346,11 +346,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     }
 
-    /**
-     *
-     * @param src
-     * @return
-     */
     public double djikstra(int src){
         HashMap<Integer,father> s = new HashMap<>();
         PriorityQueue<trio> prio = new PriorityQueue<>((o1, o2) -> {
@@ -388,7 +383,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
                 max=i.weight;
         }
         return max;
-        }
+    }
 
 
 
@@ -453,19 +448,24 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     public static void main(String[]args){
         ParseToGraph pd = new ParseToGraph();
         try {
-            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\10000Nodes.json");
+            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
             System.out.println();
         }
-        MyGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
+        DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
-        long a = System.currentTimeMillis();
-        System.out.println(algo.center());
-        System.out.println(System.currentTimeMillis()-a);
-//        algo.init(g);
+        String f = g.toString();
+        algo.save("test");
+        algo.load("test");
+        String f1 = g.toString();
+        System.out.println(f.equals(f1));
+//        long a = System.currentTimeMillis();
+//        System.out.println(algo.center());
+//        System.out.println(System.currentTimeMillis()-a);
+////        algo.init(g);
 ////        System.out.println(g.toStringEdges());
 //       // System.out.println(algo.center().toString());
 ////        System.out.println(g.toStringNodes());
