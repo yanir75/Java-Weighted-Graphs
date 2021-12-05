@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Algorithms implements DirectedWeightedGraphAlgorithms {
-    private MyGraph graph;
+    private DirectedWeightedGraph graph;
     private double minWeight = Double.MAX_VALUE;
     private List<NodeData> path;
     private int curr_src = -1;
@@ -306,111 +306,94 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
 
-    /**
-     * I don't want to brag or anything. But I copied from my own github
-     * https://github.com/yanir75/Assignment-C-1/blob/main/my_mat.c
-     * This function uses floyed algorithm to find the center.
-     * Center vertex is defined as the vertex with the shortest max distance from all the vertexes
-     * Shortest max distance means take all the distances of the vertex take its maximum then the vertex whose maximum is the lowest is the center.
-     * @return
-     */
     @Override
     public NodeData center() {
-        if(!isConnected())
-            return null;
-        HashMap<Integer,Distance> cen = new HashMap<>();
-        Iterator<EdgeData> iter = graph.edgeIter();
-
-        while (iter.hasNext()){
-            EdgeData e = iter.next();
-            cen.put(e.getSrc(),new Distance(e.getSrc(),e.getDest(),e.getWeight()));
-        }
-        Iterator<NodeData> iter1 = graph.nodeIter();
-        Iterator<NodeData> iter2 = graph.nodeIter();
-        Iterator<NodeData> iter3 = graph.nodeIter();
-
-        while (iter1.hasNext())
-        {
-            NodeData n1=iter1.next();
-            while (iter2.hasNext())
+            Iterator<NodeData> iter = graph.nodeIter();
+            double max = Double.MAX_VALUE;
+            int id = 0;
+            while (iter.hasNext())
             {
-                NodeData n2=iter2.next();
-                while (iter3.hasNext())
-                {
-                        NodeData n3=iter3.next();
-
-                        setDist(n2,n3,cen,min(n2,n3,n1,cen));
+                int key = iter.next().getKey();
+                double weight = djikstra(key);
+                if(weight<max) {
+                    max = weight;
+                    id=key;
                 }
-                iter3 = graph.nodeIter();
             }
-            iter2 = graph.nodeIter();
-        }
-        iter1 = graph.nodeIter();
-        iter2 = graph.nodeIter();
-        double max = Double.MAX_VALUE;
-        NodeData bestNode;
-        if(iter1.hasNext())
-        bestNode= iter1.next();
-        else
-            return null;
-            while (iter2.hasNext())
-            {
-                NodeData n =iter2.next();
-                double maxDist = cen.get(n.getKey()).getMax();
-                if(max>maxDist){
-                    max=maxDist;
-                    bestNode=n;
-                }
-        }
-        return bestNode;
+            return graph.getNode(id);
+
     }
-    public double getDist(NodeData n,NodeData n1, HashMap<Integer,Distance>dist){
-        if(dist.containsKey(n.getKey()))
-        {Distance d = dist.get(n.getKey());
-        return d.getDist(n1.getKey());}
-        else{
-            return 0;
+    public class trio {
+        int from;
+        int to;
+        double weight;
+
+        public trio(int f,int t, double w){
+            from=f;
+            to=t;
+            weight=w;
         }
+
     }
-    public void setDist(NodeData n,NodeData n1, HashMap<Integer,Distance>dist,double distance){
-        try {
-            dist.get(n.getKey()).setDist(n1.getKey(), distance);
+    public class father {
+        int prev;
+        double weight;
+
+        public father(int t, double w){
+            prev=t;
+            weight=w;
         }
-        catch (Exception e){
-            dist.put(n.getKey(),new Distance(n.getKey(), n1.getKey(), distance));
-        }
+
     }
 
     /**
-     * first time i can say it copied from myself guys I am proud of it.
-     * (Netanel don't delete this)
-     * https://github.com/yanir75/Assignment-C-1/blob/main/my_mat.c
-     * @param i
-     * @param j
-     * @param k
-     * @param dist
+     *
+     * @param src
      * @return
      */
-    private double min(NodeData i, NodeData j, NodeData k,HashMap<Integer,Distance> dist) {
-        if(i==j)
-            return 0.0;
-        if(getDist(i,j,dist)==0 &&(getDist(i,k,dist)==0 || getDist(k,j,dist)==0))
-        {
-            return 0.0;
+    public double djikstra(int src){
+        HashMap<Integer,father> s = new HashMap<>();
+        PriorityQueue<trio> prio = new PriorityQueue<>((o1, o2) -> {
+            if (o1.weight == o2.weight)
+                return 0;
+            else if (o1.weight > o2.weight)
+                return 1;
+            else
+                return -1;
+        });
+        prio.add(new trio(src,src,0));
+        Iterator<NodeData> iter1 = graph.nodeIter();
+        while (iter1.hasNext())
+            iter1.next().setTag(0);
+        while (s.size()<graph.nodeSize() && !prio.isEmpty()) {
+            trio t = prio.poll();
+            int dest = t.to;
+            NodeData d = graph.getNode(dest);
+            if (d.getTag() != 1) {
+                Iterator<EdgeData> iter = graph.edgeIter(dest);
+                graph.getNode(dest).setTag(1);
+                s.put(dest,new father(src,t.weight));
+                while (iter.hasNext()) {
+                    EdgeData e = iter.next();
+                    src = e.getSrc();
+                    dest = e.getDest();
+                    double weight = t.weight+e.getWeight();
+                    prio.add(new trio(src,dest,weight));
+                }
+            }
         }
-        if(getDist(i,k,dist)==0|| getDist(k,j,dist)==0)
-            return getDist(i,j,dist);
-
-        if(getDist(i,j,dist) == 0)
-            return getDist(i,k,dist)+getDist(k,j,dist);
-
-        if(getDist(i,k,dist)+getDist(k,j,dist) < getDist(i,j,dist))
-            return getDist(i,k,dist)+getDist(k,j,dist);
-
-        return getDist(i,j,dist);
+        double max=0;
+        for (father i:s.values()){
+            if(i.weight>max)
+                max=i.weight;
+        }
+        return max;
+        }
 
 
-    }
+
+
+
 
     @Override
     public List<NodeData> tsp(List<NodeData> cities) {
@@ -470,7 +453,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     public static void main(String[]args){
         ParseToGraph pd = new ParseToGraph();
         try {
-            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\10000Nodes.json");
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
@@ -479,20 +462,24 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         MyGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
-//        System.out.println(g.toStringEdges());
-       // System.out.println(algo.center().toString());
-//        System.out.println(g.toStringNodes());
-//        System.out.println(algo.shortestPathDist(1,7));
-//        System.out.println(algo.shortestPath(1,7));
-//        System.out.println(algo.isConnected());
         long a = System.currentTimeMillis();
-        System.out.println(algo.isConnected());
-        long b = System.currentTimeMillis();
-        System.out.println(b-a);
-        algo.getGraph().addNode(new Node(500,500,500));
-        a=System.currentTimeMillis();
-        System.out.println(algo.isConnected());
-        b=System.currentTimeMillis();
-        System.out.println(b-a);
+        System.out.println(algo.center());
+        System.out.println(System.currentTimeMillis()-a);
+//        algo.init(g);
+////        System.out.println(g.toStringEdges());
+//       // System.out.println(algo.center().toString());
+////        System.out.println(g.toStringNodes());
+////        System.out.println(algo.shortestPathDist(1,7));
+////        System.out.println(algo.shortestPath(1,7));
+////        System.out.println(algo.isConnected());
+//        long a = System.currentTimeMillis();
+//        System.out.println(algo.isConnected());
+//        long b = System.currentTimeMillis();
+//        System.out.println(b-a);
+//        algo.getGraph().addNode(new Node(500,500,500));
+//        a=System.currentTimeMillis();
+//        System.out.println(algo.isConnected());
+//        b=System.currentTimeMillis();
+//        System.out.println(b-a);
     }
 }
