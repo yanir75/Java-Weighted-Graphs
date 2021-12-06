@@ -38,7 +38,7 @@ class MyGraphTest {
     DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.getEdges());
     {
         try {
-            ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\10000Nodes.json");
+            ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,16 @@ class MyGraphTest {
     DirectedWeightedGraph g4 = new MyGraph(ptg.getNodes(),ptg.getEdges());
     @Test
     void getNode() {
-        for(int i=0;i<17;i++){
+        getN(g,g2,g3,g4);
+    }
+    void getN(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            checkN(g);
+        }
+    }
+    void checkN(DirectedWeightedGraph g){
+        int max =maxNodeId(g);
+        for(int i=0;i<=max;i++){
             NodeData n = g.getNode(i);
             assertEquals(n.getKey(),i);
         }
@@ -54,8 +63,17 @@ class MyGraphTest {
 
     @Test
     void getEdge() {
-        for(int i=0;i<17;i++){
-            for(int j=0;j<17;j++) {
+        getE(g,g2,g3,g4);
+    }
+    void getE(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            checkE(g);
+        }
+    }
+    void checkE(DirectedWeightedGraph g){
+        int max =maxNodeId(g);
+        for(int i=0;i<=max;i++){
+            for(int j=0;j<=max;j++) {
                 EdgeData e = g.getEdge(i,j);
                 if(e!=null) {
                     assertEquals(e.getSrc(), i);
@@ -65,17 +83,26 @@ class MyGraphTest {
         }
     }
 
-
     @Test
     void connect() {
-        for(int i=0;i<17;i++){
-            for(int j=0;j<17;j++) {
+        getCon(g,g2,g3,g4);
+
+    }
+    void getCon(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            checkCon(g);
+        }
+    }
+    void checkCon(DirectedWeightedGraph g){
+        int max =maxNodeId(g);
+        for(int i=0;i<=max;i++){
+            for(int j=0;j<=max;j++) {
                 g.connect(i,j,1);
 
-                }
             }
-        for(int i=0;i<17;i++){
-            for(int j=0;j<17;j++) {
+        }
+        for(int i=0;i<=max;i++){
+            for(int j=0;j<=max;j++) {
                 EdgeData e = g.getEdge(i,j);
                     assertEquals(e.getSrc(), i);
                     assertEquals(e.getDest(), j);
@@ -152,12 +179,54 @@ class MyGraphTest {
 
     @Test
     void testEdgeIter() {
+        edge_nodeIT(g,g2,g3,g4);
     }
 
+    void edge_nodeIT(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            checkEdge_nodeIT(g);
+        }
+    }
+    public static void checkEdge_nodeIT(DirectedWeightedGraph g){
+        LinkedList<EdgeData> e = new LinkedList<>();
+            Iterator<NodeData> n = g.nodeIter();
+            while (n.hasNext())
+            {
+                Iterator<EdgeData> edges = g.edgeIter(n.next().getKey());
+                while (edges.hasNext()){
+                    e.add(edges.next());
+                }
+            }
+        Iterator<EdgeData> edges = g.edgeIter();
+            while (edges.hasNext()){
+                assertTrue(e.contains(edges.next()));
+            }
+            assertTrue(e.size()==g.edgeSize());
+
+    }
     @Test
     void removeNode() {
+        remove(g,g2,g3,g4);
     }
-
+    void remove(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            remover(g);
+        }
+    }
+    void remover(DirectedWeightedGraph g) {
+        int max = maxNodeId(g);
+        for(int i=0;i<=max;i++){
+            if(g.getNode(i)!=null){
+                g.removeNode(i);
+                assertTrue(g.getNode(i)==null);
+                Iterator<EdgeData> e = g.edgeIter();
+                while (e.hasNext()) {
+                    EdgeData k = e.next();
+                    assertFalse(k.getSrc() == i || k.getDest()==i,k.toString()+i);
+                }
+            }
+        }
+    }
     @Test
     void removeEdge() {
     }
