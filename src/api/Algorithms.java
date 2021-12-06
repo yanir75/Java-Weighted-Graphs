@@ -69,15 +69,21 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * @param visited hashmap of the visitor vertexes
      * @param gra on which graph to perform it
      */
-    private void DFS(int key, HashMap<Integer, Boolean> visited, DirectedWeightedGraph gra) {
+    private void DFS(Queue<Integer> keys,int key, HashSet<Integer> visited, DirectedWeightedGraph gra) {
         // mark current node as visited
-        visited.replace(key, true);
+        while(!keys.isEmpty() && visited.size()!=gra.nodeSize())
+        {
+            visit(keys,keys.poll(),visited,gra);
+        }
+    }
+    private void visit(Queue keys,int key, HashSet<Integer> visited, DirectedWeightedGraph gra){
+        visited.add(key);
         Iterator<EdgeData> iter = gra.edgeIter(key);
         // do for every edge (v, u)
         while (iter.hasNext()) {
             int dest = iter.next().getDest();
-            if (!visited.get(dest)) {
-                DFS(dest, visited, gra);
+            if (!visited.contains(dest)) {
+                keys.add(dest);
             }
         }
     }
@@ -112,44 +118,38 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * @return
      */
     private boolean isStronglyConnected() {
-        HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();
-
+        HashSet<Integer> visited = new HashSet<>();
+        Queue<Integer> keys = new LinkedList<Integer>();
         int key = -1;
         Iterator<NodeData> iter = graph.nodeIter();
-        while (iter.hasNext()) {
+        if (iter.hasNext()) {
             key = iter.next().getKey();
-            visited.put(key, false);
         }
         if (key == -1)
             return false;
-
+        keys.add(key);
         // run a DFS starting at `v`
-        this.DFS(key, visited, graph);
+        this.DFS(keys,key, visited, graph);
 
         // If DFS traversal doesn't visit all vertices,
         // then the graph is not strongly connected
-        for (int i : visited.keySet()) {
-            if (!visited.get(i))
-                return false;
-            else
-                visited.replace(i, false);
-        }
-
+        if(visited.size()!=graph.nodeSize())
+            return false;
+        visited = new HashSet<>();
 
         // Reverse the direction of all edges in the directed graph
         DirectedWeightedGraph g = this.reverse();
-
         // create a graph from reversed edges
 
         // Again run a DFS starting at `v`
-        DFS(key, visited, g);
+        keys = new LinkedList<Integer>();
+        keys.add(key);
+        DFS(keys,key, visited, g);
 
         // If DFS traversal doesn't visit all vertices,
         // then the graph is not strongly connected
-        for (int i : visited.keySet()) {
-            if (!visited.get(i))
-                return false;
-        }
+        if(visited.size()!=graph.nodeSize())
+            return false;
         // if a graph "passes" both DFSs, it is strongly connected
         return true;
     }
@@ -448,7 +448,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     public static void main(String[]args){
         ParseToGraph pd = new ParseToGraph();
         try {
-            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\10000Nodes.json");
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
@@ -457,11 +457,12 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
-        String f = g.toString();
-        algo.save("test");
-        algo.load("test");
-        String f1 = g.toString();
-        System.out.println(f.equals(f1));
+        System.out.println(algo.isConnected());
+//        String f = g.toString();
+//        algo.save("test");
+//        algo.load("test");
+//        String f1 = g.toString();
+//        System.out.println(f.equals(f1));
 //        long a = System.currentTimeMillis();
 //        System.out.println(algo.center());
 //        System.out.println(System.currentTimeMillis()-a);
