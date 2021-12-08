@@ -282,7 +282,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             double childWeight = child.getWeight();
             if(parentWeight + edgeWeight < childWeight){
                 child.setWeight(parentWeight + edgeWeight);
-                setFather(child, parent.getId());
+                setFather(child, parent.getKey());
             }
             nodes.add(child);
         }
@@ -424,7 +424,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     public HashMap<Integer,father> djikstra_path(int src,int des) {
         HashMap<Integer, father> s = new HashMap<>();
-//        HashSet<Integer> s = new HashSet<>();
         PriorityQueue<trio> prio = new PriorityQueue<>((o1, o2) -> {
             if (o1.weight == o2.weight)
                 return 0;
@@ -434,17 +433,11 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
                 return -1;
         });
         prio.add(new trio(src, src, 0));
-//        while (iter1.hasNext())
-//            iter1.next().setTag(0);
         while (s.size() < graph.nodeSize() && !prio.isEmpty()) {
             trio t = prio.poll();
             int dest = t.to;
-//            NodeData d = graph.getNode(dest);
-//            if (d.getTag() != 1) {
             if (!s.containsKey(dest)) {
                 Iterator<EdgeData> iter = graph.edgeIter(dest);
-//                s.add(dest);
-//                graph.getNode(dest).setTag(1);
                 s.put(dest, new father(t.from, t.weight));
                 if (s.containsKey(des)) {
                     return s;
@@ -528,11 +521,9 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             System.out.println();
         }
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
-        Iterator<NodeData> iter = g.nodeIter();
-        iter.next();
-        iter.remove();
-//        DirectedWeightedGraphAlgorithms algo = new Algorithms();
-//        algo.init(g);
+        DirectedWeightedGraphAlgorithms algo = new Algorithms();
+        algo.init(g);
+//        algo.save("wow");
 //        long b = System.currentTimeMillis();
 //        System.out.println(algo.center());
 //        System.out.println(System.currentTimeMillis()-b);

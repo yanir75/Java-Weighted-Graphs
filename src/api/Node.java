@@ -69,9 +69,9 @@ public class Node implements NodeData {
 //        return father;
 //    }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
 //    public boolean isBlack() {
 //        return black;
@@ -127,9 +127,11 @@ public class Node implements NodeData {
      * @param e - new Edge to add to this Node.
      */
     public void addEdge(Edge e) {
-        String key = e.getSrc() +"-"+ e.getDest();
-        if (!this.Edges.containsKey(key)) {
-            this.Edges.put(key, e);
+        if(e.getSrc()==this.getKey()) {
+            String key = e.getSrc() + "-" + e.getDest();
+            if (!this.Edges.containsKey(key)) {
+                this.Edges.put(key, e);
+            }
         }
     }
 
