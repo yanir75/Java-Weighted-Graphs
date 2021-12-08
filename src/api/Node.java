@@ -1,12 +1,14 @@
 package api;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 public class Node implements NodeData {
     // edgeData or edges we will decide
     private final HashMap<String, Edge> Edges = new HashMap<>();
+    private final HashSet<Integer> inEdges = new HashSet<>();
     private int id = -1;
     private GeoLocation location;
     private double weight;
@@ -33,6 +35,12 @@ public class Node implements NodeData {
             this.Edges.put(key, new Edge(e));
         }
 
+    }
+    public void addInEdge(int key){
+        inEdges.add(key);
+    }
+    public HashSet<Integer> inEdges(){
+        return inEdges;
     }
 
     public Node copy() {

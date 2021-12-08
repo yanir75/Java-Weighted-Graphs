@@ -360,6 +360,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         Iterator<NodeData> iter1 = graph.nodeIter();
         while (iter1.hasNext())
             iter1.next().setTag(0);
+
         while (s.size()<graph.nodeSize() && !prio.isEmpty()) {
             trio t = prio.poll();
             int dest = t.to;

@@ -83,6 +83,7 @@ public class ParseToGraph {
                 Edge Edge = new Edge(src, dest, weight);
                 String key = src + "-" + dest;
                 nodes.get(src).addEdge(Edge);
+                nodes.get(dest).addInEdge(src);
                 edges.put(key, Edge);
             }
             return edges;

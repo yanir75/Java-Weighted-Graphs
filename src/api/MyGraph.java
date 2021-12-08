@@ -187,6 +187,9 @@ public class MyGraph implements DirectedWeightedGraph {
         for (String i : n.getEdges().keySet()) {
             edges.remove(i);
         }
+        for(int i :n.inEdges()){
+            edges.remove(i+"-"+n.getKey());
+        }
     }
 
     @Override
@@ -195,6 +198,7 @@ public class MyGraph implements DirectedWeightedGraph {
             throw new RuntimeException("edge does not exist");
         String key = src +"-"+ dest;
         this.nodes.get(src).removeEdge(key);
+        this.nodes.get(dest).inEdges().remove(src);
         MC++;
         return this.edges.remove(key);
     }
