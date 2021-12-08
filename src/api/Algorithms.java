@@ -8,10 +8,6 @@ import java.util.*;
 
 public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private DirectedWeightedGraph graph;
-    private double minWeight = Double.MAX_VALUE;
-    private List<NodeData> path;
-    private int curr_src = -1;
-    private int curr_dest = -1;
     private int connected =-1;//-1 unknown, 0 no, 1 yes
     private int mc;
 
@@ -156,21 +152,11 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public double shortestPathDist(int src, int dest) {
-        /*if(this.curr_src == src && this.curr_dest == dest){
-            return this.minWeight;
-        }
-        findShortestPath(src, dest);
-        return this.minWeight;*/
         return djikstra(src,dest);
     }
 
     @Override
     public List<NodeData> shortestPath(int src, int dest) {
-//        if(this.curr_src == src && this.curr_dest == dest){
-//            return this.path;
-//        }
-//        findShortestPath(src, dest);
-//        return this.path;
         HashMap<Integer,father> s = djikstra_path(src,dest);
         if(s==null)
             return null;
@@ -183,138 +169,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             key = s.get(key).prev;
         }
         return path;
-    }
-
-    /**
-     * This method finds the shortest path between @src and @dest.<p>
-     * The shortest path is the path that has the minimum total weight from all other paths if there are.<p>
-     * The idea of this method is based on <b>Dijkstra Algorithm</b> (which uses BFS Algorithm).<p>
-     * The method is implemented with a PriorityQueue and the <b>key of the priority</b> is the weights of the
-     * Nodes by ascending order.<p>
-     * <b>Steps of the Algorithm:</b><ul>
-     * 1) initialize the PriorityQueue and the priority.<p>
-     * 2) add the @src Node to the queue.<p>
-     * 3) while the queue is not empty:<p>
-     * 4) poll() - remove the first Node and keep it in a temporary Node @currNode.<p>
-     * 5) if @currNode isn't null and @currNode has children and @currNode is "WHITE":<p>
-     * 5.1) call the updateNodes(nodes, currNode, children) method.
-     *      <li> @nodes = the Priority queue
-     *      <li> @currNode = the Node that is the father.
-     *      <li> @an array of all the children that @currNode has (as a keys of the Edges HashMap of @currNode).<p>
-     * 5.2) set the color of @currNode to be black -> so we won't add him again to the queue.<p>
-     * 6) go back to step <b>3</b>.<p>
-     * 7) check if we found a path.<p>
-     * 8) if found, load it to @this.path and set @this.minWeight to be the desired weight.<p>
-     * 9) call resetWeightsInfoFather() to resets weights/Info/Father.<p>
-     * @param src - the source Node that we start from.
-     * @param dest - the destination Node that we want to reach.
-     * @see   <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra Algorithm</a>
-     * @see   <a href="https://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first search(BFS) Algorithm</a>
-     */
-    private void findShortestPath(int src, int dest){
-        this.path = new ArrayList<>();
-        this.minWeight = Double.MAX_VALUE;
-        this.curr_dest = dest;
-        this.curr_src = src;
-        PriorityQueue<NodeData> nodes = new PriorityQueue<>((a,b)-> (int) (a.getWeight() - b.getWeight()));
-        Iterator<NodeData> iter = graph.nodeIter();
-        while (iter.hasNext()) {
-            NodeData node = iter.next();
-            if(node.getKey() != src){
-                node.setWeight(Double.MAX_VALUE);
-            }
-            else{
-                node.setWeight(0);
-                nodes.add(node);
-            }
-            node.setInfo("WHITE");
-        }
-        //STEPS:
-        // 1 -> while is not empty
-        while(!nodes.isEmpty()){
-            // 2 -> go to the first node, the one with the least weight
-            Node currNode = (Node) nodes.poll();
-            // 3 -> go over all his children(through Edges)
-            if(currNode != null && currNode.getEdges() != null && currNode.getInfo().equals("WHITE")) {
-                String[] children = currNode.getEdges().keySet().toArray(new String[0]);
-                // 4 -> update their info and the weight if needed.
-                updateNodes(nodes, currNode, children);
-                // 5 -> set node to be black
-                currNode.setInfo("BLACK");
-            }
-            // 6 -> go overt to 1.
-        }
-        // check if we found a path.
-        if(this.graph.getNode(dest) == null || this.graph.getNode(dest).getWeight() == Double.MAX_VALUE){
-            this.minWeight = -1;
-        }
-        else { // load the shortest path.
-            this.path = new ArrayList<>();
-            this.path.add(this.graph.getNode(dest));
-            while (this.path.get(0).getKey() != src) {
-                NodeData currNode = this.path.get(0);
-                this.path.add(0, this.graph.getNode(currNode.getTag()));
-            }
-            this.minWeight = this.graph.getNode(dest).getWeight();
-        }
-        resetWeightsInfoFather();
-    }
-
-
-
-    /**
-     * This method is being called by findShortestPath each time findShortestPath pops out a Node.<p>
-     * The purpose of this method is to update the weights of all the children Nodes and to update their father pointer.<p>
-     * It iterates through all the @keys(children) and updates only the Nodes that the update of the weight will
-     * be smaller than the original weight.<p>
-     * It updates the weight and the father of a Node.
-     * @param nodes - the Priority Queue that contains all the nodes that needs to be checked.
-     * @param parent - the Node that is a father of all the nodes in @keys.
-     * @param keys - an array of keys(Double) represents all the children of the @parent.
-     */
-    private void updateNodes(PriorityQueue<NodeData> nodes, Node parent, String[] keys){
-        double parentWeight = parent.getWeight();
-        for(String k: keys){
-            EdgeData currEdge = parent.getEdges().get(k);
-            double edgeWeight = currEdge.getWeight();
-            int dest = currEdge.getDest();
-            NodeData child = this.graph.getNode(dest);
-            double childWeight = child.getWeight();
-            if(parentWeight + edgeWeight < childWeight){
-                child.setWeight(parentWeight + edgeWeight);
-                setFather(child, parent.getKey());
-            }
-            nodes.add(child);
-        }
-    }
-
-
-    /**
-     * This method recevies NodaData @node and int @father and sets the Tag of @node to be @father.
-     * @param node - The NodeData that's need to be set.
-     * @param father - the id of the NodeData that represents the father.
-     */
-    private void setFather(NodeData node, int father){
-        node.setTag(father);
-    }
-
-
-    /**
-     * This method is activated after the ShortestPath method is finished.<p>
-     * It iterates through all the nodes of the graph and resets the data that ShortestPath changed.<p>
-     * The method resets:
-     * <li>The Weight of each node to -> very big number.
-     * <li>The Info of each node to -> "".
-     * <li>The father of each node to -> -1.
-     */
-    private void resetWeightsInfoFather(){
-        Iterator<NodeData> iter = this.graph.nodeIter();
-        while (iter.hasNext()) {
-            NodeData node = iter.next();
-            node.setWeight(Double.MAX_VALUE);
-            node.setInfo("");
-            setFather(node, -1);
-        }
     }
 
 
