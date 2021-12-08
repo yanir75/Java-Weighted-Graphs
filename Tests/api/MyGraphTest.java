@@ -502,7 +502,7 @@ class MyGraphTest {
             }
         }
         DirectedWeightedGraph g4 = new MyGraph(ptg.getNodes(),ptg.getEdges());
-        removeE(g);
+        removeE(g,g2,g3,g4);
     }
     void removeE(DirectedWeightedGraph ... graphes) {
         for (DirectedWeightedGraph g: graphes) {
@@ -510,31 +510,338 @@ class MyGraphTest {
         }
     }
     void removerE(DirectedWeightedGraph g) {
-
+        Iterator<EdgeData> iter = g.edgeIter();
+        while (iter.hasNext()){
+            iter.next();
+            iter.remove();
+        }
+        assertTrue(g.edgeSize()==0);
+        Iterator<NodeData> iter1 = g.nodeIter();
+        while (iter1.hasNext()){
+            iter = g.edgeIter(iter1.next().getKey());
+            assertFalse(iter.hasNext());
+        }
     }
 
     @Test
     void nodeSize() {
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g4 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        countN(g,g2,g3,g4);
+    }
+    void countN(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            count_nodes(g);
+        }
+    }
+    void count_nodes(DirectedWeightedGraph g) {
+        int count =0;
+        Iterator<NodeData> iter = g.nodeIter();
+        while (iter.hasNext()){
+            iter.next();
+            count++;
+        }
+        assertTrue(count==g.nodeSize());
+
     }
 
     @Test
     void edgeSize() {
-    }
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
 
+        DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g4 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        countE(g,g2,g3,g4);
+    }
+    void countE(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            count_edges(g);
+        }
+    }
+    void count_edges(DirectedWeightedGraph g) {
+        int count =0;
+        Iterator<EdgeData> iter = g.edgeIter();
+        while (iter.hasNext()){
+            iter.next();
+            count++;
+        }
+        assertTrue(count==g.edgeSize());
+
+    }
     @Test
     void getMC() {
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g4 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        MC_check(g,g2,g3,g4);
+    }
+    void MC_check(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            change_MC(g);
+        }
+    }
+    void change_MC(DirectedWeightedGraph g) {
+        int m = g.getMC();
+        Iterator<EdgeData> iter = g.edgeIter();
+        if(iter.hasNext()){
+            iter.next();
+            iter.remove();
+        }
+        assertTrue(g.getMC()==m+1);
+        if(iter.hasNext()){
+            g.removeNode(iter.next().getSrc());
+        }
+        assertTrue(g.getMC()==m+2);
+        iter = g.edgeIter();
+        if(iter.hasNext()){
+            EdgeData e = iter.next();
+            g.removeEdge(e.getSrc(),e.getDest());
+        }
+        assertTrue(g.getMC()==m+3);
+        Iterator<NodeData> nodeIt = g.nodeIter();
+        if(nodeIt.hasNext()){
+            nodeIt.next();
+            nodeIt.remove();
+        }
+        assertTrue(g.getMC()==m+4);
+        g.addNode(new Node(-2,-2,-2));
+        assertTrue(g.getMC()==m+5);
+        g.connect(-2,0,4);
+        assertTrue(g.getMC()==m+6);
+
     }
 
     @Test
     void addNode() {
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+       add_n(g,g2,g3,g4);
+    }
+    void add_n(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            add_Node(g);
+        }
+    }
+    void add_Node(DirectedWeightedGraph g) {
+        g.addNode(new Node(-2,-2,-2));
+        NodeData n =g.getNode(-2);
+        assertTrue(n!=null);
+
+    }
+    @Test
+    void iterator_remnove() {
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.getEdges());
+        {
+            try {
+                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        it_remover(g,g2,g3,g4);
+    }
+    void it_remover(DirectedWeightedGraph ... graphes) {
+        for (DirectedWeightedGraph g: graphes) {
+            iter_remove(g);
+        }
+    }
+    void iter_remove(DirectedWeightedGraph g) {
+
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<EdgeData> iter =g.edgeIter();
+            g.addNode(new Node(0,0,-2));
+            iter.hasNext();
+        });
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<EdgeData> iter =g.edgeIter();
+            g.addNode(new Node(0,0,-3));
+            iter.remove();
+        });
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<EdgeData> iter =g.edgeIter();
+            g.addNode(new Node(0,0,-4));
+            iter.next();
+        });
+
+
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<NodeData> iter =g.nodeIter();
+            g.addNode(new Node(0,0,-10));
+            iter.hasNext();
+        });
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<NodeData> iter =g.nodeIter();
+            g.addNode(new Node(0,0,-15));
+            iter.remove();
+        });
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<NodeData> iter =g.nodeIter();
+            g.addNode(new Node(0,0,-30));
+            iter.next();
+        });
+
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<EdgeData> iter =g.edgeIter(0);
+            g.addNode(new Node(0,0,-100));
+            iter.hasNext();
+        });
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<EdgeData> iter =g.edgeIter(0);
+            g.addNode(new Node(0,0,-333));
+            iter.remove();
+        });
+        assertThrows(RuntimeException.class, ()->{
+            Iterator<EdgeData> iter =g.edgeIter(0);
+            g.addNode(new Node(0,0,-444));
+            iter.next();
+        });
+
+
     }
 
-    @Test
-    void getNodes() {
-    }
-
-    @Test
-    void getEdges() {
-    }
 
 }

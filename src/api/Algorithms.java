@@ -50,9 +50,9 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     public boolean isConnected() {
         if(mc==graph.getMC() && connected!=-1)
         {if(connected==1)
-                return true;
-            else
-                return false;
+            return true;
+        else
+            return false;
         }
         mc= graph.getMC();
         boolean con = isStronglyConnected();
@@ -65,11 +65,10 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     /**
      * This is a simple DFS algorithm on the graph
-     * @param key Starting vertex
      * @param visited hashmap of the visitor vertexes
      * @param gra on which graph to perform it
      */
-    private void DFS(Queue<Integer> keys,int key, HashSet<Integer> visited, DirectedWeightedGraph gra) {
+    private void DFS(Queue<Integer> keys, HashSet<Integer> visited, DirectedWeightedGraph gra) {
         // mark current node as visited
         while(!keys.isEmpty() && visited.size()!=gra.nodeSize())
         {
@@ -129,7 +128,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             return false;
         keys.add(key);
         // run a DFS starting at `v`
-        this.DFS(keys,key, visited, graph);
+        this.DFS(keys, visited, graph);
 
         // If DFS traversal doesn't visit all vertices,
         // then the graph is not strongly connected
@@ -144,7 +143,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         // Again run a DFS starting at `v`
         keys = new LinkedList<Integer>();
         keys.add(key);
-        DFS(keys,key, visited, g);
+        DFS(keys, visited, g);
 
         // If DFS traversal doesn't visit all vertices,
         // then the graph is not strongly connected
@@ -157,20 +156,33 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public double shortestPathDist(int src, int dest) {
-        if(this.curr_src == src && this.curr_dest == dest){
+        /*if(this.curr_src == src && this.curr_dest == dest){
             return this.minWeight;
         }
         findShortestPath(src, dest);
-        return this.minWeight;
+        return this.minWeight;*/
+        return djikstra(src,dest);
     }
 
     @Override
     public List<NodeData> shortestPath(int src, int dest) {
-        if(this.curr_src == src && this.curr_dest == dest){
-            return this.path;
+//        if(this.curr_src == src && this.curr_dest == dest){
+//            return this.path;
+//        }
+//        findShortestPath(src, dest);
+//        return this.path;
+        HashMap<Integer,father> s = djikstra_path(src,dest);
+        if(s==null)
+            return null;
+        List<NodeData>  path = new LinkedList<>();
+        path.add(graph.getNode(dest));
+        NodeData n = graph.getNode(src);
+        int key = s.get(dest).prev;
+        while (path.get(0)!=n){
+            path.add(0,graph.getNode(key));
+            key = s.get(key).prev;
         }
-        findShortestPath(src, dest);
-        return this.path;
+        return path;
     }
 
     /**
@@ -308,19 +320,19 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     @Override
     public NodeData center() {
-            Iterator<NodeData> iter = graph.nodeIter();
-            double max = Double.MAX_VALUE;
-            int id = 0;
-            while (iter.hasNext())
-            {
-                int key = iter.next().getKey();
-                double weight = djikstra(key);
-                if(weight<max) {
-                    max = weight;
-                    id=key;
-                }
+        Iterator<NodeData> iter = graph.nodeIter();
+        double max = Double.MAX_VALUE;
+        int id = 0;
+        while (iter.hasNext())
+        {
+            int key = iter.next().getKey();
+            double weight = djikstra(key);
+            if(weight<max) {
+                max = weight;
+                id=key;
             }
-            return graph.getNode(id);
+        }
+        return graph.getNode(id);
 
     }
     public class trio {
@@ -347,7 +359,40 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     public double djikstra(int src){
-        HashMap<Integer,father> s = new HashMap<>();
+        HashSet<Integer> g =new HashSet<>();
+        PriorityQueue<father> prio = new PriorityQueue<>((o1, o2) -> {
+            if (o1.weight == o2.weight)
+                return 0;
+            else if (o1.weight > o2.weight)
+                return 1;
+            else
+                return -1;
+        });
+        prio.add(new father(src,0));
+        double max =0;
+        while (g.size()<graph.nodeSize() && !prio.isEmpty()) {
+            father f = prio.poll();
+            int dest = f.prev;
+            if(!g.contains(dest)){
+                Iterator<EdgeData> iter = graph.edgeIter(dest);
+                g.add(dest);
+                if(f.weight> max){
+                    max=f.weight;
+                }
+                while (iter.hasNext()) {
+                    EdgeData e = iter.next();
+                    double weight =f.weight+ e.getWeight();
+                    prio.add(new father(e.getDest(),weight));
+                }
+            }
+        }
+        return max;
+    }
+
+
+    public double djikstra(int src,int des) {
+        HashMap<Integer, father> s = new HashMap<>();
+//        HashSet<Integer> s = new HashSet<>();
         PriorityQueue<trio> prio = new PriorityQueue<>((o1, o2) -> {
             if (o1.weight == o2.weight)
                 return 0;
@@ -356,37 +401,64 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             else
                 return -1;
         });
-        prio.add(new trio(src,src,0));
-        Iterator<NodeData> iter1 = graph.nodeIter();
-        while (iter1.hasNext())
-            iter1.next().setTag(0);
-
-        while (s.size()<graph.nodeSize() && !prio.isEmpty()) {
+        prio.add(new trio(src, src, 0));
+        while (s.size() < graph.nodeSize() && !prio.isEmpty()) {
             trio t = prio.poll();
             int dest = t.to;
-            NodeData d = graph.getNode(dest);
-            if (d.getTag() != 1) {
+            if (!s.containsKey(dest)) {
                 Iterator<EdgeData> iter = graph.edgeIter(dest);
-                graph.getNode(dest).setTag(1);
-                s.put(dest,new father(src,t.weight));
+                s.put(dest, new father(t.from, t.weight));
+                if (s.containsKey(des)) {
+                    return t.weight;
+                }
                 while (iter.hasNext()) {
                     EdgeData e = iter.next();
-                    src = e.getSrc();
-                    dest = e.getDest();
-                    double weight = t.weight+e.getWeight();
-                    prio.add(new trio(src,dest,weight));
+                    double weight = t.weight+ e.getWeight();
+                    prio.add(new trio(e.getSrc(), e.getDest(), weight));
                 }
             }
         }
-        double max=0;
-        for (father i:s.values()){
-            if(i.weight>max)
-                max=i.weight;
-        }
-        return max;
+        return -1;
     }
 
 
+    public HashMap<Integer,father> djikstra_path(int src,int des) {
+        HashMap<Integer, father> s = new HashMap<>();
+//        HashSet<Integer> s = new HashSet<>();
+        PriorityQueue<trio> prio = new PriorityQueue<>((o1, o2) -> {
+            if (o1.weight == o2.weight)
+                return 0;
+            else if (o1.weight > o2.weight)
+                return 1;
+            else
+                return -1;
+        });
+        prio.add(new trio(src, src, 0));
+//        while (iter1.hasNext())
+//            iter1.next().setTag(0);
+        while (s.size() < graph.nodeSize() && !prio.isEmpty()) {
+            trio t = prio.poll();
+            int dest = t.to;
+//            NodeData d = graph.getNode(dest);
+//            if (d.getTag() != 1) {
+            if (!s.containsKey(dest)) {
+                Iterator<EdgeData> iter = graph.edgeIter(dest);
+//                s.add(dest);
+//                graph.getNode(dest).setTag(1);
+                s.put(dest, new father(t.from, t.weight));
+                if (s.containsKey(des)) {
+                    return s;
+                }
+                double weight = t.weight;
+                while (iter.hasNext()) {
+                    EdgeData e = iter.next();
+                    weight += e.getWeight();
+                    prio.add(new trio(e.getSrc(), e.getDest(), weight));
+                }
+            }
+        }
+        return null;
+    }
 
 
 
@@ -449,16 +521,21 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     public static void main(String[]args){
         ParseToGraph pd = new ParseToGraph();
         try {
-            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\10000Nodes.json");
+            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
             System.out.println();
         }
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.getEdges());
-        DirectedWeightedGraphAlgorithms algo = new Algorithms();
-        algo.init(g);
-        System.out.println(algo.isConnected());
+        Iterator<NodeData> iter = g.nodeIter();
+        iter.next();
+        iter.remove();
+//        DirectedWeightedGraphAlgorithms algo = new Algorithms();
+//        algo.init(g);
+//        long b = System.currentTimeMillis();
+//        System.out.println(algo.center());
+//        System.out.println(System.currentTimeMillis()-b);
 //        String f = g.toString();
 //        algo.save("test");
 //        algo.load("test");
@@ -472,7 +549,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 //       // System.out.println(algo.center().toString());
 ////        System.out.println(g.toStringNodes());
 ////        System.out.println(algo.shortestPathDist(1,7));
-////        System.out.println(algo.shortestPath(1,7));
 ////        System.out.println(algo.isConnected());
 //        long a = System.currentTimeMillis();
 //        System.out.println(algo.isConnected());

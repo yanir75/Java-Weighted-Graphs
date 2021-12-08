@@ -11,6 +11,9 @@ public class Edge implements EdgeData{
     // need to fill
 
     public Edge(int src, int dest, double weight){
+        if(weight<=0){
+            throw new RuntimeException("weight must be positive");
+        }
         this.src = src;
         this.dest = dest;
         this.weight = weight;
