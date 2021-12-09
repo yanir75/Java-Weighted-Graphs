@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface NodeData {
+
+	+ int getKey();
+	+ GeoLocation getLocation();
+	+ void setLocation(GeoLocation p);
+	+ double getWeight();
+	+ void setWeight(double w);
+	+ String getInfo();
+	+ void setInfo(String s);
+	+int getTag();
+	+void setTag(int t);
+}
+
+interface EdgeData {
+
+	+ int getSrc();
+	+ int getDest();
+	+ double getWeight();
+	+ String getInfo();
+	+ void setInfo(String s);
+	+ int getTag();
+	+ void setTag(int t);
+}
+interface GeoLocation {
+    + double x();
+    + double y();
+    + double z();
+    + double distance(GeoLocation g);
+}
+interface DirectedWeightedGraph {
++ NodeData getNode(int key);
++ EdgeData getEdge(int src, int dest);
+	+ void addNode(NodeData n);
+	+ void connect(int src, int dest, double w);
+	+ Iterator<NodeData> nodeIter();
+	+ Iterator<EdgeData> edgeIter();
+	+ Iterator<EdgeData> edgeIter(int node_id);
+	+ NodeData removeNode(int key);
+	+ EdgeData removeEdge(int src, int dest);
+	+ int nodeSize();
+	+ int edgeSize();
+	+ int getMC();
+}
+interface DirectedWeightedGraphAlgorithms {
+    + void init(DirectedWeightedGraph g);
+    + DirectedWeightedGraph getGraph();
+    + DirectedWeightedGraph copy();
+    + boolean isConnected();
+    + double shortestPathDist(int src, int dest);
+    + List<NodeData> shortestPath(int src, int dest);
+    + NodeData center();
+    +List<NodeData> tsp(List<NodeData> cities);
+    + boolean save(String file);
+    + boolean load(String file);
+}
+class Ex2 {
++ static DirectedWeightedGraph getGrapg(String json_file) {
++ static DirectedWeightedGraphAlgorithms getGrapgAlgo(String json_file) {
++ static void runGUI(String json_file) {
+
+    }
+NodeData <-- EdgeData
+DirectedWeightedGraph <-- NodeData
+NodeData <-- GeoLocation
+DirectedWeightedGraphAlgorithms <-- DirectedWeightedGraph
+Ex2 <-- DirectedWeightedGraphAlgorithms
+Ex2 <-- DirectedWeightedGraph
+@enduml
