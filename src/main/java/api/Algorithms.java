@@ -340,7 +340,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             first=key;
         }
         l.add(graph.getNode(first));
-     return null;
+     return l;
     }
 
     /**
@@ -356,22 +356,23 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
-                System.out.println("File already exists.");
+                System.err.println("File already exists.");
                 return false;
             }
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.err.println("An error occurred.");
             e.printStackTrace();
             return false;
         }
         try {
             FileWriter myWriter = new FileWriter(file);
             myWriter.write(graph.toString());
+            myWriter.flush();
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
             return true;
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.err.println("An error occurred.");
             e.printStackTrace();
             return false;
         }
