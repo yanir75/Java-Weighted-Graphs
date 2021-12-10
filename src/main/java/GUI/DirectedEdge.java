@@ -14,9 +14,9 @@ public class DirectedEdge extends Edge implements Shape  {
         super(src, dest, weight);
     }
 
-    public DirectedEdge(EdgeData e) {
-        super(e);
-    }
+//    public DirectedEdge(EdgeData e) {
+//        super(e);
+//    }
 
     public Rectangle getBounds() {
         return null;

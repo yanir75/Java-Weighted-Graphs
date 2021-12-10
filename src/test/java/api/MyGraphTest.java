@@ -16,7 +16,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -25,7 +25,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -33,7 +33,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -41,7 +41,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -68,7 +68,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -77,7 +77,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -85,7 +85,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -93,7 +93,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -125,7 +125,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -134,7 +134,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -142,7 +142,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -150,7 +150,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -188,7 +188,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -197,7 +197,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -205,7 +205,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -213,7 +213,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -249,7 +249,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -258,7 +258,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -266,7 +266,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -274,7 +274,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -324,7 +324,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -333,7 +333,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -341,7 +341,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -349,7 +349,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -386,7 +386,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -395,7 +395,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -403,7 +403,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -411,7 +411,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -445,7 +445,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -454,7 +454,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -462,7 +462,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -470,7 +470,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -503,7 +503,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -512,7 +512,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -520,7 +520,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -528,7 +528,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -558,7 +558,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -567,7 +567,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -575,7 +575,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -583,7 +583,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -612,7 +612,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -621,7 +621,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -629,7 +629,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -637,7 +637,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -686,7 +686,7 @@ class MyGraphTest {
         ParseToGraph ptg = new ParseToGraph();
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -695,7 +695,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -703,7 +703,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -711,7 +711,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -736,7 +736,7 @@ class MyGraphTest {
 
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G1.json");
+                ptg = new ParseToGraph("data/G1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -745,7 +745,7 @@ class MyGraphTest {
         DirectedWeightedGraph g = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G2.json");
+                ptg = new ParseToGraph("data/G2.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -753,7 +753,7 @@ class MyGraphTest {
         DirectedWeightedGraph g2 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\G3.json");
+                ptg = new ParseToGraph("data/G3.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -761,7 +761,7 @@ class MyGraphTest {
         DirectedWeightedGraph g3 = new MyGraph(ptg.getNodes(),ptg.size);
         {
             try {
-                ptg = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\Weighted_Graph_Algorithms\\data\\Test1.json");
+                ptg = new ParseToGraph("data/Test1.json");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

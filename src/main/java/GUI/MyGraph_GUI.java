@@ -1,6 +1,7 @@
 package GUI;
+import api.*;
 
-import api.MyGraph;
+
 
 
 public class MyGraph_GUI{

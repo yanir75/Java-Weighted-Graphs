@@ -15,7 +15,7 @@ class AlgorithmsTest {
     @Test
     void init() {
         DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
-        DirectedWeightedGraphAlgorithms algo = new Algorithms();
+        DirectedWeightedGraphAlgorithms algo = new api.Algorithms();
         algo.init(g);
         assertNotNull(algo.getGraph());
     }
@@ -115,7 +115,7 @@ class AlgorithmsTest {
     @Test
     void tsp() {
         Algorithms g = new Algorithms();
-        g.load("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs1\\data\\G1.json");
+        g.load("data/G1.json");
         List<NodeData> l = new LinkedList<>();
         l.add(g.getGraph().getNode(6));
         l.add(g.getGraph().getNode(8));
