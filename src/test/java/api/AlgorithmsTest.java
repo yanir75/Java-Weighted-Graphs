@@ -1,15 +1,15 @@
 package api;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class AlgorithmsTest {
 
     @Test
@@ -53,7 +53,7 @@ class AlgorithmsTest {
 
     @Test
     void isConnected() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(100000);
+        DirectedWeightedGraph g = new graphGen().generate_connected_graph(1000000);
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
         assertTrue(algo.isConnected());
@@ -114,17 +114,42 @@ class AlgorithmsTest {
 
     @Test
     void tsp() {
+        Algorithms g = new Algorithms();
+        g.load("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs1\\data\\G1.json");
+        List<NodeData> l = new LinkedList<>();
+        l.add(g.getGraph().getNode(6));
+        l.add(g.getGraph().getNode(8));
+        l.add(g.getGraph().getNode(7));
+        l=g.tsp(l);
+        for(int i =6;i<=8;i++){
+            assertEquals(l.remove(0).getKey(),i);
+        }
     }
 
+    static DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
+    static DirectedWeightedGraphAlgorithms algo = new Algorithms();
     @Test
-    void save_load() throws InterruptedException {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
-        DirectedWeightedGraphAlgorithms algo = new Algorithms();
+    @Order(1)
+    void save() {
         algo.init(g);
         algo.save("MyWeirdName");
+    }
+    @Test
+    @Order(2)
+    void load() {
         DirectedWeightedGraphAlgorithms algo1 = new Algorithms();
         algo1.load("MyWeirdName");
         assertEquals(algo1.getGraph().toString(),algo.getGraph().toString());
+    }
+    @AfterAll
+    public static void delete() {
+        File f = new File("MyWeirdName");
+        if(f.delete()){
+            System.out.println("deleted the file");
+        }
+        else {
+            System.err.println("The file was not deleted");
+        }
     }
 
 
