@@ -24,6 +24,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JMenu fileMenu;
     JMenu editMenu;
     JMenu algorithmsMenu;
+    JMenu viewMenu;
     JMenu helpMenu;
 
     // File Menu
@@ -45,9 +46,15 @@ public class MyFrame extends JFrame implements ActionListener {
     JMenuItem centerItem;
     JMenuItem TSPItem;
 
+    // View menu
+    JMenuItem FullScreenItem;
+    JMenuItem defaultItem;
+    JMenuItem customScaleItem;
+
     // Help menu
 
 
+    // Buttons
     JButton SP;
     JComboBox cmb;
     JTextField srcNode;
@@ -107,6 +114,7 @@ public class MyFrame extends JFrame implements ActionListener {
         fileMenu = new JMenu("File");
         editMenu = new JMenu("Edit");
         algorithmsMenu = new JMenu("Algorithms");
+        viewMenu = new JMenu("View");
         helpMenu = new JMenu("Help");
 
 
@@ -148,10 +156,10 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
         // Algorithms menu
-        isConnectedItem = new JMenuItem("isConnected                                    (Alt+A+I)");
-        shortestPath = new JMenuItem("Shortest Path(returns Weight)     (Alt+A+S)");
-        centerItem = new JMenuItem("Center                                             (Alt+A+C)");
-        TSPItem = new JMenuItem("TSP                                                  (Alt+A+T)");
+        isConnectedItem = new JMenuItem("isConnected        (Alt+A+I)");
+        shortestPath = new JMenuItem("Shortest Path      (Alt+A+S)");
+        centerItem = new JMenuItem("Center                  (Alt+A+C)");
+        TSPItem = new JMenuItem("TSP                       (Alt+A+T)");
 
         isConnectedItem.addActionListener(this);
         shortestPath.addActionListener(this);
@@ -164,6 +172,19 @@ public class MyFrame extends JFrame implements ActionListener {
         algorithmsMenu.add(TSPItem);
 
 
+        // View menu
+        FullScreenItem = new JMenuItem("Full Screen                    (Alt+V+F)");
+        defaultItem = new JMenuItem("Default Screen              (Alt+V+D)");
+        customScaleItem = new JMenuItem("Custom Screen              (Alt+V+C)");
+
+        FullScreenItem.addActionListener(this);
+        defaultItem.addActionListener(this);
+        customScaleItem.addActionListener(this);
+
+        viewMenu.add(FullScreenItem);
+        viewMenu.add(defaultItem);
+        viewMenu.add(customScaleItem);
+
         // Help menu
 
 
@@ -172,6 +193,7 @@ public class MyFrame extends JFrame implements ActionListener {
         menuBar.add(fileMenu);
         menuBar.add(editMenu);
         menuBar.add(algorithmsMenu);
+        menuBar.add(viewMenu);
         menuBar.add(helpMenu);
         this.setJMenuBar(menuBar);
     }
@@ -199,6 +221,12 @@ public class MyFrame extends JFrame implements ActionListener {
         shortestPath.setMnemonic(KeyEvent.VK_S); // w
         centerItem.setMnemonic(KeyEvent.VK_C); // c
         TSPItem.setMnemonic(KeyEvent.VK_T); // t
+
+        // Shortcuts for viewMenu.
+        viewMenu.setMnemonic(KeyEvent.VK_V); // Alt + v
+        FullScreenItem.setMnemonic(KeyEvent.VK_F); // f
+        defaultItem.setMnemonic(KeyEvent.VK_D); // d
+        customScaleItem.setMnemonic(KeyEvent.VK_C); // c
 
     }
 
