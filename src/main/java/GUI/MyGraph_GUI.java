@@ -22,7 +22,9 @@ public class MyGraph_GUI{
 
 
     public static void main(String[] args) throws Exception {
-        MyGraph_GUI g = new MyGraph_GUI(new MyGraph());
+        ParseToGraph pd = new ParseToGraph("data/G1.json");
+        MyGraph mg = new MyGraph(pd.getNodes());
+        MyGraph_GUI g2 = new MyGraph_GUI(mg);
 
     }
 }
