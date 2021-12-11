@@ -2,6 +2,7 @@ package GUI;
 
 import api.Algorithms;
 import api.MyGraph;
+import api.NodeData;
 import api.ParseToGraph;
 
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private JPanel buttonsPanel, outputPanel;
     private MyGraph graph;
     private Algorithms algo;
+    private NodeData center;
 
     JMenuBar menuBar;
     JMenu fileMenu;
@@ -62,12 +64,13 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton SAVE;
 
     public MyFrame(MyGraph g){
-        graph = g;
-        mainPanel = new MyPanel(g);
-        buttonsPanel = new JPanel();
-        outputPanel = new JPanel(new BorderLayout());
-        algo = mainPanel.graph;
-        this.add(mainPanel);
+        this.graph = g;
+        this.mainPanel = new MyPanel(g);
+        this.buttonsPanel = new JPanel();
+        this.outputPanel = new JPanel(new BorderLayout());
+        this.algo = this.mainPanel.getGraph();
+        this.center = null;
+        this.add(this.mainPanel);
         this.pack();
         initGUI();
         addButtonsAndText();
@@ -315,17 +318,42 @@ public class MyFrame extends JFrame implements ActionListener {
                     }
                 }
                 else{
+                    JOptionPane.showOptionDialog(null,
+                            "Wrong file!\nThis Program supports only Json files.",
+                            "WRONG FILE FORMAT",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.ERROR_MESSAGE,
+                            null,
+                            null,
+                            null);
                     System.out.println("This Program supports only Json files.");
                 }
             }
-
-
         }
+
         else if (saveItem.equals(event) || SAVE.equals(event)) {
-            System.out.println("Saved");
-
-
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.setCurrentDirectory(new File("."));
+            int approved = saveFile.showSaveDialog(null);
+            if (approved == JFileChooser.APPROVE_OPTION) {
+                if (saveFile.getSelectedFile().getAbsolutePath().endsWith(".json")) {
+                    String path = saveFile.getSelectedFile().getAbsolutePath();
+                    this.algo.save(path);
+                    System.out.println("The file: " + saveFile.getSelectedFile().getName() + ", was saved successfully");
+                } else {
+                    JOptionPane.showOptionDialog(null,
+                            "Wrong file!\nThis Program supports only Json files.",
+                            "WRONG FILE FORMAT",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.ERROR_MESSAGE,
+                            null,
+                            null,
+                            null);
+                    System.out.println("This Program supports only Json files.");
+                }
+            }
         }
+
         else if (clearItem.equals(event) || CLR.equals(event)) {
             try {
                 MyGraph g = new MyGraph();
@@ -340,10 +368,12 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
         }
+
         else if (exitItem.equals(event)) {
             System.out.println("Exiting");
             System.exit(0);
         }
+
         else if (addEdgeItem.equals(event) || AE.equals(event)) {
             JTextArea textArea= new JTextArea();
             textArea.setPreferredSize(new Dimension(100,100));
@@ -352,21 +382,37 @@ public class MyFrame extends JFrame implements ActionListener {
 //            this.graph.connect();
             System.out.println("Edge added");
         }
+
         else if (addNodeItem.equals(event) || AN.equals(event)) {
             System.out.println("Node added");
         }
+
         else if (removeEdgeItem.equals(event) || RE.equals(event)) {
             System.out.println("Edge removed");
         }
+
         else if (removeNodeItem.equals(event) || RN.equals(event)) {
             System.out.println("Node removed");
         }
+
         else if (connectNodesItem.equals(event)) {
             System.out.println("Nodes are now connected");
         }
+
         else if (isConnectedItem.equals(event) || IC.equals(event)) {
-            System.out.println(algo.isConnected());
+            boolean ans = algo.isConnected();
+            String output = ans? "This graph is strongly connected!" : "This graph is not strongly connected!";
+            JOptionPane.showOptionDialog(null,
+                    output,
+                    "IsConnected",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    null,
+                    null);
+            System.out.println(ans);
         }
+
         else if (shortestPath.equals(event) || SP.equals(event)) {
             int src = -1;
             int dest = -1;
@@ -380,7 +426,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     }
                     else{
                         JOptionPane.showOptionDialog(null,
-                                "Wrong input!\n The destination entered does not appear in the Graph.",
+                                "Wrong input!\nThe destination entered does not appear in the Graph.",
                                 "DESTINATION INPUT ERROR!",
                                 JOptionPane.DEFAULT_OPTION,
                                 JOptionPane.WARNING_MESSAGE,
@@ -391,7 +437,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
                 else{
                     JOptionPane.showOptionDialog(null,
-                            "Wrong input!\n The source entered does not appear in the Graph.",
+                            "Wrong input!\nThe source entered does not appear in the Graph.",
                             "SOURCE INPUT ERROR!",
                             JOptionPane.DEFAULT_OPTION,
                             JOptionPane.WARNING_MESSAGE,
@@ -402,7 +448,7 @@ public class MyFrame extends JFrame implements ActionListener {
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
-                        "Wrong input!\n Please enter only numeric values.",
+                        "Wrong input!\nPlease enter only numeric values.",
                         "INPUT ERROR!",
                         JOptionPane.DEFAULT_OPTION,
                         JOptionPane.ERROR_MESSAGE,
@@ -411,9 +457,22 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
             }
         }
+
         else if (centerItem.equals(event) || CE.equals(event)) {
-            System.out.println(algo.center());
+            this.mainPanel.setCenterActivated(true);
+            repaint();
+            JOptionPane.showOptionDialog(null,
+                    "The center of this Graph is Node number: " + this.mainPanel.getCenter().getKey() + ".\n" +
+                            "The Node Color is dark Gray and The index is colored in Yellow.",
+                    "Center of Graph",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    null,
+                    null);
+            System.out.println(this.mainPanel.getCenter());
         }
+
         else if (TSPItem.equals(event) || TSP.equals(event)) {
             System.out.println("TSP activated");
         }

@@ -12,17 +12,21 @@ import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 
 public class MyPanel extends JPanel {
-    Algorithms graph, copyOfGraph;
+    private Algorithms graph, copyOfGraph;
+    private NodeData center;
+    private boolean isCenterActivated;
     double minX;
     double minY;
     double maxX;
     double maxY;
 
     public MyPanel(MyGraph g) {
-        graph = new Algorithms();
-        copyOfGraph = new Algorithms();
-        graph.init(g);
-        copyOfGraph.init(graph.copy());
+        this.graph = new Algorithms();
+        this.copyOfGraph = new Algorithms();
+        this.graph.init(g);
+        this.copyOfGraph.init(this.graph.copy());
+        this.center = this.graph.center();
+        this.isCenterActivated = false;
         try {
             setMin();
         } catch (Exception e) {
@@ -55,10 +59,19 @@ public class MyPanel extends JPanel {
         Iterator<NodeData> nodesIter = graph.getGraph().nodeIter();
         while (nodesIter.hasNext()) {
             g2d.setPaint(Color.blue);
+            g2d.setStroke(new BasicStroke(1));
             NodeData n = nodesIter.next();
+            int width = 10;
+            int height = 10;
+            if(n.getKey() == this.center.getKey() && this.isCenterActivated){
+                g2d.setPaint(new Color(102,51,0));
+                g2d.setStroke(new BasicStroke(3));
+                width = 20;
+                height = 20;
+            }
             double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 33;
             double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 33;
-            g2d.fillOval((int) x - 2, (int) y - 2, 10, 10);
+            g2d.fillOval((int) x - 2, (int) y - 2, width, height);
         }
 
         // Draw all Edges.
@@ -99,6 +112,10 @@ public class MyPanel extends JPanel {
 //            String coordinate = "(" + xs + "," + ys + ")";
             g2d.setStroke(new BasicStroke(1));
             g2d.setPaint(Color.white);
+            if(n.getKey() == this.center.getKey() && this.isCenterActivated){
+                g2d.setPaint(Color.YELLOW);
+                this.isCenterActivated = false;
+            }
             Rectangle2D rec = new Rectangle2D.Double((int) (x - 3), (int) y - 25, 20, 20);
             double centerX = rec.getCenterX();
             double centerY = rec.getCenterY();
@@ -158,4 +175,23 @@ public class MyPanel extends JPanel {
         g2.draw(new Line2D.Double(x0, y0, x, y));
     }
 
+    public Algorithms getGraph() {
+        return graph;
+    }
+
+    public Algorithms getCopyOfGraph() {
+        return copyOfGraph;
+    }
+
+    public boolean isCenterActivated() {
+        return isCenterActivated;
+    }
+
+    public void setCenterActivated(boolean centerActivated) {
+        isCenterActivated = centerActivated;
+    }
+
+    public NodeData getCenter() {
+        return center;
+    }
 }
