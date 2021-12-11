@@ -16,8 +16,11 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      */
     @Override
     public void init(DirectedWeightedGraph g) {
-        graph = g;
-        mc=graph.getMC();
+        if(g != null) {
+            graph = g;
+            mc = graph.getMC();
+        }
+
     }
 
     /**

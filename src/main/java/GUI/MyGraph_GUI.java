@@ -16,15 +16,21 @@ public class MyGraph_GUI{
         panel = new MyPanel(graph);
         frame.initGUI();
     }
+    public MyGraph_GUI() throws Exception{
 
+    }
 
+    public static void drawGUI() throws Exception {
+        new MyFrame(null);
+    }
 
 
 
     public static void main(String[] args) throws Exception {
         ParseToGraph pd = new ParseToGraph("data/G1.json");
         MyGraph mg = new MyGraph(pd.getNodes());
-        MyGraph_GUI g2 = new MyGraph_GUI(mg);
+        new MyGraph_GUI(mg);
+//        drawGUI();
 
     }
 }

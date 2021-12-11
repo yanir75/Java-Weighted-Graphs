@@ -1,6 +1,9 @@
 package GUI;
 
+import api.Algorithms;
 import api.MyGraph;
+import api.ParseToGraph;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +14,7 @@ import java.io.File;
 
 public class MyFrame extends JFrame implements ActionListener {
     private MyPanel panel;
+    private MyGraph graph;
 
     JMenuBar menuBar;
     JMenu fileMenu;
@@ -43,6 +47,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
     public MyFrame(MyGraph g){
+        this.graph = g;
         panel = new MyPanel(g);
         this.add(panel);
         this.pack();
@@ -53,6 +58,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
     public void initGUI(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
         this.setTitle("My Directed Weighted Graph");
         this.setResizable(false);
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
@@ -172,42 +178,80 @@ public class MyFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-        if (loadItem.equals(source)) {
-            System.out.println("Loaded");
+        Object event = e.getSource();
+
+
+        if (loadItem.equals(event)) {
             JFileChooser loadFile = new JFileChooser();
             loadFile.setCurrentDirectory(new File("."));
             int approved = loadFile.showOpenDialog(null);
             if(approved == JFileChooser.APPROVE_OPTION){
-                File file = new File(loadFile.getSelectedFile().getAbsolutePath());
-                System.out.println(file);
+                if(loadFile.getSelectedFile().getAbsolutePath().endsWith(".json")) {
+                    ParseToGraph pd = null;
+                    try {
+                        pd = new ParseToGraph(loadFile.getSelectedFile().getAbsolutePath());
+                        MyGraph g = new MyGraph(pd.getNodes());
+                        setVisible(false);
+                        dispose();
+                        repaint();
+                        new MyGraph_GUI(g);
+                        System.out.println("The file: " + loadFile.getSelectedFile().getName() + ", was loaded successfully");
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+                else{
+                    System.out.println("This Program supports only Json files.");
+                }
             }
-        } else if (saveItem.equals(source)) {
+
+
+        } else if (saveItem.equals(event)) {
             System.out.println("Saved");
-        } else if (clearItem.equals(source)) {
+
+
+        } else if (clearItem.equals(event)) {
+            try {
+                MyGraph g = new MyGraph();
+                setVisible(false);
+                dispose();
+                repaint();
+                new MyGraph_GUI(g);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             System.out.println("Cleared");
-        } else if (exitItem.equals(source)) {
+
+
+        } else if (exitItem.equals(event)) {
             System.out.println("Exiting");
             System.exit(0);
-        } else if (addEdgeItem.equals(source)) {
+
+
+        } else if (addEdgeItem.equals(event)) {
+            JTextArea textArea= new JTextArea();
+            textArea.setPreferredSize(new Dimension(100,100));
+            this.add(textArea);
+            repaint();
+//            this.graph.connect();
             System.out.println("Edge added");
-        } else if (addNodeItem.equals(source)) {
+        } else if (addNodeItem.equals(event)) {
             System.out.println("Node added");
-        } else if (removeEdgeItem.equals(source)) {
+        } else if (removeEdgeItem.equals(event)) {
             System.out.println("Edge removed");
-        } else if (removeNodeItem.equals(source)) {
+        } else if (removeNodeItem.equals(event)) {
             System.out.println("Node removed");
-        } else if (connectNodesItem.equals(source)) {
+        } else if (connectNodesItem.equals(event)) {
             System.out.println("Nodes are now connected");
-        } else if (isConnectedItem.equals(source)) {
+        } else if (isConnectedItem.equals(event)) {
             System.out.println("isConnected activated");
-        } else if (shortestPathWItem.equals(source)) {
+        } else if (shortestPathWItem.equals(event)) {
             System.out.println("shortestPathW activated");
-        } else if (shortestPathPItem.equals(source)) {
+        } else if (shortestPathPItem.equals(event)) {
             System.out.println("shortestPathP activated");
-        } else if (centerItem.equals(source)) {
+        } else if (centerItem.equals(event)) {
             System.out.println("Center activated");
-        } else if (TSPItem.equals(source)) {
+        } else if (TSPItem.equals(event)) {
             System.out.println("TSP activated");
         }
     }

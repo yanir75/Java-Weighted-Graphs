@@ -32,34 +32,37 @@ public class MyGraph implements DirectedWeightedGraph {
     }
 
     public MyGraph(DirectedWeightedGraph g){
-        Iterator<NodeData>iter =g.nodeIter();
+        this.nodes = new HashMap<>();
+        if(g != null) {
+            Iterator<NodeData> iter = g.nodeIter();
 //        Iterator<EdgeData>e = g.edgeIter();
 //        edges = new HashMap<>();
-        nodes = new HashMap<>();
-        while (iter.hasNext()){
-            NodeData n= iter.next();
-            Node x = new Node(n);
-            nodes.put(n.getKey(),x);
-        }
-        Iterator<EdgeData>iter1 =g.edgeIter();
-        int count=0;
-        while (iter1.hasNext()){
-            EdgeData e = iter1.next();
-            Node n =nodes.get(e.getDest());
-            n.addInEdge(e.getSrc());
-            Node n1 =nodes.get(e.getSrc());
-            Edge e1 = new Edge(e);
-            n1.addEdge(e1);
-            count++;
-        }
-        size=count;
-        MC = g.getMC();
+
+            while (iter.hasNext()) {
+                NodeData n = iter.next();
+                Node x = new Node(n);
+                nodes.put(n.getKey(), x);
+            }
+            Iterator<EdgeData> iter1 = g.edgeIter();
+            int count = 0;
+            while (iter1.hasNext()) {
+                EdgeData e = iter1.next();
+                Node n = nodes.get(e.getDest());
+                n.addInEdge(e.getSrc());
+                Node n1 = nodes.get(e.getSrc());
+                Edge e1 = new Edge(e);
+                n1.addEdge(e1);
+                count++;
+            }
+            size = count;
+            MC = g.getMC();
 //        while (e.hasNext()){
 //
 //            Edge ed = new Edge(e.next());
 //            String key = ed.getSrc() + "-" + ed.getDest();
 ////            edges.put(key,ed);
 //        }
+        }
     }
 
 

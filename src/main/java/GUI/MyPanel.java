@@ -31,6 +31,7 @@ public class MyPanel extends JPanel {
         int width = (int)scale.width;
         int height = (int)scale.height;
         this.setPreferredSize(new Dimension((int)(width / 1.3), (int)(height / 1.3)));
+        repaint();
     }
 
     public void paint(Graphics graphics) {

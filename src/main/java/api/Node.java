@@ -9,7 +9,7 @@ public class Node implements NodeData {
     // edgeData or edges we will decide
     private final HashMap<Integer, Edge> Edges = new HashMap<>();
     private final HashSet<Integer> inEdges = new HashSet<>();
-    private final int id;
+    private int id;
     private GeoLocation location;
     private double weight;
     //    private NodeData father = null;
@@ -26,7 +26,9 @@ public class Node implements NodeData {
         this.id = n.getKey();
         this.location = new Location(n.getLocation().x(), n.getLocation().y(), n.getLocation().z());
     }
-
+    public Node(){
+        this.id = -1;
+    }
     public Node(NodeData n, Iterator<EdgeData> iter) {
         this.id = n.getKey();
         this.weight = n.getWeight();
@@ -69,6 +71,9 @@ public class Node implements NodeData {
         }
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 //    public NodeData getFather() {
 //        return father;
 //    }
