@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.function.Consumer;
 
 public class MyGraph implements DirectedWeightedGraph {
-    private final HashMap<Integer, Node> nodes;
+    private  HashMap<Integer, Node> nodes;
 //    private final HashMap<String, Edge> edges;
     private int size=0;
     private int MC;
@@ -70,6 +70,7 @@ public class MyGraph implements DirectedWeightedGraph {
     public NodeData getNode(int key) {
         return nodes.get(key);
     }
+
 
     // src+dest*bignumber
     // src = (src+dest*bignumber)%x

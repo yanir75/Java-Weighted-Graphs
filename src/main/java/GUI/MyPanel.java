@@ -8,6 +8,7 @@ import api.NodeData;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 
 public class MyPanel extends JPanel {
@@ -30,6 +31,8 @@ public class MyPanel extends JPanel {
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)scale.width;
         int height = (int)scale.height;
+        this.setLayout(new BorderLayout());
+        this.setBackground(Color.white);
         this.setPreferredSize(new Dimension((int)(width / 1.3), (int)(height / 1.3)));
         repaint();
     }
@@ -91,17 +94,20 @@ public class MyPanel extends JPanel {
             NodeData n = nodesIter.next();
             double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 33;
             double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 33;
-            String xs = "" + (Math.round(n.getLocation().x() * 10000d) / 10000d);
-            String ys = "" + (Math.round(n.getLocation().y() * 10000d) / 10000d);
-            String coordinate = "(" + xs + "," + ys + ")";
+//            String xs = "" + (Math.round(n.getLocation().x() * 10000d) / 10000d);
+//            String ys = "" + (Math.round(n.getLocation().y() * 10000d) / 10000d);
+//            String coordinate = "(" + xs + "," + ys + ")";
             g2d.setStroke(new BasicStroke(1));
             g2d.setPaint(Color.white);
-            g2d.fillRect((int) (x - 1.2), (int) y - 20, 90, 12);
+            Rectangle2D rec = new Rectangle2D.Double((int) (x - 3), (int) y - 25, 20, 20);
+            double centerX = rec.getCenterX();
+            double centerY = rec.getCenterY();
+            g2d.fillRect((int) (x - 3), (int) y - 25, 20, 20);
             g2d.setPaint(Color.black);
-            g2d.drawRect((int) (x - 1.2), (int) y - 20, 90, 12);
-            Font f = new Font("ariel", Font.BOLD, 9);
-            g2d.setFont(f);
-            g2d.drawString("v" + n.getKey() + coordinate, (int) x, (int) y - 10);
+            g2d.drawRect((int) (x - 3), (int) y - 25, 20, 20);
+            g2d.setFont(new Font("ariel", Font.BOLD, 14));
+//            g2d.drawString("v" + n.getKey() + coordinate, (int) x, (int) y - 10);
+            g2d.drawString(n.getKey() + "", (int) centerX - 8, (int) centerY + 6);
         }
     }
 

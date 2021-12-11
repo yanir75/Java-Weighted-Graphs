@@ -10,6 +10,7 @@ public class MyGraph_GUI{
     private MyGraph graph;
 
 
+
     public MyGraph_GUI(MyGraph g) throws Exception{
         graph = g;
         frame = new MyFrame(graph);

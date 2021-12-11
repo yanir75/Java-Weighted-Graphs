@@ -13,8 +13,10 @@ import java.io.File;
 
 
 public class MyFrame extends JFrame implements ActionListener {
-    private MyPanel panel;
+    private MyPanel mainPanel;
+    private JPanel buttonsPanel, outputPanel;
     private MyGraph graph;
+    private Algorithms algo;
 
     JMenuBar menuBar;
     JMenu fileMenu;
@@ -37,36 +39,62 @@ public class MyFrame extends JFrame implements ActionListener {
 
     // Algorithms menu
     JMenuItem isConnectedItem;
-    JMenuItem shortestPathWItem;
-    JMenuItem shortestPathPItem;
+    JMenuItem shortestPath;
     JMenuItem centerItem;
     JMenuItem TSPItem;
 
     // Help menu
 
 
+    JButton SP;
+    JComboBox cmb;
+    JTextField srcNode;
+    JTextField destNode;
+    JButton IC;
+    JButton TSP;
+    JButton CE;
+    JButton RN;
+    JButton RE;
+    JButton AN;
+    JButton AE;
+    JButton CLR;
+    JButton LOAD;
+    JButton SAVE;
 
     public MyFrame(MyGraph g){
-        this.graph = g;
-        panel = new MyPanel(g);
-        this.add(panel);
+        graph = g;
+        mainPanel = new MyPanel(g);
+        buttonsPanel = new JPanel();
+        outputPanel = new JPanel(new BorderLayout());
+        algo = mainPanel.graph;
+        this.add(mainPanel);
         this.pack();
         initGUI();
+        addButtonsAndText();
 
 
     }
 
     public void initGUI(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout());
+//        this.setLayout(new BorderLayout());
         this.setTitle("My Directed Weighted Graph");
         this.setResizable(false);
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)scale.width;
         int height = (int)scale.height;
         this.setPreferredSize(new Dimension(width, height));
+        buttonsPanel.setPreferredSize(new Dimension(width / 25, height / 15));
+//        buttonsPanel.setBounds(scale.width / 2 - 150, 0, 150, scale.width / 2);
+        outputPanel.setPreferredSize(new Dimension(width / 10, height / 10));
+        buttonsPanel.setBackground(Color.GRAY);
+        outputPanel.setBackground(Color.BLACK);
+        this.add(buttonsPanel, BorderLayout.NORTH);
+        this.add(outputPanel, BorderLayout.SOUTH);
         createMenus();
         createKeyShortCuts();
+//        addButtons();
+//        this.pack();
         this.setVisible(true);
     }
 
@@ -118,20 +146,17 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // Algorithms menu
         isConnectedItem = new JMenuItem("isConnected                                    (Alt+A+I)");
-        shortestPathWItem = new JMenuItem("Shortest Path(returns Weight)     (Alt+A+W)");
-        shortestPathPItem = new JMenuItem("Shortest Path(returns Path)         (Alt+A+P)");
+        shortestPath = new JMenuItem("Shortest Path(returns Weight)     (Alt+A+S)");
         centerItem = new JMenuItem("Center                                             (Alt+A+C)");
         TSPItem = new JMenuItem("TSP                                                  (Alt+A+T)");
 
         isConnectedItem.addActionListener(this);
-        shortestPathWItem.addActionListener(this);
-        shortestPathPItem.addActionListener(this);
+        shortestPath.addActionListener(this);
         centerItem.addActionListener(this);
         TSPItem.addActionListener(this);
 
         algorithmsMenu.add(isConnectedItem);
-        algorithmsMenu.add(shortestPathWItem);
-        algorithmsMenu.add(shortestPathPItem);
+        algorithmsMenu.add(shortestPath);
         algorithmsMenu.add(centerItem);
         algorithmsMenu.add(TSPItem);
 
@@ -168,20 +193,109 @@ public class MyFrame extends JFrame implements ActionListener {
         // Shortcuts for algorithmsMenu.
         algorithmsMenu.setMnemonic(KeyEvent.VK_A); // Alt + a
         isConnectedItem.setMnemonic(KeyEvent.VK_I); // i
-        shortestPathWItem.setMnemonic(KeyEvent.VK_W); // w
-        shortestPathPItem.setMnemonic(KeyEvent.VK_P); // p
+        shortestPath.setMnemonic(KeyEvent.VK_S); // w
         centerItem.setMnemonic(KeyEvent.VK_C); // c
         TSPItem.setMnemonic(KeyEvent.VK_T); // t
 
     }
 
+    private void addButtonsAndText(){
+
+        IC = new JButton("isConnected");
+        IC.setFocusable(false);
+        IC.addActionListener(this);
+        IC.setBackground(Color.ORANGE);
+
+
+        TSP = new JButton("TSP");
+        TSP.setFocusable(false);
+        TSP.addActionListener(this);
+        TSP.setBackground(Color.ORANGE);
+
+
+        CE = new JButton("Center");
+        CE.setFocusable(false);
+        CE.addActionListener(this);
+        CE.setBackground(Color.ORANGE);
+
+        SP = new JButton("Shortest Path");
+        SP.setFocusable(false);
+        SP.addActionListener(this);
+        SP.setBackground(Color.ORANGE);
+
+        srcNode = new JTextField("Source");
+        srcNode.setPreferredSize(new Dimension(70,25));
+        srcNode.setToolTipText("Enter the source node");
+
+
+        destNode = new JTextField("Destination");
+        destNode.setPreferredSize(new Dimension(70,25));
+        destNode.setToolTipText("Enter the destination node");
+
+
+        RN = new JButton("Remove Node");
+        RN.setFocusable(false);
+        RN.addActionListener(this);
+        RN.setBackground(new Color(243,76,76));
+
+
+        RE = new JButton("Remove Edge");
+        RE.setFocusable(false);
+        RE.addActionListener(this);
+        RE.setBackground(new Color(243,76,76));
+
+
+        AN = new JButton("Add Node");
+        AN.setFocusable(false);
+        AN.addActionListener(this);
+        AN.setBackground(new Color(243,76,76));
+
+
+        AE = new JButton("Add Edge");
+        AE.setFocusable(false);
+        AE.addActionListener(this);
+        AE.setBackground(new Color(243,76,76));
+
+
+        CLR = new JButton("Clear");
+        CLR.setFocusable(false);
+        CLR.addActionListener(this);
+        CLR.setBackground(new Color(51,153,255));
+
+        SAVE = new JButton("Save");
+        SAVE.setFocusable(false);
+        SAVE.addActionListener(this);
+        SAVE.setBackground(new Color(51,153,255));
+
+        LOAD = new JButton("Load");
+        LOAD.setFocusable(false);
+        LOAD.addActionListener(this);
+        LOAD.setBackground(new Color(51,153,255));
+
+
+        buttonsPanel.add(IC);
+        buttonsPanel.add(TSP);
+        buttonsPanel.add(CE);
+        buttonsPanel.add(SP);
+        buttonsPanel.add(srcNode);
+        buttonsPanel.add(destNode);
+        buttonsPanel.add(RN);
+        buttonsPanel.add(RE);
+        buttonsPanel.add(AN);
+        buttonsPanel.add(AE);
+        buttonsPanel.add(LOAD);
+        buttonsPanel.add(SAVE);
+        buttonsPanel.add(CLR);
+
+        repaint();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object event = e.getSource();
 
 
-        if (loadItem.equals(event)) {
+        if (loadItem.equals(event) || LOAD.equals(event)) {
             JFileChooser loadFile = new JFileChooser();
             loadFile.setCurrentDirectory(new File("."));
             int approved = loadFile.showOpenDialog(null);
@@ -206,11 +320,13 @@ public class MyFrame extends JFrame implements ActionListener {
             }
 
 
-        } else if (saveItem.equals(event)) {
+        }
+        else if (saveItem.equals(event) || SAVE.equals(event)) {
             System.out.println("Saved");
 
 
-        } else if (clearItem.equals(event)) {
+        }
+        else if (clearItem.equals(event) || CLR.equals(event)) {
             try {
                 MyGraph g = new MyGraph();
                 setVisible(false);
@@ -223,35 +339,82 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("Cleared");
 
 
-        } else if (exitItem.equals(event)) {
+        }
+        else if (exitItem.equals(event)) {
             System.out.println("Exiting");
             System.exit(0);
-
-
-        } else if (addEdgeItem.equals(event)) {
+        }
+        else if (addEdgeItem.equals(event) || AE.equals(event)) {
             JTextArea textArea= new JTextArea();
             textArea.setPreferredSize(new Dimension(100,100));
             this.add(textArea);
             repaint();
 //            this.graph.connect();
             System.out.println("Edge added");
-        } else if (addNodeItem.equals(event)) {
+        }
+        else if (addNodeItem.equals(event) || AN.equals(event)) {
             System.out.println("Node added");
-        } else if (removeEdgeItem.equals(event)) {
+        }
+        else if (removeEdgeItem.equals(event) || RE.equals(event)) {
             System.out.println("Edge removed");
-        } else if (removeNodeItem.equals(event)) {
+        }
+        else if (removeNodeItem.equals(event) || RN.equals(event)) {
             System.out.println("Node removed");
-        } else if (connectNodesItem.equals(event)) {
+        }
+        else if (connectNodesItem.equals(event)) {
             System.out.println("Nodes are now connected");
-        } else if (isConnectedItem.equals(event)) {
-            System.out.println("isConnected activated");
-        } else if (shortestPathWItem.equals(event)) {
-            System.out.println("shortestPathW activated");
-        } else if (shortestPathPItem.equals(event)) {
-            System.out.println("shortestPathP activated");
-        } else if (centerItem.equals(event)) {
-            System.out.println("Center activated");
-        } else if (TSPItem.equals(event)) {
+        }
+        else if (isConnectedItem.equals(event) || IC.equals(event)) {
+            System.out.println(algo.isConnected());
+        }
+        else if (shortestPath.equals(event) || SP.equals(event)) {
+            int src = -1;
+            int dest = -1;
+            try {
+                src = Integer.parseInt(srcNode.getText());
+                dest = Integer.parseInt(destNode.getText());
+                if(graph.getNodes().containsKey(src)){
+                    if(graph.getNodes().containsKey(dest)){
+                        double sp = algo.shortestPathDist(src, dest);
+                        System.out.println(sp);
+                    }
+                    else{
+                        JOptionPane.showOptionDialog(null,
+                                "Wrong input!\n The destination entered does not appear in the Graph.",
+                                "DESTINATION INPUT ERROR!",
+                                JOptionPane.DEFAULT_OPTION,
+                                JOptionPane.WARNING_MESSAGE,
+                                null,
+                                null,
+                                null);
+                    }
+                }
+                else{
+                    JOptionPane.showOptionDialog(null,
+                            "Wrong input!\n The source entered does not appear in the Graph.",
+                            "SOURCE INPUT ERROR!",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.WARNING_MESSAGE,
+                            null,
+                            null,
+                            null);
+                }
+            }
+            catch (NumberFormatException ex){
+                JOptionPane.showOptionDialog(null,
+                        "Wrong input!\n Please enter only numeric values.",
+                        "INPUT ERROR!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.ERROR_MESSAGE,
+                        null,
+                        null,
+                        null);
+            }
+        }
+        else if (centerItem.equals(event) || CE.equals(event)) {
+            System.out.println(algo.center());
+        }
+        else if (TSPItem.equals(event) || TSP.equals(event)) {
             System.out.println("TSP activated");
         }
     }
