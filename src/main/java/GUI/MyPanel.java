@@ -72,8 +72,8 @@ public class MyPanel extends JPanel {
             if(n.getKey() == this.center.getKey() && this.isCenterActivated){
                 g2d.setPaint(new Color(255,0,0));
                 g2d.setStroke(new BasicStroke(3));
-                width = 22;
-                height = 22;
+                width = 18;
+                height = 18;
             }
             double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 33;
             double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 33;
@@ -97,6 +97,16 @@ public class MyPanel extends JPanel {
             g2d.setStroke(new BasicStroke(3));
             g2d.setPaint(Color.black);
             drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
+            double medX = middle(x1, x2);
+            double medY = middle(y1, y2);
+            g2d.setStroke(new BasicStroke(1));
+            g2d.setPaint(Color.white);
+            g2d.fillRect((int) (medX - 2), (int) medY - 10, 35, 15);
+            g2d.setPaint(Color.black);
+            g2d.drawRect((int) (medX - 2), (int) medY - 10, 35, 15);
+            g2d.setFont(new Font("ariel", Font.BOLD, 9));
+            g2d.drawString((Math.round(e.getWeight() * 10000d) / 10000d) + "", (int) medX, (int) medY);
+
         }
 
         nodesIter = graph.getGraph().nodeIter();
@@ -219,6 +229,10 @@ public class MyPanel extends JPanel {
         g.drawLine(x1, y1, x2, y2);
         g.setColor(Color.black);
         g.fillPolygon(Xpoints, Ypoints, 3);
+    }
+
+    private double middle(double x1, double x2){
+        return Math.abs((x2 + x1) / 2);
     }
 
     public Algorithms getGraph() {

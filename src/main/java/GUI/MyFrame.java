@@ -498,7 +498,7 @@ public class MyFrame extends JFrame implements ActionListener {
             repaint();
             JOptionPane.showOptionDialog(null,
                     "The center of this Graph is Node number: " + this.mainPanel.getCenter().getKey() + ".\n" +
-                            "The Node Color is dark Gray and The index is colored in Yellow.",
+                            "The Node Color is Red and The index is colored in Yellow.",
                     "Center of Graph",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE,
