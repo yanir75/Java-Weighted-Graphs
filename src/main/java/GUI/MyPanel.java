@@ -8,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -64,52 +63,40 @@ public class MyPanel extends JPanel {
 
         // Draw all points a.k.a. Nodes.
         Iterator<NodeData> nodesIter = graph.getGraph().nodeIter();
-        int counter = 0;
-        int last = -1;
         while (nodesIter.hasNext()) {
             g2d.setPaint(Color.blue);
             g2d.setStroke(new BasicStroke(1));
             NodeData n = nodesIter.next();
-            int width = 10;
-            int height = 10;
+            int width = 14;
+            int height = 14;
             if(n.getKey() == this.center.getKey() && this.isCenterActivated){
-                g2d.setPaint(new Color(102,51,0));
+                g2d.setPaint(new Color(255,0,0));
                 g2d.setStroke(new BasicStroke(3));
-                width = 20;
-                height = 20;
+                width = 22;
+                height = 22;
             }
             double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 33;
             double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 33;
-            g2d.fillOval((int) x - 2, (int) y - 2, width, height);
+            g2d.fillOval((int) x - 3, (int) y - 3, width, height);
         }
 
         // Draw all Edges.
         Iterator<EdgeData> edgesIter = graph.getGraph().edgeIter();
-
         while (edgesIter.hasNext()) {
             EdgeData e = edgesIter.next();
             g2d.setPaint(Color.black);
-            double srcX = (graph.getGraph().getNode(e.getSrc()).getLocation().x() - minX) * scaleX + 30;
-            double srcY = (graph.getGraph().getNode(e.getSrc()).getLocation().y() - minY) * scaleY + 30;
-            double destX = (graph.getGraph().getNode(e.getDest()).getLocation().x() - minX) * scaleX + 30;
-            double destY = (graph.getGraph().getNode(e.getDest()).getLocation().y() - minY) * scaleY + 30;
-            double scaleFactor = 1;
-            double scaleFactor1 = 8;
-
+            double srcX = (graph.getGraph().getNode(e.getSrc()).getLocation().x() - minX) * scaleX + 31;
+            double srcY = (graph.getGraph().getNode(e.getSrc()).getLocation().y() - minY) * scaleY + 31;
+            double destX = (graph.getGraph().getNode(e.getDest()).getLocation().x() - minX) * scaleX + 31;
+            double destY = (graph.getGraph().getNode(e.getDest()).getLocation().y() - minY) * scaleY + 31;
             int x1 = (int) srcX;
             int y1 = (int) srcY;
             int x2 = (int) destX;
             int y2 = (int) destY;
-            g2d.setStroke(new BasicStroke(3));
             g2d.draw(new Line2D.Double(x1, y1, x2, y2));
-            theta = Math.atan2(y2 - y1, x2 - x1);
             g2d.setStroke(new BasicStroke(3));
-            g2d.setPaint(Color.RED);
-            drawArrow(g2d, theta, x2, y2);
-            x1 = (int) srcX + (int) (scaleX / scaleFactor1);
-            y1 = (int) srcY + (int) (scaleY / scaleFactor1);
-            x2 = (int) destX + (int) (scaleX / scaleFactor1);
-            y2 = (int) destY + (int) (scaleY / scaleFactor1);
+            g2d.setPaint(Color.black);
+            drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
         }
 
         nodesIter = graph.getGraph().nodeIter();
@@ -143,9 +130,9 @@ public class MyPanel extends JPanel {
             this.pathByNodes.remove(0);
         }
         while(this.pathByNodes.size() > 0){
-            g2d.setPaint(new Color(128,255,0));
-                dest = this.pathByNodes.get(0).getKey();
-                this.pathByNodes.remove(0);
+            g2d.setPaint(new Color(0,204,0));
+            dest = this.pathByNodes.get(0).getKey();
+            this.pathByNodes.remove(0);
             double srcX = (graph.getGraph().getNode(src).getLocation().x() - minX) * scaleX + 30;
             double srcY = (graph.getGraph().getNode(src).getLocation().y() - minY) * scaleY + 30;
             double destX = (graph.getGraph().getNode(dest).getLocation().x() - minX) * scaleX + 30;
@@ -155,11 +142,7 @@ public class MyPanel extends JPanel {
             int x2 = (int) destX;
             int y2 = (int) destY;
             g2d.setStroke(new BasicStroke(3));
-            g2d.draw(new Line2D.Double(x1, y1, x2, y2));
-            theta = Math.atan2(y2 - y1, x2 - x1);
-            g2d.setStroke(new BasicStroke(3));
-            g2d.setPaint(Color.RED);
-            drawArrow(g2d, theta, x2, y2);
+            drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
             src = dest;
             if(this.pathByNodes.size() == 0){
                 this.isPathActivated = false;
@@ -203,15 +186,39 @@ public class MyPanel extends JPanel {
         }
     }
 
-    private void drawArrow(Graphics2D g2, double theta, double x0, double y0) {
-        int barb = 8;
-        double phi = Math.PI / 6;
-        double x = x0 - barb * Math.cos(theta + phi);
-        double y = y0 - barb * Math.sin(theta + phi);
-        g2.draw(new Line2D.Double(x0, y0, x, y));
-        x = x0 - barb * Math.cos(theta - phi);
-        y = y0 - barb * Math.sin(theta - phi);
-        g2.draw(new Line2D.Double(x0, y0, x, y));
+
+    /**
+     * Draw an arrow line between two points.
+     * @param g the graphics component.
+     * @param x1 x-position of first point.
+     * @param y1 y-position of first point.
+     * @param x2 x-position of second point.
+     * @param y2 y-position of second point.
+     * @param d  the width of the arrow.
+     * @param h  the height of the arrow.
+     * this code has been taken from:
+     *          https://stackoverflow.com/questions/2027613/how-to-draw-a-directed-arrow-line-in-java,
+     *          with some modifications to fit to out needs.
+     */
+    private void drawArrowLine(Graphics g, int x1, int y1, int x2, int y2, int d, int h) {
+        int dx = x2 - x1, dy = y2 - y1;
+        double D = Math.sqrt(dx * dx + dy * dy);
+        double xm = D - d, xn = xm, ym = h, yn = -h, x;
+        double sin = dy / D, cos = dx / D;
+
+        x = xm * cos - ym * sin + x1;
+        ym = xm * sin + ym * cos + y1;
+        xm = x;
+
+        x = xn * cos - yn * sin + x1;
+        yn = xn * sin + yn * cos + y1;
+        xn = x;
+
+        int[] Xpoints = {x2, (int) xm, (int) xn};
+        int[] Ypoints = {y2, (int) ym, (int) yn};
+        g.drawLine(x1, y1, x2, y2);
+        g.setColor(Color.black);
+        g.fillPolygon(Xpoints, Ypoints, 3);
     }
 
     public Algorithms getGraph() {
