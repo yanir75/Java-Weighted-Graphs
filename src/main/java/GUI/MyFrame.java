@@ -452,6 +452,11 @@ public class MyFrame extends JFrame implements ActionListener {
                 if(graph.getNodes().containsKey(src)){
                     if(graph.getNodes().containsKey(dest)){
                         double sp = algo.shortestPathDist(src, dest);
+                        this.mainPanel.setPath(src,dest);
+                        this.mainPanel.setDest(dest);
+                        this.mainPanel.setSrc(src);
+                        this.mainPanel.setPathActivated(true);
+                        repaint();
                         System.out.println(sp);
                     }
                     else{

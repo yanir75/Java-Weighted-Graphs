@@ -4,17 +4,21 @@ import api.Algorithms;
 import api.EdgeData;
 import api.MyGraph;
 import api.NodeData;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class MyPanel extends JPanel {
     private Algorithms graph, copyOfGraph;
     private NodeData center;
-    private boolean isCenterActivated;
+    private boolean isCenterActivated, isPathActivated;
+    private LinkedList<NodeData> pathByNodes;
+    private ArrayList<EdgeData> pathByEdges;
+    private int src, dest;
     double minX;
     double minY;
     double maxX;
@@ -27,6 +31,11 @@ public class MyPanel extends JPanel {
         this.copyOfGraph.init(this.graph.copy());
         this.center = this.graph.center();
         this.isCenterActivated = false;
+        this.isPathActivated = false;
+        this.src = -1;
+        this.dest = -1;
+        this.pathByNodes = new LinkedList<>();
+        this.pathByEdges = new ArrayList<>();
         try {
             setMin();
         } catch (Exception e) {
@@ -57,6 +66,8 @@ public class MyPanel extends JPanel {
 
         // Draw all points a.k.a. Nodes.
         Iterator<NodeData> nodesIter = graph.getGraph().nodeIter();
+        int counter = 0;
+        int last = -1;
         while (nodesIter.hasNext()) {
             g2d.setPaint(Color.blue);
             g2d.setStroke(new BasicStroke(1));
@@ -76,6 +87,7 @@ public class MyPanel extends JPanel {
 
         // Draw all Edges.
         Iterator<EdgeData> edgesIter = graph.getGraph().edgeIter();
+
         while (edgesIter.hasNext()) {
             EdgeData e = edgesIter.next();
             g2d.setPaint(Color.black);
@@ -90,10 +102,10 @@ public class MyPanel extends JPanel {
             int y1 = (int) srcY;
             int x2 = (int) destX;
             int y2 = (int) destY;
-            g2d.setStroke(new BasicStroke(2));
+            g2d.setStroke(new BasicStroke(3));
             g2d.draw(new Line2D.Double(x1, y1, x2, y2));
             theta = Math.atan2(y2 - y1, x2 - x1);
-            g2d.setStroke(new BasicStroke(2));
+            g2d.setStroke(new BasicStroke(3));
             g2d.setPaint(Color.RED);
             drawArrow(g2d, theta, x2, y2);
             x1 = (int) srcX + (int) (scaleX / scaleFactor1);
@@ -125,6 +137,35 @@ public class MyPanel extends JPanel {
             g2d.setFont(new Font("ariel", Font.BOLD, 14));
 //            g2d.drawString("v" + n.getKey() + coordinate, (int) x, (int) y - 10);
             g2d.drawString(n.getKey() + "", (int) centerX - 8, (int) centerY + 6);
+        }
+        int src = -1;
+        int dest = -1;
+        if(!this.pathByNodes.isEmpty()){
+            src = this.pathByNodes.get(0).getKey();
+            this.pathByNodes.remove(0);
+        }
+        while(this.pathByNodes.size() > 0){
+            g2d.setPaint(new Color(128,255,0));
+                dest = this.pathByNodes.get(0).getKey();
+                this.pathByNodes.remove(0);
+            double srcX = (graph.getGraph().getNode(src).getLocation().x() - minX) * scaleX + 30;
+            double srcY = (graph.getGraph().getNode(src).getLocation().y() - minY) * scaleY + 30;
+            double destX = (graph.getGraph().getNode(dest).getLocation().x() - minX) * scaleX + 30;
+            double destY = (graph.getGraph().getNode(dest).getLocation().y() - minY) * scaleY + 30;
+            int x1 = (int) srcX;
+            int y1 = (int) srcY;
+            int x2 = (int) destX;
+            int y2 = (int) destY;
+            g2d.setStroke(new BasicStroke(3));
+            g2d.draw(new Line2D.Double(x1, y1, x2, y2));
+            theta = Math.atan2(y2 - y1, x2 - x1);
+            g2d.setStroke(new BasicStroke(3));
+            g2d.setPaint(Color.RED);
+            drawArrow(g2d, theta, x2, y2);
+            src = dest;
+            if(this.pathByNodes.size() == 0){
+                this.isPathActivated = false;
+            }
         }
     }
 
@@ -189,6 +230,43 @@ public class MyPanel extends JPanel {
 
     public void setCenterActivated(boolean centerActivated) {
         isCenterActivated = centerActivated;
+    }
+
+//    public ArrayList<NodeData> getPathByNodes() {
+//        return pathByNodes;
+//    }
+
+    public void setPath(int src, int dest) {
+        this.pathByNodes = (LinkedList<NodeData>) this.graph.shortestPath(src,dest);
+        System.out.println(this.pathByNodes);
+    }
+
+    public void setGraph(Algorithms graph) {
+        this.graph = graph;
+    }
+
+    public int getSrc() {
+        return src;
+    }
+
+    public void setSrc(int src) {
+        this.src = src;
+    }
+
+    public int getDest() {
+        return dest;
+    }
+
+    public void setDest(int dest) {
+        this.dest = dest;
+    }
+
+    public boolean isPathActivated() {
+        return isPathActivated;
+    }
+
+    public void setPathActivated(boolean pathActivated) {
+        isPathActivated = pathActivated;
     }
 
     public NodeData getCenter() {
