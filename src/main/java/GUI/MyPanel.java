@@ -17,7 +17,6 @@ public class MyPanel extends JPanel {
     private NodeData center;
     private boolean isCenterActivated, isPathActivated;
     private LinkedList<NodeData> pathByNodes;
-    private ArrayList<EdgeData> pathByEdges;
     private int src, dest;
     double minX;
     double minY;
@@ -35,7 +34,6 @@ public class MyPanel extends JPanel {
         this.src = -1;
         this.dest = -1;
         this.pathByNodes = new LinkedList<>();
-        this.pathByEdges = new ArrayList<>();
         try {
             setMin();
         } catch (Exception e) {
@@ -220,29 +218,13 @@ public class MyPanel extends JPanel {
         return graph;
     }
 
-    public Algorithms getCopyOfGraph() {
-        return copyOfGraph;
-    }
-
-    public boolean isCenterActivated() {
-        return isCenterActivated;
-    }
-
     public void setCenterActivated(boolean centerActivated) {
         isCenterActivated = centerActivated;
     }
 
-//    public ArrayList<NodeData> getPathByNodes() {
-//        return pathByNodes;
-//    }
-
     public void setPath(int src, int dest) {
         this.pathByNodes = (LinkedList<NodeData>) this.graph.shortestPath(src,dest);
         System.out.println(this.pathByNodes);
-    }
-
-    public void setGraph(Algorithms graph) {
-        this.graph = graph;
     }
 
     public int getSrc() {
@@ -259,10 +241,6 @@ public class MyPanel extends JPanel {
 
     public void setDest(int dest) {
         this.dest = dest;
-    }
-
-    public boolean isPathActivated() {
-        return isPathActivated;
     }
 
     public void setPathActivated(boolean pathActivated) {
