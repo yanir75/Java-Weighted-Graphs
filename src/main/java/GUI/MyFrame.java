@@ -14,7 +14,8 @@ import java.util.Locale;
 
 public class MyFrame extends JFrame implements ActionListener {
     private MyPanel mainPanel;
-    private JPanel buttonsPanel, outputPanel;
+    private final JPanel buttonsPanel;
+    private JPanel outputPanel;
     private JScrollPane terminal;
     private JTextArea JTA;
     private DirectedWeightedGraph graph;
@@ -59,6 +60,7 @@ public class MyFrame extends JFrame implements ActionListener {
     // Help menu
 
 
+
     // Buttons
     JButton SP;
     JButton IC;
@@ -72,6 +74,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton RESET;
     JButton LOAD;
     JButton SAVE;
+
 
     public MyFrame(DirectedWeightedGraph g){
         this.graph = g;
@@ -96,12 +99,12 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setIconImage(title.getImage());
 
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
-        this.width = (int)scale.width;
-        this.height = (int)scale.height;
+        this.width = scale.width;
+        this.height = scale.height;
         this.setSize(width / 4, height / 5);
         this.setResizable(true);
 
-        this.JTA = new JTextArea(outputText, 1,100);
+        this.JTA = new JTextArea(outputText);
         this.JTA.setBackground(Color.black);
         this.JTA.setForeground(Color.white);
         this.JTA.setFont(new Font("ariel", Font.BOLD, 14));
@@ -112,7 +115,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.buttonsPanel.setPreferredSize(new Dimension(width / 25, height / 22));
         buttonsPanel.setBackground(Color.GRAY);
 
-        this.outputPanel.setPreferredSize(new Dimension(width / 10, height / 5));
+        this.outputPanel.setPreferredSize(new Dimension(width / 10, height / 4));
         this.outputPanel.add(this.terminal);
 
         this.add(buttonsPanel, BorderLayout.NORTH);
@@ -136,11 +139,11 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
         // File Menu
-        loadItem = new JMenuItem("Load       (Alt+F+L)");
-        saveItem = new JMenuItem("Save       (Alt+F+S)");
-        clearItem = new JMenuItem("Clear      (Alt+F+C)");
+        loadItem = new JMenuItem("Load                    (Alt+F+L)");
+        saveItem = new JMenuItem("Save                    (Alt+F+S)");
+        clearItem = new JMenuItem("Clear                   (Alt+F+C)");
         resetItem = new JMenuItem("Reset Graph      (Alt+F+R)");
-        exitItem = new JMenuItem("Exit         (Alt+F+E)");
+        exitItem = new JMenuItem("Exit                      (Alt+F+E)");
 
         loadItem.addActionListener(this);
         saveItem.addActionListener(this);
@@ -155,20 +158,23 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
         // Edit menu
-        removeNodeItem = new JMenuItem("Remove Node     (Alt+E+R)");
-        removeEdgeItem = new JMenuItem("Remove Edge     (Alt+E+R)");
         addNodeItem = new JMenuItem("Add Node             (Alt+E+A)");
-        addEdgeItem = new JMenuItem("Add Edge             (Alt+E+A)");
+        addEdgeItem = new JMenuItem("Add Edge             (Alt+E+S)");
+        removeNodeItem = new JMenuItem("Remove Node     (Alt+E+D)");
+        removeEdgeItem = new JMenuItem("Remove Edge     (Alt+E+F)");
+
 
         removeNodeItem.addActionListener(this);
         removeEdgeItem.addActionListener(this);
         addNodeItem.addActionListener(this);
         addEdgeItem.addActionListener(this);
 
-        editMenu.add(removeNodeItem);
-        editMenu.add(removeEdgeItem);
+
         editMenu.add(addNodeItem);
         editMenu.add(addEdgeItem);
+        editMenu.add(removeNodeItem);
+        editMenu.add(removeEdgeItem);
+
 
 
         // Algorithms menu
@@ -226,10 +232,10 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // Shortcuts for editMenu.
         editMenu.setMnemonic(KeyEvent.VK_E); // Alt + e
-        addEdgeItem.setMnemonic(KeyEvent.VK_A); // a
-//        addNodeItem.setMnemonic(KeyEvent.VK_A); // s
-        removeEdgeItem.setMnemonic(KeyEvent.VK_R); // r
-//        removeNodeItem.setMnemonic(KeyEvent.VK_R); // e
+        addNodeItem.setMnemonic(KeyEvent.VK_A); // s
+        addEdgeItem.setMnemonic(KeyEvent.VK_S); // a
+        removeNodeItem.setMnemonic(KeyEvent.VK_D); // f
+        removeEdgeItem.setMnemonic(KeyEvent.VK_F); // d
 
         // Shortcuts for algorithmsMenu.
         algorithmsMenu.setMnemonic(KeyEvent.VK_A); // Alt + a
@@ -860,12 +866,13 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("TSP activated");
         }
 //        if(!this.colored){repaint();}
-        dispose();
-        initGUI();
+//        dispose();
+//        initGUI();
 //        this.ta.update(this.ta.getGraphics());
 //        this.ta.validate();
 //        this.ta.setVisible(true);;
 //        initGUI();
+        repaint();
     }
 
     private int chooseInputTSPState(){
