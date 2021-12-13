@@ -227,7 +227,7 @@ public class MyGraph implements DirectedWeightedGraph {
     @Override
     public NodeData removeNode(int key) {
         if(!nodes.containsKey(key))
-            throw new RuntimeException("Node does not exist");
+            throw new NullPointerException("Node does not exist");
         MC++;
         removeRelatedEdges(this.nodes.get(key));
         return this.nodes.remove(key);
@@ -247,7 +247,7 @@ public class MyGraph implements DirectedWeightedGraph {
     @Override
     public EdgeData removeEdge(int src, int dest) {
         if(!nodes.get(src).getEdges().containsKey(dest))
-            throw new RuntimeException("edge does not exist");
+            throw new NullPointerException("The Edge does not exist in this Graph");
 //        String key = src +"-"+ dest;
         this.nodes.get(dest).inEdges().remove(src);
         size--;

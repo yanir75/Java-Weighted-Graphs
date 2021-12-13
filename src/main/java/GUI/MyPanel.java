@@ -14,8 +14,9 @@ import java.util.LinkedList;
 public class MyPanel extends JPanel {
     private Algorithms graph, copyOfGraph;
     private NodeData center;
-    private boolean isCenterActivated, isPathActivated;
+    private boolean isCenterActivated, isPathActivated, isTSPActivated;
     private LinkedList<NodeData> pathByNodes;
+    private List pathByNodesTSP;
     private int src, dest;
     double minX;
     double minY;
@@ -30,9 +31,11 @@ public class MyPanel extends JPanel {
         this.center = this.graph.center();
         this.isCenterActivated = false;
         this.isPathActivated = false;
+        this.isTSPActivated = false;
         this.src = -1;
         this.dest = -1;
         this.pathByNodes = new LinkedList<>();
+        this.pathByNodesTSP = new List();
         try {
             setMin();
         } catch (Exception e) {
@@ -158,6 +161,26 @@ public class MyPanel extends JPanel {
                 this.isPathActivated = false;
             }
         }
+
+        while(this.pathByNodesTSP.si){
+            g2d.setPaint(new Color(255,51,255));
+            dest = this.pathByNodesTSP.get(0).getKey();
+            this.pathByNodesTSP.remove(0);
+            double srcX = (graph.getGraph().getNode(src).getLocation().x() - minX) * scaleX + 30;
+            double srcY = (graph.getGraph().getNode(src).getLocation().y() - minY) * scaleY + 30;
+            double destX = (graph.getGraph().getNode(dest).getLocation().x() - minX) * scaleX + 30;
+            double destY = (graph.getGraph().getNode(dest).getLocation().y() - minY) * scaleY + 30;
+            int x1 = (int) srcX;
+            int y1 = (int) srcY;
+            int x2 = (int) destX;
+            int y2 = (int) destY;
+            g2d.setStroke(new BasicStroke(3));
+            drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
+            src = dest;
+            if(this.pathByNodesTSP.size() == 0){
+                this.isTSPActivated = false;
+            }
+        }
     }
 
 
@@ -258,6 +281,14 @@ public class MyPanel extends JPanel {
 
     public int getDest() {
         return dest;
+    }
+
+    public LinkedList<NodeData> getPathByNodesTSP() {
+        return pathByNodesTSP;
+    }
+
+    public void setPathByNodesTSP(LinkedList<NodeData> pathByNodesTSP) {
+        this.pathByNodesTSP = pathByNodesTSP;
     }
 
     public void setDest(int dest) {
