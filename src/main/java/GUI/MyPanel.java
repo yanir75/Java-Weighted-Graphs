@@ -10,13 +10,14 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MyPanel extends JPanel {
     private Algorithms graph, copyOfGraph;
     private NodeData center;
     private boolean isCenterActivated, isPathActivated, isTSPActivated;
     private LinkedList<NodeData> pathByNodes;
-    private List pathByNodesTSP;
+    private List<NodeData> pathByNodesTSP;
     private int src, dest;
     double minX;
     double minY;
@@ -35,7 +36,7 @@ public class MyPanel extends JPanel {
         this.src = -1;
         this.dest = -1;
         this.pathByNodes = new LinkedList<>();
-        this.pathByNodesTSP = new List();
+        this.pathByNodesTSP = new LinkedList<NodeData>();
         try {
             setMin();
         } catch (Exception e) {
@@ -162,7 +163,9 @@ public class MyPanel extends JPanel {
             }
         }
 
-        while(this.pathByNodesTSP.si){
+        int size = this.pathByNodesTSP.size();
+        int i = 0;
+        while(i < size){
             g2d.setPaint(new Color(255,51,255));
             dest = this.pathByNodesTSP.get(0).getKey();
             this.pathByNodesTSP.remove(0);
@@ -180,6 +183,7 @@ public class MyPanel extends JPanel {
             if(this.pathByNodesTSP.size() == 0){
                 this.isTSPActivated = false;
             }
+            i++;
         }
     }
 
@@ -283,7 +287,7 @@ public class MyPanel extends JPanel {
         return dest;
     }
 
-    public LinkedList<NodeData> getPathByNodesTSP() {
+    public java.util.List<NodeData> getPathByNodesTSP() {
         return pathByNodesTSP;
     }
 
@@ -299,6 +303,9 @@ public class MyPanel extends JPanel {
         isPathActivated = pathActivated;
     }
 
+    public void setPathByNodesTSPActivated(boolean pathActivated) {
+        this.isTSPActivated = pathActivated;
+    }
     public NodeData getCenter() {
         return center;
     }

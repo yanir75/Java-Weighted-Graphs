@@ -313,7 +313,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
 
     @Override
-    public List<NodeData> tsp(List<NodeData> cities) {
+    public LinkedList<NodeData> tsp(LinkedList<NodeData> cities) {
         if(cities==null || cities.size()==0)
             return null;
         if(cities.size()==1){
@@ -335,7 +335,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
                 }
             }
         }
-        List<NodeData> l = new LinkedList<>();
+        LinkedList<NodeData> l = new LinkedList<>();
         while (route.get(first)!=null){
             int key=route.get(first);
             NodeData n = graph.getNode(first);

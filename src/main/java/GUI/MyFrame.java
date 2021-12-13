@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.LinkedList;
-import java.util.List;
 
 
 public class MyFrame extends JFrame implements ActionListener {
@@ -717,7 +716,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         else if (TSPItem.equals(event) || TSP.equals(event)) {
             int choose = chooseInputTSPState();
-            List<NodeData> cities = new LinkedList<>();
+            LinkedList<NodeData> cities = new LinkedList<>();
             // Case 1 -> one long string.
             if(choose == 0){
                 String explanation = """
@@ -731,29 +730,29 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
 //                double sp = algo.t(src, dest);
                 this.mainPanel.setPathByNodesTSP(this.algo.tsp(cities));
-                this.mainPanel.setDest(dest);
-                this.mainPanel.setSrc(src);
-                this.mainPanel.setPathActivated(true);
-                System.out.println(sp);
+//                this.mainPanel.setDest(dest);
+//                this.mainPanel.setSrc(src);
+                this.mainPanel.setPathByNodesTSPActivated(true);
+//                System.out.println(sp);
             }
 
             // Case 2 -> each time one Node.
-            JTextField srcText = new JTextField("Source");
-            JTextField destText = new JTextField("Destination");
-            String title = """
-                    Insert the Source Node and the Destination
-                    Node values of the Path you seek.
-                    In order to finish click on the OK button.
-                    """;
-            srcText.setToolTipText("Enter the Source Node");
-            destText.setToolTipText("Enter the Destination Node");
-            Object[] options = {title, "\n", srcText, destText};
-
-            JOptionPane j = new JOptionPane();
-            j.setMessage(options);
-            j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-            JDialog dialog = j.createDialog(null, "Shortest Path");
-            dialog.setVisible(true);
+//            JTextField srcText = new JTextField("Source");
+//            JTextField destText = new JTextField("Destination");
+//            String title = """
+//                    Insert the Source Node and the Destination
+//                    Node values of the Path you seek.
+//                    In order to finish click on the OK button.
+//                    """;
+//            srcText.setToolTipText("Enter the Source Node");
+//            destText.setToolTipText("Enter the Destination Node");
+//            Object[] options = {title, "\n", srcText, destText};
+//
+//            JOptionPane j = new JOptionPane();
+//            j.setMessage(options);
+//            j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+//            JDialog dialog = j.createDialog(null, "Shortest Path");
+//            dialog.setVisible(true);
             System.out.println("TSP activated");
         }
         if(!this.colored){repaint();}

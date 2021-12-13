@@ -1,4 +1,5 @@
 package api;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -73,7 +74,7 @@ public interface DirectedWeightedGraphAlgorithms {
     * the lower the better.
     * See: https://en.wikipedia.org/wiki/Travelling_salesman_problem
     */
-    List<NodeData> tsp(List<NodeData> cities);
+    LinkedList<NodeData> tsp(LinkedList<NodeData> cities);
     /**
      * Saves this weighted (directed) graph to the given
      * file name - in JSON format
