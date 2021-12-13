@@ -116,7 +116,7 @@ class AlgorithmsTest {
     void tsp() {
         Algorithms g = new Algorithms();
         g.load("data/G1.json");
-        LinkedList<NodeData> l = new LinkedList<>();
+        List<NodeData> l = new LinkedList<>();
         l.add(g.getGraph().getNode(6));
         l.add(g.getGraph().getNode(8));
         l.add(g.getGraph().getNode(7));

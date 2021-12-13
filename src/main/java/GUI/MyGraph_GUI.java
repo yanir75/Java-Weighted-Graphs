@@ -29,7 +29,7 @@ public class MyGraph_GUI{
 
     public static void main(String[] args) throws Exception {
         ParseToGraph pd = new ParseToGraph("data/G1.json");
-        MyGraph mg = new MyGraph(pd.getNodes());
+        MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
         new MyGraph_GUI(mg);
 //        drawGUI();
 

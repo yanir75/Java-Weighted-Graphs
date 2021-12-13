@@ -59,7 +59,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             connected = 1;
         else
             connected = 0;
-        return con;
+        return isStronglyConnected();
     }
 
     /**
@@ -91,7 +91,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
      * @return
      */
     private DirectedWeightedGraph reverse() {
-        HashMap<Integer, Node> Nodes = new HashMap<Integer, Node>();
+        HashMap<Integer, Node> Nodes = new HashMap<>();
         Iterator<NodeData> iterNodes = graph.nodeIter();
         while (iterNodes.hasNext()) {
             NodeData n = iterNodes.next();
@@ -104,7 +104,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
             EdgeData e = iterEdges.next();
             Edge en = new Edge(e.getDest(), e.getSrc(), e.getWeight());
             Node n = Nodes.get(en.getSrc());
-            n.getEdges().put(e.getDest(), en);
+            n.getEdges().put(en.getDest(), en);
         }
         return new MyGraph(Nodes, count);
 
@@ -310,41 +310,35 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
 
-
-
-    @Override
-    public LinkedList<NodeData> tsp(LinkedList<NodeData> cities) {
+    public List<NodeData> findRoute(List<NodeData> cities) {
         if(cities==null || cities.size()==0)
             return null;
         if(cities.size()==1){
             return cities;
         }
-        int first = cities.get(0).getKey();
-        HashMap<Integer,Integer> route = new HashMap<>();
-        for(int i=0;i<cities.size()-1;i++)
-        {
-            NodeData n = cities.remove(0);
+        List<NodeData> TSPath = new LinkedList<>();
+        HashSet<Integer> route = new HashSet<>();
+        int last = cities.get(0).getKey();
+        while (cities.size()>1){
+            cities.remove(0);
             NodeData n1 = cities.get(0);
-            if(!route.containsKey(n1.getKey())) {
-                HashMap<Integer, father> r_1 = djikstra_path(n.getKey(), n1.getKey());
-                int key = n1.getKey();
-                while (key != n.getKey()) {
-                    int prev = r_1.get(key).prev;
-                    route.put(prev, key);
-                    key = prev;
+            if(!route.contains(n1.getKey())) {
+                List<NodeData> part = shortestPath(last, n1.getKey());
+                while (part.size() > 0) {
+                    NodeData g = part.remove(0);
+                    TSPath.add(g);
+                    route.add(g.getKey());
                 }
+                last=TSPath.get(TSPath.size()-1).getKey();
             }
         }
-        LinkedList<NodeData> TSPath = new LinkedList<>();
-        while (route.get(first)!=null){
-            int key=route.get(first);
-            NodeData n = graph.getNode(first);
-            TSPath.add(n);
-            first=key;
-        }
-        TSPath.add(graph.getNode(first));
-        System.out.println("ORIGINAL\n" + TSPath);
-     return TSPath;
+        return TSPath;
+    }
+
+    @Override
+    public List<NodeData> tsp(List<NodeData> cities) {
+
+     return findRoute(cities);
     }
 
     /**
@@ -401,7 +395,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     public static void main(String[]args){
         ParseToGraph pd = new ParseToGraph();
         try {
-            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs\\data\\10000Nodes.json");
+            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs\\data\\G1.json");
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
@@ -410,9 +404,10 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.size);
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
-        g = new graphGen().generate_connected_graph(2);
-        algo.init(g);
-        DirectedWeightedGraph g1 = algo.copy();
+        System.out.println(algo.isConnected());
+////        g = new graphGen().generate_connected_graph(2);
+//        algo.init(g);
+//        DirectedWeightedGraph g1 = algo.copy();
 //        long b = System.currentTimeMillis();
 //        System.out.println(algo.center());
 //        System.out.println(System.currentTimeMillis()-b);

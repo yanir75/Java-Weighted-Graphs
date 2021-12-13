@@ -74,7 +74,7 @@ public interface DirectedWeightedGraphAlgorithms {
     * the lower the better.
     * See: https://en.wikipedia.org/wiki/Travelling_salesman_problem
     */
-    LinkedList<NodeData> tsp(LinkedList<NodeData> cities);
+    List<NodeData> tsp(List<NodeData> cities);
     /**
      * Saves this weighted (directed) graph to the given
      * file name - in JSON format

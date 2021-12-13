@@ -295,7 +295,7 @@ public class MyPanel extends JPanel {
         return pathByNodesTSP;
     }
 
-    public void setPathByNodesTSP(LinkedList<NodeData> path) {
+    public void setPathByNodesTSP(List<NodeData> path) {
 //        System.out.println("THE PATH\n" + path);
 //        this.pathByNodesTSP = new LinkedList<>();
 //        this.pathByNodesTSP.addAll(path);
