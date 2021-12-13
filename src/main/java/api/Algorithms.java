@@ -335,15 +335,16 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
                 }
             }
         }
-        LinkedList<NodeData> l = new LinkedList<>();
+        LinkedList<NodeData> TSPath = new LinkedList<>();
         while (route.get(first)!=null){
             int key=route.get(first);
             NodeData n = graph.getNode(first);
-            l.add(n);
+            TSPath.add(n);
             first=key;
         }
-        l.add(graph.getNode(first));
-     return l;
+        TSPath.add(graph.getNode(first));
+        System.out.println("ORIGINAL\n" + TSPath);
+     return TSPath;
     }
 
     /**

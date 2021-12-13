@@ -36,7 +36,7 @@ public class MyPanel extends JPanel {
         this.src = -1;
         this.dest = -1;
         this.pathByNodes = new LinkedList<>();
-        this.pathByNodesTSP = new LinkedList<NodeData>();
+        this.pathByNodesTSP = new LinkedList<>();
         try {
             setMin();
         } catch (Exception e) {
@@ -163,9 +163,14 @@ public class MyPanel extends JPanel {
             }
         }
 
-        int size = this.pathByNodesTSP.size();
-        int i = 0;
-        while(i < size){
+        src = -1;
+        dest = -1;
+//        System.out.println(this.pathByNodesTSP.toString());
+        if(!this.pathByNodesTSP.isEmpty()){
+            src = this.pathByNodesTSP.get(0).getKey();
+            this.pathByNodesTSP.remove(0);
+        }
+        while(this.pathByNodesTSP.size() > 0){
             g2d.setPaint(new Color(255,51,255));
             dest = this.pathByNodesTSP.get(0).getKey();
             this.pathByNodesTSP.remove(0);
@@ -183,7 +188,6 @@ public class MyPanel extends JPanel {
             if(this.pathByNodesTSP.size() == 0){
                 this.isTSPActivated = false;
             }
-            i++;
         }
     }
 
@@ -272,7 +276,7 @@ public class MyPanel extends JPanel {
 
     public void setPath(int src, int dest) {
         this.pathByNodes = (LinkedList<NodeData>) this.graph.shortestPath(src,dest);
-        System.out.println(this.pathByNodes);
+//        System.out.println(this.pathByNodes);
     }
 
     public int getSrc() {
@@ -291,8 +295,11 @@ public class MyPanel extends JPanel {
         return pathByNodesTSP;
     }
 
-    public void setPathByNodesTSP(LinkedList<NodeData> pathByNodesTSP) {
-        this.pathByNodesTSP = pathByNodesTSP;
+    public void setPathByNodesTSP(LinkedList<NodeData> path) {
+//        System.out.println("THE PATH\n" + path);
+//        this.pathByNodesTSP = new LinkedList<>();
+//        this.pathByNodesTSP.addAll(path);
+        this.pathByNodesTSP = path;
     }
 
     public void setDest(int dest) {

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.LinkedList;
+import java.util.Locale;
 
 
 public class MyFrame extends JFrame implements ActionListener {
@@ -360,6 +361,7 @@ public class MyFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object event = e.getSource();
+        UIManager.put("OptionPane.messageFont", new Font("ariel", Font.BOLD, 14));
 
         if (loadItem.equals(event) || LOAD.equals(event)) {
             JFileChooser loadFile = new JFileChooser();
@@ -626,8 +628,9 @@ public class MyFrame extends JFrame implements ActionListener {
             this.outputText += output;
 //             updateTerminal(outputText);
 //            this.ta.setRows(this.outputText.length());
-//            this.ta.append("\n" + output);
-            this.ta.append(this.outputText + "hello");
+            this.ta.append("\n" + "This graph is not strongly connected!");
+//            this.outputText = this.ta.getText();
+//            this.ta.setText(this.outputText + "hello");
 //            this.ta.setForeground(Color.white);
 //            this.outputPanel.repaint();
         }
@@ -662,7 +665,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         this.mainPanel.setDest(dest);
                         this.mainPanel.setSrc(src);
                         this.mainPanel.setPathActivated(true);
-                        System.out.println(sp);
+//                        System.out.println(sp);
                     }
                     else{
                         JOptionPane.showOptionDialog(null,
@@ -717,42 +720,109 @@ public class MyFrame extends JFrame implements ActionListener {
         else if (TSPItem.equals(event) || TSP.equals(event)) {
             int choose = chooseInputTSPState();
             LinkedList<NodeData> cities = new LinkedList<>();
+            boolean citiesInitiated = false;
             // Case 1 -> one long string.
             if(choose == 0){
-                String explanation = """
-                        Enter a String of all the Nodes
-                        you would like to check TSP Algorithm on.
-                        Separate each Node with a single Space Key.""";
-                String input = JOptionPane.showInputDialog(explanation);
-                String[] nodes = input.split(" ");
-                for(String n: nodes){
-                    cities.add(this.graph.getNode(Integer.parseInt(n)));
+                while (!citiesInitiated) {
+                    String explanation = """
+                            Enter a String of all the Nodes
+                            you would like to check TSP Algorithm on.
+                            Separate each Node with a single Space Key.""";
+                    String input = JOptionPane.showInputDialog(explanation, "Enter the Nodes");
+                    if (input == null) {
+                        break;
+                    }
+                        String[] nodes = input.split(" ");
+//                System.out.println(Arrays.toString(nodes));
+                        for (String n : nodes) {
+//                    cities.add(this.graph.getNode(Integer.parseInt(n)));
+                            int ID = -1;
+                            try {
+                                ID = Integer.parseInt(n);
+                                if (graph.getNodes().containsKey(ID)) {
+                                    cities.add(this.graph.getNode(ID));
+                                } else {
+                                    JOptionPane.showOptionDialog(null,
+                                            "Wrong input!\nThe ID: " + n + " does not appear in the Graph.",
+                                            "ID INPUT ERROR!",
+                                            JOptionPane.DEFAULT_OPTION,
+                                            JOptionPane.WARNING_MESSAGE,
+                                            null,
+                                            null,
+                                            null);
+                                    break;
+                                }
+                            } catch (NumberFormatException ex) {
+                                JOptionPane.showOptionDialog(null,
+                                        "Wrong input!\nPlease enter only numeric values.",
+                                        "INPUT ERROR!",
+                                        JOptionPane.DEFAULT_OPTION,
+                                        JOptionPane.ERROR_MESSAGE,
+                                        null,
+                                        null,
+                                        null);
+                                break;
+                            }
+                        }
+                        if (cities.size() == nodes.length) {
+                            citiesInitiated = true;
+                        }
+//                System.out.println("NODES\n" + cities);
+//                System.out.println("CITIES\n" + this.algo.tsp(cities));
+                        this.mainPanel.setPathByNodesTSP(this.algo.tsp(cities));
+                        this.mainPanel.setPathByNodesTSPActivated(true);
                 }
-//                double sp = algo.t(src, dest);
-                this.mainPanel.setPathByNodesTSP(this.algo.tsp(cities));
-//                this.mainPanel.setDest(dest);
-//                this.mainPanel.setSrc(src);
-                this.mainPanel.setPathByNodesTSPActivated(true);
-//                System.out.println(sp);
             }
 
             // Case 2 -> each time one Node.
-//            JTextField srcText = new JTextField("Source");
-//            JTextField destText = new JTextField("Destination");
-//            String title = """
-//                    Insert the Source Node and the Destination
-//                    Node values of the Path you seek.
-//                    In order to finish click on the OK button.
-//                    """;
-//            srcText.setToolTipText("Enter the Source Node");
-//            destText.setToolTipText("Enter the Destination Node");
-//            Object[] options = {title, "\n", srcText, destText};
-//
-//            JOptionPane j = new JOptionPane();
-//            j.setMessage(options);
-//            j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-//            JDialog dialog = j.createDialog(null, "Shortest Path");
-//            dialog.setVisible(true);
+            else {
+                JTextField input = new JTextField("Enter Node");
+                Object[] options = {"Insert the first number(ID) of the Node you want to add:", input, "When finished type DONE"};
+                JOptionPane j = new JOptionPane();
+                j.setMessage(options);
+                j.setMessageType(JOptionPane.QUESTION_MESSAGE);
+                JDialog dialog = j.createDialog(null, "Add Nodes to List");
+                dialog.setVisible(true);
+
+                options[0] = "Insert the number(ID) of the Node you want to add:";
+                String text = input.getText().toUpperCase(Locale.ROOT);
+                while(!text.equals("DONE")){
+                    int ID = -1;
+                    try{
+                        ID = Integer.parseInt(input.getText());
+                        if(graph.getNodes().containsKey(ID)){
+                            cities.add(this.graph.getNode(ID));
+                        }
+                        else{
+                            JOptionPane.showOptionDialog(null,
+                                    "Wrong input!\nThe ID entered does not appear in the Graph.",
+                                    "ID INPUT ERROR!",
+                                    JOptionPane.DEFAULT_OPTION,
+                                    JOptionPane.WARNING_MESSAGE,
+                                    null,
+                                    null,
+                                    null);
+                        }
+                    }
+                    catch (NumberFormatException ex){
+                        JOptionPane.showOptionDialog(null,
+                                "Wrong input!\nPlease enter only numeric values.",
+                                "INPUT ERROR!",
+                                JOptionPane.DEFAULT_OPTION,
+                                JOptionPane.ERROR_MESSAGE,
+                                null,
+                                null,
+                                null);
+                    }
+                    input.setText("Enter Node");
+                    j = new JOptionPane();
+                    j.setMessage(options);
+                    j.setMessageType(JOptionPane.QUESTION_MESSAGE);
+                    dialog = j.createDialog(null, "Add Nodes to List");
+                    dialog.setVisible(true);
+                    text = input.getText().toUpperCase(Locale.ROOT);
+                }
+            }
             System.out.println("TSP activated");
         }
         if(!this.colored){repaint();}
@@ -760,8 +830,13 @@ public class MyFrame extends JFrame implements ActionListener {
 
     private int chooseInputTSPState(){
         String[] options = {"one String input", "each time one String"};
+        String message = """
+                Choose how you would like to type the List:
+                one String input = you will write the list as a single String with spaces between each Node.
+                each time one string = you will write each time one city until finished.
+                """;
         int ans = JOptionPane.showOptionDialog(null,
-                "Wrong input!\nThe destination entered does not appear in the Graph.",
+                message,
                 "CHOOSE HOW TO INPUT THE TSP LIST",
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.QUESTION_MESSAGE,

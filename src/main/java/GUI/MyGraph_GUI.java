@@ -11,8 +11,8 @@ public class MyGraph_GUI{
 
 
 
-    public MyGraph_GUI(MyGraph g) throws Exception{
-        graph = g;
+    public MyGraph_GUI(DirectedWeightedGraph g) throws Exception{
+        graph = (MyGraph) g;
         frame = new MyFrame(graph);
         panel = new MyPanel(graph);
         frame.initGUI();
