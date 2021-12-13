@@ -365,7 +365,6 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         try {
             FileWriter myWriter = new FileWriter(file);
             myWriter.write(graph.toString());
-            myWriter.flush();
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
             return true;
@@ -382,7 +381,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         boolean hasLoaded = false;
         try{
             ParseToGraph ptg = new ParseToGraph(file);
-            this.graph = new MyGraph(ptg.getNodes(), ptg.size);
+            this.init(new MyGraph(ptg.getNodes(), ptg.size));
             hasLoaded = true;
         }
         catch(FileNotFoundException e){
@@ -404,6 +403,8 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.size);
         DirectedWeightedGraphAlgorithms algo = new Algorithms();
         algo.init(g);
+        algo.load("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs\\data\\10000Nodes.json");
+        algo.save("testing.txt");
         System.out.println(algo.isConnected());
 ////        g = new graphGen().generate_connected_graph(2);
 //        algo.init(g);
