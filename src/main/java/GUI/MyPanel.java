@@ -1,9 +1,7 @@
 package GUI;
 
-import api.Algorithms;
-import api.EdgeData;
-import api.MyGraph;
-import api.NodeData;
+import api.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -29,7 +27,7 @@ public class MyPanel extends JPanel {
         this.copyOfGraph = new Algorithms();
         this.graph.init(g);
         this.copyOfGraph.init(this.graph.copy());
-        this.center = this.graph.center();
+        this.center = null;
         this.isCenterActivated = false;
         this.isPathActivated = false;
         this.isTSPActivated = false;
@@ -73,14 +71,14 @@ public class MyPanel extends JPanel {
             NodeData n = nodesIter.next();
             int width = 14;
             int height = 14;
-            if(n.getKey() == this.center.getKey() && this.isCenterActivated){
+            if(this.center != null && n.getKey() == this.center.getKey() && this.isCenterActivated){
                 g2d.setPaint(new Color(255,0,0));
                 g2d.setStroke(new BasicStroke(3));
                 width = 18;
                 height = 18;
             }
-            double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 33;
-            double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 33;
+            double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 30;
+            double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 30;
             g2d.fillOval((int) x - 3, (int) y - 3, width, height);
         }
 
@@ -123,7 +121,7 @@ public class MyPanel extends JPanel {
 //            String coordinate = "(" + xs + "," + ys + ")";
             g2d.setStroke(new BasicStroke(1));
             g2d.setPaint(Color.white);
-            if(n.getKey() == this.center.getKey() && this.isCenterActivated){
+            if(this.center != null && n.getKey() == this.center.getKey() && this.isCenterActivated){
                 g2d.setPaint(Color.YELLOW);
                 this.isCenterActivated = false;
             }
@@ -192,7 +190,7 @@ public class MyPanel extends JPanel {
     }
 
 
-    public void setMin() throws Exception {
+    public void setMin() {
         minX = Integer.MAX_VALUE;
         minY = Integer.MAX_VALUE;
         maxX = Integer.MIN_VALUE;
@@ -310,10 +308,31 @@ public class MyPanel extends JPanel {
         isPathActivated = pathActivated;
     }
 
+    public void setCenter(NodeData center) {
+        this.center = center;
+    }
+
     public void setPathByNodesTSPActivated(boolean pathActivated) {
         this.isTSPActivated = pathActivated;
     }
     public NodeData getCenter() {
         return center;
+    }
+
+    public void checkMin(NodeData newNode) {
+        double x = newNode.getLocation().x();
+        double y = newNode.getLocation().y();
+        if(x > this.maxX){
+            this.maxX = x;
+        }
+        else if(x < this.minX){
+            this.minX = x;
+        }
+        if(y > this.maxY){
+            this.maxY = y;
+        }
+        else if(y < this.minY){
+            this.minY = y;
+        }
     }
 }

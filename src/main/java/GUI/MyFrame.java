@@ -100,7 +100,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.width = (int)scale.width;
         this.height = (int)scale.height;
         this.setSize(width / 4, height / 5);
-        this.setResizable(false);
+        this.setResizable(true);
 
         this.ta = new JTextArea(outputText, 1,100);
         this.ta.setBackground(Color.black);
@@ -247,27 +247,27 @@ public class MyFrame extends JFrame implements ActionListener {
 
     }
 
-//    private void updateTerminal(String text){
-//        this.setVisible(false);
-//        this.remove(this.outputPanel);
-//        this.outputPanel = new JPanel(new BorderLayout());
-//        text = this.ta.getText() + "\n" + text;
-//        this.ta = new TextArea(text);
-//        this.ta.setBackground(Color.black);
-//        this.ta.setForeground(Color.white);
-//        this.ta.setFont(new Font("ariel", Font.BOLD, 14));
-//        this.ta.setEditable(false);
-//
-//        this.terminal = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-//
-//        this.outputPanel.setPreferredSize(new Dimension(this.width / 10, this.height / 5));
-//        this.outputPanel.add(this.terminal);
-//
-//        this.add(this.outputPanel);
+    private void updateTerminal(String text){
+        this.setVisible(false);
+        this.remove(this.outputPanel);
+        this.outputPanel = new JPanel(new BorderLayout());
+        this.outputText += "\n" + text;
+        this.ta = new JTextArea(this.outputText);
+        this.ta.setBackground(Color.black);
+        this.ta.setForeground(Color.white);
+        this.ta.setFont(new Font("ariel", Font.BOLD, 14));
+        this.ta.setEditable(false);
+
+        this.terminal = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        this.outputPanel.setPreferredSize(new Dimension(this.width / 10, this.height / 5));
+        this.outputPanel.add(this.terminal);
+
+        this.add(this.outputPanel);
 //        this.pack();
-//        repaint();
+        this.outputPanel.repaint();
 //        this.setVisible(true);
-//    }
+    }
 
 
     private void addButtonsAndText(){
@@ -374,10 +374,10 @@ public class MyFrame extends JFrame implements ActionListener {
                     ParseToGraph pd = null;
                     try {
                         pd = new ParseToGraph(loadFile.getSelectedFile().getAbsolutePath());
-                        MyGraph g = new MyGraph(pd.getNodes());
+                        MyGraph g = new MyGraph(pd.getNodes(), pd.size);
                         setVisible(false);
                         dispose();
-                        repaint();
+//                        repaint();
                         new MyGraph_GUI(g);
                         System.out.println("The file: " + loadFile.getSelectedFile().getName() + ", was loaded successfully");
                     } catch (Exception ex) {
@@ -426,7 +426,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 MyGraph g = new MyGraph();
                 setVisible(false);
                 dispose();
-                repaint();
+//                repaint();
                 new MyGraph_GUI(g);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -441,7 +441,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 MyGraph g = new MyGraph(this.graphCopy);
                 setVisible(false);
                 dispose();
-                repaint();
+//                repaint();
                 new MyGraph_GUI(g);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -492,7 +492,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
             }
             System.out.println("Edge added");
-            repaint();
+//            repaint();
         }
 
         else if (addNodeItem.equals(event) || AN.equals(event)) {
@@ -520,6 +520,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 id = Integer.parseInt(ID.getText());
                 NodeData newNode = new Node(x, y, id);
                 this.graph.addNode(newNode);
+                this.mainPanel.checkMin(newNode);
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -532,7 +533,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
             }
             System.out.println("Node added");
-            repaint();
+//            repaint();
         }
 
         else if (removeEdgeItem.equals(event) || RE.equals(event)) {
@@ -571,7 +572,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null);
                 }
-                repaint();
+//                repaint();
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -606,7 +607,8 @@ public class MyFrame extends JFrame implements ActionListener {
             try {
                 id = Integer.parseInt(ID.getText());
                 try {
-                    this.graph.removeNode(id);
+                    this.algo.getGraph().removeNode(id);
+//                    this.graph.removeNode(id);
                 }
                 catch (NullPointerException nep){
                     JOptionPane.showOptionDialog(null,
@@ -618,7 +620,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null);
                 }
-                repaint();
+//                repaint();
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -646,10 +648,21 @@ public class MyFrame extends JFrame implements ActionListener {
                     null);
             System.out.println(ans);
 //            this.ta.append("\n" + ans);
-            this.outputText += output;
+            this.outputText += "\n" + output;
 //             updateTerminal(outputText);
 //            this.ta.setRows(this.outputText.length());
-            this.ta.append("\n" + "This graph is not strongly connected!");
+//            updateTerminal(output);
+//            this.ta.append("\n" + "This graph is strongly connected!");
+            System.out.println(this.ta.getText());
+//            for(int i = 0; i < this.ta.getText().length(); i++) {
+//                this.ta.setCaretPosition(i);
+//            }
+
+//            this.ta.update(this.ta.getGraphics());
+//            this.ta.validate();
+//            this.ta.replaceRange(this.ta.getText(), 0, this.ta.getText().length());
+//            this.ta.repaint();
+//            this.terminal.repaint();
 //            this.outputText = this.ta.getText();
 //            this.ta.setText(this.outputText + "hello");
 //            this.ta.setForeground(Color.white);
@@ -724,7 +737,8 @@ public class MyFrame extends JFrame implements ActionListener {
 
         else if (centerItem.equals(event) || CE.equals(event)) {
             this.mainPanel.setCenterActivated(true);
-            repaint();
+            this.mainPanel.setCenter(this.algo.center());
+//            repaint();
             this.colored = true;
             JOptionPane.showOptionDialog(null,
                     "The center of this Graph is Node number: " + this.mainPanel.getCenter().getKey() + ".\n" +
@@ -846,7 +860,12 @@ public class MyFrame extends JFrame implements ActionListener {
             }
             System.out.println("TSP activated");
         }
-        if(!this.colored){repaint();}
+//        if(!this.colored){repaint();}
+        repaint();
+//        this.ta.update(this.ta.getGraphics());
+//        this.ta.validate();
+//        this.ta.setVisible(true);;
+//        initGUI();
     }
 
     private int chooseInputTSPState(){
