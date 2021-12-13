@@ -7,15 +7,15 @@ import api.*;
 public class MyGraph_GUI{
     private MyFrame frame;
     private MyPanel panel;
-    private MyGraph graph;
+    private DirectedWeightedGraph graph;
 
 
 
     public MyGraph_GUI(DirectedWeightedGraph g) throws Exception{
-        graph = (MyGraph) g;
-        frame = new MyFrame(graph);
-        panel = new MyPanel(graph);
-        frame.initGUI();
+        this.graph = g;
+        this.frame = new MyFrame(this.graph);
+        this.panel = new MyPanel(this.graph);
+        this.frame.initGUI();
     }
     public MyGraph_GUI() throws Exception{
 

@@ -860,7 +860,8 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("TSP activated");
         }
 //        if(!this.colored){repaint();}
-        repaint();
+        dispose();
+        initGUI();
 //        this.ta.update(this.ta.getGraphics());
 //        this.ta.validate();
 //        this.ta.setVisible(true);;
