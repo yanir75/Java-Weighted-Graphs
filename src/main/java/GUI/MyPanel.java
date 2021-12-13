@@ -42,7 +42,7 @@ public class MyPanel extends JPanel {
         }
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int)scale.width;
-        int height = (int)scale.height;
+        int height = (int)(scale.height * 0.8);
         this.setLayout(new BorderLayout());
         this.setBackground(Color.white);
         this.setPreferredSize(new Dimension((int)(width / 1.3), (int)(height / 1.3)));
@@ -52,8 +52,8 @@ public class MyPanel extends JPanel {
     public void paint(Graphics graphics) {
         double ABSx = Math.abs(minX - maxX);
         double ABSy = Math.abs(minY - maxY);
-        double scaleX = (getWidth() / ABSx) * 0.7;
-        double scaleY = (getHeight() / ABSy) * 0.7;
+        double scaleX = (getWidth() / ABSx) * 0.8;
+        double scaleY = (getHeight() / ABSy) * 0.8;
         int w = getWidth();
         int h = getHeight();
         int r = 5;
@@ -79,7 +79,7 @@ public class MyPanel extends JPanel {
             }
             double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 30;
             double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 30;
-            g2d.fillOval((int) x - 3, (int) y - 3, width, height);
+            g2d.fillOval((int) x - (height / 2), (int) y -( width / 2), width, height);
         }
 
         // Draw all Edges.
@@ -87,18 +87,19 @@ public class MyPanel extends JPanel {
         while (edgesIter.hasNext()) {
             EdgeData e = edgesIter.next();
             g2d.setPaint(Color.black);
-            double srcX = (graph.getGraph().getNode(e.getSrc()).getLocation().x() - minX) * scaleX + 31;
-            double srcY = (graph.getGraph().getNode(e.getSrc()).getLocation().y() - minY) * scaleY + 31;
-            double destX = (graph.getGraph().getNode(e.getDest()).getLocation().x() - minX) * scaleX + 31;
-            double destY = (graph.getGraph().getNode(e.getDest()).getLocation().y() - minY) * scaleY + 31;
+            double srcX = (graph.getGraph().getNode(e.getSrc()).getLocation().x() - minX) * scaleX * 0.98 + 30;
+            double srcY = (graph.getGraph().getNode(e.getSrc()).getLocation().y() - minY) * scaleY * 0.98 + 30;
+            double destX = (graph.getGraph().getNode(e.getDest()).getLocation().x() - minX) * scaleX * 0.98 + 30;
+            double destY = (graph.getGraph().getNode(e.getDest()).getLocation().y() - minY) * scaleY * 0.98 + 30;
             int x1 = (int) srcX;
             int y1 = (int) srcY;
             int x2 = (int) destX;
             int y2 = (int) destY;
-            g2d.draw(new Line2D.Double(x1, y1, x2, y2));
+//            g2d.draw(new Line2D.Double(x1, y1, x2, y2));
             g2d.setStroke(new BasicStroke(3));
             g2d.setPaint(Color.black);
             drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
+//            g2d.fillOval((int) x2, (int) y2, 18, 18);
             double medX = middle(x1, x2);
             double medY = middle(y1, y2);
             g2d.setStroke(new BasicStroke(1));
@@ -109,13 +110,14 @@ public class MyPanel extends JPanel {
             g2d.setFont(new Font("ariel", Font.BOLD, 9));
             g2d.drawString((Math.round(e.getWeight() * 10000d) / 10000d) + "", (int) medX, (int) medY);
 
+
         }
 
         nodesIter = graph.getGraph().nodeIter();
         while (nodesIter.hasNext()) {
             NodeData n = nodesIter.next();
-            double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 33;
-            double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 33;
+            double x = (n.getLocation().x() - minX) * scaleX * 0.98 + 30;
+            double y = (n.getLocation().y() - minY) * scaleY * 0.98 + 30;
 //            String xs = "" + (Math.round(n.getLocation().x() * 10000d) / 10000d);
 //            String ys = "" + (Math.round(n.getLocation().y() * 10000d) / 10000d);
 //            String coordinate = "(" + xs + "," + ys + ")";
