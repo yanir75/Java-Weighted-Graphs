@@ -176,7 +176,6 @@ public class MyFrame extends JFrame implements ActionListener {
         editMenu.add(removeEdgeItem);
 
 
-
         // Algorithms menu
         isConnectedItem = new JMenuItem("isConnected        (Alt+A+I)");
         shortestPath = new JMenuItem("Shortest Path      (Alt+A+S)");
