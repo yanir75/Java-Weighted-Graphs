@@ -147,10 +147,10 @@ public class MyPanel extends JPanel {
             g2d.setPaint(new Color(0,204,0));
             dest = this.pathByNodes.get(0).getKey();
             this.pathByNodes.remove(0);
-            double srcX = (graph.getGraph().getNode(src).getLocation().x() - minX) * scaleX + 30;
-            double srcY = (graph.getGraph().getNode(src).getLocation().y() - minY) * scaleY + 30;
-            double destX = (graph.getGraph().getNode(dest).getLocation().x() - minX) * scaleX + 30;
-            double destY = (graph.getGraph().getNode(dest).getLocation().y() - minY) * scaleY + 30;
+            double srcX = (graph.getGraph().getNode(src).getLocation().x() - minX) * scaleX * 0.98 + 30;
+            double srcY = (graph.getGraph().getNode(src).getLocation().y() - minY) * scaleX * 0.98 + 30;
+            double destX = (graph.getGraph().getNode(dest).getLocation().x() - minX) * scaleX * 0.98 + 30;
+            double destY = (graph.getGraph().getNode(dest).getLocation().y() - minY) * scaleX * 0.98 + 30;
             int x1 = (int) srcX;
             int y1 = (int) srcY;
             int x2 = (int) destX;

@@ -16,7 +16,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private MyPanel mainPanel;
     private JPanel buttonsPanel, outputPanel;
     private JScrollPane terminal;
-    private JTextArea ta;
+    private JTextArea JTA;
     private DirectedWeightedGraph graph;
     private DirectedWeightedGraph graphCopy;
     private Algorithms algo;
@@ -101,13 +101,13 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setSize(width / 4, height / 5);
         this.setResizable(true);
 
-        this.ta = new JTextArea(outputText, 1,100);
-        this.ta.setBackground(Color.black);
-        this.ta.setForeground(Color.white);
-        this.ta.setFont(new Font("ariel", Font.BOLD, 14));
-        this.ta.setEditable(false);
+        this.JTA = new JTextArea(outputText, 1,100);
+        this.JTA.setBackground(Color.black);
+        this.JTA.setForeground(Color.white);
+        this.JTA.setFont(new Font("ariel", Font.BOLD, 14));
+        this.JTA.setEditable(false);
 
-        this.terminal = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        this.terminal = new JScrollPane(JTA, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         this.buttonsPanel.setPreferredSize(new Dimension(width / 25, height / 22));
         buttonsPanel.setBackground(Color.GRAY);
@@ -251,13 +251,13 @@ public class MyFrame extends JFrame implements ActionListener {
         this.remove(this.outputPanel);
         this.outputPanel = new JPanel(new BorderLayout());
         this.outputText += "\n" + text;
-        this.ta = new JTextArea(this.outputText);
-        this.ta.setBackground(Color.black);
-        this.ta.setForeground(Color.white);
-        this.ta.setFont(new Font("ariel", Font.BOLD, 14));
-        this.ta.setEditable(false);
+        this.JTA = new JTextArea(this.outputText);
+        this.JTA.setBackground(Color.black);
+        this.JTA.setForeground(Color.white);
+        this.JTA.setFont(new Font("ariel", Font.BOLD, 14));
+        this.JTA.setEditable(false);
 
-        this.terminal = new JScrollPane(ta, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        this.terminal = new JScrollPane(JTA, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         this.outputPanel.setPreferredSize(new Dimension(this.width / 10, this.height / 5));
         this.outputPanel.add(this.terminal);
@@ -652,7 +652,7 @@ public class MyFrame extends JFrame implements ActionListener {
 //            this.ta.setRows(this.outputText.length());
 //            updateTerminal(output);
 //            this.ta.append("\n" + "This graph is strongly connected!");
-            System.out.println(this.ta.getText());
+            System.out.println(this.JTA.getText());
 //            for(int i = 0; i < this.ta.getText().length(); i++) {
 //                this.ta.setCaretPosition(i);
 //            }
