@@ -18,6 +18,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private JScrollPane terminal;
     private JTextArea ta;
     private MyGraph graph;
+    private MyGraph graphCopy;
     private Algorithms algo;
     private NodeData center;
     private String outputText;
@@ -35,6 +36,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JMenuItem loadItem;
     JMenuItem saveItem;
     JMenuItem clearItem;
+    JMenuItem resetItem;
     JMenuItem exitItem;
 
     // Edit menu
@@ -59,8 +61,6 @@ public class MyFrame extends JFrame implements ActionListener {
 
     // Buttons
     JButton SP;
-//    JTextField srcNode;
-//    JTextField destNode;
     JButton IC;
     JButton TSP;
     JButton CE;
@@ -69,6 +69,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton AN;
     JButton AE;
     JButton CLR;
+    JButton RESET;
     JButton LOAD;
     JButton SAVE;
 
@@ -78,7 +79,8 @@ public class MyFrame extends JFrame implements ActionListener {
         this.buttonsPanel = new JPanel();
         this.outputPanel = new JPanel(new BorderLayout());
         this.algo = this.mainPanel.getGraph();
-        this.colored = false;
+        this.graphCopy = (MyGraph) algo.copy();
+                this.colored = false;
         this.center = null;
         this.outputText = "Welcome to My Directed Weighted Graph action log...";
         initGUI();
@@ -138,6 +140,7 @@ public class MyFrame extends JFrame implements ActionListener {
         loadItem = new JMenuItem("Load       (Alt+F+L)");
         saveItem = new JMenuItem("Save       (Alt+F+S)");
         clearItem = new JMenuItem("Clear      (Alt+F+C)");
+        resetItem = new JMenuItem("Reset Graph      (Alt+F+R)");
         exitItem = new JMenuItem("Exit         (Alt+F+E)");
 
         loadItem.addActionListener(this);
@@ -148,6 +151,7 @@ public class MyFrame extends JFrame implements ActionListener {
         fileMenu.add(loadItem);
         fileMenu.add(saveItem);
         fileMenu.add(clearItem);
+        fileMenu.add(resetItem);
         fileMenu.add(exitItem);
 
 
@@ -218,6 +222,7 @@ public class MyFrame extends JFrame implements ActionListener {
         loadItem.setMnemonic(KeyEvent.VK_L); // l
         saveItem.setMnemonic(KeyEvent.VK_S); // s
         clearItem.setMnemonic(KeyEvent.VK_C); // c
+        resetItem.setMnemonic(KeyEvent.VK_R); // c
         exitItem.setMnemonic(KeyEvent.VK_E); // e
 
         // Shortcuts for editMenu.
@@ -284,19 +289,12 @@ public class MyFrame extends JFrame implements ActionListener {
         CE.addActionListener(this);
         CE.setBackground(Color.ORANGE);
 
+
         SP = new JButton("Shortest Path");
         SP.setFocusable(false);
         SP.addActionListener(this);
         SP.setBackground(Color.ORANGE);
 
-//        srcNode = new JTextField("Source");
-//        srcNode.setPreferredSize(new Dimension(70,25));
-//        srcNode.setToolTipText("Enter the source node");
-//
-//
-//        destNode = new JTextField("Destination");
-//        destNode.setPreferredSize(new Dimension(70,25));
-//        destNode.setToolTipText("Enter the destination node");
 
 
         RN = new JButton("Remove Node");
@@ -328,6 +326,11 @@ public class MyFrame extends JFrame implements ActionListener {
         CLR.addActionListener(this);
         CLR.setBackground(new Color(51,153,255));
 
+        RESET = new JButton("Reset Graph");
+        RESET.setFocusable(false);
+        RESET.addActionListener(this);
+        RESET.setBackground(new Color(51,153,255));
+
         SAVE = new JButton("Save");
         SAVE.setFocusable(false);
         SAVE.addActionListener(this);
@@ -345,8 +348,6 @@ public class MyFrame extends JFrame implements ActionListener {
         buttonsPanel.add(TSP);
         buttonsPanel.add(CE);
         buttonsPanel.add(SP);
-//        buttonsPanel.add(srcNode);
-//        buttonsPanel.add(destNode);
         buttonsPanel.add(RN);
         buttonsPanel.add(RE);
         buttonsPanel.add(AN);
@@ -354,6 +355,7 @@ public class MyFrame extends JFrame implements ActionListener {
         buttonsPanel.add(LOAD);
         buttonsPanel.add(SAVE);
         buttonsPanel.add(CLR);
+        buttonsPanel.add(RESET);
 
         repaint();
     }
@@ -434,6 +436,21 @@ public class MyFrame extends JFrame implements ActionListener {
 
         }
 
+        else if (resetItem.equals(event) || RESET.equals(event)) {
+            try {
+                MyGraph g = new MyGraph(this.graphCopy);
+                setVisible(false);
+                dispose();
+                repaint();
+                new MyGraph_GUI(g);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            System.out.println("Reset");
+
+
+        }
+
         else if (exitItem.equals(event)) {
             System.out.println("Exiting");
             System.exit(0);
@@ -475,6 +492,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
             }
             System.out.println("Edge added");
+            repaint();
         }
 
         else if (addNodeItem.equals(event) || AN.equals(event)) {
@@ -514,6 +532,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
             }
             System.out.println("Node added");
+            repaint();
         }
 
         else if (removeEdgeItem.equals(event) || RE.equals(event)) {
@@ -552,6 +571,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null);
                 }
+                repaint();
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -598,6 +618,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null);
                 }
+                repaint();
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
