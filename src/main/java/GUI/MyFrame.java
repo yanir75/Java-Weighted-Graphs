@@ -17,8 +17,8 @@ public class MyFrame extends JFrame implements ActionListener {
     private JPanel buttonsPanel, outputPanel;
     private JScrollPane terminal;
     private JTextArea ta;
-    private MyGraph graph;
-    private MyGraph graphCopy;
+    private DirectedWeightedGraph graph;
+    private DirectedWeightedGraph graphCopy;
     private Algorithms algo;
     private NodeData center;
     private String outputText;
@@ -74,20 +74,19 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton SAVE;
 
     public MyFrame(DirectedWeightedGraph g){
-        this.graph = (MyGraph) g;
+        this.graph = g;
         this.mainPanel = new MyPanel(this.graph);
         this.buttonsPanel = new JPanel();
         this.outputPanel = new JPanel(new BorderLayout());
         this.algo = this.mainPanel.getGraph();
-        this.graphCopy = (MyGraph) algo.copy();
-                this.colored = false;
+        this.graphCopy = algo.copy();
+        this.colored = false;
         this.center = null;
         this.outputText = "Welcome to My Directed Weighted Graph action log...";
         initGUI();
         addButtonsAndText();
-
-
     }
+
 
     public void initGUI(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -692,8 +691,8 @@ public class MyFrame extends JFrame implements ActionListener {
             try {
                 src = Integer.parseInt(srcText.getText());
                 dest = Integer.parseInt(destText.getText());
-                if(graph.getNodes().containsKey(src)){
-                    if(graph.getNodes().containsKey(dest)){
+                if(graph.getNode(src) != null){
+                    if(graph.getNode(dest) != null){
                         double sp = algo.shortestPathDist(src, dest);
                         this.mainPanel.setPath(src,dest);
                         this.mainPanel.setDest(dest);
@@ -774,7 +773,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             int ID = -1;
                             try {
                                 ID = Integer.parseInt(n);
-                                if (graph.getNodes().containsKey(ID)) {
+                                if (graph.getNode(ID) != null) {
                                     cities.add(this.graph.getNode(ID));
                                 } else {
                                     JOptionPane.showOptionDialog(null,
@@ -825,7 +824,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     int ID = -1;
                     try{
                         ID = Integer.parseInt(input.getText());
-                        if(graph.getNodes().containsKey(ID)){
+                        if(graph.getNode(ID) != null){
                             cities.add(this.graph.getNode(ID));
                         }
                         else{

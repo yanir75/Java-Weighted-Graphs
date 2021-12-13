@@ -22,7 +22,7 @@ public class MyPanel extends JPanel {
     double maxX;
     double maxY;
 
-    public MyPanel(MyGraph g) {
+    public MyPanel(DirectedWeightedGraph g) {
         this.graph = new Algorithms();
         this.copyOfGraph = new Algorithms();
         this.graph.init(g);
