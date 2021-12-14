@@ -766,9 +766,9 @@ public class MyFrame extends JFrame implements ActionListener {
                         for(NodeData n: path){
                             route += n.getKey() + "->";
                         }
-                        route = route.substring(0, route.length() - 2) + "]";
-                        this.outputText += "The weight of the shortest path between " + src + "->" + dest + "is: " + weight + ".";
-                        this.outputText += "The path is: " + route + ".";
+                        route = "[" + route.substring(0, route.length() - 2) + "]";
+                        this.outputText += "\nThe weight of the shortest path between " + src + " -> " + dest + " is: " + weight + ".";
+                        this.outputText += "\nThe path is: " + route + ".";
                     }
                     else{
                         JOptionPane.showOptionDialog(null,
@@ -944,11 +944,11 @@ public class MyFrame extends JFrame implements ActionListener {
                 this.mainPanel.setPathByNodesTSP(ans);
                 this.mainPanel.setPathByNodesTSPActivated(true);
             }
-            String route = "[";
+            String route = "";
             for(NodeData n: ans){
                 route += n.getKey() + "->";
             }
-            route = route.substring(0, route.length() - 2) + "]";
+            route = "[" + route.substring(0, route.length() - 2) + "]";
             this.outputText += "\n" + "The path is:" + route;
 //            System.out.println("TSP activated");
         }
