@@ -352,6 +352,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
 
+
         buttonsPanel.add(IC);
         buttonsPanel.add(TSP);
         buttonsPanel.add(CE);
@@ -467,6 +468,9 @@ public class MyFrame extends JFrame implements ActionListener {
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             JTextField weightText = new JTextField("Weight");
+            updateMouseListener(srcText);
+            updateMouseListener(destText);
+            updateMouseListener(weightText);
             String title = """
                     Insert the Source, Destination, Weight
                     values to add to the new Edge.
@@ -525,6 +529,9 @@ public class MyFrame extends JFrame implements ActionListener {
             JTextField xCoordination = new JTextField("  X  ");
             JTextField yCoordination = new JTextField("  Y  ");
             JTextField ID = new JTextField(" ID ");
+            updateMouseListener(xCoordination);
+            updateMouseListener(yCoordination);
+            updateMouseListener(ID);
             String title = "Insert the X, Y, ID values to add to the new Node\nIn order to finish click on the OK button.\n";
             xCoordination.setToolTipText("Enter the X coordination");
             yCoordination.setToolTipText("Enter the y coordination");
@@ -579,6 +586,8 @@ public class MyFrame extends JFrame implements ActionListener {
             this.outputText += "\nRemove Edge was activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
+            updateMouseListener(srcText);
+            updateMouseListener(destText);
             String title = """
                     Insert the Source Node and the Destination Node
                     values of the Edge you would like to delete.
@@ -644,6 +653,7 @@ public class MyFrame extends JFrame implements ActionListener {
         else if (removeNodeItem.equals(event) || RN.equals(event)) {
             this.outputText += "\nRemove Node was activated";
             JTextField ID = new JTextField(" ID ");
+            updateMouseListener(ID);
             String title = """
                     Insert the ID number of the Node
                     you would like to delete.
@@ -722,6 +732,8 @@ public class MyFrame extends JFrame implements ActionListener {
             this.outputText += "\nShortestPath Activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
+            updateMouseListener(srcText);
+            updateMouseListener(destText);
             String title = """
                     Insert the Source Node and the Destination
                     Node values of the Path you seek.
@@ -829,10 +841,10 @@ public class MyFrame extends JFrame implements ActionListener {
         }
 
         else if (TSPItem.equals(event) || TSP.equals(event)) {
-            this.outputText += "\n" + "TSP activated";
+            this.outputText += "\nTSP activated";
             int choose = chooseInputTSPState();
-            List<NodeData> cities = new LinkedList<>();
-            List<NodeData> ans = new LinkedList<>();
+            List<NodeData> nodesToVisit = new LinkedList<>();
+            List<NodeData> fullPath = new LinkedList<>();
             boolean citiesInitiated = false;
             // Case 1 -> one long string.
             if(choose == 0){
@@ -852,7 +864,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             try {
                                 ID = Integer.parseInt(n);
                                 if (graph.getNode(ID) != null) {
-                                    cities.add(this.graph.getNode(ID));
+                                    nodesToVisit.add(this.graph.getNode(ID));
                                 } else {
                                     JOptionPane.showOptionDialog(null,
                                             "Wrong input!\nThe ID: " + n + " does not appear in the Graph.",
@@ -876,13 +888,11 @@ public class MyFrame extends JFrame implements ActionListener {
                                 break;
                             }
                         }
-                        if (cities.size() == nodes.length) {
+                        if (nodesToVisit.size() == nodes.length) {
                             citiesInitiated = true;
                         }
-//                System.out.println("NODES\n" + cities);
-//                System.out.println("CITIES\n" + this.algo.tsp(cities));
-                        ans = this.algo.tsp(cities);
-                        this.mainPanel.setPathByNodesTSP(ans);
+                        fullPath = this.algo.tsp(nodesToVisit);
+                        this.mainPanel.setPathByNodesTSP(fullPath);
                         this.mainPanel.setPathByNodesTSPActivated(true);
                 }
             }
@@ -890,11 +900,21 @@ public class MyFrame extends JFrame implements ActionListener {
             // Case 2 -> each time one Node.
             else {
                 JTextField input = new JTextField("Enter Node");
+                updateMouseListener(input);
                 Object[] options = {"Insert the first number(ID) of the Node you want to add:", input, "When finished type DONE"};
                 JOptionPane j = new JOptionPane();
                 j.setMessage(options);
-                j.setMessageType(JOptionPane.QUESTION_MESSAGE);
+                j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = j.createDialog(null, "Add Nodes to List");
+                final boolean[] success = {false};
+//                JDialog finalDialog = dialog;
+                dialog.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        dialog.dispose();
+                        success[0] = true;
+                    }
+                });
                 dialog.setVisible(true);
 
                 options[0] = "Insert the number(ID) of the Node you want to add:";
@@ -904,9 +924,13 @@ public class MyFrame extends JFrame implements ActionListener {
                 while(!text.equals("DONE")){
                     int ID = -1;
                     try{
+
+                        if (success[0]) {
+                            throw new NoInitialContextException();
+                        }
                         ID = Integer.parseInt(input.getText());
                         if(graph.getNode(ID) != null){
-                            cities.add(this.graph.getNode(ID));
+                            nodesToVisit.add(this.graph.getNode(ID));
                             temp += ID + ", ";
                         }
                         else{
@@ -920,6 +944,9 @@ public class MyFrame extends JFrame implements ActionListener {
                                     null);
                         }
                     }
+                    catch (NoInitialContextException ex){
+                        this.outputText += "\nRemove Node canceled.";
+                    }
                     catch (NumberFormatException ex){
                         JOptionPane.showOptionDialog(null,
                                 "Wrong input!\nPlease enter only numeric values.",
@@ -930,7 +957,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                 null,
                                 null);
                     }
-                    input.setText("Enter Node");
+                    input.setText("DONE");
                     j = new JOptionPane();
                     j.setMessage(options);
                     j.setMessageType(JOptionPane.QUESTION_MESSAGE);
@@ -940,12 +967,12 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
                 temp = temp.substring(0, temp.length() - 2) + "]";
                 this.outputText += temp;
-                ans = this.algo.tsp(cities);
-                this.mainPanel.setPathByNodesTSP(ans);
+                fullPath = this.algo.tsp(nodesToVisit);
+                this.mainPanel.setPathByNodesTSP(fullPath);
                 this.mainPanel.setPathByNodesTSPActivated(true);
             }
             String route = "";
-            for(NodeData n: ans){
+            for(NodeData n: fullPath){
                 route += n.getKey() + "->";
             }
             route = "[" + route.substring(0, route.length() - 2) + "]";
@@ -954,6 +981,16 @@ public class MyFrame extends JFrame implements ActionListener {
         }
         repaint();
         updateTerminal();
+    }
+
+    private void updateMouseListener(JTextField field){
+        field.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                ((JTextField) e.getSource()).setText("");
+                super.mouseClicked(e);
+            }
+        });
     }
 
     public String getOutputText() {
