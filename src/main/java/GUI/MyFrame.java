@@ -846,6 +846,7 @@ public class MyFrame extends JFrame implements ActionListener {
             List<NodeData> nodesToVisit = new LinkedList<>();
             List<NodeData> fullPath = new LinkedList<>();
             boolean citiesInitiated = false;
+            final boolean[] success = {false};
             // Case 1 -> one long string.
             if(choose == 0){
                 while (!citiesInitiated) {
@@ -874,6 +875,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                             null,
                                             null,
                                             null);
+                                    this.outputText += "\nTSP failed, the ID: " + n + " does not appear in the Graph.";
                                     break;
                                 }
                             } catch (NumberFormatException ex) {
@@ -885,6 +887,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                         null,
                                         null,
                                         null);
+                                this.outputText += "\nTSP failed, invalid input.";
                                 break;
                             }
                         }
@@ -898,7 +901,7 @@ public class MyFrame extends JFrame implements ActionListener {
             }
 
             // Case 2 -> each time one Node.
-            else {
+            else if(choose == 1) {
                 JTextField input = new JTextField("Enter Node");
                 updateMouseListener(input);
                 Object[] options = {"Insert the first number(ID) of the Node you want to add:", input, "When finished type DONE"};
@@ -906,26 +909,24 @@ public class MyFrame extends JFrame implements ActionListener {
                 j.setMessage(options);
                 j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
                 JDialog dialog = j.createDialog(null, "Add Nodes to List");
-                final boolean[] success = {false};
 //                JDialog finalDialog = dialog;
+                JDialog finalDialog = dialog;
                 dialog.addWindowListener(new WindowAdapter() {
                     @Override
                     public void windowClosing(WindowEvent e) {
-                        dialog.dispose();
+                        finalDialog.dispose();
                         success[0] = true;
                     }
                 });
                 dialog.setVisible(true);
-
+                System.out.println(success[0]);
                 options[0] = "Insert the number(ID) of the Node you want to add:";
                 String text = input.getText().toUpperCase(Locale.ROOT);
-                this.outputText += "\nThe Cities for the TSP are:\n";
                 String temp = "[";
                 while(!text.equals("DONE")){
                     int ID = -1;
                     try{
-
-                        if (success[0]) {
+                        if(success[0]) {
                             throw new NoInitialContextException();
                         }
                         ID = Integer.parseInt(input.getText());
@@ -935,7 +936,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         }
                         else{
                             JOptionPane.showOptionDialog(null,
-                                    "Wrong input!\nThe ID entered does not appear in the Graph.",
+                                    "Wrong input!\nthe ID: " + ID + " does not appear in the Graph.",
                                     "ID INPUT ERROR!",
                                     JOptionPane.DEFAULT_OPTION,
                                     JOptionPane.WARNING_MESSAGE,
@@ -945,7 +946,8 @@ public class MyFrame extends JFrame implements ActionListener {
                         }
                     }
                     catch (NoInitialContextException ex){
-                        this.outputText += "\nRemove Node canceled.";
+                        this.outputText += "\nTSP canceled.";
+                        break;
                     }
                     catch (NumberFormatException ex){
                         JOptionPane.showOptionDialog(null,
@@ -965,19 +967,28 @@ public class MyFrame extends JFrame implements ActionListener {
                     dialog.setVisible(true);
                     text = input.getText().toUpperCase(Locale.ROOT);
                 }
-                temp = temp.substring(0, temp.length() - 2) + "]";
-                this.outputText += temp;
-                fullPath = this.algo.tsp(nodesToVisit);
-                this.mainPanel.setPathByNodesTSP(fullPath);
-                this.mainPanel.setPathByNodesTSPActivated(true);
+                if(!success[0] && temp.length() > 2) {
+                    temp = temp.substring(0, temp.length() - 2) + "]";
+                    this.outputText += "\nThe Cities for the TSP are:" + temp + ".";
+                    fullPath = this.algo.tsp(nodesToVisit);
+                    this.mainPanel.setPathByNodesTSP(fullPath);
+                    this.mainPanel.setPathByNodesTSPActivated(true);
+                }
             }
-            String route = "";
-            for(NodeData n: fullPath){
-                route += n.getKey() + "->";
+            if(!success[0] && fullPath.size() > 0) {
+                String route = "";
+                for (NodeData n : fullPath) {
+                    route += n.getKey() + "->";
+                }
+                route = "[" + route.substring(0, route.length() - 2) + "]";
+                this.outputText += "\n" + "The path is:" + route;
             }
-            route = "[" + route.substring(0, route.length() - 2) + "]";
-            this.outputText += "\n" + "The path is:" + route;
-//            System.out.println("TSP activated");
+            if(nodesToVisit.size() == 0 && (choose == 0 || choose == 1)){
+                this.outputText += "\nThe list is empty, no Nodes to visit.";
+            }
+            else{
+                this.outputText += "\nTSP canceled.";
+            }
         }
         repaint();
         updateTerminal();
@@ -1002,7 +1013,7 @@ public class MyFrame extends JFrame implements ActionListener {
     }
 
     private int chooseInputTSPState(){
-        String[] options = {"one String input", "each time one String"};
+        String[] options = {"One String input", "Each time one String"};
         String message = """
                 Choose how you would like to type the List:
                 one String input = you will write the list as a single String with spaces between each Node.
@@ -1016,7 +1027,6 @@ public class MyFrame extends JFrame implements ActionListener {
                 null,
                 options,
                 null);
-//        System.out.println(ans);
         return ans;
     }
 
