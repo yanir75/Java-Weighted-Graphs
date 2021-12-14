@@ -6,11 +6,11 @@ import javax.naming.NoInitialContextException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.file.FileAlreadyExistsException;
+import java.rmi.NoSuchObjectException;
+import java.util.*;
 import java.io.File;
-import java.util.LinkedList;
-import java.util.Locale;
+import java.util.List;
 
 
 public class MyFrame extends JFrame implements ActionListener {
@@ -25,7 +25,6 @@ public class MyFrame extends JFrame implements ActionListener {
     private NodeData center;
     private String outputText;
     private int width, height;
-    private boolean colored;
 
     JMenuBar menuBar;
     JMenu fileMenu;
@@ -84,10 +83,8 @@ public class MyFrame extends JFrame implements ActionListener {
         this.outputPanel = new JPanel(new BorderLayout());
         this.algo = this.mainPanel.getGraph();
         this.graphCopy = algo.copy();
-        this.colored = false;
         this.center = null;
         this.outputText = "Welcome to My Directed Weighted Graph action log...";
-//        this.outputPanel.setIgnoreRepaint(true);
         initGUI();
         addButtonsAndText();
     }
@@ -253,6 +250,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
     }
 
+
     private void updateTerminal(){
 //        this.setVisible(false);
         this.remove(this.outputPanel);
@@ -368,6 +366,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         repaint();
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -495,8 +494,8 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
             });
             dialog.setVisible(true);
-            int src;
-            int dest;
+            int src = -1;
+            int dest = -1;
             double weight;
             try {
                 if(success[0]){
@@ -505,9 +504,20 @@ public class MyFrame extends JFrame implements ActionListener {
                 src = Integer.parseInt(srcText.getText());
                 dest = Integer.parseInt(destText.getText());
                 weight = Double.parseDouble(weightText.getText());
-                this.graph.connect(src, dest, weight);
-                this.outputText += "\nNew Edge added: src = " + src + ", dest = " + dest + ", weight = " + weight + ".";
+                if(this.graph.getNode(src) != null && this.graph.getNode(dest) != null) {
+                    if (this.graph.getEdge(src, dest) == null) {
+                        this.graph.connect(src, dest, weight);
+                        this.outputText += "\nNew Edge added: src = " + src + ", dest = " + dest + ", weight = " + weight + ".";
+                    }
+                    else{
+                        throw new FileAlreadyExistsException("");
+                    }
+                }
+                else{
+                    throw new NoSuchObjectException("");
+                }
             }
+            // entered non numeric values.
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
                         "Wrong input!\nPlease enter only numeric values.",
@@ -519,8 +529,38 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
                 this.outputText += "\nAdd Edge failed.";
             }
+            // pressed X to cancel the dialog.
             catch (RuntimeException ex){
                 this.outputText += "\nAdd Edge canceled.";
+            }
+            // src/dest does not exist in the graph.
+            catch (NoSuchObjectException ex) {
+                JOptionPane.showOptionDialog(null,
+                        """
+                                Wrong input!
+                                The Graph does not contain the Source/Destination or both of them
+                                Nodes in order to add an Edge between them""",
+                        "INPUT ERROR!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.ERROR_MESSAGE,
+                        null,
+                        null,
+                        null);
+//                this.outputText += "\nThe Graph does not contain the Edge between: " + src + " to " + dest + ".";
+                this.outputText += "\nAdd Edge failed.";
+            }
+            // The Graph already contains this Edge.
+            catch (FileAlreadyExistsException ex) {
+                JOptionPane.showOptionDialog(null,
+                        "Wrong input!\nThe Graph already contains this Edge.",
+                        "INPUT ERROR!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.ERROR_MESSAGE,
+                        null,
+                        null,
+                        null);
+                this.outputText += "\nThe Graph already contains this Edge.";
+                this.outputText += "\nAdd Edge failed.";
             }
         }
 
@@ -621,17 +661,18 @@ public class MyFrame extends JFrame implements ActionListener {
                 dest = Integer.parseInt(destText.getText());
                 try {
                     this.graph.removeEdge(src, dest);
-                    this.outputText += "\nThis Edge was removed: src = " + src + ", dest = " + dest + ".";
+                    this.outputText += "\nEdge " + src + " to " + dest + ", was removed.";
                 } catch (NullPointerException nep) {
                     JOptionPane.showOptionDialog(null,
-                            "Wrong input!\nThe Graph does not contain\nthe Edge between: " + src + "->" + dest + ".",
+                            "Wrong input!\nThe Graph does not contain\nthe Edge between: " + src + " to " + dest + ".",
                             "INPUT ERROR!",
                             JOptionPane.DEFAULT_OPTION,
                             JOptionPane.ERROR_MESSAGE,
                             null,
                             null,
                             null);
-                    this.outputText += "\nRemove Edge failed.\nThe Graph does not contain the Edge between: " + src + " -> " + dest + ".";
+                    this.outputText += "\nThe Graph does not contain the Edge between: " + src + " to " + dest + ".";
+                    this.outputText += "\nRemove Edge failed.";
                 }
             }
             catch (NoInitialContextException ex){
@@ -827,7 +868,6 @@ public class MyFrame extends JFrame implements ActionListener {
             this.mainPanel.setCenter(this.algo.center());
             this.outputText +=  "\nCenter Activated";
             this.outputText +=  "\nThe center of the Graph is Node number: " + this.mainPanel.getCenter().getKey();
-            this.colored = true;
             JOptionPane.showOptionDialog(null,
                     "The center of this Graph is Node number: " + this.mainPanel.getCenter().getKey() + ".\n" +
                             "The Node Color is Red and The index is colored in Yellow.",
@@ -1004,13 +1044,16 @@ public class MyFrame extends JFrame implements ActionListener {
         });
     }
 
+
     public String getOutputText() {
         return outputText;
     }
 
+
     public void setOutputText(String outputText) {
         this.outputText = outputText;
     }
+
 
     private int chooseInputTSPState(){
         String[] options = {"One String input", "Each time one String"};

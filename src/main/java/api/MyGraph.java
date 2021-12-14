@@ -68,7 +68,10 @@ public class MyGraph implements DirectedWeightedGraph {
 
     @Override
     public NodeData getNode(int key) {
-        return nodes.get(key);
+        if(this.nodes.containsKey(key)){
+            return nodes.get(key);
+        }
+        return null;
     }
 
 
@@ -77,17 +80,22 @@ public class MyGraph implements DirectedWeightedGraph {
     // dest = (src+dest*bignumber)/x
     @Override
     public EdgeData getEdge(int src, int dest) {
-        return nodes.get(src).getEdges().get(dest);
+        if(this.nodes.get(src).getEdges().containsKey(dest)) {
+            return this.nodes.get(src).getEdges().get(dest);
+        }
+        return null;
     }
 
     @Override
     public void connect(int src, int dest, double w) {
         // check if needed ()
         if(this.nodes.containsKey(src) && this.nodes.containsKey(dest)) {
-            if (!this.nodes.get(src).getEdges().containsKey(dest)) {
-                this.nodes.get(src).getEdges().put(dest, new Edge(src, dest, w));
-                this.MC++;
-                size++;
+            if(getEdge(src, dest) == null) {
+//                if (!this.nodes.get(src).getEdges().containsKey(dest)) {
+                    this.nodes.get(src).getEdges().put(dest, new Edge(src, dest, w));
+                    this.MC++;
+                    size++;
+//                }
             }
         }
     }
