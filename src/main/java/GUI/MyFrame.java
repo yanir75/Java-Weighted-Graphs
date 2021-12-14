@@ -2,11 +2,12 @@ package GUI;
 
 import api.*;
 
+import javax.naming.NoInitialContextException;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
+import java.util.Arrays;
+import java.util.List;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.Locale;
@@ -86,6 +87,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.colored = false;
         this.center = null;
         this.outputText = "Welcome to My Directed Weighted Graph action log...";
+//        this.outputPanel.setIgnoreRepaint(true);
         initGUI();
         addButtonsAndText();
     }
@@ -251,11 +253,11 @@ public class MyFrame extends JFrame implements ActionListener {
 
     }
 
-    private void updateTerminal(String text){
-        this.setVisible(false);
+    private void updateTerminal(){
+//        this.setVisible(false);
         this.remove(this.outputPanel);
         this.outputPanel = new JPanel(new BorderLayout());
-        this.outputText += "\n" + text;
+//        this.outputText += "\n" + text;
         this.JTA = new JTextArea(this.outputText);
         this.JTA.setBackground(Color.black);
         this.JTA.setForeground(Color.white);
@@ -264,12 +266,14 @@ public class MyFrame extends JFrame implements ActionListener {
 
         this.terminal = new JScrollPane(JTA, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
-        this.outputPanel.setPreferredSize(new Dimension(this.width / 10, this.height / 5));
+        this.outputPanel.setPreferredSize(new Dimension(this.width / 10, this.height / 4));
         this.outputPanel.add(this.terminal);
 
-        this.add(this.outputPanel);
-//        this.pack();
-        this.outputPanel.repaint();
+        this.add(this.buttonsPanel, BorderLayout.NORTH);
+        this.add(this.mainPanel, BorderLayout.CENTER);
+        this.add(this.outputPanel, BorderLayout.SOUTH);
+        this.pack();
+//        this.outputPanel.repaint();
 //        this.setVisible(true);
     }
 
@@ -370,25 +374,19 @@ public class MyFrame extends JFrame implements ActionListener {
         UIManager.put("OptionPane.messageFont", new Font("ariel", Font.BOLD, 14));
 
         if (loadItem.equals(event) || LOAD.equals(event)) {
+            this.outputText += "\nLoad Graph activated.";
             JFileChooser loadFile = new JFileChooser();
             loadFile.setCurrentDirectory(new File("."));
             int approved = loadFile.showOpenDialog(null);
-            if(approved == JFileChooser.APPROVE_OPTION){
-                if(loadFile.getSelectedFile().getAbsolutePath().endsWith(".json")) {
-                    ParseToGraph pd = null;
-                    try {
-                        pd = new ParseToGraph(loadFile.getSelectedFile().getAbsolutePath());
-                        MyGraph g = new MyGraph(pd.getNodes(), pd.size);
-                        setVisible(false);
-                        dispose();
-//                        repaint();
-                        new MyGraph_GUI(g);
-                        System.out.println("The file: " + loadFile.getSelectedFile().getName() + ", was loaded successfully");
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                }
-                else{
+            if (approved == JFileChooser.APPROVE_OPTION) {
+                ParseToGraph pd = null;
+                try {
+                    pd = new ParseToGraph(loadFile.getSelectedFile().getAbsolutePath());
+                    MyGraph g = new MyGraph(pd.getNodes(), pd.size);
+                    setVisible(false);
+                    dispose();
+                    new MyGraph_GUI(g, this.outputText);
+                } catch (Exception ex) {
                     JOptionPane.showOptionDialog(null,
                             "Wrong file!\nThis Program supports only Json files.",
                             "WRONG FILE FORMAT",
@@ -397,31 +395,39 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
+                    this.outputText += "\nThe file: " + loadFile.getSelectedFile().getName() + " was not loaded.";
+                    this.outputText += "\n" + ex.getMessage();
                     System.out.println("This Program supports only Json files.");
                 }
+            } else {
+                this.outputText += "\nLoad Graph canceled.";
             }
         }
 
         else if (saveItem.equals(event) || SAVE.equals(event)) {
             JFileChooser saveFile = new JFileChooser();
+            this.outputText += "\nSave Graph activated.";
             saveFile.setCurrentDirectory(new File("."));
             int approved = saveFile.showSaveDialog(null);
             if (approved == JFileChooser.APPROVE_OPTION) {
-                if (saveFile.getSelectedFile().getAbsolutePath().endsWith(".json")) {
-                    String path = saveFile.getSelectedFile().getAbsolutePath();
-                    this.algo.save(path);
-                    System.out.println("The file: " + saveFile.getSelectedFile().getName() + ", was saved successfully");
-                } else {
+                String path = saveFile.getSelectedFile().getAbsolutePath();
+                boolean success = this.algo.save(path);
+                if(success) {
+                    this.outputText += "\nThe file: " + saveFile.getSelectedFile().getName() + ", was saved successfully";
+                }
+                else{
                     JOptionPane.showOptionDialog(null,
-                            "Wrong file!\nThis Program supports only Json files.",
-                            "WRONG FILE FORMAT",
+                            "The file was not saved, please check if the file already exists",
+                            "ERROR",
                             JOptionPane.DEFAULT_OPTION,
                             JOptionPane.ERROR_MESSAGE,
                             null,
                             null,
                             null);
-                    System.out.println("This Program supports only Json files.");
+                    this.outputText += "\nThe file: " + saveFile.getSelectedFile().getName() + " was not saved.";
                 }
+            } else {
+                this.outputText += "\nSave Graph canceled.";
             }
         }
 
@@ -430,7 +436,6 @@ public class MyFrame extends JFrame implements ActionListener {
                 MyGraph g = new MyGraph();
                 setVisible(false);
                 dispose();
-//                repaint();
                 new MyGraph_GUI(g);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -445,14 +450,11 @@ public class MyFrame extends JFrame implements ActionListener {
                 MyGraph g = new MyGraph(this.graphCopy);
                 setVisible(false);
                 dispose();
-//                repaint();
                 new MyGraph_GUI(g);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
             System.out.println("Reset");
-
-
         }
 
         else if (exitItem.equals(event)) {
@@ -461,10 +463,15 @@ public class MyFrame extends JFrame implements ActionListener {
         }
 
         else if (addEdgeItem.equals(event) || AE.equals(event)) {
+            this.outputText += "\nAdd Edge activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             JTextField weightText = new JTextField("Weight");
-            String title = "Insert the Source, Destination, Weight\nvalues to add to the new Edge.\nIn order to finish click on the OK button.\n";
+            String title = """
+                    Insert the Source, Destination, Weight
+                    values to add to the new Edge.
+                    In order to finish click on the OK button.
+                    """;
             srcText.setToolTipText("Enter the Source Node");
             destText.setToolTipText("Enter the Destination Node");
             weightText.setToolTipText("Enter the weight of this Edge");
@@ -474,16 +481,28 @@ public class MyFrame extends JFrame implements ActionListener {
             j.setMessage(options);
             j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = j.createDialog(null, "Add new Edge");
+            dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+            final boolean[] success = {false};
+            dialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    dialog.dispose();
+                    success[0] = true;
+                }
+            });
             dialog.setVisible(true);
-
             int src;
             int dest;
             double weight;
             try {
+                if(success[0]){
+                   throw new RuntimeException();
+                }
                 src = Integer.parseInt(srcText.getText());
                 dest = Integer.parseInt(destText.getText());
                 weight = Double.parseDouble(weightText.getText());
                 this.graph.connect(src, dest, weight);
+                this.outputText += "\nNew Edge added: src = " + src + ", dest = " + dest + ", weight = " + weight + ".";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -494,12 +513,15 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
+                this.outputText += "\nAdd Edge failed.";
             }
-            System.out.println("Edge added");
-//            repaint();
+            catch (RuntimeException ex){
+                this.outputText += "\nAdd Edge canceled.";
+            }
         }
 
         else if (addNodeItem.equals(event) || AN.equals(event)) {
+            this.outputText += "\nAdd Node was activated.";
             JTextField xCoordination = new JTextField("  X  ");
             JTextField yCoordination = new JTextField("  Y  ");
             JTextField ID = new JTextField(" ID ");
@@ -513,12 +535,23 @@ public class MyFrame extends JFrame implements ActionListener {
             j.setMessage(options);
             j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = j.createDialog(null, "Add new Node");
+            final boolean[] success = {false};
+            dialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    dialog.dispose();
+                    success[0] = true;
+                }
+            });
             dialog.setVisible(true);
 
             double x;
             double y;
             int id;
             try {
+                if(success[0]){
+                    throw new RuntimeException();
+                }
                 x = Double.parseDouble(xCoordination.getText());
                 y = Double.parseDouble(yCoordination.getText());
                 id = Integer.parseInt(ID.getText());
@@ -535,12 +568,15 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
+                this.outputText += "\nAdd Node failed.";
             }
-            System.out.println("Node added");
-//            repaint();
+            catch (RuntimeException ex){
+                this.outputText += "\nAdd Node canceled.";
+            }
         }
 
         else if (removeEdgeItem.equals(event) || RE.equals(event)) {
+            this.outputText += "\nRemove Edge was activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             String title = """
@@ -556,17 +592,28 @@ public class MyFrame extends JFrame implements ActionListener {
             j.setMessage(options);
             j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = j.createDialog(null, "Remove Edge");
+            final boolean[] success = {false};
+            dialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    dialog.dispose();
+                    success[0] = true;
+                }
+            });
             dialog.setVisible(true);
 
             int src;
             int dest;
             try {
+                if (success[0]) {
+                    throw new NoInitialContextException();
+                }
                 src = Integer.parseInt(srcText.getText());
                 dest = Integer.parseInt(destText.getText());
                 try {
                     this.graph.removeEdge(src, dest);
-                }
-                catch (NullPointerException nep){
+                    this.outputText += "\nThis Edge was removed: src = " + src + ", dest = " + dest + ".";
+                } catch (NullPointerException nep) {
                     JOptionPane.showOptionDialog(null,
                             "Wrong input!\nThe Graph does not contain\nthe Edge between: " + src + "->" + dest + ".",
                             "INPUT ERROR!",
@@ -575,8 +622,11 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
+                    this.outputText += "\nRemove Edge failed.\nThe Graph does not contain the Edge between: " + src + " -> " + dest + ".";
                 }
-//                repaint();
+            }
+            catch (NoInitialContextException ex){
+                this.outputText += "\nRemove Edge canceled.";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -587,11 +637,12 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
+                this.outputText += "\nRemove Edge failed, invalid input.";
             }
-            System.out.println("Edge removed");
         }
 
         else if (removeNodeItem.equals(event) || RN.equals(event)) {
+            this.outputText += "\nRemove Node was activated";
             JTextField ID = new JTextField(" ID ");
             String title = """
                     Insert the ID number of the Node
@@ -605,10 +656,21 @@ public class MyFrame extends JFrame implements ActionListener {
             j.setMessage(options);
             j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = j.createDialog(null, "Remove Node");
+            final boolean[] success = {false};
+            dialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    dialog.dispose();
+                    success[0] = true;
+                }
+            });
             dialog.setVisible(true);
 
             int id;
             try {
+                if (success[0]) {
+                    throw new NoInitialContextException();
+                }
                 id = Integer.parseInt(ID.getText());
                 try {
                     this.algo.getGraph().removeNode(id);
@@ -624,7 +686,9 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null);
                 }
-//                repaint();
+            }
+            catch (NoInitialContextException ex){
+                this.outputText += "\nRemove Node canceled.";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -635,11 +699,12 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
+                this.outputText += "\nRemove Node failed, invalid input.";
             }
-            System.out.println("Node removed");
         }
 
         else if (isConnectedItem.equals(event) || IC.equals(event)) {
+            this.outputText += "\nisConnected Activated.";
             boolean ans = algo.isConnected();
             String output = ans? "This graph is strongly connected!" : "This graph is not strongly connected!";
             JOptionPane.showOptionDialog(null,
@@ -650,30 +715,11 @@ public class MyFrame extends JFrame implements ActionListener {
                     null,
                     null,
                     null);
-            System.out.println(ans);
-//            this.ta.append("\n" + ans);
             this.outputText += "\n" + output;
-//             updateTerminal(outputText);
-//            this.ta.setRows(this.outputText.length());
-//            updateTerminal(output);
-//            this.ta.append("\n" + "This graph is strongly connected!");
-            System.out.println(this.JTA.getText());
-//            for(int i = 0; i < this.ta.getText().length(); i++) {
-//                this.ta.setCaretPosition(i);
-//            }
-
-//            this.ta.update(this.ta.getGraphics());
-//            this.ta.validate();
-//            this.ta.replaceRange(this.ta.getText(), 0, this.ta.getText().length());
-//            this.ta.repaint();
-//            this.terminal.repaint();
-//            this.outputText = this.ta.getText();
-//            this.ta.setText(this.outputText + "hello");
-//            this.ta.setForeground(Color.white);
-//            this.outputPanel.repaint();
         }
 
         else if (shortestPath.equals(event) || SP.equals(event)) {
+            this.outputText += "\nShortestPath Activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             String title = """
@@ -689,21 +735,40 @@ public class MyFrame extends JFrame implements ActionListener {
             j.setMessage(options);
             j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
             JDialog dialog = j.createDialog(null, "Shortest Path");
+            final boolean[] success = {false};
+            dialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    dialog.dispose();
+                    success[0] = true;
+                }
+            });
             dialog.setVisible(true);
+
 
             int src;
             int dest;
             try {
+                if(success[0]){
+                    throw new NoInitialContextException();
+                }
                 src = Integer.parseInt(srcText.getText());
                 dest = Integer.parseInt(destText.getText());
                 if(graph.getNode(src) != null){
                     if(graph.getNode(dest) != null){
-                        double sp = algo.shortestPathDist(src, dest);
-                        this.mainPanel.setPath(src,dest);
+                        double weight = algo.shortestPathDist(src, dest);
+                        List<NodeData> path = this.algo.shortestPath(src, dest);
+                        this.mainPanel.setPath(path);
                         this.mainPanel.setDest(dest);
                         this.mainPanel.setSrc(src);
                         this.mainPanel.setPathActivated(true);
-//                        System.out.println(sp);
+                        String route = "";
+                        for(NodeData n: path){
+                            route += n.getKey() + "->";
+                        }
+                        route = route.substring(0, route.length() - 2) + "]";
+                        this.outputText += "The weight of the shortest path between " + src + "->" + dest + "is: " + weight + ".";
+                        this.outputText += "The path is: " + route + ".";
                     }
                     else{
                         JOptionPane.showOptionDialog(null,
@@ -714,6 +779,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                 null,
                                 null,
                                 null);
+                        this.outputText += "\nShortestPath failed, the destination is not in the Graph.";
                     }
                 }
                 else{
@@ -725,7 +791,11 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
+                    this.outputText += "\nShortestPath failed, the source is not in the Graph.";
                 }
+            }
+            catch (NoInitialContextException ex){
+                this.outputText += "\nShortestPath canceled.";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -736,13 +806,15 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
+                this.outputText += "\nShortestPath failed, invalid input.";
             }
         }
 
         else if (centerItem.equals(event) || CE.equals(event)) {
             this.mainPanel.setCenterActivated(true);
             this.mainPanel.setCenter(this.algo.center());
-//            repaint();
+            this.outputText +=  "\nCenter Activated";
+            this.outputText +=  "\nThe center of the Graph is Node number: " + this.mainPanel.getCenter().getKey();
             this.colored = true;
             JOptionPane.showOptionDialog(null,
                     "The center of this Graph is Node number: " + this.mainPanel.getCenter().getKey() + ".\n" +
@@ -757,8 +829,10 @@ public class MyFrame extends JFrame implements ActionListener {
         }
 
         else if (TSPItem.equals(event) || TSP.equals(event)) {
+            this.outputText += "\n" + "TSP activated";
             int choose = chooseInputTSPState();
-            LinkedList<NodeData> cities = new LinkedList<>();
+            List<NodeData> cities = new LinkedList<>();
+            List<NodeData> ans = new LinkedList<>();
             boolean citiesInitiated = false;
             // Case 1 -> one long string.
             if(choose == 0){
@@ -772,9 +846,8 @@ public class MyFrame extends JFrame implements ActionListener {
                         break;
                     }
                         String[] nodes = input.split(" ");
-//                System.out.println(Arrays.toString(nodes));
+                    this.outputText += "\nThe Cities for the TSP are:\n" + Arrays.toString(nodes);
                         for (String n : nodes) {
-//                    cities.add(this.graph.getNode(Integer.parseInt(n)));
                             int ID = -1;
                             try {
                                 ID = Integer.parseInt(n);
@@ -808,7 +881,8 @@ public class MyFrame extends JFrame implements ActionListener {
                         }
 //                System.out.println("NODES\n" + cities);
 //                System.out.println("CITIES\n" + this.algo.tsp(cities));
-                        this.mainPanel.setPathByNodesTSP(this.algo.tsp(cities));
+                        ans = this.algo.tsp(cities);
+                        this.mainPanel.setPathByNodesTSP(ans);
                         this.mainPanel.setPathByNodesTSPActivated(true);
                 }
             }
@@ -825,12 +899,15 @@ public class MyFrame extends JFrame implements ActionListener {
 
                 options[0] = "Insert the number(ID) of the Node you want to add:";
                 String text = input.getText().toUpperCase(Locale.ROOT);
+                this.outputText += "\nThe Cities for the TSP are:\n";
+                String temp = "[";
                 while(!text.equals("DONE")){
                     int ID = -1;
                     try{
                         ID = Integer.parseInt(input.getText());
                         if(graph.getNode(ID) != null){
                             cities.add(this.graph.getNode(ID));
+                            temp += ID + ", ";
                         }
                         else{
                             JOptionPane.showOptionDialog(null,
@@ -861,17 +938,30 @@ public class MyFrame extends JFrame implements ActionListener {
                     dialog.setVisible(true);
                     text = input.getText().toUpperCase(Locale.ROOT);
                 }
+                temp = temp.substring(0, temp.length() - 2) + "]";
+                this.outputText += temp;
+                ans = this.algo.tsp(cities);
+                this.mainPanel.setPathByNodesTSP(ans);
+                this.mainPanel.setPathByNodesTSPActivated(true);
             }
-            System.out.println("TSP activated");
+            String route = "[";
+            for(NodeData n: ans){
+                route += n.getKey() + "->";
+            }
+            route = route.substring(0, route.length() - 2) + "]";
+            this.outputText += "\n" + "The path is:" + route;
+//            System.out.println("TSP activated");
         }
-//        if(!this.colored){repaint();}
-//        dispose();
-//        initGUI();
-//        this.ta.update(this.ta.getGraphics());
-//        this.ta.validate();
-//        this.ta.setVisible(true);;
-//        initGUI();
         repaint();
+        updateTerminal();
+    }
+
+    public String getOutputText() {
+        return outputText;
+    }
+
+    public void setOutputText(String outputText) {
+        this.outputText = outputText;
     }
 
     private int chooseInputTSPState(){
@@ -889,7 +979,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 null,
                 options,
                 null);
-        System.out.println(ans);
+//        System.out.println(ans);
         return ans;
     }
 

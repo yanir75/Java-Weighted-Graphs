@@ -11,12 +11,24 @@ public class MyGraph_GUI{
 
 
 
-    public MyGraph_GUI(DirectedWeightedGraph g) throws Exception{
+    public MyGraph_GUI(DirectedWeightedGraph g) {
         this.graph = g;
         this.frame = new MyFrame(this.graph);
         this.panel = new MyPanel(this.graph);
-        this.frame.initGUI();
+//        this.frame.initGUI();
     }
+    public MyGraph_GUI(DirectedWeightedGraph g, String log) {
+        this.graph = g;
+        this.frame = new MyFrame(this.graph);
+        this.panel = new MyPanel(this.graph);
+//        this.frame.initGUI();
+        this.frame.setOutputText(log);
+    }
+
+    public MyFrame getFrame() {
+        return frame;
+    }
+
     public MyGraph_GUI() throws Exception{
 
     }

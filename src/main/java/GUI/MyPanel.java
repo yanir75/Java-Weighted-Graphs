@@ -14,7 +14,7 @@ public class MyPanel extends JPanel {
     private Algorithms graph, copyOfGraph;
     private NodeData center;
     private boolean isCenterActivated, isPathActivated, isTSPActivated;
-    private LinkedList<NodeData> pathByNodes;
+    private List<NodeData> pathByNodes;
     private List<NodeData> pathByNodesTSP;
     private int src, dest;
     double minX;
@@ -274,9 +274,8 @@ public class MyPanel extends JPanel {
         isCenterActivated = centerActivated;
     }
 
-    public void setPath(int src, int dest) {
-        this.pathByNodes = (LinkedList<NodeData>) this.graph.shortestPath(src,dest);
-//        System.out.println(this.pathByNodes);
+    public void setPath(List<NodeData> path) {
+        this.pathByNodes = path;
     }
 
     public int getSrc() {
