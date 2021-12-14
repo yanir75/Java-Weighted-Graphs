@@ -83,10 +83,12 @@ public class MyGraph implements DirectedWeightedGraph {
     @Override
     public void connect(int src, int dest, double w) {
         // check if needed ()
-        if (!this.nodes.get(src).getEdges().containsKey(dest)) {
-            this.nodes.get(src).getEdges().put(dest, new Edge(src, dest, w));
-            this.MC++;
-            size++;
+        if(this.nodes.containsKey(src) && this.nodes.containsKey(dest)) {
+            if (!this.nodes.get(src).getEdges().containsKey(dest)) {
+                this.nodes.get(src).getEdges().put(dest, new Edge(src, dest, w));
+                this.MC++;
+                size++;
+            }
         }
     }
 

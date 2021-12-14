@@ -855,10 +855,10 @@ public class MyFrame extends JFrame implements ActionListener {
                             you would like to check TSP Algorithm on.
                             Separate each Node with a single Space Key.""";
                     String input = JOptionPane.showInputDialog(explanation, "Enter the Nodes");
-                    if (input == null) {
+                    if (input == null || !input.matches("[1-9 ]+")) {
                         break;
                     }
-                        String[] nodes = input.split(" ");
+                    String[] nodes = input.split(" ");
                     this.outputText += "\nThe Cities for the TSP are:\n" + Arrays.toString(nodes);
                         for (String n : nodes) {
                             int ID = -1;
@@ -887,7 +887,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                         null,
                                         null,
                                         null);
-                                this.outputText += "\nTSP failed, invalid input.";
+//                                this.outputText += "\nTSP failed, invalid input.";
                                 break;
                             }
                         }
@@ -975,7 +975,7 @@ public class MyFrame extends JFrame implements ActionListener {
                     this.mainPanel.setPathByNodesTSPActivated(true);
                 }
             }
-            if(!success[0] && fullPath.size() > 0) {
+            if(!success[0] && fullPath != null && !fullPath.isEmpty()) {
                 String route = "";
                 for (NodeData n : fullPath) {
                     route += n.getKey() + "->";
@@ -983,8 +983,8 @@ public class MyFrame extends JFrame implements ActionListener {
                 route = "[" + route.substring(0, route.length() - 2) + "]";
                 this.outputText += "\n" + "The path is:" + route;
             }
-            if(nodesToVisit.size() == 0 && (choose == 0 || choose == 1)){
-                this.outputText += "\nThe list is empty, no Nodes to visit.";
+            if(nodesToVisit.size() == 0 && (choose == 0 || choose == 1) && !success[0]){
+                this.outputText += "\nThe list is invalid.";
             }
             else{
                 this.outputText += "\nTSP canceled.";

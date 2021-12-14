@@ -165,12 +165,11 @@ public class MyPanel extends JPanel {
 
         src = -1;
         dest = -1;
-//        System.out.println(this.pathByNodesTSP.toString());
-        if(!this.pathByNodesTSP.isEmpty()){
+        if(this.pathByNodesTSP != null && !this.pathByNodesTSP.isEmpty()){
             src = this.pathByNodesTSP.get(0).getKey();
             this.pathByNodesTSP.remove(0);
         }
-        while(this.pathByNodesTSP.size() > 0){
+        while(this.pathByNodesTSP != null && this.pathByNodesTSP.size() > 0){
             g2d.setPaint(new Color(255,51,255));
             dest = this.pathByNodesTSP.get(0).getKey();
             this.pathByNodesTSP.remove(0);
