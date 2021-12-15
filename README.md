@@ -20,6 +20,7 @@ The left column has the function we activated. The first row has the number of n
 |**TSP 10 Nodes** |0.02s	 | 0.5s   |	1s  | NULL  | 
 |**Center** |2s	 | 5.5m   |	NULL   | NULL  | 
 |**Shortest Path** |0.002s | 0.01s   |	5s   | NULL  | 
+  
 We are able to generate a graph with 1mk nodes and 20mk edges but are unable to run any algorithm on it, due to heap space.
 
 The results vary depends on how th graph is generated.
