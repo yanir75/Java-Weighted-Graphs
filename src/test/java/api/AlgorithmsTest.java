@@ -117,11 +117,12 @@ class AlgorithmsTest {
         Algorithms g = new Algorithms();
         g.load("data/G1.json");
         List<NodeData> l = new LinkedList<>();
-        l.add(g.getGraph().getNode(6));
-        l.add(g.getGraph().getNode(8));
-        l.add(g.getGraph().getNode(7));
+        l.add(g.getGraph().getNode(5));
+        l.add(g.getGraph().getNode(3));
+        l.add(g.getGraph().getNode(1));
+        l.add(g.getGraph().getNode(2));
         l=g.tsp(l);
-        for(int i =6;i<=8;i++){
+        for(int i =5;i<=1;i--){
             assertEquals(l.remove(0).getKey(),i);
         }
     }

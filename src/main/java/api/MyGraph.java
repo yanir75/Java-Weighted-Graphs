@@ -10,7 +10,9 @@ public class MyGraph implements DirectedWeightedGraph {
     private int size=0;
     private int MC;
 
-
+    /**
+     * Empty builder for my graph
+     */
     public MyGraph(){
         this.nodes = new HashMap<>();
 //        this.edges = new HashMap<>();
@@ -18,19 +20,22 @@ public class MyGraph implements DirectedWeightedGraph {
     }
 
 
-
+    /**
+     * Builder for my graph with nodes and edge size
+     * @param Nodes
+     * @param size
+     */
     public MyGraph(HashMap<Integer, Node> Nodes, int size) {
         this.nodes = Nodes;
         this.size=size;
         this.MC = 0;
     }
 
-    public MyGraph(HashMap<Integer, Node> Nodes){
-        this.nodes = Nodes;
-        this. size = nodes.size();
-        this.MC = 0;
-    }
 
+    /**
+     * Deep copy of directedweightedgraph
+     * @param g
+     */
     public MyGraph(DirectedWeightedGraph g){
         this.nodes = new HashMap<>();
         if(g != null) {
@@ -65,7 +70,11 @@ public class MyGraph implements DirectedWeightedGraph {
         }
     }
 
-
+    /**
+     *  if the node exists,it will return the node with a matching value of a key
+     * @param key - the node_id
+     * @return
+     */
     @Override
     public NodeData getNode(int key) {
         if(this.nodes.containsKey(key)){
@@ -75,9 +84,12 @@ public class MyGraph implements DirectedWeightedGraph {
     }
 
 
-    // src+dest*bignumber
-    // src = (src+dest*bignumber)%x
-    // dest = (src+dest*bignumber)/x
+    /**
+     * if the edge exists, it will return the edge with the matching attributes.
+     * @param src
+     * @param dest
+     * @return
+     */
     @Override
     public EdgeData getEdge(int src, int dest) {
         if(this.nodes.get(src).getEdges().containsKey(dest)) {
@@ -86,6 +98,12 @@ public class MyGraph implements DirectedWeightedGraph {
         return null;
     }
 
+    /**
+     * Creates a new edge and add it to the graph, if the edge already exist it will do nothing
+     * @param src - the source of the edge.
+     * @param dest - the destination of the edge.
+     * @param w - positive weight representing the cost (aka time, price, etc) between src-->dest.
+     */
     @Override
     public void connect(int src, int dest, double w) {
         // check if needed ()
@@ -100,6 +118,10 @@ public class MyGraph implements DirectedWeightedGraph {
         }
     }
 
+    /**
+     * Returns an iterator that can traverse all the nodes.
+     * @return
+     */
     @Override
     public Iterator<NodeData> nodeIter() {
 
@@ -136,6 +158,10 @@ public class MyGraph implements DirectedWeightedGraph {
         return iter;
     }
 
+    /**
+     * Returns an iterator that can traverse on all the edges
+     * @return
+     */
     @Override
     public Iterator<EdgeData> edgeIter() {
         Iterator<EdgeData> it = new Iterator<>() {
@@ -190,7 +216,10 @@ public class MyGraph implements DirectedWeightedGraph {
         return it;
 
     }
-
+    /**
+     * Returns an iterator that can traverse on all the edges of a given node
+     * @return
+     */
     @Override
     public Iterator<EdgeData> edgeIter(int node_id) {
         Node x = nodes.get(node_id);
@@ -233,7 +262,11 @@ public class MyGraph implements DirectedWeightedGraph {
     }
 
 
-    //MC++
+    /**
+     * Remove a node if it exists in the graph, it will remove all the edges that come from it and to it.
+     * @param key
+     * @return
+     */
     @Override
     public NodeData removeNode(int key) {
         if(!nodes.containsKey(key))
@@ -243,6 +276,10 @@ public class MyGraph implements DirectedWeightedGraph {
         return this.nodes.remove(key);
     }
 
+    /**
+     * Remove all the related edges of a node from the graph.
+     * @param n
+     */
     private void removeRelatedEdges(Node n) {
 //        for (String i : n.getEdges().keySet()) {
 //            edges.remove(i);
@@ -254,6 +291,12 @@ public class MyGraph implements DirectedWeightedGraph {
         }
     }
 
+    /**
+     * Remove an existing edge from the graph.
+     * @param src
+     * @param dest
+     * @return
+     */
     @Override
     public EdgeData removeEdge(int src, int dest) {
         if(!nodes.get(src).getEdges().containsKey(dest))
@@ -265,21 +308,37 @@ public class MyGraph implements DirectedWeightedGraph {
         return this.nodes.get(src).removeEdge(dest);
     }
 
+    /**
+     * Returns the amount of nodes in the graph
+     * @return
+     */
     @Override
     public int nodeSize() {
         return nodes.size();
     }
 
+    /**
+     * Returns the amount of edges in the graph.
+     * @return
+     */
     @Override
     public int edgeSize() {
         return size;
     }
 
+    /**
+     * Returns the modification counter of the graph(how many changes were done since it was created).
+     * @return
+     */
     @Override
     public int getMC() {
         return this.MC;
     }
 
+    /**
+     * Adds a node to the graph.
+     * @param n
+     */
     @Override
     public void addNode(NodeData n) {
         Node nCopy = new Node(n, new Iterator<EdgeData>() {
@@ -297,6 +356,10 @@ public class MyGraph implements DirectedWeightedGraph {
         nodes.put(n.getKey(),nCopy);
     }
 
+    /**
+     * Returns all the nodes in the graph
+     * @return
+     */
     public HashMap<Integer, Node> getNodes() {
         return this.nodes;
     }
@@ -305,7 +368,10 @@ public class MyGraph implements DirectedWeightedGraph {
 //        return this.edges;
 //    }
 
-
+    /**
+     * Print the edges
+     * @return
+     */
     public String toStringEdges(){
         String output = '"'+"Edges"+'"'+": [\n";
         Iterator<EdgeData> iter= this.edgeIter();
@@ -316,6 +382,10 @@ public class MyGraph implements DirectedWeightedGraph {
         return output.substring(0, output.length() -2) + "\n]";
     }
 
+    /**
+     * Print the nodes.
+     * @return
+     */
     public String toStringNodes(){
         String output = '"'+"Nodes"+'"'+": [\n";
         Iterator<NodeData> iter= this.nodeIter();
@@ -325,6 +395,11 @@ public class MyGraph implements DirectedWeightedGraph {
         }
         return output.substring(0, output.length() -2) + "\n]";
     }
+
+    /**
+     * Prints the graph in a json to string format.
+     * @return
+     */
     @Override
     public String toString(){
         return "{\n"+toStringEdges()+",\n\n"+toStringNodes()+"\n}";

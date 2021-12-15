@@ -1,5 +1,9 @@
+import GUI.MyGraph_GUI;
 import api.DirectedWeightedGraph;
 import api.DirectedWeightedGraphAlgorithms;
+import api.MyGraph;
+import api.ParseToGraph;
+import java.util.List;
 
 /**
  * This class is the main class for Ex2 - your implementation will be tested using this class.
@@ -39,5 +43,18 @@ public class Ex2 {
         // ****** Add your code here ******
         //
         // ********************************
+    }
+    public static void main(String[] args) throws Exception {
+        ParseToGraph pd;
+        try {
+             pd = new ParseToGraph(args[0]);
+        }
+        catch (Exception e){
+//          pd = new ParseToGraph( new InputFlatFile("/data/G1.json"));
+        }
+//        MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
+//        new MyGraph_GUI(mg);
+//        drawGUI();
+
     }
 }

@@ -362,6 +362,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         }
         List<NodeData> TSPath = new ArrayList<>();
         HashSet<Integer> route = new HashSet<>();
+        List<NodeData> copy = copy(cities);
         int last = cities.get(0).getKey();
         while (cities.size()>1){
             cities.remove(0);
@@ -376,6 +377,11 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
                 }
                 last=TSPath.get(TSPath.size()-1).getKey();
             }
+        }
+        for(int i=0;i<copy.size();i++){
+            int key=copy.get(i).getKey();
+            if(!route.contains(key))
+            return new ArrayList<>();
         }
         return TSPath;
     }
@@ -478,5 +484,16 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return hasLoaded;
     }
 
-
+    public static void main(String[] args) {
+        DirectedWeightedGraphAlgorithms algorithms= new Algorithms();
+        algorithms.load("data/G1.json");
+        List<NodeData> c =new LinkedList<>();
+        c.add(algorithms.getGraph().getNode(3));
+        c.add(algorithms.getGraph().getNode(6));
+        c.add(algorithms.getGraph().getNode(0));
+        c.add(algorithms.getGraph().getNode(1));
+        c.add(algorithms.getGraph().getNode(9));
+        c=algorithms.tsp(c);
+        System.out.println("h");
+    }
 }

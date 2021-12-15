@@ -676,8 +676,9 @@ class MyGraphTest {
         assertEquals(g.getMC(), m + 4);
         g.addNode(new Node(-2,-2,-2));
         assertEquals(g.getMC(), m + 5);
-        g.connect(-2,0,4);
-        assertEquals(g.getMC(), m + 6);
+        g.addNode(new Node(-2,-2,-3));
+        g.connect(-2,-3,4);
+        assertEquals(g.getMC(), m + 7);
 
     }
 
