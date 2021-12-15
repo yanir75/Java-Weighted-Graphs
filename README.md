@@ -9,7 +9,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ---
 ## Project UML
 
-<iframe src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/download.pdf; height:500px;" frameborder="0"></iframe>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/image%20(2).png"></iframe>
 
 ---
 
