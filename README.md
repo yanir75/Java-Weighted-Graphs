@@ -17,7 +17,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ---
 
 ## Results
-Here are the results of the algorithm on a connected graph.
+Here are the results of the algorithm on a connected graph.  
 The left column has the function we activated. The first row has the number of nodes.
 |        | **1000** | **10000** | **100000** | **1000000** |
 |-----------|--------|--------|--------|--------|
