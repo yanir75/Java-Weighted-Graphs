@@ -1,6 +1,7 @@
-Weighted Directed Graphs
+# Weighted Directed Graphs
 ---
-## Assignment 2 - Object Oriented Programming NEED TO FINISH README
+## NEED TO FINISH README!
+## Assignment 2 - Object Oriented Programming 
 **Netanel Levine**   
 **Yanir Cohen**    
 --- 
