@@ -10,7 +10,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ## Project UML
 
    <p align="center">
-    <img src="https://github.com/yanir75/weighted-graphs/blob/main/uml/Graph%20UML.png">
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Graph%20UML.puml">
    </p>
 
 ---
