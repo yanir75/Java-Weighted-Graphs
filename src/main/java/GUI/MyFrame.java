@@ -201,8 +201,8 @@ public class MyFrame extends JFrame implements ActionListener {
         // View menu
         hideButtonsItem = new JMenuItem("Hide Buttons                  (Alt+V+H)");
         showButtonsItem = new JMenuItem("Show Buttons                 (Alt+V+S)");
-        fullScreenItem = new JMenuItem("Full Screen                    (Alt+V+F)");
-        defaultItem = new JMenuItem("Default Screen              (Alt+V+D)");
+        fullScreenItem = new JMenuItem("Full Screen                     (Alt+V+F)");
+        defaultItem = new JMenuItem("Default Screen               (Alt+V+D)");
         customScaleItem = new JMenuItem("Custom Screen              (Alt+V+C)");
 
         hideButtonsItem.addActionListener(this);
@@ -211,8 +211,8 @@ public class MyFrame extends JFrame implements ActionListener {
         defaultItem.addActionListener(this);
         customScaleItem.addActionListener(this);
 
-        viewMenu.add(showButtonsItem);
         viewMenu.add(hideButtonsItem);
+        viewMenu.add(showButtonsItem);
         viewMenu.add(fullScreenItem);
         viewMenu.add(defaultItem);
         viewMenu.add(customScaleItem);
