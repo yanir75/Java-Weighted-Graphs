@@ -94,15 +94,16 @@ public class MyPanel extends JPanel {
             g2d.setStroke(new BasicStroke(3));
             g2d.setPaint(Color.black);
             drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
-            double medX = middle(x1, x2);
-            double medY = middle(y1, y2);
-            g2d.setStroke(new BasicStroke(1));
-            g2d.setPaint(Color.white);
-            g2d.fillRect((int) (medX - 2), (int) medY - 10, 35, 15);
-            g2d.setPaint(Color.black);
-            g2d.drawRect((int) (medX - 2), (int) medY - 10, 35, 15);
-            g2d.setFont(new Font("ariel", Font.BOLD, 9));
-            g2d.drawString((Math.round(e.getWeight() * 10000d) / 10000d) + "", (int) medX, (int) medY);
+            // to draw the weights for now will keep it as comment.
+//            double medX = middle(x1, x2);
+//            double medY = middle(y1, y2);
+//            g2d.setStroke(new BasicStroke(1));
+//            g2d.setPaint(Color.white);
+//            g2d.fillRect((int) (medX - 2), (int) medY - 10, 35, 15);
+//            g2d.setPaint(Color.black);
+//            g2d.drawRect((int) (medX - 2), (int) medY - 10, 35, 15);
+//            g2d.setFont(new Font("ariel", Font.BOLD, 9));
+//            g2d.drawString((Math.round(e.getWeight() * 10000d) / 10000d) + "", (int) medX, (int) medY);
 
 
         }
@@ -128,6 +129,7 @@ public class MyPanel extends JPanel {
             g2d.setPaint(Color.black);
             g2d.drawRect((int) (x - 3), (int) y - 25, 20, 20);
             g2d.setFont(new Font("ariel", Font.BOLD, 14));
+            // to draw the coordinate.
 //            g2d.drawString("v" + n.getKey() + coordinate, (int) x, (int) y - 10);
             g2d.drawString(n.getKey() + "", (int) centerX - 8, (int) centerY + 6);
         }
