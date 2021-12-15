@@ -385,6 +385,7 @@ public class MyFrame extends JFrame implements ActionListener {
         UIManager.put("OptionPane.messageFont", new Font("ariel", Font.BOLD, 14));
 
         // FILE
+
         if (loadItem.equals(event) || LOAD.equals(event)) {
             this.outputText += "\n Load Graph activated.";
             JFileChooser loadFile = new JFileChooser();
@@ -1048,9 +1049,12 @@ public class MyFrame extends JFrame implements ActionListener {
         else if (hideButtonsItem.equals(event)) {
             this.buttonsPanel.setVisible(false);
         }
+
         else if (showButtonsItem.equals(event)) {
             this.buttonsPanel.setVisible(true);
-        }else if (fullScreenItem.equals(event)) {
+        }
+
+        else if (fullScreenItem.equals(event)) {
             Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
             this.width = scale.width;
             this.height = scale.height;
@@ -1058,14 +1062,18 @@ public class MyFrame extends JFrame implements ActionListener {
             this.setResizable(true);
             this.outputText += "\n Scale changed to Full Screen.";
 
-        } else if (defaultItem.equals(event)) {
+        }
+
+        else if (defaultItem.equals(event)) {
             Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
             this.width = (int) (scale.width * 0.75);
             this.height = (int) (scale.height * 0.9);
             this.setPreferredSize(new Dimension(this.width, this.height));
             this.setResizable(true);
             this.outputText += "\n Scale changed back to default.";
-        } else if (customScaleItem.equals(event)) {
+        }
+
+        else if (customScaleItem.equals(event)) {
             JTextField widthText = new JTextField("Width");
             JTextField heightText = new JTextField("Height");
             updateMouseListener(widthText);
