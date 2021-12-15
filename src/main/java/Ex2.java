@@ -44,16 +44,16 @@ public class Ex2 {
         //
         // ********************************
     }
-    public static void main(String[] args) throws Exception {
-        ParseToGraph pd;
+    public static void main(String[] args) {
+
         try {
-             pd = new ParseToGraph(args[0]);
+             ParseToGraph pd = new ParseToGraph(args[0]);
+            MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
+            new MyGraph_GUI(mg);
         }
         catch (Exception e){
-//          pd = new ParseToGraph( new InputFlatFile("/data/G1.json"));
+            new MyGraph_GUI(new MyGraph());
         }
-//        MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
-//        new MyGraph_GUI(mg);
 //        drawGUI();
 
     }
