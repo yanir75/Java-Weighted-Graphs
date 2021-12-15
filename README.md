@@ -27,7 +27,7 @@ The left column has the function we activated. The first row has the number of n
 ## Gui 
 Here we attached a picture of the gui.
 Each button will activate a different algorithm.
-    <img src="https://docs.google.com/viewer?url=https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/download.pdf">
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
 ---
 ## How to use
 will be done soon
