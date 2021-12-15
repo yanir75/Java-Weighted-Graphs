@@ -36,7 +36,9 @@ Each button will activate a different algorithm.
    </p>
 
 ---
-
+## How to use
+will be done soon
+---
 ## Sources:
 
   - <a href="https://www.youtube.com/watch?v=CerlT7tTZfY&t">Djikstra's algorithm using a priority queue - Youtube</a>
