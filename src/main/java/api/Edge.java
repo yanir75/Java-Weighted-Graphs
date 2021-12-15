@@ -8,6 +8,12 @@ public class Edge implements EdgeData{
 
     // need to fill
 
+    /**
+     * Building edge
+     * @param src is the source node.
+     * @param dest is the destination node.
+     * @param weight is the traveling cost of the node.
+     */
     public Edge(int src, int dest, double weight){
         if(weight<=0){
             throw new RuntimeException("weight must be positive");
@@ -16,6 +22,11 @@ public class Edge implements EdgeData{
         this.dest = dest;
         this.weight = weight;
     }
+
+    /**
+     * Copy constructor from EdgeData
+     * @param e
+     */
     public Edge(EdgeData e){
         this.src = e.getSrc();
         this.dest = e.getDest();
@@ -23,6 +34,11 @@ public class Edge implements EdgeData{
         this.tag=e.getTag();
         this.info=e.getInfo();
     }
+
+    /**
+     * Deep copy of an edge
+     * @return
+     */
     public Edge copy()
     {
         Edge e = new Edge(src,dest,weight);
@@ -30,36 +46,65 @@ public class Edge implements EdgeData{
         return e;
     }
     int tag;
+
+    /**
+     * Returns the source node ID.
+     * @return source node id
+     */
     @Override
     public int getSrc() {
         return this.src;
     }
 
+    /**
+     * Returns the destination node ID.
+     * @return dest node id
+     */
     @Override
     public int getDest() {
         return this.dest;
     }
 
+    /**
+     * The weight of the edge
+     * @return weight of the edge
+     */
     @Override
     public double getWeight() {
         return this.weight;
     }
 
+    /**
+     * Returns the metadata of the edge.
+     * @return
+     */
     @Override
     public String getInfo() {
         return this.info;
     }
 
+    /**
+     * Sets the metadata of the edge.
+     * @param s
+     */
     @Override
     public void setInfo(String s) {
         this.info = s;
     }
 
+    /**
+     * Returns the tag of the edge.
+     * @return
+     */
     @Override
     public int getTag() {
         return this.tag;
     }
 
+    /**
+     * Sets the tag of the edge
+     * @param t - the new value of the tag
+     */
     @Override
     public void setTag(int t) {
         this.tag = t;
@@ -77,8 +122,4 @@ public String toString(){
         return "{\n"+'"'+"src"+'"'+": "+src+",\n"+'"'+"w"+'"'+": "+weight+",\n"+'"'+"dest"+'"'+": "+dest+"\n}";
 }
 
-    public static void main(String[] args) {
-        Edge e = new Edge(5,5,5);
-        System.out.println(e.toString());
-    }
 }

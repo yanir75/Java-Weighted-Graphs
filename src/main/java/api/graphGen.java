@@ -4,9 +4,16 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class graphGen {
-
+    /**
+     * This class is used for generating a graphs for testing purposes
+     */
     public graphGen(){}
 
+    /**
+     * Generating a strongly connected graph
+     * @param numOfNodes number of nodes
+     * @return
+     */
     public MyGraph generate_connected_graph(int numOfNodes){
         HashMap<Integer, Node> nodes = new HashMap<>();
         Random rand = new Random();
@@ -20,6 +27,13 @@ public class graphGen {
         }
         return new MyGraph(nodes,numOfNodes);
     }
+
+    /**
+     * Random graph with a set number of nodes and edges
+     * @param numOfNodes
+     * @param numberOfEdges
+     * @return
+     */
     public MyGraph generate_graph(int numOfNodes,int numberOfEdges){
         HashMap<Integer, Node> nodes = new HashMap<>();
         Random rand = new Random();
@@ -42,6 +56,13 @@ public class graphGen {
         }
         return new MyGraph(nodes,numberOfEdges);
     }
+
+    /**
+     * Used for genrating large graphs.
+     * @param numOfNodes
+     * @param numberOfEdges
+     * @return
+     */
     public MyGraph generate_large_graph(int numOfNodes,int numberOfEdges){
         HashMap<Integer, Node> nodes = new HashMap<>();
         int count=0;

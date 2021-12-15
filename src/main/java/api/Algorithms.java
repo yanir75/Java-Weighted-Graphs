@@ -12,7 +12,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     private int mc;
 
     /**
-     * Choose the graph you will perform your algorithms on
+     * Choose the graph you will perform your algorithms on.
      */
     @Override
     public void init(DirectedWeightedGraph g) {
@@ -24,7 +24,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     /**
-     * Returns the graph you are working on
+     * Returns the graph you are currently performing algorithms on.
      * @return
      */
     @Override
@@ -33,7 +33,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     /**
-     * Returns a deep copy of the current graph you are working on
+     * Returns a deep copy of the current graph you are working on.
      * @return
      */
     @Override
@@ -42,7 +42,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
     }
 
     @Override
-    /** Checks if there is a route between every pair of vertexes
+    /** Checks if there is a two-sided route between every pair of vertexes.
      * source https://www.techiedelight.com/check-given-graph-strongly-connected-not/
      * @return true if so false otherwise.
      */
@@ -64,6 +64,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     /**
      * This is a simple DFS algorithm on the graph
+     * The DFS will change every node it visits to true.
      * @param visited hashmap of the visitor vertexes
      * @param gra on which graph to perform it
      */
@@ -110,7 +111,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     }
 
-    /** Checks if there is a route between every pair of vertexes.
+    /** Checks if there is a two sided route between every pair of vertexes.
      *
      * @return
      */
@@ -151,12 +152,27 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return true;
     }
 
-
+    /**
+     * This function will return the shortest path distance (sum of all the edges in the route) between 2 edges.
+     * This algorithm will be utilizing djikstra algorithm for finding the shortest route between two nodes.
+     * Here is a video to illustrate https://www.youtube.com/watch?v=CerlT7tTZfY
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return
+     */
     @Override
     public double shortestPathDist(int src, int dest) {
         return djikstra(src,dest);
     }
 
+    /**
+     * This function will return the shortest path list (list of all the nodes in the route) between 2 edges.
+     * This algorithm will be utilizing djikstra algorithm for finding the shortest route between two nodes.
+     * Here is a video to illustrate https://www.youtube.com/watch?v=CerlT7tTZfY
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return
+     */
     @Override
     public List<NodeData> shortestPath(int src, int dest) {
         HashMap<Integer,father> s = djikstra_path(src,dest);
@@ -173,7 +189,12 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return path;
     }
 
-
+    /**
+     * This algorithm will find the center of the graph,center of a graph is the node with the min(max(distance(u,v))).
+     * Meaning the longest distance of a node is shorter than the longest distance of all the other nodes.
+     * This algorithm will be utilized by performing djistra algorithm on all the nodes and will return the one with the shortest path.
+     * @return
+     */
     @Override
     public NodeData center() {
         Iterator<NodeData> iter = graph.nodeIter();
@@ -214,6 +235,12 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     }
 
+    /**
+     * Djikstra algorithm for finding the max cost path between 2 nodes using priority queue.
+     * https://www.youtube.com/watch?v=CerlT7tTZfY
+     * @param src
+     * @return
+     */
     public double djikstra(int src){
         HashSet<Integer> g =new HashSet<>();
         PriorityQueue<father> prio = new PriorityQueue<>((o1, o2) -> {
@@ -245,7 +272,14 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return max;
     }
 
-
+    /**
+     * Djistra algorithm for finding the cost of the shortest path between two nodes.
+     * Using priority queue
+     * https://www.youtube.com/watch?v=CerlT7tTZfY
+     * @param src
+     * @param des
+     * @return
+     */
     public double djikstra(int src,int des) {
         HashMap<Integer, father> s = new HashMap<>();
 //        HashSet<Integer> s = new HashSet<>();
@@ -277,7 +311,13 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return -1;
     }
 
-
+    /**
+     * Djikstra's algorithm for finding the shortest path between two nodes.
+     * https://www.youtube.com/watch?v=CerlT7tTZfY
+     * @param src
+     * @param des
+     * @return
+     */
     public HashMap<Integer,father> djikstra_path(int src,int des) {
         HashMap<Integer, father> s = new HashMap<>();
         PriorityQueue<trio> prio = new PriorityQueue<>((o1, o2) -> {
@@ -309,14 +349,18 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return null;
     }
 
-
+    /**
+     * Greedy algorithm to find the shortest path between all the nodes in a given city.
+     * @param cities
+     * @return
+     */
     public List<NodeData> findRoute(List<NodeData> cities) {
         if(cities==null || cities.size()==0)
             return null;
         if(cities.size()==1){
             return cities;
         }
-        List<NodeData> TSPath = new LinkedList<>();
+        List<NodeData> TSPath = new ArrayList<>();
         HashSet<Integer> route = new HashSet<>();
         int last = cities.get(0).getKey();
         while (cities.size()>1){
@@ -326,6 +370,7 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
                 List<NodeData> part = shortestPath(last, n1.getKey());
                 while (part.size() > 0) {
                     NodeData g = part.remove(0);
+                    if(TSPath.size()==0||TSPath.get(TSPath.size()-1)!=g)
                     TSPath.add(g);
                     route.add(g.getKey());
                 }
@@ -335,12 +380,48 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return TSPath;
     }
 
+    /**
+     * In this TSP we will find the shortest path between all the nodes in a given city.
+     * This will be done by using greedy algorithm(finding the best way from cities[0] to cities[1] and cities[1] to cities[2] and so on.
+     * @param cities
+     * @return
+     */
     @Override
     public List<NodeData> tsp(List<NodeData> cities) {
-
-     return findRoute(cities);
+        if(cities==null){
+            return null;
+        }
+        double min = Double.MAX_VALUE;
+        List<NodeData> fin = new ArrayList<>();
+        for(int i=0;i<cities.size();i++){
+            List<NodeData> copy = copy(cities);
+            swap(0,i,copy);
+            copy=findRoute(copy);
+            if(copy.size()>=cities.size()){
+                double cost=0;
+                for(int j=0;j<copy.size()-1;j++){
+                    cost=cost+graph.getEdge(copy.get(j).getKey(),copy.get(j+1).getKey()).getWeight();
+                }
+                if(cost<min){
+                    min=cost;
+                    fin=copy;
+                }
+            }
+        }
+     return fin;
     }
-
+    public void swap(int i, int j , List<NodeData> l){
+        NodeData n = l.get(i);
+        l.add(i,l.remove(j));
+        l.add(j,n);
+    }
+    public List<NodeData>copy(List<NodeData> l){
+        List<NodeData> copy = new LinkedList<>();
+        for(int i=0;i<l.size();i++){
+            copy.add(new Node(l.get(i)));
+        }
+        return copy;
+    }
     /**
      * Save the current graph to a file
      * Used https://www.w3schools.com/java/java_files_create.asp
@@ -376,6 +457,12 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
 
     }
 
+    /**
+     * Load will load and initiate a graph from a given json.
+     * Load will return true if the file has successfully loaded and false otherwise.
+     * @param file - file name of JSON file
+     * @return
+     */
     @Override
     public boolean load(String file) {
         boolean hasLoaded = false;
@@ -391,53 +478,5 @@ public class Algorithms implements DirectedWeightedGraphAlgorithms {
         return hasLoaded;
     }
 
-    public static void main(String[]args){
-        ParseToGraph pd = new ParseToGraph();
-        try {
-            pd = new ParseToGraph("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs\\data\\G1.json");
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-            System.out.println();
-        }
-        DirectedWeightedGraph g = new MyGraph(pd.getNodes(), pd.size);
-        DirectedWeightedGraphAlgorithms algo = new Algorithms();
-        algo.init(g);
-        algo.load("C:\\Users\\yanir\\IdeaProjects\\weighted-graphs\\data\\10000Nodes.json");
-        algo.save("testing.txt");
-        System.out.println(algo.isConnected());
-////        g = new graphGen().generate_connected_graph(2);
-//        algo.init(g);
-//        DirectedWeightedGraph g1 = algo.copy();
-//        long b = System.currentTimeMillis();
-//        System.out.println(algo.center());
-//        System.out.println(System.currentTimeMillis()-b);
-//        algo.save("wow");
-//        long b = System.currentTimeMillis();
-//        System.out.println(algo.center());
-//        System.out.println(System.currentTimeMillis()-b);
-//        String f = g.toString();
-//        algo.save("test");
-//        algo.load("test");
-//        String f1 = g.toString();
-//        System.out.println(f.equals(f1));
-//        long a = System.currentTimeMillis();
-//        System.out.println(algo.center());
-//        System.out.println(System.currentTimeMillis()-a);
-////        algo.init(g);
-////        System.out.println(g.toStringEdges());
-//       // System.out.println(algo.center().toString());
-////        System.out.println(g.toStringNodes());
-////        System.out.println(algo.shortestPathDist(1,7));
-////        System.out.println(algo.isConnected());
-//        long a = System.currentTimeMillis();
-//        System.out.println(algo.isConnected());
-//        long b = System.currentTimeMillis();
-//        System.out.println(b-a);
-//        algo.getGraph().addNode(new Node(500,500,500));
-//        a=System.currentTimeMillis();
-//        System.out.println(algo.isConnected());
-//        b=System.currentTimeMillis();
-//        System.out.println(b-a);
-    }
+
 }

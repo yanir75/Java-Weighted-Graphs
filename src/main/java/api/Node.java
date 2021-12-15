@@ -17,18 +17,38 @@ public class Node implements NodeData {
     private int tag;
 //    private boolean black = false;
 
-
+    /**
+     * Building a new node by location and ID
+     * @param x is the x point of the location
+     * @param y is the y axis point of the location
+     * @param id the id of the node
+     */
     public Node(double x, double y, int id) {
         this.id = id;
         this.location = new Location(x, y, 0);
     }
+
+    /**
+     * Copy constructor of a node from NodeData
+     * @param n
+     */
     public Node(NodeData n) {
         this.id = n.getKey();
         this.location = new Location(n.getLocation().x(), n.getLocation().y(), n.getLocation().z());
     }
+
+    /**
+     * Empty builder
+     */
     public Node(){
         this.id = -1;
     }
+
+    /**
+     * Deep copy of all the Nodedata attributes.
+     * @param n
+     * @param iter
+     */
     public Node(NodeData n, Iterator<EdgeData> iter) {
         this.id = n.getKey();
         this.weight = n.getWeight();
@@ -42,6 +62,11 @@ public class Node implements NodeData {
         }
 
     }
+
+    /**
+     * Add edge that comes from another node to this node
+     * @param key
+     */
     public void addInEdge(int key){
         inEdges.add(key);
     }
@@ -49,6 +74,10 @@ public class Node implements NodeData {
         return inEdges;
     }
 
+    /**
+     * Deep copy of a node
+     * @return
+     */
     public Node copy() {
         Node c = new Node(location.x(), location.y(), id);
         c.weight = weight;
@@ -62,6 +91,10 @@ public class Node implements NodeData {
         return c;
     }
 
+    /**
+     * Returns the ID of the node, unique id
+     * @return
+     */
     @Override
     public int getKey() {
         if (this.id != -1) {
@@ -71,6 +104,10 @@ public class Node implements NodeData {
         }
     }
 
+    /**
+     * Sets the id of a node.
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
@@ -94,37 +131,64 @@ public class Node implements NodeData {
 //        this.father = father;
 //    }
 
+    /**
+     * Returns the location of a node.
+     * @return
+     */
     @Override
     public GeoLocation getLocation() {
         return location;
     }
 
+    /**
+     * Returns the weight of a node, unused for now.
+     * @return
+     */
     @Override
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Sets the weight of a node, unused for now.
+     * @param w - the new weight
+     */
     @Override
     public void setWeight(double w) {
         weight = w;
     }
 
+    /**
+     * Returns the metadata of a node.
+     * @return
+     */
     @Override
     public String getInfo() {
         return info;
     }
 
+    /**
+     * Sets the metadata of a node.
+     * @param s
+     */
     @Override
     public void setInfo(String s) {
         info = s;
     }
 
+    /**
+     * returns the tag of the node
+     * @return
+     */
     @Override
     public int getTag() {
         return tag;
     }
 
-
+    /**
+     * Change the tag value of the node.
+     * @param t - the new value of the tag
+     */
     @Override
     public void setTag(int t) {
         tag = t;
@@ -143,16 +207,29 @@ public class Node implements NodeData {
         }
     }
 
+    /**
+     * remove edge that goes out of a node.
+     * @param key
+     * @return
+     */
     public EdgeData removeEdge(int key) {
         return this.Edges.remove(key);
 
     }
 
+    /**
+     * Change the location of the node.
+     * @param p - new new location  (position) of this node.
+     */
     @Override
     public void setLocation(GeoLocation p) {
         location = p;
     }
 
+    /**
+     * Returns the edges of the node as a hashmap.
+     * @return
+     */
     public HashMap<Integer, Edge> getEdges() {
 //        return this.Edges.keySet().toArray(new Double[0]);
         return this.Edges;

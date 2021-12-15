@@ -9,22 +9,37 @@ public class Location implements GeoLocation{
         this.z =z;
     }
 
-
+    /**
+     * x axis of the location
+     * @return
+     */
     @Override
     public double x() {
         return x;
     }
 
+    /**
+     * y axis of the location
+     * @return
+     */
     @Override
     public double y() {
         return y;
     }
 
+    /**
+     * z axis of the location
+     * @return
+     */
     @Override
     public double z() {
         return z;
     }
 
+    /**
+     * The distance between two geoLocations without consideration to height.
+     * @return
+     */
     @Override
     public double distance(GeoLocation g) {
         double val_x = (this.x - g.x()) * (this.x - g.x());
