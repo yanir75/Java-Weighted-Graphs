@@ -26,7 +26,7 @@ The left column has the function we activated. The first row has the number of n
 Here we attached a picture of the gui.
 Each button will activate a different algorithm.
 <div align="center">
-    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/test/test.svg">
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
  </div>
 ---
 ## How to use
