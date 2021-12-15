@@ -16,7 +16,7 @@ This project is about simulating and illustrating algorithms on graphs. In this 
 ---
 
 ## Results
-|           | **1000** | **10000** | **100000** | **1000000** |
+|      functions\Number of nodes     | **1000** | **10000** | **100000** | **1000000** |
 |-----------|--------|--------|--------|--------|
 |**is Connected**|	0.01s	 | 0.2s  |	 0.5s  | 2.8s  | 
 |**TSP 10 Nodes** |0.02s	 | 0.5s   |	1s  | 36.9s  | 
