@@ -26,9 +26,9 @@ This project is about simulating and illustrating algorithms on graphs. In this 
 ------
 ##GUI
    <p align="center">
-    <img src="https://github.com/yanir75/weighted-graphs/blob/main/uml/Graph%20UML.png">
+    <img src="https://github.com/yanir75/weighted-graphs/blob/main/uml/graph.png">
    </p>
-------
+---
 
 ## Sources:
 
