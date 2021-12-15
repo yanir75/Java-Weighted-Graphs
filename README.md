@@ -23,11 +23,13 @@ This project is about simulating and illustrating algorithms on graphs. In this 
 |**Center** |2s	 | 5.5m   |	NULL   | NULL  | 
 |**Shortest Path** |0.002s | 0.01s   |	5s   | 14s  | 
 
-------
-##GUI
+---
+## Gui 
+
    <p align="center">
-    <img src="https://github.com/yanir75/weighted-graphs/blob/main/uml/graph.png">
+    <img src="https://github.com/yanir75/weighted-graphs/blob/main/gui/graph.png">
    </p>
+
 ---
 
 ## Sources:
