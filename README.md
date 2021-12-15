@@ -9,7 +9,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ---
 ## Project UML
 
-<img src="img_girl.jpg" style="width:500px;height:600px;">---
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/graph%20diagram.png" style="width:500px;height:600px;">---
 
 ## Results
 Here are the results of the algorithm on a connected graph.  
