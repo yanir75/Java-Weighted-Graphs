@@ -256,6 +256,8 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // Shortcuts for viewMenu.
         viewMenu.setMnemonic(KeyEvent.VK_V); // Alt + v
+        hideButtonsItem.setMnemonic(KeyEvent.VK_H); // f
+        showButtonsItem.setMnemonic(KeyEvent.VK_S); // f
         fullScreenItem.setMnemonic(KeyEvent.VK_F); // f
         defaultItem.setMnemonic(KeyEvent.VK_D); // d
         customScaleItem.setMnemonic(KeyEvent.VK_C); // c
