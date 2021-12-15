@@ -14,7 +14,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ## Results
 Here are the results of the algorithm on a connected graph.  
 The left column has the function we activated. The first row has the number of nodes.
-|        | **1000/20000** | **10000/200000** | **100000/2000000** | **1000000/2000000** |
+|        | **1000/20000** | **10000/200000** | **100000/2000000** | **1000000/20000000** |
 |-----------|--------|--------|--------|--------|
 |**is Connected**|	0.01s	 | 0.2s  |	 0.5s  | 15s  | 
 |**TSP 10 Nodes** |0.02s	 | 0.5s   |	1s  | 36.9s  | 
