@@ -5,6 +5,7 @@
 **Yanir Cohen**    
 --- 
 This project is about simulating and illustrating algorithms on graphs. In this project we will load graphs from Json files and will activate specific algorithms on those graphs. In addition we will create a UI that illustrates the algorithm we activated on the graph.
+In this way you will be able to load and activate algorithm on the graphs as you wish.
  
 ---
 ## Project UML
@@ -25,6 +26,8 @@ This project is about simulating and illustrating algorithms on graphs. In this 
 
 ---
 ## Gui 
+Here we attached a picture of the gui.
+Each button will activate a different algorithm.
 
    <p align="center">
     <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
