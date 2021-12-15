@@ -1,8 +1,8 @@
-Weighted Directed Graphs
----
+# Weighted Directed Graphs
+## NEED TO FINISH README!
 ## Assignment 2 - Object Oriented Programming 
-**Netanel Levine** 
-**Yanir Cohen**  
+**Netanel Levine**   
+**Yanir Cohen**    
 --- 
 This project is about simulating and illustrating algorithms on graphs. In this project we will load graphs from Json files and will activate specific algorithms on those graphs. In addition we will create a UI that illustrates the algorithm we activated on the graph.
  
