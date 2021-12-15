@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MyPanel extends JPanel {
-    private final Algorithms graph;
+    private final MyGraphAlgo graph;
 //    private Algorithms copyOfGraph;
     private NodeData center;
     private boolean isCenterActivated, isPathActivated, isTSPActivated;
@@ -23,7 +23,7 @@ public class MyPanel extends JPanel {
     private double maxY;
 
     public MyPanel(DirectedWeightedGraph g) {
-        this.graph = new Algorithms();
+        this.graph = new MyGraphAlgo();
 //        this.copyOfGraph = new Algorithms();
         this.graph.init(g);
 //        this.copyOfGraph.init(this.graph.copy());
@@ -260,7 +260,7 @@ public class MyPanel extends JPanel {
         return Math.abs((x2 + x1) / 2);
     }
 
-    public Algorithms getGraph() {
+    public MyGraphAlgo getGraph() {
         return graph;
     }
 

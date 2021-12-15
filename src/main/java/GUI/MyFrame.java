@@ -21,7 +21,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private JTextArea JTA;
     private DirectedWeightedGraph graph;
     private DirectedWeightedGraph graphCopy;
-    private Algorithms algo;
+    private MyGraphAlgo algo;
     private NodeData center;
     private String outputText;
     private int width, height;
