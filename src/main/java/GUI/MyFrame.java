@@ -452,7 +452,6 @@ public class MyFrame extends JFrame implements ActionListener {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-//            System.out.println("Cleared");
         }
 
         else if (resetItem.equals(event) || RESET.equals(event)) {
@@ -464,7 +463,6 @@ public class MyFrame extends JFrame implements ActionListener {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-//            System.out.println("Reset");
         }
 
         else if (exitItem.equals(event)) {
@@ -1146,11 +1144,6 @@ public class MyFrame extends JFrame implements ActionListener {
     }
 
 
-    public String getOutputText() {
-        return outputText;
-    }
-
-
     public void setOutputText(String outputText) {
         this.outputText = outputText;
     }
@@ -1179,16 +1172,9 @@ public class MyFrame extends JFrame implements ActionListener {
         return width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     @Override
     public int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
 }

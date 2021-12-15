@@ -4,29 +4,29 @@ import api.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MyPanel extends JPanel {
-    private Algorithms graph, copyOfGraph;
+    private final Algorithms graph;
+//    private Algorithms copyOfGraph;
     private NodeData center;
     private boolean isCenterActivated, isPathActivated, isTSPActivated;
     private List<NodeData> pathByNodes;
     private List<NodeData> pathByNodesTSP;
     private int src, dest;
-    double minX;
-    double minY;
-    double maxX;
-    double maxY;
+    private double minX;
+    private double minY;
+    private double maxX;
+    private double maxY;
 
     public MyPanel(DirectedWeightedGraph g) {
         this.graph = new Algorithms();
-        this.copyOfGraph = new Algorithms();
+//        this.copyOfGraph = new Algorithms();
         this.graph.init(g);
-        this.copyOfGraph.init(this.graph.copy());
+//        this.copyOfGraph.init(this.graph.copy());
         this.center = null;
         this.isCenterActivated = false;
         this.isPathActivated = false;
@@ -41,7 +41,7 @@ public class MyPanel extends JPanel {
             e.printStackTrace();
         }
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int)scale.width;
+        int width = scale.width;
         int height = (int)(scale.height * 0.8);
         this.setLayout(new BorderLayout());
         this.setBackground(Color.white);
@@ -54,10 +54,6 @@ public class MyPanel extends JPanel {
         double ABSy = Math.abs(minY - maxY);
         double scaleX = (getWidth() / ABSx) * 0.8;
         double scaleY = (getHeight() / ABSy) * 0.8;
-        int w = getWidth();
-        int h = getHeight();
-        int r = 5;
-        double theta;
         Graphics2D g2d = (Graphics2D) graphics;
         g2d.setPaint(Color.blue);
         g2d.setStroke(new BasicStroke(1));
@@ -95,11 +91,9 @@ public class MyPanel extends JPanel {
             int y1 = (int) srcY;
             int x2 = (int) destX;
             int y2 = (int) destY;
-//            g2d.draw(new Line2D.Double(x1, y1, x2, y2));
             g2d.setStroke(new BasicStroke(3));
             g2d.setPaint(Color.black);
             drawArrowLine(g2d, x1, y1, x2, y2, 15, 7);
-//            g2d.fillOval((int) x2, (int) y2, 18, 18);
             double medX = middle(x1, x2);
             double medY = middle(y1, y2);
             g2d.setStroke(new BasicStroke(1));
@@ -138,7 +132,7 @@ public class MyPanel extends JPanel {
             g2d.drawString(n.getKey() + "", (int) centerX - 8, (int) centerY + 6);
         }
         int src = -1;
-        int dest = -1;
+        int dest;
         if(!this.pathByNodes.isEmpty()){
             src = this.pathByNodes.get(0).getKey();
             this.pathByNodes.remove(0);
@@ -164,7 +158,6 @@ public class MyPanel extends JPanel {
         }
 
         src = -1;
-        dest = -1;
         if(this.pathByNodesTSP != null && !this.pathByNodesTSP.isEmpty()){
             src = this.pathByNodesTSP.get(0).getKey();
             this.pathByNodesTSP.remove(0);
@@ -289,14 +282,7 @@ public class MyPanel extends JPanel {
         return dest;
     }
 
-    public java.util.List<NodeData> getPathByNodesTSP() {
-        return pathByNodesTSP;
-    }
-
     public void setPathByNodesTSP(List<NodeData> path) {
-//        System.out.println("THE PATH\n" + path);
-//        this.pathByNodesTSP = new LinkedList<>();
-//        this.pathByNodesTSP.addAll(path);
         this.pathByNodesTSP = path;
     }
 
@@ -315,6 +301,7 @@ public class MyPanel extends JPanel {
     public void setPathByNodesTSPActivated(boolean pathActivated) {
         this.isTSPActivated = pathActivated;
     }
+
     public NodeData getCenter() {
         return center;
     }
