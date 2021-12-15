@@ -31,7 +31,7 @@ Here we attached a picture of the gui.
 Each button will activate a different algorithm.
 
    <p align="center">
-    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG" width="1000" height="1000">
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG" width="1000" height="10000">
    </p>
 
 ---
