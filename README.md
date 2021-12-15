@@ -9,7 +9,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ---
 ## Project UML
 
-<embed src="file_name.pdf" width="800px" height="2100px" />
+<embed src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/download.pdf" width="800px" height="2100px" />
 ---
 
 ## Results
