@@ -94,7 +94,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.setTitle("My Directed Weighted Graph");
-        ImageIcon title = new ImageIcon("graph.jpg");
+        ImageIcon title = new ImageIcon("src/main/java/GUI/icons/graph.jpg");
         this.setIconImage(title.getImage());
 
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
