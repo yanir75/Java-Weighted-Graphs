@@ -53,7 +53,9 @@ public class MyFrame extends JFrame implements ActionListener {
     JMenuItem TSPItem;
 
     // View menu
-    JMenuItem FullScreenItem;
+    JMenuItem hideButtonsItem;
+    JMenuItem showButtonsItem;
+    JMenuItem fullScreenItem;
     JMenuItem defaultItem;
     JMenuItem customScaleItem;
 
@@ -197,15 +199,21 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
         // View menu
-        FullScreenItem = new JMenuItem("Full Screen                    (Alt+V+F)");
+        hideButtonsItem = new JMenuItem("Hide Buttons                  (Alt+V+H)");
+        showButtonsItem = new JMenuItem("Show Buttons                  (Alt+V+S)");
+        fullScreenItem = new JMenuItem("Full Screen                    (Alt+V+F)");
         defaultItem = new JMenuItem("Default Screen              (Alt+V+D)");
         customScaleItem = new JMenuItem("Custom Screen              (Alt+V+C)");
 
-        FullScreenItem.addActionListener(this);
+        hideButtonsItem.addActionListener(this);
+        showButtonsItem.addActionListener(this);
+        fullScreenItem.addActionListener(this);
         defaultItem.addActionListener(this);
         customScaleItem.addActionListener(this);
 
-        viewMenu.add(FullScreenItem);
+        viewMenu.add(showButtonsItem);
+        viewMenu.add(hideButtonsItem);
+        viewMenu.add(fullScreenItem);
         viewMenu.add(defaultItem);
         viewMenu.add(customScaleItem);
 
@@ -248,7 +256,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // Shortcuts for viewMenu.
         viewMenu.setMnemonic(KeyEvent.VK_V); // Alt + v
-        FullScreenItem.setMnemonic(KeyEvent.VK_F); // f
+        fullScreenItem.setMnemonic(KeyEvent.VK_F); // f
         defaultItem.setMnemonic(KeyEvent.VK_D); // d
         customScaleItem.setMnemonic(KeyEvent.VK_C); // c
 
@@ -1037,25 +1045,27 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // VIEW
 
-        else if (FullScreenItem.equals(event)){
+        else if (hideButtonsItem.equals(event)) {
+            this.buttonsPanel.setVisible(false);
+        }
+        else if (showButtonsItem.equals(event)) {
+            this.buttonsPanel.setVisible(true);
+        }else if (fullScreenItem.equals(event)) {
             Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
             this.width = scale.width;
             this.height = scale.height;
             this.setPreferredSize(new Dimension(this.width, this.height));
             this.setResizable(true);
             this.outputText += "\n Scale changed to Full Screen.";
-        }
 
-        else if (defaultItem.equals(event)){
+        } else if (defaultItem.equals(event)) {
             Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
             this.width = (int) (scale.width * 0.75);
             this.height = (int) (scale.height * 0.9);
             this.setPreferredSize(new Dimension(this.width, this.height));
             this.setResizable(true);
             this.outputText += "\n Scale changed back to default.";
-        }
-
-        else if (customScaleItem.equals(event)){
+        } else if (customScaleItem.equals(event)) {
             JTextField widthText = new JTextField("Width");
             JTextField heightText = new JTextField("Height");
             updateMouseListener(widthText);
@@ -1092,7 +1102,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
                 width = Double.parseDouble(widthText.getText());
                 height = Double.parseDouble(heightText.getText());
-                if(width < 1 || width > 100 || height < 1 || height > 100) {
+                if (width < 1 || width > 100 || height < 1 || height > 100) {
                     throw new NumberFormatException();
                 }
                 Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
@@ -1101,11 +1111,9 @@ public class MyFrame extends JFrame implements ActionListener {
                 this.setPreferredSize(new Dimension(this.width, this.height));
                 this.setResizable(true);
                 this.outputText += "\n Scale changed to custom scale.";
-            }
-            catch (NoInitialContextException ex){
+            } catch (NoInitialContextException ex) {
                 this.outputText += "\n Scale change canceled.";
-            }
-            catch (NumberFormatException ex){
+            } catch (NumberFormatException ex) {
                 JOptionPane.showOptionDialog(null,
                         "Wrong input!\nPlease enter only numeric values.",
                         "INPUT ERROR!",
