@@ -10,7 +10,7 @@ In this way you will be able to load and activate algorithm on the graphs as you
 ## Project UML
 
    <p align="center">
-    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Graph%20UML.puml">
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Webp.net-resizeimage.png">
    </p>
 
 ---
@@ -20,7 +20,7 @@ Here are the results of the algorithm on a connected graph.
 The left column has the function we activated. The first row has the number of nodes.
 |        | **1000** | **10000** | **100000** | **1000000** |
 |-----------|--------|--------|--------|--------|
-|**is Connected**|	0.01s	 | 0.2s  |	 0.5s  | 2.8s  | 
+|**is Connected**|	0.01s	 | 0.2s  |	 0.5s  | 15s  | 
 |**TSP 10 Nodes** |0.02s	 | 0.5s   |	1s  | 36.9s  | 
 |**Center** |2s	 | 5.5m   |	NULL   | NULL  | 
 |**Shortest Path** |0.002s | 0.01s   |	5s   | 14s  | 
@@ -29,11 +29,7 @@ The left column has the function we activated. The first row has the number of n
 ## Gui 
 Here we attached a picture of the gui.
 Each button will activate a different algorithm.
-
-   <p align="center">
-    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
-   </p>
-
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/download.pdf">
 ---
 ## How to use
 will be done soon
