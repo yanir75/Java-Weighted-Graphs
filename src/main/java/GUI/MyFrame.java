@@ -84,7 +84,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.algo = this.mainPanel.getGraph();
         this.graphCopy = algo.copy();
         this.center = null;
-        this.outputText = "Welcome to My Directed Weighted Graph action log...";
+        this.outputText = " Welcome to My Directed Weighted Graph action log...";
         initGUI();
         addButtonsAndText();
     }
@@ -376,7 +376,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         // FILE
         if (loadItem.equals(event) || LOAD.equals(event)) {
-            this.outputText += "\nLoad Graph activated.";
+            this.outputText += "\n Load Graph activated.";
             JFileChooser loadFile = new JFileChooser();
             loadFile.setCurrentDirectory(new File("."));
             int approved = loadFile.showOpenDialog(null);
@@ -397,25 +397,25 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
-                    this.outputText += "\nThe file: " + loadFile.getSelectedFile().getName() + " was not loaded.";
-                    this.outputText += "\n" + ex.getMessage();
-                    System.out.println("This Program supports only Json files.");
+                    this.outputText += "\n The file: " + loadFile.getSelectedFile().getName() + " was not loaded.";
+                    this.outputText += "\n " + ex.getMessage();
+//                    System.out.println("This Program supports only Json files.");
                 }
             } else {
-                this.outputText += "\nLoad Graph canceled.";
+                this.outputText += "\n Load Graph canceled.";
             }
         }
 
         else if (saveItem.equals(event) || SAVE.equals(event)) {
             JFileChooser saveFile = new JFileChooser();
-            this.outputText += "\nSave Graph activated.";
+            this.outputText += "\n Save Graph activated.";
             saveFile.setCurrentDirectory(new File("."));
             int approved = saveFile.showSaveDialog(null);
             if (approved == JFileChooser.APPROVE_OPTION) {
                 String path = saveFile.getSelectedFile().getAbsolutePath();
                 boolean success = this.algo.save(path);
                 if(success) {
-                    this.outputText += "\nThe file: " + saveFile.getSelectedFile().getName() + ", was saved successfully";
+                    this.outputText += "\n The file: " + saveFile.getSelectedFile().getName() + ", was saved successfully";
                 }
                 else{
                     JOptionPane.showOptionDialog(null,
@@ -426,10 +426,10 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
-                    this.outputText += "\nThe file: " + saveFile.getSelectedFile().getName() + " was not saved.";
+                    this.outputText += "\n The file: " + saveFile.getSelectedFile().getName() + " was not saved.";
                 }
             } else {
-                this.outputText += "\nSave Graph canceled.";
+                this.outputText += "\n Save Graph canceled.";
             }
         }
 
@@ -442,9 +442,7 @@ public class MyFrame extends JFrame implements ActionListener {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            System.out.println("Cleared");
-
-
+//            System.out.println("Cleared");
         }
 
         else if (resetItem.equals(event) || RESET.equals(event)) {
@@ -456,18 +454,18 @@ public class MyFrame extends JFrame implements ActionListener {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            System.out.println("Reset");
+//            System.out.println("Reset");
         }
 
         else if (exitItem.equals(event)) {
-            System.out.println("Exiting");
+//            System.out.println("Exiting");
             System.exit(0);
         }
 
         // ADD/REMOVE
 
         else if (addEdgeItem.equals(event) || AE.equals(event)) {
-            this.outputText += "\nAdd Edge activated.";
+            this.outputText += "\n Add Edge activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             JTextField weightText = new JTextField("Weight");
@@ -511,7 +509,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 if(this.graph.getNode(src) != null && this.graph.getNode(dest) != null) {
                     if (this.graph.getEdge(src, dest) == null) {
                         this.graph.connect(src, dest, weight);
-                        this.outputText += "\nNew Edge added: src = " + src + ", dest = " + dest + ", weight = " + weight + ".";
+                        this.outputText += "\n New Edge added: src = " + src + ", dest = " + dest + ", weight = " + weight + ".";
                     }
                     else{
                         throw new FileAlreadyExistsException("");
@@ -531,11 +529,11 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-                this.outputText += "\nAdd Edge failed.";
+                this.outputText += "\n Add Edge failed.";
             }
             // pressed X to cancel the dialog.
             catch (RuntimeException ex){
-                this.outputText += "\nAdd Edge canceled.";
+                this.outputText += "\n Add Edge canceled.";
             }
             // src/dest does not exist in the graph.
             catch (NoSuchObjectException ex) {
@@ -550,8 +548,8 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-//                this.outputText += "\nThe Graph does not contain the Edge between: " + src + " to " + dest + ".";
-                this.outputText += "\nAdd Edge failed.";
+//                this.outputText += "\n The Graph does not contain the Edge between: " + src + " to " + dest + ".";
+                this.outputText += "\n Add Edge failed.";
             }
             // The Graph already contains this Edge.
             catch (FileAlreadyExistsException ex) {
@@ -563,13 +561,13 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-                this.outputText += "\nThe Graph already contains this Edge.";
-                this.outputText += "\nAdd Edge failed.";
+                this.outputText += "\n The Graph already contains this Edge.";
+                this.outputText += "\n Add Edge failed.";
             }
         }
 
         else if (addNodeItem.equals(event) || AN.equals(event)) {
-            this.outputText += "\nAdd Node was activated.";
+            this.outputText += "\n Add Node was activated.";
             JTextField xCoordination = new JTextField("  X  ");
             JTextField yCoordination = new JTextField("  Y  ");
             JTextField ID = new JTextField(" ID ");
@@ -619,15 +617,15 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-                this.outputText += "\nAdd Node failed.";
+                this.outputText += "\n Add Node failed.";
             }
             catch (RuntimeException ex){
-                this.outputText += "\nAdd Node canceled.";
+                this.outputText += "\n Add Node canceled.";
             }
         }
 
         else if (removeEdgeItem.equals(event) || RE.equals(event)) {
-            this.outputText += "\nRemove Edge was activated.";
+            this.outputText += "\n Remove Edge was activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             updateMouseListener(srcText);
@@ -665,7 +663,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 dest = Integer.parseInt(destText.getText());
                 try {
                     this.graph.removeEdge(src, dest);
-                    this.outputText += "\nEdge " + src + " to " + dest + ", was removed.";
+                    this.outputText += "\n Edge " + src + " to " + dest + ", was removed.";
                 } catch (NullPointerException nep) {
                     JOptionPane.showOptionDialog(null,
                             "Wrong input!\nThe Graph does not contain\nthe Edge between: " + src + " to " + dest + ".",
@@ -675,12 +673,12 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
-                    this.outputText += "\nThe Graph does not contain the Edge between: " + src + " to " + dest + ".";
-                    this.outputText += "\nRemove Edge failed.";
+                    this.outputText += "\n The Graph does not contain the Edge between: " + src + " to " + dest + ".";
+                    this.outputText += "\n Remove Edge failed.";
                 }
             }
             catch (NoInitialContextException ex){
-                this.outputText += "\nRemove Edge canceled.";
+                this.outputText += "\n Remove Edge canceled.";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -691,12 +689,12 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-                this.outputText += "\nRemove Edge failed, invalid input.";
+                this.outputText += "\n Remove Edge failed, invalid input.";
             }
         }
 
         else if (removeNodeItem.equals(event) || RN.equals(event)) {
-            this.outputText += "\nRemove Node was activated";
+            this.outputText += "\n Remove Node was activated";
             JTextField ID = new JTextField(" ID ");
             updateMouseListener(ID);
             String title = """
@@ -743,7 +741,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
             }
             catch (NoInitialContextException ex){
-                this.outputText += "\nRemove Node canceled.";
+                this.outputText += "\n Remove Node canceled.";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -754,14 +752,14 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-                this.outputText += "\nRemove Node failed, invalid input.";
+                this.outputText += "\n Remove Node failed, invalid input.";
             }
         }
 
         // ALGORITHMS
 
         else if (isConnectedItem.equals(event) || IC.equals(event)) {
-            this.outputText += "\nisConnected Activated.";
+            this.outputText += "\n isConnected Activated.";
             boolean ans = algo.isConnected();
             String output = ans? "This graph is strongly connected!" : "This graph is not strongly connected!";
             JOptionPane.showOptionDialog(null,
@@ -772,11 +770,11 @@ public class MyFrame extends JFrame implements ActionListener {
                     null,
                     null,
                     null);
-            this.outputText += "\n" + output;
+            this.outputText += "\n " + output;
         }
 
         else if (shortestPath.equals(event) || SP.equals(event)) {
-            this.outputText += "\nShortestPath Activated.";
+            this.outputText += "\n ShortestPath Activated.";
             JTextField srcText = new JTextField("Source");
             JTextField destText = new JTextField("Destination");
             updateMouseListener(srcText);
@@ -826,8 +824,8 @@ public class MyFrame extends JFrame implements ActionListener {
                             route += n.getKey() + "->";
                         }
                         route = "[" + route.substring(0, route.length() - 2) + "]";
-                        this.outputText += "\nThe weight of the shortest path between " + src + " -> " + dest + " is: " + weight + ".";
-                        this.outputText += "\nThe path is: " + route + ".";
+                        this.outputText += "\n The weight of the shortest path between " + src + " -> " + dest + " is: " + weight + ".";
+                        this.outputText += "\n The path is: " + route + ".";
                     }
                     else{
                         JOptionPane.showOptionDialog(null,
@@ -838,7 +836,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                 null,
                                 null,
                                 null);
-                        this.outputText += "\nShortestPath failed, the destination is not in the Graph.";
+                        this.outputText += "\n ShortestPath failed, the destination is not in the Graph.";
                     }
                 }
                 else{
@@ -850,11 +848,11 @@ public class MyFrame extends JFrame implements ActionListener {
                             null,
                             null,
                             null);
-                    this.outputText += "\nShortestPath failed, the source is not in the Graph.";
+                    this.outputText += "\n ShortestPath failed, the source is not in the Graph.";
                 }
             }
             catch (NoInitialContextException ex){
-                this.outputText += "\nShortestPath canceled.";
+                this.outputText += "\n ShortestPath canceled.";
             }
             catch (NumberFormatException ex){
                 JOptionPane.showOptionDialog(null,
@@ -865,15 +863,15 @@ public class MyFrame extends JFrame implements ActionListener {
                         null,
                         null,
                         null);
-                this.outputText += "\nShortestPath failed, invalid input.";
+                this.outputText += "\n ShortestPath failed, invalid input.";
             }
         }
 
         else if (centerItem.equals(event) || CE.equals(event)) {
             this.mainPanel.setCenterActivated(true);
             this.mainPanel.setCenter(this.algo.center());
-            this.outputText +=  "\nCenter Activated";
-            this.outputText +=  "\nThe center of the Graph is Node number: " + this.mainPanel.getCenter().getKey();
+            this.outputText +=  "\n Center Activated";
+            this.outputText +=  "\n The center of the Graph is Node number: " + this.mainPanel.getCenter().getKey();
             JOptionPane.showOptionDialog(null,
                     "The center of this Graph is Node number: " + this.mainPanel.getCenter().getKey() + ".\n" +
                             "The Node Color is Red and The index is colored in Yellow.",
@@ -887,7 +885,7 @@ public class MyFrame extends JFrame implements ActionListener {
         }
 
         else if (TSPItem.equals(event) || TSP.equals(event)) {
-            this.outputText += "\nTSP activated";
+            this.outputText += "\n TSP activated";
             int choose = chooseInputTSPState();
             List<NodeData> nodesToVisit = new LinkedList<>();
             List<NodeData> fullPath = new LinkedList<>();
@@ -905,7 +903,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         break;
                     }
                     String[] nodes = input.split(" ");
-                    this.outputText += "\nThe Cities for the TSP are:\n" + Arrays.toString(nodes);
+                    this.outputText += "\n The Cities for the TSP are:\n " + Arrays.toString(nodes);
                         for (String n : nodes) {
                             int ID = -1;
                             try {
@@ -921,7 +919,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                             null,
                                             null,
                                             null);
-                                    this.outputText += "\nTSP failed, the ID: " + n + " does not appear in the Graph.";
+                                    this.outputText += "\n TSP failed, the ID: " + n + " does not appear in the Graph.";
                                     break;
                                 }
                             } catch (NumberFormatException ex) {
@@ -933,7 +931,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                         null,
                                         null,
                                         null);
-//                                this.outputText += "\nTSP failed, invalid input.";
+//                                this.outputText += "\n TSP failed, invalid input.";
                                 break;
                             }
                         }
@@ -992,7 +990,7 @@ public class MyFrame extends JFrame implements ActionListener {
                         }
                     }
                     catch (NoInitialContextException ex){
-                        this.outputText += "\nTSP canceled.";
+                        this.outputText += "\n TSP canceled.";
                         break;
                     }
                     catch (NumberFormatException ex){
@@ -1015,7 +1013,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
                 if(!success[0] && temp.length() > 2) {
                     temp = temp.substring(0, temp.length() - 2) + "]";
-                    this.outputText += "\nThe Cities for the TSP are:" + temp + ".";
+                    this.outputText += "\n The Cities for the TSP are:" + temp + ".";
                     fullPath = this.algo.tsp(nodesToVisit);
                     this.mainPanel.setPathByNodesTSP(fullPath);
                     this.mainPanel.setPathByNodesTSPActivated(true);
@@ -1027,13 +1025,13 @@ public class MyFrame extends JFrame implements ActionListener {
                     route += n.getKey() + "->";
                 }
                 route = "[" + route.substring(0, route.length() - 2) + "]";
-                this.outputText += "\n" + "The path is:" + route;
+                this.outputText += "\n " + "The path is:" + route;
             }
             if(nodesToVisit.size() == 0 && (choose == 0 || choose == 1) && !success[0]){
-                this.outputText += "\nThe list is invalid.";
+                this.outputText += "\n The list is invalid.";
             }
             else{
-                this.outputText += "\nTSP canceled.";
+                this.outputText += "\n TSP canceled.";
             }
         }
 
@@ -1045,6 +1043,7 @@ public class MyFrame extends JFrame implements ActionListener {
             this.height = scale.height;
             this.setPreferredSize(new Dimension(this.width, this.height));
             this.setResizable(true);
+            this.outputText += "\n Scale changed to Full Screen.";
         }
 
         else if (defaultItem.equals(event)){
@@ -1053,15 +1052,70 @@ public class MyFrame extends JFrame implements ActionListener {
             this.height = (int) (scale.height * 0.9);
             this.setPreferredSize(new Dimension(this.width, this.height));
             this.setResizable(true);
+            this.outputText += "\n Scale changed back to default.";
         }
 
         else if (customScaleItem.equals(event)){
-            System.out.println(Toolkit.getDefaultToolkit().getScreenSize());
-            System.out.println(this.getSize());
-            System.out.println(this.mainPanel.getSize());
-            System.out.println(this.buttonsPanel.getSize());
-            System.out.println(this.outputPanel.getSize());
-            System.out.println();
+            JTextField widthText = new JTextField("Width");
+            JTextField heightText = new JTextField("Height");
+            updateMouseListener(widthText);
+            updateMouseListener(heightText);
+            String title = """
+                    Insert two numbers which will represents a percentage values
+                    of the Width and Height of the new scale.
+                    The numbers must be between 1-100.
+                    In order to finish click on the OK button.
+                    """;
+            widthText.setToolTipText("Enter the Width (between 1-100)");
+            heightText.setToolTipText("Enter the Height (between 1-100)");
+            Object[] options = {title, "\n", widthText, heightText};
+
+            JOptionPane j = new JOptionPane();
+            j.setMessage(options);
+            j.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = j.createDialog(null, "Change scale");
+            final boolean[] success = {false};
+            dialog.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    dialog.dispose();
+                    success[0] = true;
+                }
+            });
+            dialog.setVisible(true);
+
+            double width;
+            double height;
+            try {
+                if (success[0]) {
+                    throw new NoInitialContextException();
+                }
+                width = Double.parseDouble(widthText.getText());
+                height = Double.parseDouble(heightText.getText());
+                if(width < 1 || width > 100 || height < 1 || height > 100) {
+                    throw new NumberFormatException();
+                }
+                Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
+                this.width = (int) (scale.width * (width / 100));
+                this.height = (int) (scale.height * (height / 100));
+                this.setPreferredSize(new Dimension(this.width, this.height));
+                this.setResizable(true);
+                this.outputText += "\n Scale changed to custom scale.";
+            }
+            catch (NoInitialContextException ex){
+                this.outputText += "\n Scale change canceled.";
+            }
+            catch (NumberFormatException ex){
+                JOptionPane.showOptionDialog(null,
+                        "Wrong input!\nPlease enter only numeric values.",
+                        "INPUT ERROR!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.ERROR_MESSAGE,
+                        null,
+                        null,
+                        null);
+                this.outputText += "\n Scale change failed, invalid input.";
+            }
         }
 
 
