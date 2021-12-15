@@ -27,7 +27,7 @@ This project is about simulating and illustrating algorithms on graphs. In this 
 ## Gui 
 
    <p align="center">
-    <img src="https://github.com/yanir75/weighted-graphs/blob/main/gui/graph.png">
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
    </p>
 
 ---
