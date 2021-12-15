@@ -940,7 +940,6 @@ public class MyFrame extends JFrame implements ActionListener {
                                         null,
                                         null,
                                         null);
-//                                this.outputText += "\n TSP failed, invalid input.";
                                 break;
                             }
                         }
@@ -1013,6 +1012,7 @@ public class MyFrame extends JFrame implements ActionListener {
                                 null);
                     }
                     input.setText("DONE");
+                    input.setCaretPosition(0);
                     j = new JOptionPane();
                     j.setMessage(options);
                     j.setMessageType(JOptionPane.QUESTION_MESSAGE);
@@ -1040,7 +1040,9 @@ public class MyFrame extends JFrame implements ActionListener {
                 this.outputText += "\n The list is invalid.";
             }
             else{
-                this.outputText += "\n TSP canceled.";
+                if(nodesToVisit.size() == 0) {
+                    this.outputText += "\n TSP canceled.";
+                }
             }
         }
 
