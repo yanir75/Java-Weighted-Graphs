@@ -29,6 +29,7 @@ This project is about simulating and illustrating algorithms on graphs. In this 
     <img src="https://github.com/yanir75/weighted-graphs/blob/main/uml/Graph%20UML.png">
    </p>
 ------
+
 ## Sources:
 
   - <a href="https://www.youtube.com/watch?v=CerlT7tTZfY&t">Djikstra's algorithm using a priority queue - Youtube</a>
