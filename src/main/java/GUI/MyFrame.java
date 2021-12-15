@@ -98,9 +98,9 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setIconImage(title.getImage());
 
         Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
-        this.width = scale.width;
-        this.height = scale.height;
-        this.setSize(width / 4, height / 5);
+        this.width = (int) (scale.width * 0.75);
+        this.height = (int) (scale.height * 0.9);
+        this.setPreferredSize(new Dimension(this.width, this.height));
         this.setResizable(true);
 
         this.JTA = new JTextArea(outputText);
@@ -111,8 +111,10 @@ public class MyFrame extends JFrame implements ActionListener {
 
         this.terminal = new JScrollPane(JTA, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
+
         this.buttonsPanel.setPreferredSize(new Dimension(width / 25, height / 22));
         buttonsPanel.setBackground(Color.GRAY);
+
 
         this.outputPanel.setPreferredSize(new Dimension(width / 10, height / 4));
         this.outputPanel.add(this.terminal);
@@ -124,6 +126,7 @@ public class MyFrame extends JFrame implements ActionListener {
         createMenus();
         createKeyShortCuts();
         this.pack();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
@@ -147,6 +150,7 @@ public class MyFrame extends JFrame implements ActionListener {
         loadItem.addActionListener(this);
         saveItem.addActionListener(this);
         clearItem.addActionListener(this);
+        resetItem.addActionListener(this);
         exitItem.addActionListener(this);
 
         fileMenu.add(loadItem);
@@ -252,15 +256,14 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
     private void updateTerminal(){
-//        this.setVisible(false);
         this.remove(this.outputPanel);
         this.outputPanel = new JPanel(new BorderLayout());
-//        this.outputText += "\n" + text;
         this.JTA = new JTextArea(this.outputText);
         this.JTA.setBackground(Color.black);
         this.JTA.setForeground(Color.white);
         this.JTA.setFont(new Font("ariel", Font.BOLD, 14));
         this.JTA.setEditable(false);
+        this.JTA.setCaretPosition(this.JTA.getText().length());
 
         this.terminal = new JScrollPane(JTA, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
@@ -271,8 +274,6 @@ public class MyFrame extends JFrame implements ActionListener {
         this.add(this.mainPanel, BorderLayout.CENTER);
         this.add(this.outputPanel, BorderLayout.SOUTH);
         this.pack();
-//        this.outputPanel.repaint();
-//        this.setVisible(true);
     }
 
 
@@ -373,6 +374,7 @@ public class MyFrame extends JFrame implements ActionListener {
         Object event = e.getSource();
         UIManager.put("OptionPane.messageFont", new Font("ariel", Font.BOLD, 14));
 
+        // FILE
         if (loadItem.equals(event) || LOAD.equals(event)) {
             this.outputText += "\nLoad Graph activated.";
             JFileChooser loadFile = new JFileChooser();
@@ -461,6 +463,8 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println("Exiting");
             System.exit(0);
         }
+
+        // ADD/REMOVE
 
         else if (addEdgeItem.equals(event) || AE.equals(event)) {
             this.outputText += "\nAdd Edge activated.";
@@ -754,6 +758,8 @@ public class MyFrame extends JFrame implements ActionListener {
             }
         }
 
+        // ALGORITHMS
+
         else if (isConnectedItem.equals(event) || IC.equals(event)) {
             this.outputText += "\nisConnected Activated.";
             boolean ans = algo.isConnected();
@@ -1030,6 +1036,37 @@ public class MyFrame extends JFrame implements ActionListener {
                 this.outputText += "\nTSP canceled.";
             }
         }
+
+        // VIEW
+
+        else if (FullScreenItem.equals(event)){
+            Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
+            this.width = scale.width;
+            this.height = scale.height;
+            this.setPreferredSize(new Dimension(this.width, this.height));
+            this.setResizable(true);
+        }
+
+        else if (defaultItem.equals(event)){
+            Dimension scale = Toolkit.getDefaultToolkit().getScreenSize();
+            this.width = (int) (scale.width * 0.75);
+            this.height = (int) (scale.height * 0.9);
+            this.setPreferredSize(new Dimension(this.width, this.height));
+            this.setResizable(true);
+        }
+
+        else if (customScaleItem.equals(event)){
+            System.out.println(Toolkit.getDefaultToolkit().getScreenSize());
+            System.out.println(this.getSize());
+            System.out.println(this.mainPanel.getSize());
+            System.out.println(this.buttonsPanel.getSize());
+            System.out.println(this.outputPanel.getSize());
+            System.out.println();
+        }
+
+
+        this.pack();
+        this.setLocationRelativeTo(null);
         repaint();
         updateTerminal();
     }
@@ -1073,5 +1110,21 @@ public class MyFrame extends JFrame implements ActionListener {
         return ans;
     }
 
+    @Override
+    public int getWidth() {
+        return width;
+    }
 
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
 }
