@@ -30,17 +30,17 @@ Through it we will represent a small area with places of significance and a way 
 
 ## Algorithms:
 Algorithms are the main event over here. As can be seen this graph can represent real life places.
-As so we would like the best way from a node to another node, this will be done by calculating the best way through each edges from each node. This will be done with Shortest path.
-In addition we would like to know the time of each trip, as for we can retrieve the cost of the way from one node to another. This will be done with Shortest path dist.
-Moreover we would like to know the best way between one node with a few stops on the way. This will be done through the best effor TSP.
-At last we would like to know the center of the place, which place is probably closest to all. This will be done through Center.
-Those are the main functions we will use to represent as closely as possible real life situations.  
+As so we would like the best way from a node to another node, this will be done by calculating the best way through each edges from each node. This will be done with Shortest path.  
+In addition we would like to know the time of each trip, as for we can retrieve the cost of the way from one node to another. This will be done with Shortest path dist.  
+Moreover we would like to know the best way between one node with a few stops on the way. This will be done through the best effor TSP.  
+At last we would like to know the center of the place, which place is probably closest to all. This will be done through Center.  
+Those are the main functions we will use to represent as closely as possible real life situations.    
 
 ## Gui:
 Finally, we would like a visualistic way to show the users the graph, edges, best roads etc.  
 As a result we created user interface which will visualize the graph and algorithms mentioned above.  
 It will display the nodes and edges between all the nodes. Algorithms will be easily activated to illustrate the situations.  
-This will be a user friendly gui which aspires to be easy to use, adjustable and illustrate our project as best as we can.
+This will be a user friendly gui which aspires to be easy to use, adjustable and illustrate our project as best as we can.  
 In conclusion, you will be able to see the way and understand much better what is the best result for your request.
 
 ## Results
