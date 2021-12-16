@@ -60,6 +60,7 @@ public class MyFrame extends JFrame implements ActionListener {
     JMenuItem customScaleItem;
 
     // Help menu
+    JMenuItem shortcutsItem;
 
 
 
@@ -218,7 +219,11 @@ public class MyFrame extends JFrame implements ActionListener {
         viewMenu.add(customScaleItem);
 
         // Help menu
+        shortcutsItem = new JMenuItem("Shortcuts");
 
+        shortcutsItem.addActionListener(this);
+
+        helpMenu.add(shortcutsItem);
 
 
 
@@ -237,20 +242,20 @@ public class MyFrame extends JFrame implements ActionListener {
         loadItem.setMnemonic(KeyEvent.VK_L); // l
         saveItem.setMnemonic(KeyEvent.VK_S); // s
         clearItem.setMnemonic(KeyEvent.VK_C); // c
-        resetItem.setMnemonic(KeyEvent.VK_R); // c
+        resetItem.setMnemonic(KeyEvent.VK_R); // r
         exitItem.setMnemonic(KeyEvent.VK_E); // e
 
         // Shortcuts for editMenu.
         editMenu.setMnemonic(KeyEvent.VK_E); // Alt + e
-        addNodeItem.setMnemonic(KeyEvent.VK_A); // s
-        addEdgeItem.setMnemonic(KeyEvent.VK_S); // a
-        removeNodeItem.setMnemonic(KeyEvent.VK_D); // f
-        removeEdgeItem.setMnemonic(KeyEvent.VK_F); // d
+        addNodeItem.setMnemonic(KeyEvent.VK_A); // a
+        addEdgeItem.setMnemonic(KeyEvent.VK_S); // s
+        removeNodeItem.setMnemonic(KeyEvent.VK_D); // d
+        removeEdgeItem.setMnemonic(KeyEvent.VK_F); // f
 
         // Shortcuts for algorithmsMenu.
         algorithmsMenu.setMnemonic(KeyEvent.VK_A); // Alt + a
         isConnectedItem.setMnemonic(KeyEvent.VK_I); // i
-        shortestPath.setMnemonic(KeyEvent.VK_S); // w
+        shortestPath.setMnemonic(KeyEvent.VK_S); // s
         centerItem.setMnemonic(KeyEvent.VK_C); // c
         TSPItem.setMnemonic(KeyEvent.VK_T); // t
 
@@ -1134,6 +1139,12 @@ public class MyFrame extends JFrame implements ActionListener {
                         null);
                 this.outputText += "\n Scale change failed, invalid input.";
             }
+        }
+
+        // HELP
+
+        else if(shortcutsItem.equals(event)){
+            Help my = new Help(1);
         }
 
 
