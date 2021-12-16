@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.sql.SQLOutput;
 import java.util.HashMap;
 
 
@@ -11,16 +12,22 @@ public class ParseToGraph {
     private HashMap<Integer, Node> Nodes;
     private HashMap<String, Edge> Edges;
     private ParserFromJson p;
-    public int size=0;
+    public int size = 0;
 
     public ParseToGraph(){}
-    public ParseToGraph(String file_name) throws FileNotFoundException {
+    public ParseToGraph(String file_name) {
         Gson gson = new Gson();
-        Reader reader = new FileReader(file_name);
-        this.p = gson.fromJson(reader, ParserFromJson.class);
-        if(this.p != null) {
-            this.Nodes = makeNodes(p.getNodes());
-            this.Edges = makeEdges(p.getEdges(), this.Nodes);
+        try {
+            Reader reader = new FileReader(file_name);
+            this.p = gson.fromJson(reader, ParserFromJson.class);
+            if (this.p != null) {
+                this.Nodes = makeNodes(p.getNodes());
+                this.Edges = makeEdges(p.getEdges(), this.Nodes);
+            }
+        }
+        catch (FileNotFoundException e){
+            System.err.println("File not found!");
+            e.printStackTrace();
         }
     }
 

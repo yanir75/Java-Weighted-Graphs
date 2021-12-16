@@ -26,6 +26,7 @@ public class MyFrame extends JFrame implements ActionListener {
     private String outputText;
     private int width, height;
 
+    // All menus
     JMenuBar menuBar;
     JMenu fileMenu;
     JMenu editMenu;

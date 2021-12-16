@@ -1,8 +1,6 @@
 import GUI.MyGraph_GUI;
-import api.DirectedWeightedGraph;
-import api.DirectedWeightedGraphAlgorithms;
-import api.MyGraph;
-import api.ParseToGraph;
+import api.*;
+
 import java.util.List;
 
 /**
@@ -15,10 +13,8 @@ public class Ex2 {
      * @return
      */
     public static DirectedWeightedGraph getGrapg(String json_file) {
-        DirectedWeightedGraph ans = null;
-        // ****** Add your code here ******
-        //
-        // ********************************
+        ParseToGraph pd = new ParseToGraph(json_file);
+        DirectedWeightedGraph ans = new MyGraph(pd.getNodes(),pd.size);
         return ans;
     }
     /**
@@ -27,10 +23,8 @@ public class Ex2 {
      * @return
      */
     public static DirectedWeightedGraphAlgorithms getGrapgAlgo(String json_file) {
-        DirectedWeightedGraphAlgorithms ans = null;
-        // ****** Add your code here ******
-        //
-        // ********************************
+        DirectedWeightedGraphAlgorithms ans = new MyGraphAlgo();
+        ans.load(json_file);
         return ans;
     }
     /**
@@ -40,10 +34,10 @@ public class Ex2 {
      */
     public static void runGUI(String json_file) {
         DirectedWeightedGraphAlgorithms alg = getGrapgAlgo(json_file);
-        // ****** Add your code here ******
-        //
-        // ********************************
+        DirectedWeightedGraph graph = getGrapg(json_file);
+        new MyGraph_GUI(graph);
     }
+
     public static void main(String[] args) {
 
         try {
@@ -54,7 +48,5 @@ public class Ex2 {
         catch (Exception e){
             new MyGraph_GUI(new MyGraph());
         }
-//        drawGUI();
-
     }
 }

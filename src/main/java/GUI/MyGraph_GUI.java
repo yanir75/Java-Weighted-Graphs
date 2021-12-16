@@ -15,35 +15,17 @@ public class MyGraph_GUI{
         this.graph = g;
         this.frame = new MyFrame(this.graph);
         this.panel = new MyPanel(this.graph);
-//        this.frame.initGUI();
     }
     public MyGraph_GUI(DirectedWeightedGraph g, String log) {
         this.graph = g;
         this.frame = new MyFrame(this.graph);
         this.panel = new MyPanel(this.graph);
-//        this.frame.initGUI();
         this.frame.setOutputText(log);
     }
 
-    public MyFrame getFrame() {
-        return frame;
-    }
-
-    public MyGraph_GUI() throws Exception{
-
-    }
-
-    public static void drawGUI() throws Exception {
-        new MyFrame(null);
-    }
-
-
-
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         ParseToGraph pd = new ParseToGraph("data/G1.json");
         MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
         new MyGraph_GUI(mg);
-//        drawGUI();
-
     }
 }
