@@ -57,6 +57,8 @@ The left column has the function we activated. The first row has the number of n
 We are able to generate a graph with 1mk nodes and 20mk edges but are unable to run any algorithm on it, due to heap space.
 The results vary depends on how th graph is generated.
 
+Since we did not create the graph randomly most of the time, it didn't take so much time.
+
 ---
 ## Gui 
 Here we attached a picture of the gui.
