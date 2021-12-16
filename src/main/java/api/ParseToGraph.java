@@ -15,20 +15,20 @@ public class ParseToGraph {
     public int size = 0;
 
     public ParseToGraph(){}
-    public ParseToGraph(String file_name) {
+    public ParseToGraph(String file_name) throws FileNotFoundException {
         Gson gson = new Gson();
-        try {
+//        try {
             Reader reader = new FileReader(file_name);
             this.p = gson.fromJson(reader, ParserFromJson.class);
             if (this.p != null) {
                 this.Nodes = makeNodes(p.getNodes());
                 this.Edges = makeEdges(p.getEdges(), this.Nodes);
             }
-        }
-        catch (FileNotFoundException e){
-            System.err.println("File not found!");
-            e.printStackTrace();
-        }
+//        }
+//        catch (FileNotFoundException e){
+//            System.err.println("File not found!");
+//            e.printStackTrace();
+//        }
     }
 
     /**

@@ -1,7 +1,7 @@
 package GUI;
 import api.*;
 
-
+import java.io.FileNotFoundException;
 
 
 public class MyGraph_GUI{
@@ -23,9 +23,9 @@ public class MyGraph_GUI{
         this.frame.setOutputText(log);
     }
 
-    public static void main(String[] args) {
-        ParseToGraph pd = new ParseToGraph("data/G1.json");
-        MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
-        new MyGraph_GUI(mg);
-    }
+//    public static void main(String[] args) throws FileNotFoundException {
+//        ParseToGraph pd = new ParseToGraph("data/G1.json");
+//        MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
+//        new MyGraph_GUI(mg);
+//    }
 }

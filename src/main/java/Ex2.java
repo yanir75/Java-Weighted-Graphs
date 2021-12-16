@@ -1,6 +1,7 @@
 import GUI.MyGraph_GUI;
 import api.*;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -13,9 +14,16 @@ public class Ex2 {
      * @return
      */
     public static DirectedWeightedGraph getGrapg(String json_file) {
-        ParseToGraph pd = new ParseToGraph(json_file);
-        DirectedWeightedGraph ans = new MyGraph(pd.getNodes(),pd.size);
-        return ans;
+        try {
+            ParseToGraph pd = new ParseToGraph(json_file);
+            DirectedWeightedGraph ans = new MyGraph(pd.getNodes(), pd.size);
+            return ans;
+        }
+        catch (FileNotFoundException e){
+            System.err.println("File not found!");
+            e.printStackTrace();
+        }
+        return null;
     }
     /**
      * This static function will be used to test your implementation

@@ -14,8 +14,7 @@ public class Help {
     private JLabel title;
     private JTextArea JTA;
 
-    // state -> 1 = tutorial , 2 = shortcuts
-    public Help(int state) {
+    public Help() {
         this.frame = new JFrame("Shortcuts");
         this.panel = new JPanel();
         this.panel.setPreferredSize(new Dimension(600,35));

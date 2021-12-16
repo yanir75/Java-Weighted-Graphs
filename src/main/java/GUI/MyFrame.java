@@ -1145,7 +1145,7 @@ public class MyFrame extends JFrame implements ActionListener {
         // HELP
 
         else if(shortcutsItem.equals(event)){
-            Help my = new Help(1);
+            new Help();
         }
 
 
