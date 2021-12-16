@@ -69,7 +69,8 @@ Each button will activate a different algorithm.
 ---
 
 ## How to use
-will be done soon
+```
+git clone 
 
 ---
 ## Sources:
