@@ -11,7 +11,9 @@ In this way you will be able to load and activate algorithm on the graphs as you
 
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Arcithecture.png">
 ---
-## Structure
+
+## Structure  
+
 Our project structure
 1. Node, Node represents a significant place in our university i.e building,market etc.
 Each node holds information regarding itself, street name, tag etc.    
