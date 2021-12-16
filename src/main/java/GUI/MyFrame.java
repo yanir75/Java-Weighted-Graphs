@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.List;
 
 
-public class MyFrame extends JFrame implements ActionListener, MouseListener {
+public class MyFrame extends JFrame implements ActionListener{
     private MyPanel mainPanel;
     private final JPanel buttonsPanel;
     private JPanel outputPanel;
@@ -89,7 +89,6 @@ public class MyFrame extends JFrame implements ActionListener, MouseListener {
         this.algo = this.mainPanel.getGraph();
         this.graphCopy = algo.copy();
         this.center = null;
-        this.mainPanel.addMouseListener(this);
         this.outputText = " Welcome to My Directed Weighted Graph action log...";
         initGUI();
         addButtonsAndText();
@@ -1204,48 +1203,5 @@ public class MyFrame extends JFrame implements ActionListener, MouseListener {
     @Override
     public int getHeight() {
         return height;
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-//        double ABSx = Math.abs(this.mainPanel.minX - this.mainPanel.maxX);
-//        double ABSy = Math.abs(this.mainPanel.minY - this.mainPanel.maxY);
-//        double scaleX = (getWidth() / ABSx) * 0.8;
-//        double scaleY = (getHeight() / ABSy) * 0.8;
-//        System.out.println("CLICKED");
-////        double x = e.getX();
-////        double y = e.getY();
-//        double x = (e.getX() - this.mainPanel.minX) * scaleX * 0.98 + 30;
-//        double y = (e.getY() - this.mainPanel.minY) * scaleY * 0.98 + 30;
-//        if(sout)
-//        this.graph.addNode(new Node(x,y,20));
-//        this.mainPanel.checkMin(new Node(x,y,20));
-//        this.pack();
-//        this.setLocationRelativeTo(null);
-//        repaint();
-//        updateTerminal();
-//        System.out.println(e.get);
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        System.out.println("PRESSED");
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        System.out.println("RELASED");
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        System.out.println("ENTERED");
-        int width = 18;
-        int height = 18;
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }
