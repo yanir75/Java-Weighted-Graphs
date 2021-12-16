@@ -77,15 +77,15 @@ git clone https://github.com/netanellevine/Weighted_Graph_Algorithms.git
 Then we would like to run the jar to view the graph.  
 For that we have few options  
 
-1. 1st option load an empty graph and create your own graph.
+* 1st option load an empty graph and create your own graph.
 ```
 java -jar weighted-graphs.jar
 ```
-2. 2nd option load a random generated graph.
+* 2nd option load a random generated graph.
 ```
 java -jar weighted-graphs.jar random
 ```
-3. 3rd option load a graph with json file
+* 3rd option load a graph with json file
 ```
 java -jar weighted-graphs.jar <json-file>
 ```
