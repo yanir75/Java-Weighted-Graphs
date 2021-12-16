@@ -501,16 +501,16 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
         return hasLoaded;
     }
 
-    public static void main(String[] args) {
-        DirectedWeightedGraphAlgorithms algorithms = new MyGraphAlgo();
-        algorithms.load("data/G1.json");
-        List<NodeData> c = new LinkedList<>();
-        c.add(algorithms.getGraph().getNode(3));
-        c.add(algorithms.getGraph().getNode(6));
-        c.add(algorithms.getGraph().getNode(0));
-        c.add(algorithms.getGraph().getNode(1));
-        c.add(algorithms.getGraph().getNode(9));
-        c = algorithms.tsp(c);
-        System.out.println("h");
-    }
+//    public static void main(String[] args) {
+//        DirectedWeightedGraphAlgorithms algorithms = new MyGraphAlgo();
+//        algorithms.load("data/G1.json");
+//        List<NodeData> c = new LinkedList<>();
+//        c.add(algorithms.getGraph().getNode(3));
+//        c.add(algorithms.getGraph().getNode(6));
+//        c.add(algorithms.getGraph().getNode(0));
+//        c.add(algorithms.getGraph().getNode(1));
+//        c.add(algorithms.getGraph().getNode(9));
+//        c = algorithms.tsp(c);
+//        System.out.println("h");
+//    }
 }

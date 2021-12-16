@@ -47,9 +47,14 @@ public class Ex2 {
     public static void main(String[] args) {
 
         try {
-             ParseToGraph pd = new ParseToGraph(args[0]);
-            MyGraph mg = new MyGraph(pd.getNodes(),pd.size);
-            new MyGraph_GUI(mg);
+            if(args[0].equals("random") || args[0].equals("Random")){
+                new MyGraph_GUI(new graphGen().generate_connected_graph(20));
+            }
+            else {
+                ParseToGraph pd = new ParseToGraph(args[0]);
+                MyGraph mg = new MyGraph(pd.getNodes(), pd.size);
+                new MyGraph_GUI(mg);
+            }
         }
         catch (Exception e){
             new MyGraph_GUI(new MyGraph());
