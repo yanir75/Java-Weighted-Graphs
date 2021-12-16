@@ -32,8 +32,10 @@ Each button will activate a different algorithm.
     <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
  </div>
 ---
+
 ## How to use
 will be done soon
+
 ---
 ## Sources:
 
