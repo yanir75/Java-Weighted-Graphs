@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MyPanel extends JPanel implements MouseListener {
+public class MyPanel extends JPanel {
     private final MyGraphAlgo graph;
 //    private Algorithms copyOfGraph;
     private NodeData center;
@@ -19,10 +19,10 @@ public class MyPanel extends JPanel implements MouseListener {
     private List<NodeData> pathByNodes;
     private List<NodeData> pathByNodesTSP;
     private int src, dest;
-    private double minX;
-    private double minY;
-    private double maxX;
-    private double maxY;
+    public double minX;
+    public double minY;
+    public double maxX;
+    public double maxY;
 
     public MyPanel(DirectedWeightedGraph g) {
         this.graph = new MyGraphAlgo();
@@ -325,31 +325,5 @@ public class MyPanel extends JPanel implements MouseListener {
         else if(y < this.minY){
             this.minY = y;
         }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    int width = 18;
-    int height = 18;
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }

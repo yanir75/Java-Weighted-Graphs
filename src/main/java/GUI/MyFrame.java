@@ -6,6 +6,7 @@ import javax.naming.NoInitialContextException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.reflect.Executable;
 import java.nio.file.FileAlreadyExistsException;
 import java.rmi.NoSuchObjectException;
 import java.util.*;
@@ -13,7 +14,7 @@ import java.io.File;
 import java.util.List;
 
 
-public class MyFrame extends JFrame implements ActionListener {
+public class MyFrame extends JFrame implements ActionListener, MouseListener {
     private MyPanel mainPanel;
     private final JPanel buttonsPanel;
     private JPanel outputPanel;
@@ -88,6 +89,7 @@ public class MyFrame extends JFrame implements ActionListener {
         this.algo = this.mainPanel.getGraph();
         this.graphCopy = algo.copy();
         this.center = null;
+        this.mainPanel.addMouseListener(this);
         this.outputText = " Welcome to My Directed Weighted Graph action log...";
         initGUI();
         addButtonsAndText();
@@ -826,34 +828,39 @@ public class MyFrame extends JFrame implements ActionListener {
                 }
                 src = Integer.parseInt(srcText.getText());
                 dest = Integer.parseInt(destText.getText());
-                if(graph.getNode(src) != null){
-                    if(graph.getNode(dest) != null){
-                        double weight = algo.shortestPathDist(src, dest);
-                        List<NodeData> path = this.algo.shortestPath(src, dest);
-                        this.mainPanel.setPath(path);
-                        this.mainPanel.setDest(dest);
-                        this.mainPanel.setSrc(src);
-                        this.mainPanel.setPathActivated(true);
-                        String route = "";
-                        for(NodeData n: path){
-                            route += n.getKey() + "->";
+                if(graph.getNode(src) != null) {
+                    if (graph.getNode(dest) != null) {
+
+                            double weight = algo.shortestPathDist(src, dest);
+                            List<NodeData> path = this.algo.shortestPath(src, dest);
+                            if(path == null || weight == -1){
+                                throw new NumberFormatException();
+                            }
+                            this.mainPanel.setPath(path);
+                            this.mainPanel.setDest(dest);
+                            this.mainPanel.setSrc(src);
+                            this.mainPanel.setPathActivated(true);
+                            String route = "";
+                            for (NodeData n : path) {
+                                route += n.getKey() + "->";
+                            }
+                            route = "[" + route.substring(0, route.length() - 2) + "]";
+                            this.outputText += "\n The weight of the shortest path between " + src + " -> " + dest + " is: " + weight + ".";
+                            this.outputText += "\n The path is: " + route + ".";
                         }
-                        route = "[" + route.substring(0, route.length() - 2) + "]";
-                        this.outputText += "\n The weight of the shortest path between " + src + " -> " + dest + " is: " + weight + ".";
-                        this.outputText += "\n The path is: " + route + ".";
-                    }
                     else{
-                        JOptionPane.showOptionDialog(null,
-                                "Wrong input!\nThe destination entered does not appear in the Graph.",
-                                "DESTINATION INPUT ERROR!",
-                                JOptionPane.DEFAULT_OPTION,
-                                JOptionPane.WARNING_MESSAGE,
-                                null,
-                                null,
-                                null);
-                        this.outputText += "\n ShortestPath failed, the destination is not in the Graph.";
+                            JOptionPane.showOptionDialog(null,
+                                    "Wrong input!\nThe destination entered does not appear in the Graph.",
+                                    "DESTINATION INPUT ERROR!",
+                                    JOptionPane.DEFAULT_OPTION,
+                                    JOptionPane.WARNING_MESSAGE,
+                                    null,
+                                    null,
+                                    null);
+                            this.outputText += "\n ShortestPath failed, the destination is not in the Graph.";
+                        }
                     }
-                }
+
                 else{
                     JOptionPane.showOptionDialog(null,
                             "Wrong input!\nThe source entered does not appear in the Graph.",
@@ -1199,4 +1206,46 @@ public class MyFrame extends JFrame implements ActionListener {
         return height;
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+//        double ABSx = Math.abs(this.mainPanel.minX - this.mainPanel.maxX);
+//        double ABSy = Math.abs(this.mainPanel.minY - this.mainPanel.maxY);
+//        double scaleX = (getWidth() / ABSx) * 0.8;
+//        double scaleY = (getHeight() / ABSy) * 0.8;
+//        System.out.println("CLICKED");
+////        double x = e.getX();
+////        double y = e.getY();
+//        double x = (e.getX() - this.mainPanel.minX) * scaleX * 0.98 + 30;
+//        double y = (e.getY() - this.mainPanel.minY) * scaleY * 0.98 + 30;
+//        if(sout)
+//        this.graph.addNode(new Node(x,y,20));
+//        this.mainPanel.checkMin(new Node(x,y,20));
+//        this.pack();
+//        this.setLocationRelativeTo(null);
+//        repaint();
+//        updateTerminal();
+//        System.out.println(e.get);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        System.out.println("PRESSED");
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        System.out.println("RELASED");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        System.out.println("ENTERED");
+        int width = 18;
+        int height = 18;
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
