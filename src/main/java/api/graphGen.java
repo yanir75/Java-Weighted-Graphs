@@ -39,7 +39,7 @@ public class graphGen {
         Random rand = new Random();
         int count=0;
         for(int i=0;i<numOfNodes;i++){
-            nodes.put(i,new Node(rand.nextDouble()*100,rand.nextDouble()*100,i));
+            nodes.put(i,new Node(rand.nextDouble()+32,rand.nextDouble()+35,i));
         }
         while (count<numberOfEdges)
         {   int x = rand.nextInt(numOfNodes);
