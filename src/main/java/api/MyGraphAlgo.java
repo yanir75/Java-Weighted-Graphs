@@ -387,6 +387,8 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
                         TSPath.add(g);
                     route.add(g.getKey());
                 }
+                if(TSPath.size() -1 <0)
+                    return null;
                 last = TSPath.get(TSPath.size() - 1).getKey();
             }
         }
@@ -417,7 +419,7 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
             List<NodeData> copy = copy(cities);
             swap(0, i, copy);
             copy = findRoute(copy);
-            if (copy.size() >= cities.size()) {
+            if (copy !=null && copy.size() >= cities.size()) {
                 double cost = 0;
                 for (int j = 0; j < copy.size() - 1; j++) {
                     EdgeData e = this.graph.getEdge(copy.get(j).getKey(), copy.get(j + 1).getKey());
@@ -512,13 +514,12 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
 
 //    public static void main(String[] args) {
 //        DirectedWeightedGraphAlgorithms algorithms = new MyGraphAlgo();
-//        algorithms.load("data/G1.json");
+//        algorithms.init(new graphGen().generate_connected_graph(20));
+//        algorithms.getGraph().removeNode(9);
 //        List<NodeData> c = new LinkedList<>();
-//        c.add(algorithms.getGraph().getNode(3));
-//        c.add(algorithms.getGraph().getNode(6));
-//        c.add(algorithms.getGraph().getNode(0));
-//        c.add(algorithms.getGraph().getNode(1));
-//        c.add(algorithms.getGraph().getNode(9));
+//        Iterator<NodeData> i = algorithms.getGraph().nodeIter();
+//        while (i.hasNext())
+//            c.add(i.next());
 //        c = algorithms.tsp(c);
 //        System.out.println("h");
 //    }
