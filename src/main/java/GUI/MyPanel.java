@@ -4,12 +4,14 @@ import api.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MyPanel extends JPanel {
+public class MyPanel extends JPanel implements MouseListener {
     private final MyGraphAlgo graph;
 //    private Algorithms copyOfGraph;
     private NodeData center;
@@ -323,5 +325,31 @@ public class MyPanel extends JPanel {
         else if(y < this.minY){
             this.minY = y;
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    int width = 18;
+    int height = 18;
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

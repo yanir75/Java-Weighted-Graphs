@@ -2,8 +2,6 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.util.Scanner;
 
@@ -25,17 +23,44 @@ public class Help {
         this.back.setVisible(true);
         this.panel.setVisible(true);
         try {
-            FileReader readTextFile = new FileReader("src/main/java/GUI/icons/ShortcutsFile.txt");
-
-            Scanner fileReaderScan = new Scanner(readTextFile);
+//            FileReader readTextFile = new FileReader("src/main/java/GUI/icons/ShortcutsFile.txt");
+//
+//            Scanner fileReaderScan = new Scanner(readTextFile);
 
             String storeAllString = "";
 
-            while (fileReaderScan.hasNextLine()) {
-                String temp = fileReaderScan.nextLine() + "\n";
-
-                storeAllString = storeAllString + temp;
-            }
+//            while (fileReaderScan.hasNextLine()) {
+//                String temp = fileReaderScan.nextLine() + "\n";
+//
+//                storeAllString = storeAllString + temp;
+//            }
+            storeAllString = """
+                     1 - File menu
+                    	* Load a File                                            ALT+F+L
+                    	* Save a File                                             ALT+F+S
+                    	* Clear the Frame                                    ALT+F+C
+                    	* Reset to the last Graph loaded            ALT+F+R
+                    	* Exit the program                                  ALT+F+E
+                    	
+                     2 - Edit menu
+                    	* Add new Node                                      ALT+E+A
+                    	* Add new Edge                                      ALT+E+S
+                    	* Remove  Node                                      ALT+E+D
+                    	* Remove  Edge                                      ALT+E+F
+                    	
+                     3 - Algorithms menu
+                    	* isConnected                                          ALT+A+I
+                    	* ShortestPath                                         ALT+A+S
+                    	* Center of the Graph                             ALT+A+C
+                    	* TSP                                                       ALT+A+T
+                    	
+                     4 - View menu
+                    	* Hide buttons bar                                  ALT+V+H
+                    	* Show buttons bar                                  ALT+V+S
+                    	* Set Full Screen                                      ALT+V+F
+                    	* Set Default scale                                   ALT+V+D
+                    	* Set Costume scale                                 ALT+V+C
+                    """;
             this.title = new JLabel();
             this.title.setText("\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\s\sShortcuts Help");
             this.title.setLayout(new BorderLayout());
