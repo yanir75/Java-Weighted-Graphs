@@ -381,7 +381,7 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
             NodeData n1 = cities.get(0);
             if (!route.contains(n1.getKey())) {
                 List<NodeData> part = shortestPath(last, n1.getKey());
-                while (part.size() > 0) {
+                while (part!=null && part.size() > 0) {
                     NodeData g = part.remove(0);
                     if (TSPath.size() == 0 || TSPath.get(TSPath.size() - 1) != g)
                         TSPath.add(g);
@@ -410,6 +410,7 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
         if (cities == null) {
             return null;
         }
+        boolean f=true;
         double min = Double.MAX_VALUE;
         List<NodeData> fin = new ArrayList<>();
         for (int i = 0; i < cities.size(); i++) {
@@ -419,12 +420,20 @@ public class MyGraphAlgo implements DirectedWeightedGraphAlgorithms {
             if (copy.size() >= cities.size()) {
                 double cost = 0;
                 for (int j = 0; j < copy.size() - 1; j++) {
-                    cost = cost + this.graph.getEdge(copy.get(j).getKey(), copy.get(j + 1).getKey()).getWeight();
+                    EdgeData e = this.graph.getEdge(copy.get(j).getKey(), copy.get(j + 1).getKey());
+                    if(e==null){
+                        f=false;
+                        break;
+                    }
+                    else {
+                        cost = cost + e.getWeight();
+                    }
                 }
-                if (cost < min) {
+                if (cost < min && f) {
                     min = cost;
                     fin = copy;
                 }
+                f=true;
             }
         }
         return fin;
