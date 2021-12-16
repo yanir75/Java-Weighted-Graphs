@@ -913,7 +913,7 @@ public class MyFrame extends JFrame implements ActionListener {
                             you would like to check TSP Algorithm on.
                             Separate each Node with a single Space Key.""";
                     String input = JOptionPane.showInputDialog(explanation, "Enter the Nodes");
-                    if (input == null || !input.matches("[1-9 ]+")) {
+                    if (input == null || !input.matches("[0-9 ]+")) {
                         break;
                     }
                     String[] nodes = input.split(" ");
