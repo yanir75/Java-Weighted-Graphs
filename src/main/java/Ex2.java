@@ -16,8 +16,7 @@ public class Ex2 {
     public static DirectedWeightedGraph getGrapg(String json_file) {
         try {
             ParseToGraph pd = new ParseToGraph(json_file);
-            DirectedWeightedGraph ans = new MyGraph(pd.getNodes(), pd.size);
-            return ans;
+            return new MyGraph(pd.getNodes(), pd.size);
         }
         catch (FileNotFoundException e){
             System.err.println("File not found!");
@@ -41,7 +40,6 @@ public class Ex2 {
      *
      */
     public static void runGUI(String json_file) {
-        DirectedWeightedGraphAlgorithms alg = getGrapgAlgo(json_file);
         DirectedWeightedGraph graph = getGrapg(json_file);
         new MyGraph_GUI(graph);
     }
