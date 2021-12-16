@@ -3,8 +3,9 @@
 **Netanel Levine**   
 **Yanir Cohen**    
 --- 
-This project is about simulating and illustrating algorithms on graphs. In this project we will load graphs from Json files and will activate specific algorithms on those graphs. In addition we will create a UI that illustrates the algorithm we activated on the graph.
-In this way you will be able to load and activate algorithm on the graphs as you wish.
+In this project we will illustrate to the best of our capabilities a graph and algorithms on this graph.  
+The graph resembles a small area with significant places and ways to transport between each place.  
+This can be used for a variety of purposes (best route between cities,routes etc). In our project we will try to simulate it as closly as can be to a small area as we said before.
  
 ---
 ## Project UML
