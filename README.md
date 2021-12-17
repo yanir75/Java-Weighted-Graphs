@@ -118,20 +118,7 @@ Here we attached a simple image of the gui.
 <p align="center">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png" width="750" height="550" border="10"/>
 </p>
-
-#### TSP:
- In the TSP we decided to give the user two ways to type the input:  
- 1. **One long String** - This option allows the user to type all the input in one time without the 
-need to type each time one Node.
-    * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with
-    a single *space* character.
- 2. **Each time ONE input** - This option will continue to open a new popup window that asks the user 
-to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png" width="750" height="550" border="10"/>
-</p>  
-  
-  
+   
    #### TSP:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
@@ -146,7 +133,7 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 all the input in one time without the 
 need to type each time one Node.
     * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
