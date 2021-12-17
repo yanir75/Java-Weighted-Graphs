@@ -112,41 +112,41 @@ Here we attached a simple image of the gui.
   Center button, so after he got an update through a popup message it's also written in the Action Log.
 
 ***Note: each feature will be explained soon***
-#### isConnected:  
- * After isConnected is pressed, the user receives a popup window with answer to the question:  
-***is the Graph strongly connected?***
+#### isConnected:
+* After isConnected is pressed, the user receives a popup window with answer to the question:  
+  ***is the Graph strongly connected?***
 <p align="center">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png" width="750" height="550" border="10"/>
 </p>
-   
-   #### TSP:
+
+#### TSP:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
-  
-  **One Long String:**
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - This option allows the user to type 
-all the input in one time without the 
+
+**One Long String:**
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png">
+
+ - This option allows the user to type
+all the input in one time without the
 need to type each time one Node.
-    * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
+* The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png"> 
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - This option will continue to open 
+ - This option will continue to open
 a new popup window that asks the user to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
-  
-    
-  
+
+
+
 
 <br><br><br><br><br><br>
-  ---
+---
 
 
 <p align="center">
