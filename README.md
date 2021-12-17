@@ -149,7 +149,7 @@ need to type each time one Node.
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-**The output:**
+**Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2222.png">
 
 - The path will be colored in light purple on the Graph.
@@ -160,14 +160,18 @@ need to type each time one Node.
   <br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Center:
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png" width="750" height="550" border="10"/>
-</p>
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the Center 3 things will happen:<br>
+1. Popup window will with the ID of the Node that our Algorithm chose to be the Center.
+2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
+3. The action log will write also this Node as the Center.
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg" width="750" height="550" border="10"/>
-</p>
+
+**Output:**
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.png">
+  <br><br><br><br><br><br><br><br><br><br><br>
 
 #### ShortestPath:
 
