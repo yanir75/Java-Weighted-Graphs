@@ -133,7 +133,7 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
   
   
    #### TSP:
-<img align="left" width="80%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
