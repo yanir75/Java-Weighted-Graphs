@@ -89,6 +89,7 @@ This Frame has 4 main parts:
  </div>
 
 #### Explanation of the parts:
+<!-- #This is commented out. -->
 - **Menu Bars/Buttons Panel** - From them the user can execute all kind of features.  
   Almost every feature in the Menu Bar are also available as a button in the Buttons Panel.  
   The features list from left to right:
@@ -96,7 +97,7 @@ This Frame has 4 main parts:
     - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
     - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
     - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
-    - Remove Node *// also in the Edit bar*
+    - Remove Node *// also in the Edit bar*, [jump to ShortestPath](#This)
     - Remove Edge *// also in the Edit bar*
     - Add Node *// also in the Edit bar*
     - Add Edge *// also in the Edit bar*
