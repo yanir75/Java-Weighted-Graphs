@@ -142,7 +142,7 @@ Here we attached a simple image of the GUI.<br>
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:
 1. One long String.
 2. Each time one String.
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br>
 
 
 **One long String:**
@@ -153,14 +153,14 @@ Here we attached a simple image of the GUI.<br>
   need to type each time one Node.
 * The String format is:  
   ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
 - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br>
 
 
 **Output:**
@@ -171,15 +171,14 @@ Here we attached a simple image of the GUI.<br>
     1. List of the Nodes he entered.<br>
     2. List of the path in the right order that go through every one of the Nodes he entered.<br>
     3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
-       <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br>
+       <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br>
 
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the Center 3 things will happen:<br>
-1. Popup window will appear with the ID of the Node that our Algorithm chose to be the Center.
-
-   <br><br><br><br><br><br>
+<br>1. Popup window will appear with the ID of the Node that our Algorithm chose to be the Center.
+<br><br><br><br><br><br><br><br><br>
 
 
 **Output:**
