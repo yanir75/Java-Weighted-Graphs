@@ -258,7 +258,7 @@ In order to add a new Node to the Graph the user need to type x,y,id.<br>
 * The (x,y) representing the location of the point on the Graph.
 * The id represents an ID, each Node has an uniq ID.<br>
 
-**valid inputs:**
+**valid inputs are:**
 * x,y are numbers so any input that is not a pure number will cause an Invalid Input message.
 * id is a number too, and it must be an uniq id. 
        <br><br><br>
@@ -273,22 +273,21 @@ In addition, the Action Log that will write the details of the new Node.<br>
 ### Add Edge:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
-1. Popup window will open and ask the user to enter source Node and destination Node
-2. The ShortestPath that our Algorithm chose will be marked in green.
-3. The action log will write 2 things:
-    1. Weight of the ShortestPath.
-    2. String represents the ShortestPath in the right order.
-       <br><br><br><br>
+<br>In order to add a new Edge to the Graph the user need to type source and destination.<br>
+* The source is the Node where the new Edge will begin.
+* The destination is the Node where the new Edge will end.<br>
+  **valid inputs are:**
+* The source and the destination must be a Nodes that are existed in the Graph.
+* The source and destination must be a numeric values.
+  <br><br><br><br>
 
 
 **Output:**  
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/88.jpg">
-In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
-There are 2 types of wrong inputs:<br>
-1. No input at all or String of chars, something that is not an Integer.
-2. source/destination/both are not in the Graph.
-   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+If the input was valid the user will see the new Edge immediately on the Frame.<br>  
+In addition, the Action Log that will write the details of the new Edge.<br>
+<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br>
 
 
 ### Shortcuts:
