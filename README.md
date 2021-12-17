@@ -207,7 +207,7 @@ Here we attached a simple image of the gui.
 #### Shortcuts:
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png" width="750" height="550" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png" width="900" height="700" border="10"/>
 </p>
 
 
