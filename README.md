@@ -166,12 +166,12 @@ need to type each time one Node.
 1. Popup window will with the ID of the Node that our Algorithm chose to be the Center.
 2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
 3. The action log will write also this Node as the Center.
-   <br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br>
 
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### ShortestPath:
 
