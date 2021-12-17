@@ -84,8 +84,9 @@ Here we attached a simple image of the GUI.<br>
 2. **Buttons Panel**
 3. **The Graph**
 4. **Action Log**
-5. 
-   <img align="center"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
+
+
+<img align="center"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
 
 
 
