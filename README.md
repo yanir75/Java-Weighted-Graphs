@@ -84,45 +84,46 @@ Here we attached a simple image of the GUI.<br>
 2. **Buttons Panel**
 3. **The Graph**
 4. **Action Log**
-<img align="left"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">  
+5. 
+   <img align="center"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
 
-  
-    
+
+
 ### Explanation of the parts
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
-  Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
-  
+   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.
+
    **Features list:**
-<br><br>***Note: the obvious features doesn't have an explanation/examples because their pretty simple.***<br>
-      1. **Algorithms:**<br>
-         - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
-         - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
-         - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
-         - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
-      2. **Edit Graph:**<br>
-         - Remove Node *// also in the Edit bar*, [jump to Remove Node](#Remove-Node)
-         - Remove Edge *// also in the Edit bar*, [jump to Remove Edge](#Remove-Edge)
-         - Add Node *// also in the Edit bar*, [jump to Add Node](#Add-Node)
-         - Add Edge *// also in the Edit bar*, [jump to Add Edge](#Add-Edge)
-      3. **View settings:**<br>
-         - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hideshow-buttons)
-         - Full Screen *// only in the View bar*
-         - Default Screen *// only in the View bar*
-         - Costume Screen *// only in the View bar*
-      4. **Help:**<br>
-         - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
-      5. **File:**<br>
-         - Load *// also in the File bar*
-         - Save *// also in the File bar*
-         - Clear *// also in the File bar*
-         - Reset Graph *// also in the File bar*
-         - Exit *// only in the File bar*<br>
-         
+   <br><br>***Note: the obvious features doesn't have an explanation/examples because their pretty simple.***<br>
+    1. **Algorithms:**<br>
+        - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
+        - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
+        - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
+        - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
+    2. **Edit Graph:**<br>
+        - Remove Node *// also in the Edit bar*, [jump to Remove Node](#Remove-Node)
+        - Remove Edge *// also in the Edit bar*, [jump to Remove Edge](#Remove-Edge)
+        - Add Node *// also in the Edit bar*, [jump to Add Node](#Add-Node)
+        - Add Edge *// also in the Edit bar*, [jump to Add Edge](#Add-Edge)
+    3. **View settings:**<br>
+        - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hideshow-buttons)
+        - Full Screen *// only in the View bar*
+        - Default Screen *// only in the View bar*
+        - Costume Screen *// only in the View bar*
+    4. **Help:**<br>
+        - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
+    5. **File:**<br>
+        - Load *// also in the File bar*
+        - Save *// also in the File bar*
+        - Clear *// also in the File bar*
+        - Reset Graph *// also in the File bar*
+        - Exit *// only in the File bar*<br>
+
 
 2. **The Graph** - The Graph holds all the relevant data in order to keep updating the drawings.
 3. **Action Log** - The Action Log purpose is helping the user to control and monitor all the changes he did with the graph.
-  Every Button click or action made in the program the Action Log writes it down, for example: if the user clicked on the
-  Center button, so after he got an update through a popup message it's also written in the Action Log.
+   Every Button click or action made in the program the Action Log writes it down, for example: if the user clicked on the
+   Center button, so after he got an update through a popup message it's also written in the Action Log.
 
 <br><br>
 
@@ -130,35 +131,35 @@ Here we attached a simple image of the GUI.<br>
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
-***is the Graph strongly connected?*** 
+***is the Graph strongly connected?***
 <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### TSP:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:
 1. One long String.
 2. Each time one String.
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **One long String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png">
 
- - This option allows the user to type
-all the input in one time without the
-need to type each time one Node.
+- This option allows the user to type
+  all the input in one time without the
+  need to type each time one Node.
 * The String format is:  
-***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
-<br><br><br><br><br><br><br><br><br><br><br>
+  ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
+  <br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
- - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+- This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Output:**
@@ -166,10 +167,10 @@ need to type each time one Node.
 
 - The path will be colored in light purple on the Graph.
 - At the action log the user can see:<br>
-  1. List of the Nodes he entered.<br>
-  2. List of the path in the right order that go through every one of the Nodes he entered.<br>
-  3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
-  <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br>
+    1. List of the Nodes he entered.<br>
+    2. List of the path in the right order that go through every one of the Nodes he entered.<br>
+    3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
+       <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br>
 
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
@@ -183,7 +184,7 @@ need to type each time one Node.
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
- <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
@@ -192,9 +193,9 @@ need to type each time one Node.
 1. Popup window will open and ask the user to enter source Node and destination Node
 2. The ShortestPath that our Algorithm chose will be marked in green.
 3. The action log will write 2 things:
-   1. Weight of the ShortestPath.
-   2. String represents the ShortestPath in the right order.
-      <br><br><br><br>
+    1. Weight of the ShortestPath.
+    2. String represents the ShortestPath in the right order.
+       <br><br><br><br>
 
 
 **Output:**  
@@ -203,7 +204,7 @@ In case the user entered an invalid input, he will get a popup window about this
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
 2. source/destination/both are not in the Graph.
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Remove Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/5.jpg"> 
@@ -221,7 +222,7 @@ Wrong values/inputs are:
 If the input is valid the user will see that the Node he picked was removed from the Graph and all it's Edges too.<br>
 Otherwise, the user will get a popup window with the problem, and it will be added to the action log.
 If the Node was deleted at the Action log will be written, the Node number that was removed.
-   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Remove Edge:
 3. The action log will write 2 things:
@@ -235,7 +236,7 @@ If the Node was deleted at the Action log will be written, the Node number that 
 In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png"> 
+   <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
 1. Popup window will open and ask the user to enter source Node and destination Node
