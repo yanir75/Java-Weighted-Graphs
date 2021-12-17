@@ -91,8 +91,9 @@ This Frame has 4 main parts:
 ### Explanation of the parts
 - **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
+
   **features list:**
-- ***Note: the obvious features doesn't have an explanation because their pretty simple.***
+***Note: the obvious features doesn't have an explanation because their pretty simple.***
     - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
     - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
     - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
