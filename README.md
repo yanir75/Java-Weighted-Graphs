@@ -86,10 +86,10 @@ Here we attached a simple image of the gui.
 - **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Almost every feature in the Menu Bar are also available as a button in the Buttons Panel.  
   The features list from left to right:
-    - isConnected *// also in the Algorithms bar* [jump to isConnected](#isConnected)
-    - TSP *// also in the Algorithms bar* [jump to TSP](#TSP)
-    - Center *// also in the Algorithms bar* [jump to Center](#Center)
-    - ShortestPath *// also in the Algorithms bar* [jump to ShortestPath](#ShortestPath)
+    - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
+    - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
+    - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
+    - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
     - Remove Node *// also in the Edit bar*
     - Remove Edge *// also in the Edit bar*
     - Add Node *// also in the Edit bar*
@@ -119,7 +119,7 @@ Here we attached a simple image of the gui.
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
 ***is the Graph strongly connected?*** 
-<br>[jump to Tutorial](#Menu Bar/Buttons Panel)<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#Tutorial)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### TSP:
