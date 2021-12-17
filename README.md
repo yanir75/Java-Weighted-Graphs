@@ -291,10 +291,12 @@ In addition, the Action Log that will write the details of the new Edge.<br>
 
 
 ### Shortcuts:
-
+The shortcuts' purpose is one more way that we tried to make it easier on the user.
+<br> By clicking the Shortcuts in the Help bar a new Frame will appear with
+a description of all the shortcuts available in this program.<br>
+By clicking BACK the user will return to the main Frame.<br>
+[jump to Tutorial](#explanation-of-the-parts)
 <img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png">
-
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br>
 
 ---
 
