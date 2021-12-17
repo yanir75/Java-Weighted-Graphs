@@ -84,8 +84,8 @@ Here we attached a simple image of the gui.
  </div>
 
 - **Menu Bar / Buttons Panel** - From them the user can execute all kind of features.  
-Almost every feature in the Menu Bar is also available as a button in the Button Panel.  
-The features are from left to right:
+Almost every feature in the Menu Bar are also available as a button in the Buttons Panel.  
+The features list from left to right:
   - isConnected *// also in the Algorithms bar*
   - TSP *// also in the Algorithms bar*
   - Center *// also in the Algorithms bar*
