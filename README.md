@@ -106,7 +106,7 @@ This Frame has 4 main parts:
     - Clear *// also in the File bar*
     - Reset Graph *// also in the File bar*
     - Exit *// only in the File bar*
-    - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#Hide/Show-Buttons)
+    - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#Hide/Show Buttons)
     - Full Screen *// only in the View bar*
     - Default Screen *// only in the View bar*
     - Costume Screen *// only in the View bar*
@@ -278,14 +278,24 @@ There are 2 types of wrong inputs:<br>
    <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Hide/Show Buttons:
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/9.jpg"> 
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/9.jpg" width="750" height="550" border="10"/>
-</p>
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+1. Popup window will open and ask the user to enter source Node and destination Node
+2. The ShortestPath that our Algorithm chose will be marked in green.
+3. The action log will write 2 things:
+    1. Weight of the ShortestPath.
+    2. String represents the ShortestPath in the right order.
+       <br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/99.png" width="750" height="550" border="10"/>
-</p>
+
+**Output:**  
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/99.png">
+In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+There are 2 types of wrong inputs:<br>
+1. No input at all or String of chars, something that is not an Integer.
+2. source/destination/both are not in the Graph.
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Shortcuts:
 
