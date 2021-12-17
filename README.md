@@ -131,15 +131,15 @@ Here we attached a simple image of the GUI.<br>
 ### isConnected:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
-***is the Graph strongly connected?***
+<br>After isConnected is pressed, a new popup window appears with the answer to the question:<br>  
+***is the Graph strongly connected?***<br>
 <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### TSP:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:
+<br>In the TSP we decided to give the user two ways to type the input:
 1. One long String.
 2. Each time one String.
    <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -152,13 +152,13 @@ Here we attached a simple image of the GUI.<br>
   all the input in one time without the
   need to type each time one Node.
 * The String format is:  
-  ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
+  ***"5 3 9 12 15 7 0"***, <br>each Node is seperated with a single *space* character.
   <br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
-
+<br>
 - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
   <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -176,7 +176,7 @@ Here we attached a simple image of the GUI.<br>
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the Center 3 things will happen:<br>
+<br>Once the user pressed the Center 3 things will happen:<br>
 <br>1. Popup window will appear with the ID of the Node that our Algorithm chose to be the Center.
 <br><br><br><br><br><br><br><br><br>
 
@@ -191,7 +191,7 @@ Here we attached a simple image of the GUI.<br>
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+<br>Once the user pressed the ShortestPath 3 things will happen:<br>
 1. Popup window will open and ask the user to enter source Node and destination Node
 2. The ShortestPath that our Algorithm chose will be marked in green.
 3. The action log will write 2 things:
@@ -201,7 +201,7 @@ Here we attached a simple image of the GUI.<br>
 
        
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
-<br>In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+<br>In case the user entered an invalid input, he will get a popup window mentioning what is the problem, and this will also be written in the log.<br>
 
 **There are 2 types of wrong inputs:**
 1. No input at all or String of chars, something that is not an Integer.<br>
@@ -212,7 +212,7 @@ Here we attached a simple image of the GUI.<br>
 ### Remove Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/5.jpg"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Remove Node is simple, give me ID, and I'll delete the Node.  
+<br>Remove Node is simple, give me ID, and I'll delete the Node.  
 After the user types the key the program checks if this Node is in the Graph, if true it deletes the Node, else meaning wrong input.<br>
 
 **Wrong values/inputs are:**
@@ -223,7 +223,7 @@ After the user types the key the program checks if this Node is in the Graph, if
 
 **Output:**  
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/55.png">
-If the input is valid the user will see that the Node he picked was removed from the Graph and all it's Edges too.<br>
+<br>If the input is valid the user will see that the Node he picked was removed from the Graph and all it's Edges too.<br>
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
 After the Node was deleted, the Action log will write the Node number that was removed.<br>
 <br>
@@ -232,18 +232,18 @@ After the Node was deleted, the Action log will write the Node number that was r
 ### Remove Edge:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/6.jpg">
 
-Remove Edge is similar to Remove Node only with 2 inputs.<br>
+<br>Remove Edge is similar to Remove Node only with 2 inputs.<br>
 After the user types the source and the destination the program checks:
 * if the source Node and the destination Node are Nodes in the Graph.<br>
 * if there is an Edge between source to destination.<br>
 
-if both of them are true the Edge will be deleted from the Frame.<br>
+if both of them are true the Edge will be deleted from the Graph.<br>
    <br><br><br><br><br>
 
 
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
 
-**Wrong values/inputs are:**
+<br>**Wrong values/inputs are:**
 1. No input or a String.
 2. source/destination that is not in the Graph or not connected.<br>
 <br>If the input is valid the user will see that the Edge he picked was removed from the Graph.
@@ -254,7 +254,7 @@ After the Edge was deleted, the Action log will write the details of the Edge th
 ### Add Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png">
 
-In order to add a new Node to the Graph the user need to type x,y,id.<br>
+<br>In order to add a new Node to the Graph the user need to type x,y,id.<br>
 * The (x,y) representing the location of the point on the Graph.
 * The id represents an ID, each Node has an uniq ID.<br>
 
@@ -287,7 +287,7 @@ In addition, the Action Log that will write the details of the new Node.<br>
 
 If the input was valid the user will see the new Edge immediately on the Frame.<br>  
 In addition, the Action Log that will write the details of the new Edge.<br>
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### Shortcuts:
