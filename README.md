@@ -66,23 +66,24 @@ because we wanted to give the user the Max comfort and simplicity that we could 
 
 ### Structure
 the GUI contains 4 classes:
-1. MyFrame - MyFrame is the main part of this section, basically it holds all the components of the programs
+1. **MyFrame** - MyFrame is the main part of this section, basically it holds all the components of the programs
 and creating them.  
 
-2. MyPanel - MyPanel is where the magic happen, MyPanel is the main panel that holds all the graph structure
+2. **MyPanel** - MyPanel is where the magic happen, MyPanel is the main panel that holds all the graph structure
 and responsible for drawing it correctly.  
 
-3. Help - Help is a small class that creates only a new JFrame to the main frame. The purpose of Help 
+3. **Help** - Help is a small class that creates only a new JFrame to the main frame. The purpose of Help 
 is to open a new window that contains all the shortcuts available.
 
-4. MyGraph_GUI - MyGraph_GUI creates the main JFrame and then activating the GUI.  
+4. **MyGraph_GUI** - MyGraph_GUI creates the main JFrame and then activating the GUI.  
 
 ### Tutorial
 Here we attached a simple image of the gui.
 <div align="center">
-    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
- </div>  
-- Menu Bar / Buttons Panel - From them the user can execute all kind of features.  
+    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
+ </div>
+
+- **Menu Bar / Buttons Panel** - From them the user can execute all kind of features.  
 Almost every feature in the Menu Bar is also available as a button in the Button Panel.  
 The features are from left to right:
   - isConnected *// also in the Algorithms bar*
@@ -103,7 +104,16 @@ The features are from left to right:
   - Full Screen *// only in the View bar*
   - Default Screen *// only in the View bar*
   - Costume Screen *// only in the View bar*
-  - Shortcuts *// only in the Help bar*
+  - Shortcuts *// only in the Help bar*  
+    
+- **The Graph** - The Graph holds all the relevant data in order to keep updating the drawings.
+- **Action Log** - The Action Log purpose is helping the user to control and monitor all the changes he did with the graph. 
+Every Button click or action made in the program the Action Log writes it down, for example: if the user clicked on the 
+Center button, so after he got an update through a popup message it's also written in the Action Log.  
+
+***Note: each feature will be explained soon***
+
+
 
 ---
 
