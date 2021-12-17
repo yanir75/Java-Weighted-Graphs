@@ -218,14 +218,14 @@ After the user types the key the program checks if this Node is in the Graph, if
 **Wrong values/inputs are:**
 1. No input or a String.
 2. ID that is not in the Graph.
-   <br><br><br><br><br>
+   <br><br><br><br><br><br><br>
 
 
 **Output:**  
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/55.png">
 If the input is valid the user will see that the Node he picked was removed from the Graph and all it's Edges too.<br>
-Otherwise, the user will get a popup window with the problem, and it will be added to the action log.
-If the Node was deleted at the Action log will be written, the Node number that was removed.
+Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
+After the Node was deleted, the Action log will write the Node number that was removed.<br>
 <br>
 [jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
