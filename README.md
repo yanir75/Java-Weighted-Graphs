@@ -97,7 +97,7 @@ This Frame has 4 main parts:
     - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
     - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
     - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
-    - Remove Node *// also in the Edit bar*, [jump to ShortestPath](#This)
+    - Remove Node *// also in the Edit bar*, [jump to ShortestPath](#Explanation-of-the-parts:)
     - Remove Edge *// also in the Edit bar*
     - Add Node *// also in the Edit bar*
     - Add Edge *// also in the Edit bar*
