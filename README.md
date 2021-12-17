@@ -160,7 +160,7 @@ Here we attached a simple image of the GUI.<br>
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
 - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
-  <br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Output:**
@@ -171,7 +171,7 @@ Here we attached a simple image of the GUI.<br>
     1. List of the Nodes he entered.<br>
     2. List of the path in the right order that go through every one of the Nodes he entered.<br>
     3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
-       <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br>
+       <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br>
 
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
@@ -181,7 +181,7 @@ Here we attached a simple image of the GUI.<br>
 <br><br><br><br><br><br><br><br><br>
 
 
-**Output:**
+
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
 <br><br>2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
 
