@@ -24,12 +24,12 @@ This can be used for a variety of purposes (best route between cities,routes etc
 
 In this project we were asked to do the following things:
 1. Implement the following Interfaces:
-   1. GeoLocation
-   2. EdgeData  <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">GeoLocation</a>
-   3. NodeData
-   4. DirectedWeightedGraph
-   5. DirectedWeightedGraphAlgorithms
-
+   1. GeoLocation, <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">GeoLocation Interface</a>
+   2. EdgeData,  <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">EdgeData Interface</a>
+   3. NodeData, , <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">NodeData Interface</a>
+   4. DirectedWeightedGraph, <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">DirectedWeightedGraph Interface</a>
+   5. DirectedWeightedGraphAlgorithms, <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">DirectedWeightedGraphAlgorithms Interface</a>
+      
 ---
 ## Structure
 
