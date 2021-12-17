@@ -92,8 +92,8 @@ Here we attached a simple image of the GUI.<br>
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
 
-    <br>**Features list:**
-<br><br>***Note: the obvious features doesn't have an explanation because their pretty simple.***<br><br>
+    **Features list:**
+<br><br>***Note: the obvious features doesn't have an explanation because their pretty simple.***<br>
       1. **Algorithms:**<br>
          - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
          - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
@@ -116,8 +116,8 @@ Here we attached a simple image of the GUI.<br>
          - Save *// also in the File bar*
          - Clear *// also in the File bar*
          - Reset Graph *// also in the File bar*
-         - Exit *// only in the File bar*
-
+         - Exit *// only in the File bar*<br>
+         
 
 2. **The Graph** - The Graph holds all the relevant data in order to keep updating the drawings.
 3. **Action Log** - The Action Log purpose is helping the user to control and monitor all the changes he did with the graph.
