@@ -60,36 +60,83 @@ The results vary depends on how th graph is generated.
 Since we did not create the graph randomly most of the time, it didn't take so much time.
 
 ---
-## Gui 
-Here we attached a picture of the gui.
-Each button will activate a different algorithm.
+## GUI 
+Implementing the GUI was a major part (and not easy at all) of this project
+because we wanted to give the user the Max comfort and simplicity that we could think of.
+
+###Structure
+the GUI contains 4 classes:
+1. MyFrame - MyFrame is the main part of this section, basically it holds all the components of the programs
+and creating them.  
+
+2. MyPanel - MyPanel is where the magic happen, MyPanel is the main panel that holds all the graph structure
+and responsible for drawing it correctly.  
+
+3. Help - Help is a small class that creates only a new JFrame to the main frame. The purpose of Help 
+is to open a new window, if the user requests it shows all the shortcuts available. The user requests through Help  
+menu -> Shortcuts.
+
+4. MyGraph_GUI - MyGraph_GUI creates the main JFrame and then activating the GUI.  
+
+### Tutorial
+Here we attached a simple image of the gui.
+- Menu Bar / Buttons Panel - From them the user can execute all kind of features.  
+Almost every feature in the Menu Bar is also available as a button in the Button Panel.  
+The features are from left to right:
+  - isConnected *// also in the Algorithms bar*
+  - TSP *// also in the Algorithms bar*
+  - Center *// also in the Algorithms bar*
+  - ShortestPath *// also in the Algorithms bar*
+  - Remove Node *// also in the Edit bar*
+  - Remove Edge *// also in the Edit bar*
+  - Add Node *// also in the Edit bar*
+  - Add Edge *// also in the Edit bar*
+  - Load *// also in the File bar*
+  - Save *// also in the File bar*
+  - Clear *// also in the File bar*
+  - Reset Graph *// also in the File bar*
+  - Exit *// only in the File bar*
+  - Hide Buttons *// only in the View bar*
+  - Show Buttons *// only in the View bar*
+  - Full Screen *// only in the View bar*
+  - Default Screen *// only in the View bar*
+  - Costume Screen *// only in the View bar*
+  - Shortcuts *// only in the Help bar*
 <div align="center">
     <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
  </div>
 ---
 
-## How to use
+## How to use:
 
-First let's clone the repository
+Let's begin with cloning the repository.
 ```
 git clone https://github.com/netanellevine/Weighted_Graph_Algorithms.git && cd Weighted_Graph_Algorithms
 ```
 Then we would like to run the jar to view the graph.  
-For that we have few options  
+For that we have few options:  
 
-* 1st option load an empty graph and create your own graph.
+**1.**  type/copy the blockquotes below as is.
+- First, it loads an empty graph and will open an empty frame with all the GUI options.
+- Second, now create a graph you desire or load one.
+
 ```
 java -jar weighted-graphs.jar
 ```
-* 2nd option load a random generated graph.
+**2.** type/copy the blockquotes below and add it to the end the line ***random***.
+- Load a random generated graph (that we created already).
+- The graph is loaded, play with all the features.
 ```
 java -jar weighted-graphs.jar random
 ```
-* 3rd option load a graph with json file
+**3.** type/copy the blockquotes below and add an existing json_file in order to parse it into a graph.
+- Load a graph with json file as a String. 
+- The graph is loaded, play with all the features.
 ```
 java -jar weighted-graphs.jar <json-file>
 ```
-In date folder we have few examples for graph representation in json format
+In the data directory we have a few examples of some graph representation in json format.
+for example: **"\Weighted_Graph_Algorithms\data\G1.json"**
 
 ---
 ## Sources:
