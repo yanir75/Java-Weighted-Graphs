@@ -78,12 +78,18 @@ the GUI contains 4 classes:
 4. **MyGraph_GUI** - MyGraph_GUI creates the main JFrame and then activating the GUI.
 
 ### Tutorial
-Here we attached a simple image of the gui.
+Here we attached a simple image of the GUI.<br>
+This Frame has 4 main parts:
+1. **Menu Bars**
+2. **Buttons Panel**
+3. **The Graph**
+4. **Action Log**
 <div align="center">
     <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
  </div>
 
-- **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
+#### Explanation of the parts:
+- **Menu Bars/Buttons Panel** - From them the user can execute all kind of features.  
   Almost every feature in the Menu Bar are also available as a button in the Buttons Panel.  
   The features list from left to right:
     - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
@@ -119,7 +125,7 @@ Here we attached a simple image of the gui.
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
 ***is the Graph strongly connected?*** 
-<br>[jump to Tutorial](#Tutorial)<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#Explanation of the parts:)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### TSP:
@@ -157,7 +163,7 @@ need to type each time one Node.
   1. List of the Nodes he entered.<br>
   2. List of the path in the right order that go through every one of the Nodes he entered.<br>
   3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
-  <br>[jump to Tutorial](#Tutorial)<br><br><br><br>
+  <br>[jump to Tutorial](#Explanation of the parts:)<br><br><br><br>
 
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
@@ -171,7 +177,7 @@ need to type each time one Node.
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
- <br>[jump to Tutorial](#Tutorial)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br>[jump to Tutorial](#Explanation of the parts:)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
@@ -191,7 +197,7 @@ In case the user entered an invalid input, he will get a popup window about this
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
 2. source/destination/both are not in the Graph.
-<br>[jump to Tutorial](#Tutorial)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#Explanation of the parts:)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Remove Node:
 
