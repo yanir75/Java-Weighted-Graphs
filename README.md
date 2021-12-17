@@ -129,8 +129,8 @@ need to type each time one Node.
 to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 <p align="center">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png" width="750" height="550" border="10"/>
-</p>
-
+</p>  
+  
 **One Long String:**
 <img align="left" width="60%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png">   
 [Closer Look](https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png) (/ɑːrˈdwiːnoʊ/)   - This option allows the user to type all the input in one time without the 
