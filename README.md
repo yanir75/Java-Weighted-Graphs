@@ -203,9 +203,10 @@ Here we attached a simple image of the GUI.<br>
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
 <br>In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
-1. No input at all or String of chars, something that is not an Integer.
-2. source/destination/both are not in the Graph.
-   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+1. No input at all or String of chars, something that is not an Integer.<br>
+2. source/destination/both are not in the Graph.<br> 
+
+[jump to Tutorial](#explanation-of-the-parts) <br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Remove Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/5.jpg"> 
