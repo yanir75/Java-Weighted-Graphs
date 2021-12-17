@@ -140,7 +140,7 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 all the input in one time without the 
 need to type each time one Node.
     * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 **Each time one String:**
 
 <img align="left" width="70%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png"> 
