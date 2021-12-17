@@ -114,30 +114,30 @@ Here we attached a simple image of the gui.
 ***Note: each feature will be explained soon***  
 #### isConnected:
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png" width="150" height="100" border="10"/>
 </p>
 
 #### TSP:
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2222.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2222.png" width="150" height="100" border="10"/>
 </p>
 
 #### Center:
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
@@ -147,11 +147,11 @@ Here we attached a simple image of the gui.
 #### ShortestPath:
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png" width="150" height="100" border="10"/>
 </p>
 
 #### Remove Node:
@@ -161,7 +161,7 @@ Here we attached a simple image of the gui.
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/55.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/55.png" width="150" height="100" border="10"/>
 </p>
 
 #### Remove Edge:
@@ -171,13 +171,13 @@ Here we attached a simple image of the gui.
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png" width="150" height="100" border="10"/>
 </p>
 
 #### Add Node:
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
@@ -187,7 +187,7 @@ Here we attached a simple image of the gui.
 #### Add Edge:
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.png" width="150" height="100" border="10"/>
 </p>
 
 <p align="center">
@@ -201,13 +201,13 @@ Here we attached a simple image of the gui.
 </p>
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/99.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/99.png" width="150" height="100" border="10"/>
 </p>
 
 #### Shortcuts:
 
 <p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.jpg" width="150" height="100" border="10"/>
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png" width="150" height="100" border="10"/>
 </p>
 
 
