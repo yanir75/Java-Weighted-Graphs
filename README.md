@@ -88,7 +88,7 @@ This Frame has 4 main parts:
     <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
  </div>
 
-#### Explanation of the parts:
+#### explanation of the parts:
 <!-- #This is commented out. -->
 - **Menu Bars/Buttons Panel** - From them the user can execute all kind of features.  
   Almost every feature in the Menu Bar are also available as a button in the Buttons Panel.  
