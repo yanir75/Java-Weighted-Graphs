@@ -186,7 +186,7 @@ Here we attached a simple image of the GUI.<br>
 <br><br>2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
 
 <br>3. The action log will write also this Node as the Center.<br><br>[jump to Tutorial](#explanation-of-the-parts)
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
@@ -199,10 +199,9 @@ Here we attached a simple image of the GUI.<br>
     2. String represents the ShortestPath in the right order.
        <br><br><br><br>
 
-
-**Output:**  
+       
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
-In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+<br>In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
 2. source/destination/both are not in the Graph.
