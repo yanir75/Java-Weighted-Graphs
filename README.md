@@ -130,20 +130,19 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 <p align="center">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png" width="750" height="550" border="10"/>
 </p>
+**One Long String:**
 
-   **One Long String:**
 <img align="left" width="33%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png"> 
-
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/)  1. **One long String** - This option allows the user to type all the input in one time without the 
 need to type each time one Node.
     * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with
-    a single *space* character.
+    a single *space* character.  
   
-   **Each time one String:**
+ **Each time one String:**
 <img align="left" width="33%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) **Each time ONE input** - This option will continue to open a new popup window that asks the user 
-to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
+to enter another Node, this loop will finish once the user type *"done"/"DONE"*.   
   
   ---
   ---
