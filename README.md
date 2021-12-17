@@ -132,26 +132,27 @@ Here we attached a simple image of the gui.
  - This option allows the user to type
 all the input in one time without the
 need to type each time one Node.
-* The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
+* The String format is:  
+***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
- - This option will continue to open
-a new popup window that asks the user to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
+ - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
+   <br><br><br><br><br><br><br><br><br><br><br><br>
 
 
+**The output:**
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2222.png">
 
+- The path will be colored in light purple on the Graph.
+- At the action log the user can see:
+  - List of the Nodes he entered.
+  - List of the path in the right order that go through every one of the Nodes he entered.
+  - In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.
 
-<br><br><br><br><br><br>
----
-
-
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2222.png" width="750" height="550" border="10"/>
-</p>
 
 #### Center:
 
