@@ -148,11 +148,11 @@ need to type each time one Node.
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2222.png">
 
 - The path will be colored in light purple on the Graph.
-- At the action log the user can see:
-  - List of the Nodes he entered.
-  - List of the path in the right order that go through every one of the Nodes he entered.
-  - In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.
-
+- At the action log the user can see:<br>
+  1.List of the Nodes he entered.<br>
+  2.List of the path in the right order that go through every one of the Nodes he entered.<br>
+  3.In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Center:
 
