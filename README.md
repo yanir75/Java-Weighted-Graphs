@@ -157,7 +157,7 @@ need to type each time one Node.
   1. List of the Nodes he entered.<br>
   2. List of the path in the right order that go through every one of the Nodes he entered.<br>
   3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
-  <br><br><br><br><br><br><br>
+  <br><br><br>
 
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
@@ -171,17 +171,27 @@ need to type each time one Node.
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-#### ShortestPath:
+### ShortestPath:
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png" width="750" height="550" border="10"/>
-</p>
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+1. Popup window will open and ask the user to enter source Node and destination Node
+2. The ShortestPath that our Algorithm chose will be marked in green.
+3. The action log will write 2 things:
+   1. Weight of the ShortestPath.
+   2. String represents the ShortestPath in the right order.
+      <br><br><br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png" width="750" height="550" border="10"/>
-</p>
+
+**Output:**
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.jpg">
+In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+There are 2 types of wrong inputs:<br>
+1. No input at all or String of chars, something that is not an Integer.
+2. source/destination/both are not in the Graph.
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Remove Node:
 
