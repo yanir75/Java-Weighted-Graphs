@@ -171,7 +171,7 @@ need to type each time one Node.
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
@@ -185,7 +185,7 @@ need to type each time one Node.
       <br><br><br><br>
 
 
-**Output:**
+**Output:**  
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
 In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
