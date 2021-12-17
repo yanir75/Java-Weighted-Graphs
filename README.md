@@ -136,11 +136,12 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 [Closer Look](https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png) (/ɑːrˈdwiːnoʊ/)- This option allows the user to type 
 all the input in one time without the 
 need to type each time one Node.
-    * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.<br><br><br><br><br>   
+    * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
+<br><br><br><br><br><br><br>
 #### Each time one String:        
 <img align="left" width="60%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">      
 [Closer Look](https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png) (/ɑːrˈdwiːnoʊ/)- This option will continue to open 
-a new popup window that asks the user to enter another Node, this loop will finish once the user type *"done"/"DONE"*.      
+a new popup window that asks the user to enter another Node, this loop will finish once the user type *"done"/"DONE"*.<br>      
   
   ---
   ---
