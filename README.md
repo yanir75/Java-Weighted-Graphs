@@ -84,16 +84,15 @@ Here we attached a simple image of the GUI.<br>
 2. **Buttons Panel**
 3. **The Graph**
 4. **Action Log**
-<div align="center">
-    <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">
- </div>
+<img align="left" width="100%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg"> 
+
 
 ### Explanation of the parts
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
 
     **Features list:**
-<br><br>***Note: the obvious features doesn't have an explanation because their pretty simple.***<br>
+<br><br>***Note: the obvious features doesn't have an explanation/examples because their pretty simple.***<br>
       1. **Algorithms:**<br>
          - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
          - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
@@ -124,7 +123,6 @@ Here we attached a simple image of the GUI.<br>
   Every Button click or action made in the program the Action Log writes it down, for example: if the user clicked on the
   Center button, so after he got an update through a popup message it's also written in the Action Log.
 
-***Note: each feature will be explained soon***
 <br><br>
 
 ### isConnected:
