@@ -177,15 +177,17 @@ Here we attached a simple image of the GUI.<br>
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the Center 3 things will happen:<br>
-1. Popup window will with the ID of the Node that our Algorithm chose to be the Center.
-2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
-3. The action log will write also this Node as the Center.
+1. Popup window will appear with the ID of the Node that our Algorithm chose to be the Center.
+
    <br><br><br><br><br><br>
 
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br>2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
+
+<br>3. The action log will write also this Node as the Center.<br><br>[jump to Tutorial](#explanation-of-the-parts)
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
