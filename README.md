@@ -181,7 +181,7 @@ Here we attached a simple image of the GUI.<br>
 <br><br><br><br><br><br><br><br><br>
 
 
-
+<br><br><br>
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
 <br><br>2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
 
