@@ -128,7 +128,7 @@ Here we attached a simple image of the gui.
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
 1. One long String.
 2. Each time one String.
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **One long String:**
@@ -146,7 +146,7 @@ need to type each time one Node.
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
  - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Output:**
@@ -166,11 +166,11 @@ need to type each time one Node.
 1. Popup window will with the ID of the Node that our Algorithm chose to be the Center.
 2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
 3. The action log will write also this Node as the Center.
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br>
 
 
 **Output:**
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.png">
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
   <br><br><br><br><br><br><br><br><br><br><br>
 
 #### ShortestPath:
