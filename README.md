@@ -241,7 +241,6 @@ if both of them are true the Edge will be deleted from the Frame.<br>
    <br><br><br><br><br><br><br>
 
 
-**Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
 **Wrong values/inputs are:**
 1. No input or a String.
@@ -250,8 +249,8 @@ if both of them are true the Edge will be deleted from the Frame.<br>
 <br>If the input is valid the user will see that the Edge he picked was removed from the Graph.<br>
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
 After the Edge was deleted, the Action log will write the details of the Edge that was deleted.<br>
-<br>
-   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br>
+ 
+[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br>
 
 ### Add Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png"> 
