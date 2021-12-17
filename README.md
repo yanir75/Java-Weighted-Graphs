@@ -252,22 +252,22 @@ After the Edge was deleted, the Action log will write the details of the Edge th
 [jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br>
 
 ### Add Node:
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png"> 
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png">
 
-<br>In order to add a new Node to the Graph the user need to type x,y,id.<br>
+In order to add a new Node to the Graph the user need to type x,y,id.<br>
 * The (x,y) representing the location of the point on the Graph.
 * The id represents an ID, each Node has an uniq ID.<br>
 
 **valid inputs:**
 * x,y are numbers so any input that is not a pure number will cause an Invalid Input message.
 * id is a number too, and it must be an uniq id. 
-       <br><br><br><br>
+       <br><br><br>
 
 
 **Output:**  
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/77.jpg">
 If the input was valid the user will see the new Node immediately on the Frame.<br>  
-In addition to the Action Log that will write the details of the new Node.<br>
+In addition, the Action Log that will write the details of the new Node.<br>
    <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br>
 
 ### Add Edge:
