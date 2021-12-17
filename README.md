@@ -94,25 +94,30 @@ This Frame has 4 main parts:
 
   **features list:**<br>
 ***Note: the obvious features doesn't have an explanation because their pretty simple.***
-
+ *Algorithms:*<br>
     - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
     - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
     - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
     - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
+ *Edit Graph:*<br>
     - Remove Node *// also in the Edit bar*, [jump to Remove Node](#Remove-Node)
     - Remove Edge *// also in the Edit bar*, [jump to Remove Edge](#Remove-Edge)
     - Add Node *// also in the Edit bar*, [jump to Add Node](#Add-Node)
     - Add Edge *// also in the Edit bar*, [jump to Add Edge](#Add-Edge)
+ *View settings:*<br>
+    - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hideshow-buttons)
+    - Full Screen *// only in the View bar*
+    - Default Screen *// only in the View bar*
+    - Costume Screen *// only in the View bar*
+ *Help:*<br>
+    - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
+ *File:*<br>
     - Load *// also in the File bar*
     - Save *// also in the File bar*
     - Clear *// also in the File bar*
     - Reset Graph *// also in the File bar*
     - Exit *// only in the File bar*
-    - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hideshow-buttons)
-    - Full Screen *// only in the View bar*
-    - Default Screen *// only in the View bar*
-    - Costume Screen *// only in the View bar*
-    - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
+
 
 - **The Graph** - The Graph holds all the relevant data in order to keep updating the drawings.
 - **Action Log** - The Action Log purpose is helping the user to control and monitor all the changes he did with the graph.
