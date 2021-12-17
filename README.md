@@ -92,31 +92,31 @@ Here we attached a simple image of the GUI.<br>
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
 
-   1. **features list**:
+   **features list**:
    **<br>***Note: the obvious features doesn't have an explanation because their pretty simple.***
       1. **Algorithms:**<br>
-             - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
-             - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
-             - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
-             - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
+         - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
+         - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
+         - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
+         - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
       2. **Edit Graph:**<br>
-             - Remove Node *// also in the Edit bar*, [jump to Remove Node](#Remove-Node)
-             - Remove Edge *// also in the Edit bar*, [jump to Remove Edge](#Remove-Edge)
-             - Add Node *// also in the Edit bar*, [jump to Add Node](#Add-Node)
-             - Add Edge *// also in the Edit bar*, [jump to Add Edge](#Add-Edge)
+         - Remove Node *// also in the Edit bar*, [jump to Remove Node](#Remove-Node)
+         - Remove Edge *// also in the Edit bar*, [jump to Remove Edge](#Remove-Edge)
+         - Add Node *// also in the Edit bar*, [jump to Add Node](#Add-Node)
+         - Add Edge *// also in the Edit bar*, [jump to Add Edge](#Add-Edge)
       3. **View settings:**<br>
-             - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hideshow-buttons)
-             - Full Screen *// only in the View bar*
-             - Default Screen *// only in the View bar*
-             - Costume Screen *// only in the View bar*
+         - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hideshow-buttons)
+         - Full Screen *// only in the View bar*
+         - Default Screen *// only in the View bar*
+         - Costume Screen *// only in the View bar*
       4. **Help:**<br>
-             - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
+         - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
       5. **File:**<br>
-             - Load *// also in the File bar*
-             - Save *// also in the File bar*
-             - Clear *// also in the File bar*
-             - Reset Graph *// also in the File bar*
-             - Exit *// only in the File bar*
+         - Load *// also in the File bar*
+         - Save *// also in the File bar*
+         - Clear *// also in the File bar*
+         - Reset Graph *// also in the File bar*
+         - Exit *// only in the File bar*
 
 
 2. **The Graph** - The Graph holds all the relevant data in order to keep updating the drawings.
