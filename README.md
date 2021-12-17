@@ -92,8 +92,8 @@ Here we attached a simple image of the GUI.<br>
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
 
-   **features list**:
-   **<br>***Note: the obvious features doesn't have an explanation because their pretty simple.***
+    <br>**Features list:**
+<br><br>***Note: the obvious features doesn't have an explanation because their pretty simple.***<br><br>
       1. **Algorithms:**<br>
          - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
          - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
