@@ -138,8 +138,8 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
      <td>Holiday Mention</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width=500 height=400></td>
-    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width=500 height=400></td>
+    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width=650 height=500></td>
+    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width=650 height=500></td>
   </tr>
  </table>
  
