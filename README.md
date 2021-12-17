@@ -227,27 +227,32 @@ If the input is valid the user will see that the Node he picked was removed from
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
 After the Node was deleted, the Action log will write the Node number that was removed.<br>
 <br>
-[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br>
 
 ### Remove Edge:
-3. The action log will write 2 things:
-    1. Weight of the ShortestPath.
-    2. String represents the ShortestPath in the right order.
-       <br><br><br><br>
-
-
-**Output:**  
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/6.jpg">
-In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
-There are 2 types of wrong inputs:<br>
-1. No input at all or String of chars, something that is not an Integer.
-   <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
-1. Popup window will open and ask the user to enter source Node and destination Node
-2. The ShortestPath that our Algorithm chose will be marked in green.
-2. source/destination/both are not in the Graph.
-   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+Remove Edge is similar to Remove Node only with 2 inputs.<br>
+After the user types the source and the destination the program checks:
+* if the source Node and the destination Node are Nodes in the Graph.<br>
+* if there is an Edge between source to destination.<br>
+
+if both of them are true the Edge will be deleted from the Frame.<br>
+
+**Wrong values/inputs are:**
+1. No input or a String.
+2. source/destination that is not in the Graph.
+3. source/destination that are not connected.
+   <br><br><br><br><br><br><br>
+
+
+**Output:**
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
+If the input is valid the user will see that the Edge he picked was removed from the Graph.<br>
+Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
+After the Edge was deleted, the Action log will write the details of the Edge that was deleted.<br>
+<br>
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br>
 
 ### Add Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png"> 
