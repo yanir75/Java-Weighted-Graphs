@@ -119,7 +119,7 @@ Here we attached a simple image of the gui.
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
 ***is the Graph strongly connected?*** 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](Menu Bar / Buttons Panel)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### TSP:
