@@ -136,13 +136,13 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
   <tr>
     <td>First Screen Page</td>
      <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width=270 height=480></td>
-    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width=270 height=480></td>
+    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width=500 height=400></td>
+    <td><img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width=500 height=400></td>
   </tr>
  </table>
+ 
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width="200" height="200">  
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width="200" height="200">  
   
