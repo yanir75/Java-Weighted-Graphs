@@ -85,7 +85,7 @@ Here we attached a simple image of the GUI.<br>
 3. **The Graph**
 4. **Action Log**
 <img align="left"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">  
-
+<br>
 ### Explanation of the parts
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
