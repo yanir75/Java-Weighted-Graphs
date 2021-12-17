@@ -202,21 +202,23 @@ Here we attached a simple image of the GUI.<br>
        
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
 <br>In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
-There are 2 types of wrong inputs:<br>
+
+**There are 2 types of wrong inputs:**
 1. No input at all or String of chars, something that is not an Integer.<br>
 2. source/destination/both are not in the Graph.<br> 
 
-[jump to Tutorial](#explanation-of-the-parts) <br><br><br><br><br><br><br><br><br><br><br><br>
+[jump to Tutorial](#explanation-of-the-parts) <br><br><br><br><br><br><br>
 
 ### Remove Node:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/5.jpg"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Remove Node is simple, give me ID, and I'll delete the Node.  
-After the user types the key the program check if this Node is in the Graph, if true it deletes the Node, else meaning wrong input.<br>
-Wrong values/inputs are:
+After the user types the key the program checks if this Node is in the Graph, if true it deletes the Node, else meaning wrong input.<br>
+
+**Wrong values/inputs are:**
 1. No input or a String.
 2. ID that is not in the Graph.
-
+   <br><br><br><br><br>
 
 
 **Output:**  
@@ -224,7 +226,8 @@ Wrong values/inputs are:
 If the input is valid the user will see that the Node he picked was removed from the Graph and all it's Edges too.<br>
 Otherwise, the user will get a popup window with the problem, and it will be added to the action log.
 If the Node was deleted at the Action log will be written, the Node number that was removed.
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Remove Edge:
 3. The action log will write 2 things:
