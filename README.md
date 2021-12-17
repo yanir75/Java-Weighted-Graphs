@@ -106,7 +106,7 @@ This Frame has 4 main parts:
     - Clear *// also in the File bar*
     - Reset Graph *// also in the File bar*
     - Exit *// only in the File bar*
-    - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hide/show-buttons)
+    - Hide/Show Buttons *// only in the View bar*, [jump to Hide/Show Buttons](#hide/show-Buttons)
     - Full Screen *// only in the View bar*
     - Default Screen *// only in the View bar*
     - Costume Screen *// only in the View bar*
