@@ -134,7 +134,6 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 <p align="left">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width="400" height="250" border="10"/>
 </p>
-
 <p align="right">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width="400" height="250" border="10"/>
 </p>
