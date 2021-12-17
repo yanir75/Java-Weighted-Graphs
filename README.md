@@ -64,7 +64,7 @@ Since we did not create the graph randomly most of the time, it didn't take so m
 Implementing the GUI was a major part (and not easy at all) of this project
 because we wanted to give the user the Max comfort and simplicity that we could think of.
 
-###Structure
+### Structure
 the GUI contains 4 classes:
 1. MyFrame - MyFrame is the main part of this section, basically it holds all the components of the programs
 and creating them.  
