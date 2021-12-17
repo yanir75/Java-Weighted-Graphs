@@ -114,7 +114,7 @@ Here we attached a simple image of the gui.
 ***Note: each feature will be explained soon***
 <br><br>
 
-#### isConnected:
+### isConnected:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
@@ -122,7 +122,7 @@ Here we attached a simple image of the gui.
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-#### TSP:
+### TSP:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
@@ -157,7 +157,7 @@ need to type each time one Node.
   3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
   <br><br><br><br><br><br><br><br><br><br><br><br>
 
-#### Center:
+### Center:
 
 <p align="center">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png" width="750" height="550" border="10"/>
