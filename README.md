@@ -287,15 +287,14 @@ In addition, the Action Log that will write the details of the new Node.<br>
 
 If the input was valid the user will see the new Edge immediately on the Frame.<br>  
 In addition, the Action Log that will write the details of the new Edge.<br>
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 ### Shortcuts:
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png" width="900" height="700" border="10"/>
-</p>
+<img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.jpg">
 
+<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br>
 
 ---
 
