@@ -131,9 +131,9 @@ to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png" width="750" height="550" border="10"/>
 </p>
 *One Long String:*
-<img align="left" width="33%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
+<img align="left" width="33%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png"> 
 
-[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) is an op
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) is an open tech com th be hi alll  that we are goig to take to the scol
   
   
 <p align="left">  
