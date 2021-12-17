@@ -126,10 +126,12 @@ Here we attached a simple image of the gui.
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
+1. One long String.
+2. Each time one String.
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-**One Long String:**
+**One long String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png">
 
  - This option allows the user to type
