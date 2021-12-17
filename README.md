@@ -84,13 +84,13 @@ Here we attached a simple image of the GUI.<br>
 2. **Buttons Panel**
 3. **The Graph**
 4. **Action Log**
-<img align="left"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg">  
-<br>
+<img align="left"  src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/InitIMG.jpg"><br><br>  
+
 ### Explanation of the parts
 1. **Menu Bar/Buttons Panel** - From them the user can execute all kind of features.  
   Not all the features in the Menu Bar appears in the Buttons Panel, but all the features in Buttons Panel appears in the Menu Bar.  
-
-    **Features list:**
+  
+   **Features list:**
 <br><br>***Note: the obvious features doesn't have an explanation/examples because their pretty simple.***<br>
       1. **Algorithms:**<br>
          - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
