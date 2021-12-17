@@ -157,7 +157,7 @@ need to type each time one Node.
   1. List of the Nodes he entered.<br>
   2. List of the path in the right order that go through every one of the Nodes he entered.<br>
   3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written in the action log too.<br>
-  <br><br><br><br><br>
+  <br>[jump to Tutorial](#Tutorial)<br><br><br><br>
 
 ### Center:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/3.png"> 
@@ -171,7 +171,7 @@ need to type each time one Node.
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/33.jpg">
- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br>[jump to Tutorial](#Tutorial)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
@@ -191,7 +191,7 @@ In case the user entered an invalid input, he will get a popup window about this
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
 2. source/destination/both are not in the Graph.
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#Tutorial)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Remove Node:
 
