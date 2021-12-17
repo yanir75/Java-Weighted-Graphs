@@ -17,6 +17,16 @@ directed graphs, where edges link two vertices asymmetrically. <a href="https://
 <br>The graph resembles a small area with significant places and ways to transport between each place.  
 This can be used for a variety of purposes (best route between cities,routes etc.). 
 <br>In our project we will try to simulate it as closely as can be to a small area as we said before.
+---
+## Overview
+
+In this project we were asked to do the following things:
+1. Implement the following Interfaces:
+   1. GeoLocation
+   2. EdgeData  <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">GeoLocation</a>
+   3. NodeData
+   4. DirectedWeightedGraph
+   5. DirectedWeightedGraphAlgorithms
 
 ---
 ## Structure
