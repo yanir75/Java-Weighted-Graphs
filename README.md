@@ -1,7 +1,6 @@
 # Weighted Directed Graphs
 
-## Assignment 2 - Object Oriented Programming
-  
+## Assignment 2 - Object Oriented Programming  
 
 **Netanel Levine**
 **Yanir Cohen**  
@@ -14,18 +13,12 @@ A graph is a structure that is made up of **vertices** (also called nodes or poi
 which are connected by **edges** (also called links or lines).
 A distinction is made between undirected graphs, where edges link two vertices symmetrically, and 
 directed graphs, where edges link two vertices asymmetrically. <a href="https://en.wikipedia.org/wiki/Graph_theory">see more  on Graph Theory - Wikipedia</a><br>
-<br><br>In this project we will illustrate to the best of our capabilities a ***Directed Weighted Graph*** and some familiar Graphs Algorithms. <br>
+<br>In this project we will illustrate to the best of our capabilities a ***Directed Weighted Graph*** and some familiar Graphs Algorithms. <br>
 <br>The graph resembles a small area with significant places and ways to transport between each place.  
 This can be used for a variety of purposes (best route between cities,routes etc.). 
 <br>In our project we will try to simulate it as closely as can be to a small area as we said before.
 
-
 ---
-## Project UML
-
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Arcithecture.png">
----
-
 ## Structure
 
 Our project structure
@@ -312,7 +305,10 @@ By clicking BACK the user will return to the main Frame.<br>
 <img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png">
 
 ---
+## Project UML
 
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Arcithecture.png">
+---
 ## How to use:
 
 Let's begin with cloning the repository.
