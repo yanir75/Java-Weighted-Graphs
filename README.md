@@ -292,7 +292,7 @@ In addition, the Action Log that will write the details of the new Edge.<br>
 
 ### Shortcuts:
 
-<img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.jpg">
+<img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png">
 
 <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br>
 
