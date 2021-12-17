@@ -238,17 +238,16 @@ After the user types the source and the destination the program checks:
 * if there is an Edge between source to destination.<br>
 
 if both of them are true the Edge will be deleted from the Frame.<br>
-
-**Wrong values/inputs are:**
-1. No input or a String.
-2. source/destination that is not in the Graph.
-3. source/destination that are not connected.
    <br><br><br><br><br><br><br>
 
 
 **Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
-If the input is valid the user will see that the Edge he picked was removed from the Graph.<br>
+**Wrong values/inputs are:**
+1. No input or a String.
+2. source/destination that is not in the Graph.
+3. source/destination that are not connected.<br>
+<br>If the input is valid the user will see that the Edge he picked was removed from the Graph.<br>
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
 After the Edge was deleted, the Action log will write the details of the Edge that was deleted.<br>
 <br>
