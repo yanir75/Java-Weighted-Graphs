@@ -113,11 +113,12 @@ Here we attached a simple image of the gui.
 
 ***Note: each feature will be explained soon***
 #### isConnected:
-* After isConnected is pressed, the user receives a popup window with answer to the question:  
-  ***is the Graph strongly connected?***
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png" width="750" height="550" border="10"/>
-</p>
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png"> 
+
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
+***is the Graph strongly connected?*** 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 #### TSP:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
@@ -134,14 +135,14 @@ all the input in one time without the
 need to type each time one Node.
 * The String format is:  
 ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">
 
  - This option will create a new popup window that asks the user to enter another Node, this process will finish once the user type *"done"/"DONE"*.
-   <br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 **The output:**
