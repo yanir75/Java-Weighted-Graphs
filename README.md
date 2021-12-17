@@ -197,7 +197,7 @@ In case the user entered an invalid input, he will get a popup window about this
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
 2. source/destination/both are not in the Graph.
-<br>[jump to Tutorial](#Explanation of the parts:)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to Tutorial](#Explanationoftheparts:)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Remove Node:
 
