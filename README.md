@@ -123,7 +123,7 @@ Here we attached a simple image of the gui.
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - In the TSP we decided to give the user two ways to type the input:  
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   
   
   **One Long String:**
@@ -133,7 +133,7 @@ Here we attached a simple image of the gui.
 all the input in one time without the 
 need to type each time one Node.
     * The String format is: ***"5 3 9 12 15 7 0"***, each Node is seperated with a single *space* character.
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
 
 **Each time one String:**
