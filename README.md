@@ -129,15 +129,17 @@ need to type each time one Node.
 to enter another Node, this loop will finish once the user type *"done"/"DONE"*.
 <p align="center">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/2.png" width="750" height="550" border="10"/>
-</p>
+</p>  
+  
+<br>  
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width="200" height="200">  
+<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width="200" height="200">  
+  
 <br>
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width="200" height="200">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width="200" height="200">
-
-<br>
-<p align="left">
+  
+<p align="left">  
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/22.png" width="400" height="250" border="10"/>
-</p>
+</p>  
 <p align="right">
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png" width="400" height="250" border="10"/>
 </p>
