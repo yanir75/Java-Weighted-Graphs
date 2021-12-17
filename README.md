@@ -141,7 +141,7 @@ need to type each time one Node.
    
  **Each time one String:**        
 <img align="left" width="60%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png">      
-[Closer Look](https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png) (/ɑːrˈdwiːnoʊ/)  - This option will continue to open a new popup window that asks the user 
+[Closer Look](https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/222.png)(/ɑːrˈdwiːnoʊ/)  - This option will continue to open a new popup window that asks the user 
 to enter another Node, this loop will finish once the user type *"done"/"DONE"*.      
   
   ---
