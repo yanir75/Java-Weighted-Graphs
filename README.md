@@ -186,7 +186,7 @@ Here we attached a simple image of the GUI.<br>
 <br><br>2. The Node with this ID will change his color from blue to red, and also the white box where his ID written will change to yellow.
 
 <br>3. The action log will write also this Node as the Center.<br><br>[jump to Tutorial](#explanation-of-the-parts)
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/4.png"> 
@@ -247,7 +247,7 @@ if both of them are true the Edge will be deleted from the Frame.<br>
 1. No input or a String.
 2. source/destination that is not in the Graph.
 3. source/destination that are not connected.<br>
-<br>If the input is valid the user will see that the Edge he picked was removed from the Graph.
+If the input is valid the user will see that the Edge he picked was removed from the Graph.
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.
 After the Edge was deleted, the Action log will write the details of the Edge that was deleted.<br>
 [jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br>
