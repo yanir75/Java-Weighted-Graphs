@@ -200,45 +200,85 @@ There are 2 types of wrong inputs:<br>
 2. source/destination/both are not in the Graph.
 <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-#### Remove Node:
+### Remove Node:
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/5.jpg"> 
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/5.jpg" width="750" height="550" border="10"/>
-</p>
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+1. Popup window will open and ask the user to enter source Node and destination Node
+2. The ShortestPath that our Algorithm chose will be marked in green.
+3. The action log will write 2 things:
+    1. Weight of the ShortestPath.
+    2. String represents the ShortestPath in the right order.
+       <br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/55.png" width="750" height="550" border="10"/>
-</p>
+
+**Output:**  
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/55.png">
+In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+There are 2 types of wrong inputs:<br>
+1. No input at all or String of chars, something that is not an Integer.
+2. source/destination/both are not in the Graph.
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Remove Edge:
+3. The action log will write 2 things:
+    1. Weight of the ShortestPath.
+    2. String represents the ShortestPath in the right order.
+       <br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/6.jpg" width="750" height="550" border="10"/>
-</p>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png" width="750" height="550" border="10"/>
-</p>
+**Output:**  
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/6.png">
+In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+There are 2 types of wrong inputs:<br>
+1. No input at all or String of chars, something that is not an Integer.
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.jpg"> 
 
-#### Add Node:
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+1. Popup window will open and ask the user to enter source Node and destination Node
+2. The ShortestPath that our Algorithm chose will be marked in green.
+2. source/destination/both are not in the Graph.
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png" width="750" height="550" border="10"/>
-</p>
+### Add Node:
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.jpg"> 
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/77.jpg" width="750" height="550" border="10"/>
-</p>
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+1. Popup window will open and ask the user to enter source Node and destination Node
+2. The ShortestPath that our Algorithm chose will be marked in green.
+3. The action log will write 2 things:
+    1. Weight of the ShortestPath.
+    2. String represents the ShortestPath in the right order.
+       <br><br><br><br>
+
+
+**Output:**  
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/77.png">
+In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+There are 2 types of wrong inputs:<br>
+1. No input at all or String of chars, something that is not an Integer.
+2. source/destination/both are not in the Graph.
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Add Edge:
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.jpg"> 
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.png" width="750" height="550" border="10"/>
-</p>
+[Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
+1. Popup window will open and ask the user to enter source Node and destination Node
+2. The ShortestPath that our Algorithm chose will be marked in green.
+3. The action log will write 2 things:
+    1. Weight of the ShortestPath.
+    2. String represents the ShortestPath in the right order.
+       <br><br><br><br>
 
-<p align="center">
-<img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/88.jpg" width="750" height="550" border="10"/>
-</p>
+
+**Output:**  
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/88.png">
+In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
+There are 2 types of wrong inputs:<br>
+1. No input at all or String of chars, something that is not an Integer.
+2. source/destination/both are not in the Graph.
+   <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Hide/Show Buttons:
 
