@@ -242,6 +242,7 @@ if both of them are true the Edge will be deleted from the Frame.<br>
 
 
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/66.png">
+
 **Wrong values/inputs are:**
 1. No input or a String.
 2. source/destination that is not in the Graph.
