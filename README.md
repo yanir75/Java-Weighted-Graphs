@@ -7,6 +7,7 @@
 **Yanir Cohen**
 --- 
 ## About
+
 **Definition:** A graph is a structure that is made up of **vertices** (also called nodes or points)
 which are connected by **edges** (also called links or lines).
 A distinction is made between undirected graphs, where edges link two vertices symmetrically, and 
