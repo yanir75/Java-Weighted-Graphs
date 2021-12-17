@@ -185,7 +185,7 @@ need to type each time one Node.
       <br><br><br><br>
 
 
-**Output:**<br>
+**Output:**
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
 In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
