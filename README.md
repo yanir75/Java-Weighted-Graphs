@@ -112,12 +112,14 @@ Here we attached a simple image of the gui.
   Center button, so after he got an update through a popup message it's also written in the Action Log.
 
 ***Note: each feature will be explained soon***
+<br><br>
+
 #### isConnected:
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/1.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) -  After isConnected is pressed, the user receives a popup window with answer to the question:  
 ***is the Graph strongly connected?*** 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 #### TSP:
