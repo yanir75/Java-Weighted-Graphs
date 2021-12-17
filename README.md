@@ -86,7 +86,7 @@ Here we attached a simple image of the gui.
 - **Menu Bar / Buttons Panel** - From them the user can execute all kind of features.  
   Almost every feature in the Menu Bar are also available as a button in the Buttons Panel.  
   The features list from left to right:
-    - isConnected *// also in the Algorithms bar*
+    - isConnected *// also in the Algorithms bar* Reference to the UML: [ click here](#isConnected)
     - TSP *// also in the Algorithms bar*
     - Center *// also in the Algorithms bar*
     - ShortestPath *// also in the Algorithms bar*
