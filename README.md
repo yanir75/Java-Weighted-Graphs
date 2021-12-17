@@ -182,11 +182,11 @@ need to type each time one Node.
 3. The action log will write 2 things:
    1. Weight of the ShortestPath.
    2. String represents the ShortestPath in the right order.
-      <br><br><br><br><br><br>
+      <br><br><br><br>
 
 
 **Output:**
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.jpg">
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/44.png">
 In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
