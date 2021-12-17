@@ -241,7 +241,7 @@ There are 2 types of wrong inputs:<br>
    <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Add Node:
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.jpg"> 
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/7.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
 1. Popup window will open and ask the user to enter source Node and destination Node
@@ -253,7 +253,7 @@ There are 2 types of wrong inputs:<br>
 
 
 **Output:**  
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/77.png">
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/77.jpg">
 In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
@@ -261,7 +261,7 @@ There are 2 types of wrong inputs:<br>
    <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Add Edge:
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.jpg"> 
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/8.png"> 
 
 [Arduino](https://en.wikipedia.org/wiki/Arduino) (/ɑːrˈdwiːnoʊ/) - Once the user pressed the ShortestPath 3 things will happen:<br>
 1. Popup window will open and ask the user to enter source Node and destination Node
@@ -273,7 +273,7 @@ There are 2 types of wrong inputs:<br>
 
 
 **Output:**  
-<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/88.png">
+<img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/88.jpg">
 In case the user entered an invalid input, he will get a popup window about this problem and this will also be written in the log.<br>
 There are 2 types of wrong inputs:<br>
 1. No input at all or String of chars, something that is not an Integer.
