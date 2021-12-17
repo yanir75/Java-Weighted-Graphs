@@ -245,9 +245,8 @@ if both of them are true the Edge will be deleted from the Frame.<br>
 
 **Wrong values/inputs are:**
 1. No input or a String.
-2. source/destination that is not in the Graph.
-3. source/destination that are not connected.<br>
-If the input is valid the user will see that the Edge he picked was removed from the Graph.
+2. source/destination that is not in the Graph or not connected.<br>
+<br>If the input is valid the user will see that the Edge he picked was removed from the Graph.
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.
 After the Edge was deleted, the Action log will write the details of the Edge that was deleted.<br>
 [jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br>
