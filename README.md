@@ -75,7 +75,7 @@ In this project we were asked to do the following things:
    [^4.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/ParseToGraph.java">ParseToGraph Class</a>
    [^5.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyGraph_GUI.java">MyGraph_GUI Class</a>
    [^5.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyFrame.java">MyFrame Class</a>
-   [^4.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyPanel.java">MyPanel Class</a>
+   [^5.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyPanel.java">MyPanel Class</a>
    [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/Help.java">Help Class</a>
 
 ---
