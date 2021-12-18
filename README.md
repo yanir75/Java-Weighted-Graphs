@@ -81,10 +81,10 @@ In this project we were asked to do the following things:
    [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/Help.java">Help Class</a>
 
 ---
-[jump to GUI](#GUI)
-[jump to UML](#Project-UML)
-[jump to How to use instructions](#How-to-use)
-[jump to Sources](#Sources)
+[jump to GUI](#GUI)<br>
+[jump to UML](#Project-UML)<br>
+[jump to How to use instructions](#How-to-use)<br>
+[jump to Sources](#Sources)<br>
 ---
 
 ## Structure
