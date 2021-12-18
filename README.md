@@ -122,11 +122,12 @@ can.
 In conclusion, you will be able to see the way and understand much better what is the best result for your request.
 
 ## Results
-
 Here are the results of the algorithm on a connected graph.  
-The left column has the function we activated. The first row has the number of nodes. | | **1000/20000** | **
-10000/200000** | **100000/2000000** | **1000000/200000000** | |-----------|--------|--------|--------|--------| |**is
-Connected**| 0.01s | 0.2s | 5-17s | NULL | |**TSP 10 Nodes** |0.02s | 0.5-1s | 1-10s | NULL | |**Center** |2s | 5.5m |
+The left column has the function we activated. The first row has the number of nodes.  
+| | **1000/20000** | **10000/200000** | **100000/2000000** | **1000000/200000000** |  
+|-----------|--------|--------|--------|--------|  
+|**is Connected**| 0.01s | 0.2s | 5-17s | NULL |  
+|**TSP 10 Nodes** |0.02s | 0.5-1s | 1-10s | NULL | |**Center** |2s | 5.5m |
 NULL | NULL | |**Shortest Path** |0.02s | 0.04s | 5s | NULL |
 
 We are able to generate a graph with 1mk nodes and 20mk edges but are unable to run any algorithm on it, due to heap
