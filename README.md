@@ -81,49 +81,56 @@ In this project we were asked to do the following things:
    [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/Help.java">Help Class</a>
 
 ---
+[jump to GUI](#GUI)
+[jump to UML](#Project-UML)
+[jump to How to use instructions](#How-to-use)
+[jump to Sources](#Sources)
+---
 
 ## Structure
 
-Our project structure
+**Our project structure:**
 
-1. Node, Node represents a significant place in our university i.e building,market etc. Each node holds information
-   regarding itself, street name, tag etc.
-3. Location , GeoLocation represents the real life (latitude and longitude).
-5. Edge , Edge resembles a way of trasport (road,sidewalk etc) between two nodes.  
-   Edges contain information as well for example road 4 ,etc. Not all edges are two way edges. Because there are one way
-   roads. In addition the cost of each edge is not the same for similar reasons.
+1. Node - Node represents a significant place in Graphs i.e. building,market etc. Each node holds information
+   regarding itself such as: street name, tag etc. 
+<br>In this project each Node holds his 2d coordinates and an ID.
+2. Location - GeoLocation represents the real life (latitude and longitude).
+3. Edge -  Edge resembles a way of transport (road,sidewalk etc.) between two nodes.  
+   Edges contain information as well for example road 4 ,etc. Not all edges are two-way edges. Because there are one way
+   roads. In addition, the cost of each edge is not the same for similar reasons.
 
-## Graph:
+### Graph:
 
 Graph is built upon founded on those. Graph contains all the nodes and all the edges in a given place, nodes can be
 added and removed, same goes for edges.  
-Through it we will represent a small area with places of significance and a way to modify them quickly providing
+Through it, we will represent a small area with places of significance and a way to modify them quickly providing
 elasticity.
 
-## Algorithms:
+### Algorithms:
 
-Algorithms are the main event over here. As can be seen this graph can represent real life places. As so we would like
-the best way from a node to another node, this will be done by calculating the best way through each edges from each
-node. This will be done with Shortest path.  
-In addition we would like to know the time of each trip, as for we can retrieve the cost of the way from one node to
-another. This will be done with Shortest path dist.  
-Moreover we would like to know the best way between one node with a few stops on the way. This will be done through the
-best effor TSP.  
-At last we would like to know the center of the place, which place is probably closest to all. This will be done through
-Center.  
-Those are the main functions we will use to represent as closely as possible real life situations.
+Algorithms are the main event over here.  
+As can be seen, this graph can represent real life places.  
+As so, we would want the best(shortest/chipset) way from a Node to another Node, this will be done by calculating the best way through each edges from each
+node. This will be done with the Shortest path Algorithm.<br>  
+In addition, we would like to know the time of each trip, as for we can retrieve the cost of the way from one node to
+another. This will be done with The Shortest path dist Algorithm.<br>  
+Moreover, we would like to know the best way between one node with a few stops on the way. This will be done through the
+best effort TSP Algorithm.<br>  
+At last, we would like to know the center of the place, which place is probably closest to all. This will be done through
+Center Algorithm.<br>  
+Those are the main Algorithms we will use to represent as closely as possible real life situations.
 
-## Gui:
+### Gui:
 
-Finally, we would like a visualistic way to show the users the graph, edges, best roads etc.  
+Finally, we would like a visualisation way to show the users the graph, edges, the best roads etc.<br>
 As a result we created user interface which will visualize the graph and algorithms mentioned above.  
 It will display the nodes and edges between all the nodes. Algorithms will be easily activated to illustrate the
 situations.  
-This will be a user friendly gui which aspires to be easy to use, adjustable and illustrate our project as best as we
-can.  
+This will be a **user-friendly** gui which aspires to be easy to use, adjustable and illustrate our project as good as we
+can.<br>
 In conclusion, you will be able to see the way and understand much better what is the best result for your request.
 
-## Results
+### Results
 Here are the results of the algorithm on a connected graph.  
 The left column has the function we activated. The first row has the number of nodes.  
 | | **1000/20000** | **10000/200000** | **100000/2000000** | **1000000/200000000** |  
@@ -140,7 +147,7 @@ Since we did not create the graph randomly most of the time, it didn't take so m
 
 ---
 
-## GUI
+## GUI - Graphics explanation
 
 Implementing the GUI was a major part (and not easy at all) of this project because we wanted to give the user the Max
 comfort and simplicity that we could think of.
@@ -394,12 +401,15 @@ in this program.<br>
 By clicking BACK the user will return to the main Frame.<br>
 [jump to Tutorial](#explanation-of-the-parts)<br>
 <img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png">
-
+<br>[back to start](#about)<br>
 ---
 
 ## Project UML
 
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Arcithecture.png">
+
+<br>[back to start](#about)<br>
+
 ---
 
 ## How to use:
@@ -442,10 +452,11 @@ java -jar weighted-graphs.jar <json-file>
 
 In the data directory we have a few examples of some graph representation in json format. for example: **"
 \Weighted_Graph_Algorithms\data\G1.json"**
-
+<br>[back to start](#about)<br>
 ---
 
 ## Sources:
 
 - <a href="https://www.youtube.com/watch?v=CerlT7tTZfY&t">Djikstra's algorithm using a priority queue - Youtube</a>
 - <a href="https://www.geeksforgeeks.org/connectivity-in-a-directed-graph/">Check if a graph is strongly connected</a>
+  <br>[back to start](#about)<br>
