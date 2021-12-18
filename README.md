@@ -27,21 +27,21 @@ In this project we were asked to do the following things:
 
 ***Note: each one of the names here is a class/interface/test in our project and of the references is a link to the implementations.***
 
-2. Implement the following Interfaces:
+1. Implement the following Interfaces:
     1. GeoLocation [^1.1]
     2. EdgeData [^1.2]
     3. NodeData [^1.3]
     4. DirectedWeightedGraph [^1.4]
     5. DirectedWeightedGraphAlgorithms [^1.5]
 
-3. Implement a class to each of the Interfaces:
+2. Implement a class to each of the Interfaces:
     1. Location [^2.1]
     2. Edge [^2.2]
     3. Node [^2.3]
     4. MyGraph [^2.4]
     5. MyGraphAlgo [^2.5]
 
-4. Implement a test to each of the classes:
+3. Implement a test to each of the classes:
     1. LocationTest [^3.1]
     2. EdgeTest [^3.2]
     3. NodeTest [^3.3]
@@ -49,10 +49,10 @@ In this project we were asked to do the following things:
     5. MyGraphAlgoTest[^3.5]
     6. GraphGenTest[^3.6]
 
-5. Build a Graph from a Json file:
+4. Build a Graph from a Json file:
     1. ParseToGraph[^4.1]
 
-6. Implement a GUI (graphics) that will show the Graph:
+5. Implement a GUI (graphics) that will show the Graph:
     1. MyGraph_GUI [^5.1]
     2. MyFrame [^5.2]
     3. MyPanel [^5.3]
