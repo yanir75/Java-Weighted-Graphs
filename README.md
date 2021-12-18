@@ -23,7 +23,8 @@ This can be used for a variety of purposes (best route between cities,routes etc
 
 ## Overview
 
-In this project we were asked to do the following things:
+In this project we were asked to do the following things:  
+
 ***Note: each one of the names here is a class/interface/test in our project and of the references is a link to the implementations.***
 
 2. Implement the following Interfaces:
