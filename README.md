@@ -73,7 +73,7 @@ In this project we were asked to do the following things:
    [^3.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/NodeTest.java">NodeTest</a>
    [^3.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/MyGraphTest.java">MyGraphTest</a>
    [^3.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/MyGraphAlgoTest.java">MyGraphAlgoTest</a>
-   [^3.6]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/GraphGenTest.java">GraphGenTest</a>
+   [^3.6]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/graphGenTest .java">GraphGenTest</a>
    [^4.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/ParseToGraph.java">ParseToGraph Class</a>
    [^5.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyGraph_GUI.java">MyGraph_GUI Class</a>
    [^5.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyFrame.java">MyFrame Class</a>
