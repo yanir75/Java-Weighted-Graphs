@@ -23,23 +23,25 @@ This can be used for a variety of purposes (best route between cities,routes etc
 
 ## Overview
 
-In this project we were asked to do the following things:
+In this project we were asked to do the following things:  
 
-2. Implement the following Interfaces:
+***Note: each one of the names here is a class/interface/test in our project and of the references is a link to the implementations.***
+
+1. Implement the following Interfaces:
     1. GeoLocation [^1.1]
     2. EdgeData [^1.2]
     3. NodeData [^1.3]
     4. DirectedWeightedGraph [^1.4]
     5. DirectedWeightedGraphAlgorithms [^1.5]
 
-3. Implement a class to each of the Interfaces:
+2. Implement a class to each of the Interfaces:
     1. Location [^2.1]
     2. Edge [^2.2]
     3. Node [^2.3]
     4. MyGraph [^2.4]
     5. MyGraphAlgo [^2.5]
 
-4. Implement a test to each of the classes:
+3. Implement a test to each of the classes:
     1. LocationTest [^3.1]
     2. EdgeTest [^3.2]
     3. NodeTest [^3.3]
@@ -47,108 +49,98 @@ In this project we were asked to do the following things:
     5. MyGraphAlgoTest[^3.5]
     6. GraphGenTest[^3.6]
 
-5. Build a Graph from a Json file:
+4. Build a Graph from a Json file:
     1. ParseToGraph[^4.1]
 
-        1. Implement a GUI (graphics) that will show the Graph:
-            1. MyGraph_GUI [^5.1]
-            2. MyFrame [^5.2]
-            3. MyPanel [^5.3]
-            4. Help [^5.4]
+5. Implement a GUI (graphics) that will show the Graph:
+    1. MyGraph_GUI [^5.1]
+    2. MyFrame [^5.2]
+    3. MyPanel [^5.3]
+    4. Help [^5.4]
 
-           [^1.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">
-           GeoLocation Interface</a>
-           [^1.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">
-           EdgeData Interface</a>
-           [^1.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">
-           NodeData Interface</a>
-           [^1.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">
-           DirectedWeightedGraph Interface</a>
-           [^1.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">
-           DirectedWeightedGraphAlgorithms Interface</a>
-           [^2.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Location.java">
-           Location Class</a>
-           [^2.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Edge.java">
-           Edge Class</a>
-           [^2.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Node.java">
-           Node Class</a>
-           [^2.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraph.java">
-           MyGraph Class</a>
-           [^2.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraphAlgo.java">
-           MyGraphAlgo Class</a>
-           [^3.1]: <"https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/LocationTest.java">
-           Location Test</a>
-           [^3.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">
-           Edge Test</a>
-           [^3.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">
-           Node Test</a>
-           [^3.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">
-           MyGraph Test</a>
-           [^3.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">
-           MyGraphAlgo Test</a>
-           [^3.6]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GraphGen.java">
-           GraphGen Test</a>
-           [^4.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/ParseToGraph.java">
-           ParseToGraph Class</a>
-           [^5.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyGraph_GUI.java">
-           MyGraph_GUI Class</a>
-           [^5.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyFrame.java">
-           MyFrame Class</a>
-           [^4.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyPanel.java">
-           MyPanel Class</a>
-           [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Help.java">
-           Help Class</a>
+   [^1.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">GeoLocation Interface</a>
+   [^1.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">EdgeData Interface</a>
+   [^1.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">NodeData Interface</a>
+   [^1.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">DirectedWeightedGraph Interface</a>
+   [^1.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">DirectedWeightedGraphAlgorithms Interface</a>
+   [^2.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Location.java">Location Class</a>
+   [^2.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Edge.java">Edge Class</a>
+   [^2.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Node.java">Node Class</a>
+   [^2.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraph.java">MyGraph Class</a>
+   [^2.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraphAlgo.java">MyGraphAlgo Class</a>
+   [^3.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/LocationTest.java">LocationTest</a>
+   [^3.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/EdgeTest.java">EdgeTest</a>
+   [^3.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/NodeTest.java">NodeTest</a>
+   [^3.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/MyGraphTest.java">MyGraphTest</a>
+   [^3.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/MyGraphAlgoTest.java">MyGraphAlgoTest</a>
+   [^3.6]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/GraphGenTest.java">GraphGenTest</a>
+   [^4.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/ParseToGraph.java">ParseToGraph Class</a>
+   [^5.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyGraph_GUI.java">MyGraph_GUI Class</a>
+   [^5.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyFrame.java">MyFrame Class</a>
+   [^5.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyPanel.java">MyPanel Class</a>
+   [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/Help.java">Help Class</a>
+
+---
+
+[jump to GUI](#gui---graphics-explanation)<br>
+[jump to UML](#Project-UML)<br>
+[jump to How to use instructions](#How-to-use)<br>
+[jump to Sources](#Sources)<br>
 
 ---
 
 ## Structure
 
-Our project structure
+**Our project structure:**
 
-1. Node, Node represents a significant place in our university i.e building,market etc. Each node holds information
-   regarding itself, street name, tag etc.
-3. Location , GeoLocation represents the real life (latitude and longitude).
-5. Edge , Edge resembles a way of trasport (road,sidewalk etc) between two nodes.  
-   Edges contain information as well for example road 4 ,etc. Not all edges are two way edges. Because there are one way
-   roads. In addition the cost of each edge is not the same for similar reasons.
+1. Node - Node represents a significant place in Graphs i.e. building,market etc. Each node holds information
+   regarding itself such as: street name, tag etc. 
+<br>In this project each Node holds his 2d coordinates and an ID.
+2. Location - GeoLocation represents the real life (latitude and longitude).
+3. Edge -  Edge resembles a way of transport (road,sidewalk etc.) between two nodes.  
+   Edges contain information as well for example road 4 ,etc. Not all edges are two-way edges. Because there are one way
+   roads. In addition, the cost of each edge is not the same for similar reasons.
 
-## Graph:
+### Graph:
 
 Graph is built upon founded on those. Graph contains all the nodes and all the edges in a given place, nodes can be
 added and removed, same goes for edges.  
-Through it we will represent a small area with places of significance and a way to modify them quickly providing
+Through it, we will represent a small area with places of significance and a way to modify them quickly providing
 elasticity.
 
-## Algorithms:
+### Algorithms:
 
-Algorithms are the main event over here. As can be seen this graph can represent real life places. As so we would like
-the best way from a node to another node, this will be done by calculating the best way through each edges from each
-node. This will be done with Shortest path.  
-In addition we would like to know the time of each trip, as for we can retrieve the cost of the way from one node to
-another. This will be done with Shortest path dist.  
-Moreover we would like to know the best way between one node with a few stops on the way. This will be done through the
-best effor TSP.  
-At last we would like to know the center of the place, which place is probably closest to all. This will be done through
-Center.  
-Those are the main functions we will use to represent as closely as possible real life situations.
+Algorithms are the main event over here.  
+As can be seen, this graph can represent real life places.  
+As so, we would want the best(shortest/chipset) way from a Node to another Node, this will be done by calculating the best way through each edges from each
+node. This will be done with the Shortest path Algorithm.<br>  
+In addition, we would like to know the time of each trip, as for we can retrieve the cost of the way from one node to
+another. This will be done with The Shortest path dist Algorithm.<br>  
+Moreover, we would like to know the best way between one node with a few stops on the way. This will be done through the
+best effort TSP Algorithm.<br>  
+At last, we would like to know the center of the place, which place is probably closest to all. This will be done through
+Center Algorithm.<br>  
+Those are the main Algorithms we will use to represent as closely as possible real life situations.
 
-## Gui:
+### Graphics visualisation:
 
-Finally, we would like a visualistic way to show the users the graph, edges, best roads etc.  
+Finally, we would like a visualisation way to show the users the graph, edges, the best roads etc.<br>
 As a result we created user interface which will visualize the graph and algorithms mentioned above.  
 It will display the nodes and edges between all the nodes. Algorithms will be easily activated to illustrate the
 situations.  
-This will be a user friendly gui which aspires to be easy to use, adjustable and illustrate our project as best as we
-can.  
+This will be a **user-friendly** gui which aspires to be easy to use, adjustable and illustrate our project as good as we
+can.<br>
 In conclusion, you will be able to see the way and understand much better what is the best result for your request.
 
-## Results
-
+### Results
 Here are the results of the algorithm on a connected graph.  
-The left column has the function we activated. The first row has the number of nodes. | | **1000/20000** | **
-10000/200000** | **100000/2000000** | **1000000/200000000** | |-----------|--------|--------|--------|--------| |**is
-Connected**| 0.01s | 0.2s | 5-17s | NULL | |**TSP 10 Nodes** |0.02s | 0.5-1s | 1-10s | NULL | |**Center** |2s | 5.5m |
-NULL | NULL | |**Shortest Path** |0.02s | 0.04s | 5s | NULL |
+The left column has the function we activated. The first row has the number of nodes.  
+| | **1000/20000** | **10000/200000** | **100000/2000000** | **1000000/200000000** |  
+|-----------|--------|--------|--------|--------|  
+|**is Connected**| 0.01s | 0.2s | 5-17s | NULL |  
+|**TSP 10 Nodes** |0.02s | 0.5-1s | 1-10s | NULL |  
+|**Center** |2s | 5.5m | NULL | NULL |  
+|**Shortest Path** |0.02s | 0.04s | 5s | NULL |
 
 We are able to generate a graph with 1mk nodes and 20mk edges but are unable to run any algorithm on it, due to heap
 space. The results vary depends on how th graph is generated.
@@ -157,7 +149,7 @@ Since we did not create the graph randomly most of the time, it didn't take so m
 
 ---
 
-## GUI
+## GUI - Graphics explanation
 
 Implementing the GUI was a major part (and not easy at all) of this project because we wanted to give the user the Max
 comfort and simplicity that we could think of.
@@ -198,28 +190,28 @@ Here we attached a simple image of the GUI.<br>
    **Features list:**
    <br><br>***Note: the obvious features doesn't have an explanation/examples because their pretty simple.***<br>
     1. **Algorithms:**<br>
-        - isConnected *// also in the Algorithms bar*,  [jump to isConnected](#isConnected)
-        - TSP *// also in the Algorithms bar*,  [jump to TSP](#TSP)
-        - Center *// also in the Algorithms bar*,  [jump to Center](#Center)
-        - ShortestPath *// also in the Algorithms bar*,  [jump to ShortestPath](#ShortestPath)
+        - isConnected *// Algorithms Bar and Buttons Panel*,  [jump to isConnected](#isConnected)
+        - TSP *// Algorithms Bar and Buttons Panel*,  [jump to TSP](#TSP)
+        - Center *// Algorithms Bar and Buttons Panel*,  [jump to Center](#Center)
+        - ShortestPath *// Algorithms Bar and Buttons Panel*,  [jump to ShortestPath](#ShortestPath)
     2. **Edit Graph:**<br>
-        - Remove Node *// also in the Edit bar*, [jump to Remove Node](#Remove-Node)
-        - Remove Edge *// also in the Edit bar*, [jump to Remove Edge](#Remove-Edge)
-        - Add Node *// also in the Edit bar*, [jump to Add Node](#Add-Node)
-        - Add Edge *// also in the Edit bar*, [jump to Add Edge](#Add-Edge)
+        - Remove Node *// Edit Bar and Buttons Panel*, [jump to Remove Node](#Remove-Node)
+        - Remove Edge *// Edit Bar and Buttons Panel*, [jump to Remove Edge](#Remove-Edge)
+        - Add Node *// Edit Bar and Buttons Panel*, [jump to Add Node](#Add-Node)
+        - Add Edge *// Edit Bar and Buttons Panel*, [jump to Add Edge](#Add-Edge)
     3. **View settings:**<br>
-        - Hide/Show Buttons *// only in the View bar*
-        - Full Screen *// only in the View bar*
-        - Default Screen *// only in the View bar*
-        - Costume Screen *// only in the View bar*
+        - Hide/Show Buttons *// View bar only*
+        - Full Screen *// View bar only*
+        - Default Screen *// View bar only*
+        - Costume Screen *// View bar only*
     4. **Help:**<br>
-        - Shortcuts *// only in the Help bar*, [jump to Shortcuts](#Shortcuts)
+        - Shortcuts *// Help bar only*, [jump to Shortcuts](#Shortcuts)
     5. **File:**<br>
-        - Load *// also in the File bar*
-        - Save *// also in the File bar*
-        - Clear *// also in the File bar*
-        - Reset Graph *// also in the File bar*
-        - Exit *// only in the File bar*<br>
+        - Load *// File Bar and Buttons Panel*
+        - Save *// File Bar and Buttons Panel*
+        - Clear *// File Bar and Buttons Panel*
+        - Reset Graph *// File Bar and Buttons Panel*
+        - Exit *// File bar only*<br>
 
 
 2. **The Graph** - The Graph holds all the relevant data in order to keep updating the drawings.
@@ -235,7 +227,7 @@ Here we attached a simple image of the GUI.<br>
 
 <br>After isConnected is pressed, a new popup window appears with the answer to the question:<br>  
 ***is the Graph strongly connected?***<br>
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to GUI-Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### TSP:
 
@@ -273,7 +265,7 @@ Here we attached a simple image of the GUI.<br>
     2. List of the path in the right order that go through every one of the Nodes he entered.<br>
     3. In case of any Invalid input the user will receive a popup window mentioning the problem, and it will be written
        in the action log too.<br>
-       <br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br>
+       <br>[jump to GUI-Tutorial](#explanation-of-the-parts)<br><br><br><br>
 
 ### Center:
 
@@ -288,7 +280,7 @@ Here we attached a simple image of the GUI.<br>
 <br><br>2. The Node with this ID will change his color from blue to red, and also the white box where his ID written
 will change to yellow.
 
-<br>3. The action log will write also this Node as the Center.<br><br>[jump to Tutorial](#explanation-of-the-parts)
+<br>3. The action log will write also this Node as the Center.<br><br>[jump to GUI-Tutorial](#explanation-of-the-parts)
 <br><br><br><br><br><br><br><br>
 
 ### ShortestPath:
@@ -312,7 +304,7 @@ will change to yellow.
 1. No input at all or String of chars, something that is not an Integer.<br>
 2. source/destination/both are not in the Graph.<br>
 
-[jump to Tutorial](#explanation-of-the-parts) <br><br><br><br><br><br><br>
+[jump to GUI-Tutorial](#explanation-of-the-parts) <br><br><br><br><br><br><br>
 
 ### Remove Node:
 
@@ -335,7 +327,7 @@ too.<br>
 Otherwise, a popup window will appear with the cause written, and it will be added to the action log.<br>
 After the Node was deleted, the Action log will write the Node number that was removed.<br>
 <br>
-[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br>
+[jump to GUI-Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br>
 
 ### Remove Edge:
 
@@ -360,7 +352,7 @@ if both of them are true the Edge will be deleted from the Graph.<br>
    <br>If the input is valid the user will see that the Edge he picked was removed from the Graph. Otherwise, a popup
    window will appear with the cause written, and it will be added to the action log. After the Edge was deleted, the
    Action log will write the details of the Edge that was deleted.<br>
-   [jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br>
+   [jump to GUI-Tutorial](#explanation-of-the-parts)<br><br><br><br><br>
 
 ### Add Node:
 
@@ -381,7 +373,7 @@ if both of them are true the Edge will be deleted from the Graph.<br>
 <img align="left" width="75%" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/77.jpg">
 If the input was valid the user will see the new Node immediately on the Frame.<br>  
 In addition, the Action Log that will write the details of the new Node.<br>
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to GUI-Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Add Edge:
 
@@ -401,7 +393,7 @@ In addition, the Action Log that will write the details of the new Node.<br>
 
 If the input was valid the user will see the new Edge immediately on the Frame.<br>  
 In addition, the Action Log that will write the details of the new Edge.<br>
-<br>[jump to Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>[jump to GUI-Tutorial](#explanation-of-the-parts)<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ### Shortcuts:
 
@@ -409,14 +401,21 @@ The shortcuts' purpose is one more way that we tried to make it easier on the us
 <br> By clicking the Shortcuts in the Help bar a new Frame will appear with a description of all the shortcuts available
 in this program.<br>
 By clicking BACK the user will return to the main Frame.<br>
-[jump to Tutorial](#explanation-of-the-parts)<br>
+
+[jump to GUI-Tutorial](#explanation-of-the-parts)<br>
+
 <img align="center" src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/ReadMePics/10.png">
+
+<br>[back to top](#about)<br>
 
 ---
 
 ## Project UML
 
 <img src="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/uml/Arcithecture.png">
+
+<br>[back to top](#about)<br>
+
 ---
 
 ## How to use:
@@ -460,9 +459,12 @@ java -jar weighted-graphs.jar <json-file>
 In the data directory we have a few examples of some graph representation in json format. for example: **"
 \Weighted_Graph_Algorithms\data\G1.json"**
 
+<br>[back to top](#about)<br>
+
 ---
 
 ## Sources:
 
 - <a href="https://www.youtube.com/watch?v=CerlT7tTZfY&t">Djikstra's algorithm using a priority queue - Youtube</a>
 - <a href="https://www.geeksforgeeks.org/connectivity-in-a-directed-graph/">Check if a graph is strongly connected</a>
+  <br>[back to top](#about)<br>
