@@ -50,54 +50,54 @@ In this project we were asked to do the following things:
 5. Build a Graph from a Json file:
     1. ParseToGraph[^4.1]
 
-        1. Implement a GUI (graphics) that will show the Graph:
-            1. MyGraph_GUI [^5.1]
-            2. MyFrame [^5.2]
-            3. MyPanel [^5.3]
-            4. Help [^5.4]
+6. Implement a GUI (graphics) that will show the Graph:
+    1. MyGraph_GUI [^5.1]
+    2. MyFrame [^5.2]
+    3. MyPanel [^5.3]
+    4. Help [^5.4]
 
-           [^1.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">
-           GeoLocation Interface</a>
-           [^1.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">
-           EdgeData Interface</a>
-           [^1.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">
-           NodeData Interface</a>
-           [^1.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">
-           DirectedWeightedGraph Interface</a>
-           [^1.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">
-           DirectedWeightedGraphAlgorithms Interface</a>
-           [^2.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Location.java">
-           Location Class</a>
-           [^2.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Edge.java">
-           Edge Class</a>
-           [^2.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Node.java">
-           Node Class</a>
-           [^2.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraph.java">
-           MyGraph Class</a>
-           [^2.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraphAlgo.java">
-           MyGraphAlgo Class</a>
-           [^3.1]: <"https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/LocationTest.java">
-           Location Test</a>
-           [^3.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">
-           Edge Test</a>
-           [^3.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">
-           Node Test</a>
-           [^3.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">
-           MyGraph Test</a>
-           [^3.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">
-           MyGraphAlgo Test</a>
-           [^3.6]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GraphGen.java">
-           GraphGen Test</a>
-           [^4.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/ParseToGraph.java">
-           ParseToGraph Class</a>
-           [^5.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyGraph_GUI.java">
-           MyGraph_GUI Class</a>
-           [^5.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyFrame.java">
-           MyFrame Class</a>
-           [^4.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyPanel.java">
-           MyPanel Class</a>
-           [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Help.java">
-           Help Class</a>
+   [^1.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">
+   GeoLocation Interface</a>
+   [^1.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">
+   EdgeData Interface</a>
+   [^1.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">
+   NodeData Interface</a>
+   [^1.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">
+   DirectedWeightedGraph Interface</a>
+   [^1.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">
+   DirectedWeightedGraphAlgorithms Interface</a>
+   [^2.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Location.java">
+   Location Class</a>
+   [^2.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Edge.java">
+   Edge Class</a>
+   [^2.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Node.java">
+   Node Class</a>
+   [^2.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraph.java">
+   MyGraph Class</a>
+   [^2.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyGraphAlgo.java">
+   MyGraphAlgo Class</a>
+   [^3.1]: <"https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/test/java/api/LocationTest.java">
+   Location Test</a>
+   [^3.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/EdgeData.java">
+   Edge Test</a>
+   [^3.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">
+   Node Test</a>
+   [^3.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">
+   MyGraph Test</a>
+   [^3.5]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">
+   MyGraphAlgo Test</a>
+   [^3.6]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GraphGen.java">
+   GraphGen Test</a>
+   [^4.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/ParseToGraph.java">
+   ParseToGraph Class</a>
+   [^5.1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/GUI/MyGraph_GUI.java">
+   MyGraph_GUI Class</a>
+   [^5.2]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyFrame.java">
+   MyFrame Class</a>
+   [^4.3]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/MyPanel.java">
+   MyPanel Class</a>
+   [^5.4]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/Help.java">
+   Help Class</a>
 
 ---
 
