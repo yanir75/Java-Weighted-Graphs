@@ -2,7 +2,7 @@
 
 ## Assignment 2 - Object Oriented Programming  
 
-**Netanel Levine**
+**Netanel Levine**<br>
 **Yanir Cohen**  
 --- 
 
@@ -29,7 +29,8 @@ In this project we were asked to do the following things:
    3. NodeData, , <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/NodeData.java">NodeData Interface</a>
    4. DirectedWeightedGraph, <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraph.java">DirectedWeightedGraph Interface</a>
    5. DirectedWeightedGraphAlgorithms, <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/DirectedWeightedGraphAlgorithms.java">DirectedWeightedGraphAlgorithms Interface</a>
-      [^1] bla
+      [^1]: <a href="https://github.com/netanellevine/Weighted_Graph_Algorithms/blob/main/src/main/java/api/GeoLocation.java">GeoLocation Interface</a>
+
 ---
 ## Structure
 
