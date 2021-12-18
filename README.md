@@ -82,7 +82,7 @@ In this project we were asked to do the following things:
 
 ---
 
-[jump to GUI](#GUI)<br>
+[jump to GUI](#GUI-Graphics-explanation)<br>
 [jump to UML](#Project-UML)<br>
 [jump to How to use instructions](#How-to-use)<br>
 [jump to Sources](#Sources)<br>
