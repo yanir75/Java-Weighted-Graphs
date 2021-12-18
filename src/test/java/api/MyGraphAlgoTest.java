@@ -14,7 +14,7 @@ class MyGraphAlgoTest {
 
     @Test
     void init() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(2);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         algo.init(g);
         assertNotNull(algo.getGraph());
@@ -22,7 +22,7 @@ class MyGraphAlgoTest {
 
     @Test
     void getGraph() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(2);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         assertNull(algo.getGraph());
         algo.init(g);
@@ -32,7 +32,7 @@ class MyGraphAlgoTest {
 
     @Test
     void copy() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(2);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         algo.init(g);
         DirectedWeightedGraph g1 = algo.copy();
@@ -53,7 +53,7 @@ class MyGraphAlgoTest {
 
     @Test
     void isConnected() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(1000000);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(1000000);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         algo.init(g);
         assertTrue(algo.isConnected());
@@ -61,7 +61,7 @@ class MyGraphAlgoTest {
 
     @Test
     void shortestPathDist() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(10000);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(10000);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         algo.init(g);
         for(int i=0;i<10;i++) {
@@ -80,7 +80,7 @@ class MyGraphAlgoTest {
 
     @Test
     void shortestPath() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(10000);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(10000);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         algo.init(g);
         for(int i=0;i<10;i++) {
@@ -100,7 +100,7 @@ class MyGraphAlgoTest {
 
     @Test
     void center() {
-        DirectedWeightedGraph g = new graphGen().generate_connected_graph(1000);
+        DirectedWeightedGraph g = new GraphGen().generate_connected_graph(1000);
         DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
         algo.init(g);
         Node n = new Node(0,0,-2);
@@ -127,7 +127,7 @@ class MyGraphAlgoTest {
         }
     }
 
-    static DirectedWeightedGraph g = new graphGen().generate_connected_graph(2);
+    static DirectedWeightedGraph g = new GraphGen().generate_connected_graph(2);
     static DirectedWeightedGraphAlgorithms algo = new MyGraphAlgo();
     @Test
     @Order(1)

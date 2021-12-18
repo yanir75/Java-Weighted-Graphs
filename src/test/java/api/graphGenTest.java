@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class graphGenTest {
     @Test
     public void mk_graph(){
-        graphGen g = new graphGen();
+        GraphGen g = new GraphGen();
         MyGraph g1 = g.generate_graph(10,20);
         assertEquals(g1.nodeSize(),10);
         assertEquals(g1.edgeSize(),20);

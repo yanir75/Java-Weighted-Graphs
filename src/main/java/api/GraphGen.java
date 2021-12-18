@@ -3,11 +3,11 @@ package api;
 import java.util.HashMap;
 import java.util.Random;
 
-public class graphGen {
+public class GraphGen {
     /**
      * This class is used for generating a graphs for testing purposes
      */
-    public graphGen(){}
+    public GraphGen(){}
 
     /**
      * Generating a strongly connected graph

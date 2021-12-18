@@ -2,7 +2,6 @@ import GUI.MyGraph_GUI;
 import api.*;
 
 import java.io.FileNotFoundException;
-import java.util.List;
 
 /**
  * This class is the main class for Ex2 - your implementation will be tested using this class.
@@ -48,7 +47,7 @@ public class Ex2 {
 
         try {
             if(args[0].equals("random") || args[0].equals("Random")){
-                new MyGraph_GUI(new graphGen().generate_connected_graph(20));
+                new MyGraph_GUI(new GraphGen().generate_connected_graph(20));
             }
             else {
                 ParseToGraph pd = new ParseToGraph(args[0]);

@@ -17,18 +17,12 @@ public class ParseToGraph {
     public ParseToGraph(){}
     public ParseToGraph(String file_name) throws FileNotFoundException {
         Gson gson = new Gson();
-//        try {
             Reader reader = new FileReader(file_name);
             this.p = gson.fromJson(reader, ParserFromJson.class);
             if (this.p != null) {
                 this.Nodes = makeNodes(p.getNodes());
                 this.Edges = makeEdges(p.getEdges(), this.Nodes);
             }
-//        }
-//        catch (FileNotFoundException e){
-//            System.err.println("File not found!");
-//            e.printStackTrace();
-//        }
     }
 
     /**
@@ -89,11 +83,9 @@ public class ParseToGraph {
                     }
                 }
                 Edge Edge = new Edge(src, dest, weight);
-//                String key = src + "-" + dest;
                 nodes.get(src).addEdge(Edge);
                 nodes.get(dest).addInEdge(src);
                 size++;
-//                edges.put(key, Edge);
             }
             return edges;
         }
