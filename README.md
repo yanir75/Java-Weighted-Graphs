@@ -10,7 +10,7 @@ This can be used for a variety of purposes (best route between cities,routes etc
 ---
 ## Project UML
 
-<img src="https://github.com/yanir75/Weighted_Graph_Algorithms/blob/main/uml/Arcithecture.png">
+<img src="https://github.com/yanir75/Java-Weighted-Graphs/blob/main/uml/Arcithecture.png">
 ---
 
 ## Structure  
@@ -64,7 +64,7 @@ Since we did not create the graph randomly most of the time, it didn't take so m
 Here we attached a picture of the gui.
 Each button will activate a different algorithm.
 <div align="center">
-    <img src="https://github.com/yanir75/Weighted_Graph_Algorithms/blob/main/gui/graph.PNG">
+    <img src="https://github.com/yanir75/Java-Weighted-Graphs/blob/main/gui/graph.PNG">
  </div>
 ---
 
