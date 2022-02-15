@@ -72,7 +72,7 @@ Each button will activate a different algorithm.
 
 First let's clone the repository
 ```
-git clone https://github.com/netanellevine/Weighted_Graph_Algorithms.git && cd Weighted_Graph_Algorithms
+git clone https://github.com/netanellevine/Java-Weighted-Graphs.git && cd Java-Weighted-Graphs
 ```
 Then we would like to run the jar to view the graph.  
 For that we have few options  
